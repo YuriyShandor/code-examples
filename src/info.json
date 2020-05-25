@@ -1,0 +1,280 @@
+{
+  "generalInfo": {
+    "name": "Yuriy Shandor",
+    "profession": "Front-End Developer",
+    "socials": [
+      {
+        "ttl": "facebook",
+        "icon": "fab fa-facebook-f",
+        "link": "https://www.facebook.com/profile.php?id=100022797383028"
+      },
+      {
+        "ttl": "skype",
+        "icon": "fab fa-skype",
+        "link": "skype:yuriy_shandor?chat"
+      },
+      {
+        "ttl": "telegram",
+        "icon": "fab fa-telegram-plane",
+        "link": "https://t.me/Yuriy_Shandor"
+      },
+      {
+        "ttl": "github",
+        "icon": "fab fa-github-alt",
+        "link": "https://github.com/YuriyShandor"
+      }
+    ],
+    "phone": {
+      "icon": "fas fa-mobile-alt",
+      "val": "+38(050)0-175-176"
+    },
+    "email": {
+      "icon": "far fa-envelope",
+      "val": "yuriyshandor@gmail.com"
+    }
+  },
+  "headerInfo": {
+    "menu": [
+      {
+        "ttl": "About Me",
+        "link": "#about"
+      },
+      {
+        "ttl": "Education",
+        "link": "#education"
+      },
+      {
+        "ttl": "Skills",
+        "link": "#skills"
+      },
+      {
+        "ttl": "Experience",
+        "link": "#experience"
+      },
+      {
+        "ttl": "Portfolio",
+        "link": "#portfolio"
+      }
+    ]
+  },
+  "bannerInfo": {
+    "image": "images/banner-image.jpg"
+  },
+  "aboutInfo": {
+    "sectionTtl": "Personal Information",
+    "photo": "images/my_photo.jpg",
+    "socialsFollowsText": "Follow Me on:",
+    "age": {
+      "ttl": "Age",
+      "val": "05-23-1993"
+    },
+    "experience": {
+      "ttl": "Experience",
+      "val": "03-01-2018"
+    },
+    "english": {
+      "ttl": "English",
+      "val": "Pre-intermediate"
+    },
+    "phone": {
+      "ttl": "Phone"
+    },
+    "email": {
+      "ttl": "Email"
+    },
+    "cv": {
+      "ttl": "Download CV",
+      "val": "Yuriy_Shandor.pdf"
+    }
+  },
+  "educationInfo": {
+    "sectionTtl": "Education",
+    "universityTtl": "Dnipropetrovsk National University of Railway Transport",
+    "universityLink": "http://new.diit.edu.ua/",
+    "universityLogo": "images/diit-logo.png",
+    "specialty": "Automation and computer-integrated technologies",
+    "degree": "Bachelors degree (2010 - 2016)"
+  },
+  "skillsInfo": {
+    "sectionTtl": "Skills",
+    "technologies": [
+      {
+        "ttl": "HTML5",
+        "logo": "images/HTML5_logo.svg"
+      },
+      {
+        "ttl": "CSS3",
+        "logo": "images/CSS3_logo.svg"
+      },
+      {
+        "ttl": "SASS(SCSS)",
+        "logo": "images/Sass_Logo.svg"
+      },
+      {
+        "ttl": "JavaScript (ES5, ES6)",
+        "logo": "images/JavaScript-logo.svg"
+      },
+      {
+        "ttl": "JQuery",
+        "logo": "images/JQuery-Logo.svg"
+      },
+      {
+        "ttl": "AJAX",
+        "logo": "images/AJAX_logo.svg"
+      },
+      {
+        "ttl": "JSON",
+        "logo": "images/JSON_logo.svg"
+      },
+      {
+        "ttl": "Vue",
+        "logo": "images/Vue.js_Logo_2.svg"
+      },
+      {
+        "ttl": "PHP (WordPress)",
+        "logo": "images/PHP_Logo.svg"
+      },
+      {
+        "ttl": "git",
+        "logo": "images/Git-logo.svg"
+      },
+      {
+        "ttl": "npm",
+        "logo": "images/Npm-logo.svg"
+      },
+      {
+        "ttl": "Gulp",
+        "logo": "images/Gulp.js_Logo.svg"
+      },
+      {
+        "ttl": "Webpack",
+        "logo": "images/webpack-icon.svg"
+      },
+      {
+        "ttl": "Photoshop",
+        "logo": "images/Photoshop_CC_icon.svg"
+      },
+      {
+        "ttl": "Zeplin",
+        "logo": "images/Zeplin-logo.png"
+      },
+      {
+        "ttl": "Figma",
+        "logo": "images/Figma-logo.svg"
+      },
+      {
+        "ttl": "WordPress",
+        "logo": "images/WordPress_logo.svg"
+      },
+      {
+        "ttl": "WooCommerce",
+        "logo": "images/WooCommerce_logo.svg"
+      },
+      {
+        "ttl": "Advanced Custom Fields",
+        "logo": "images/awesome-acf-logo.jpg"
+      },
+      {
+        "ttl": "Bootstrap",
+        "logo": "images/Bootstrap_logo.svg"
+      },
+      {
+        "ttl": "BEM Methodology",
+        "logo": "images/bem-logo.svg"
+      }
+    ]
+  },
+  "experienceInfo": {
+    "sectionTtl": "Experience",
+    "experience": [
+      {
+        "company": "I am agency",
+        "companyLink": "http://i-am-agency.com/",
+        "companyLogo": "images/i-am-agency-logo.svg",
+        "position": "Junior Front-end Developer, Junior WordPress Developer",
+        "period": "01.2019 - ... (...)"
+      },
+      {
+        "company": "DID It Agency",
+        "companyLink": "https://www.facebook.com/diditagency/",
+        "companyLogo": "images/DID_It_Agency_logo.png",
+        "position": "Junior Front-end Developer, Junior WordPress Developer",
+        "period": "09.2018 - 01.2019 (5 month)"
+      },
+      {
+        "company": "Dizair",
+        "companyLink": "https://dizair.ee/",
+        "companyLogo": "",
+        "position": "Junior Front-end Developer (HTML-coder)",
+        "period": "06.2018 - 09.2018 (3 month)"
+      },
+      {
+        "company": "GoodSellUs",
+        "companyLink": "https://goodsellus.com/",
+        "companyLogo": "images/GoodSellUs-logo.png",
+        "position": "Junior Front-end Developer (HTML-coder)",
+        "period": "04.2018 - 06.2018 (2 month)"
+      },
+      {
+        "company": "Веб студія IT4U",
+        "companyLink": "https://it4u.ua/",
+        "companyLogo": "images/it4u-logo.png",
+        "position": "Junior Front-end Developer (HTML-coder)",
+        "period": "03.2018 - 04.2018 (1 month)"
+      }
+    ]
+  },
+  "portfolioInfo": {
+    "sectionTtl": "Portfolio",
+    "portfolio": [
+      {
+        "ttl": "With_Maria",
+        "link": "https://with-maria.com/",
+        "technologies": "HTML, CSS, JS, Vue, PHP (WordPress)",
+        "image": "images/Screenshot_withmaria.png"
+      },
+      {
+        "ttl": "The Resident",
+        "link": "http://the-resident.com/",
+        "technologies": "HTML, CSS, JS, PHP (WordPress)",
+        "image": "images/Screenshot_resident.png"
+      },
+      {
+        "ttl": "Вишивальня",
+        "link": "https://vyshyvalnya.com.ua/",
+        "technologies": "HTML, CSS, JS",
+        "image": "images/Screenshot_vyshyvalnya.png"
+      },
+      {
+        "ttl": "Твій сімейний лікар",
+        "link": "https://www.simeynyk.info/",
+        "technologies": "HTML, CSS, JS, PHP (WordPress)",
+        "image": "images/Screenshot_tsl.png"
+      },
+      {
+        "ttl": "Buro",
+        "link": "https://buro.page/",
+        "technologies": "HTML, CSS, JS, PHP (WordPress)",
+        "image": "images/Screenshot_Buro.png"
+      },
+      {
+        "ttl": "Aquaizol",
+        "link": "https://aquaizol.com.ua/",
+        "technologies": "HTML, CSS, JS, PHP (WordPress)",
+        "image": "images/Screenshot_Aquaizol.png"
+      },
+      {
+        "ttl": "RoofSK",
+        "link": "https://roofsk.com.ua/ua/golovna",
+        "technologies": "HTML, CSS, JS, PHP (WordPress)",
+        "image": "images/Screenshot_RoofSK.png"
+      },
+      {
+        "ttl": "Emons",
+        "link": "https://emons.com.ua/ua/",
+        "technologies": "HTML, CSS, JS",
+        "image": "images/Screenshot_Emons.png"
+      }
+    ]
+  }
+}
