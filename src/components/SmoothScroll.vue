@@ -13,25 +13,30 @@
               <span class="hamburger-inner"></span>
             </span>
           </button>
-          <nav class="header-nav" :class="{ active: isMenuVisible }">
-            <ul class="header-nav__list">
-              <li
-                v-for="item in menuItems"
-                :key="item.title"
-                :href="item.link"
-                class="header-nav__item"
-              >
-                {{item.title}}
-              </li>
-            </ul>
-          </nav>
+          <scrollactive
+            class="header-nav"
+            :class="{ active: isMenuVisible }"
+            active-class="active"
+          >
+            <a
+              v-for="item in 7"
+              :key="item"
+              :href="`#section-${item}`"
+              v-scroll-to="`#section-${item}`"
+              class="header-nav__item scrollactive-item"
+            >
+              Section {{item}}
+            </a>
+          </scrollactive>
         </div>
       </div>
     </header>
     <section
-      class="section"
-      v-for="item in 10"
+      class="section scrollactive-item"
+      v-for="item in 7"
       :key="item"
+      :id="`section-${item}`"
+      :data-section-selector="`section-${item}`"
     >
       <h2 class="section-ttl">Section {{ item }}</h2>
     </section>
@@ -43,29 +48,7 @@ export default {
   name: 'SmoothScroll',
   data() {
     return {
-      isMenuVisible: false,
-      menuItems: [
-        {
-          title: 'Menu item 1',
-          link: '/'
-        },
-        {
-          title: 'Menu item 2',
-          link: '/'
-        },
-        {
-          title: 'Menu item 3',
-          link: '/'
-        },
-        {
-          title: 'Menu item 4',
-          link: '/'
-        },
-        {
-          title: 'Menu item 5',
-          link: '/'
-        }
-      ]
+      isMenuVisible: false
     }
   },
   mounted() {
@@ -75,7 +58,6 @@ export default {
       let winHeight = window.innerHeight;
 
       if (scrollPos >= winHeight - 65) {
-        // console.log(header);
         header.classList.add('scroll');
       } else {
         header.classList.remove('scroll');
@@ -133,6 +115,8 @@ export default {
     width: 100%;
     height: calc(100vh - 42px);
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
     background: rgba(3, 49, 96, 0.95);
     padding: 25px 5vw;
     transform: translateX(-101%);
@@ -150,18 +134,6 @@ export default {
       height: auto;
       padding: 0;
       background: transparent;
-    }
-  }
-
-  .header-nav__list {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-
-    @media only screen and (min-width: 992px) {
       flex-direction: row;
       align-items: center;
     }
@@ -187,6 +159,12 @@ export default {
     }
 
     &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &.active {
       &::after {
         width: 100%;
       }

@@ -55,13 +55,13 @@ a {
     width: 1170px;
   }
 
-  // @media only screen and (min-width: 1320px) {
-  //   width: 1270px;
-  // }
-  //
-  // @media only screen and (min-width: 1420px) {
-  //   width: 1370px;
-  // }
+  @media only screen and (min-width: 1320px) {
+    width: 1270px;
+  }
+  
+   @media only screen and (min-width: 1420px) {
+    width: 1370px;
+  }
 }
 
 .section {
