@@ -1,6 +1,6 @@
 <template>
   <div class="smooth-scroll">
-    <header class="header">
+    <header class="header" v-scroll-lock="isMenuVisible">
       <div class="container">
         <div class="header-block">
           <button
@@ -110,10 +110,10 @@ export default {
 
   .header-nav {
     position: fixed;
-    top: 42px;
+    top: 50px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 42px);
+    height: calc(100vh - 50px);
     overflow-y: auto;
     display: flex;
     flex-direction: column;

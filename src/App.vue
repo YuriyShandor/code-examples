@@ -1,23 +1,24 @@
 <template>
   <div id="app">
-<!--    <SmoothScroll/>-->
-    <Slick/>
+    <keep-alive>
+      <component :is="activeComponent"></component>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-// import SmoothScroll from './components/SmoothScroll.vue'
+import SmoothScroll from './components/SmoothScroll.vue'
 import Slick from './components/Slick.vue'
 
 export default {
   name: 'app',
   components: {
-    // SmoothScroll,
+    SmoothScroll,
     Slick,
   },
   data(){
     return{
-      data: 'data'
+      activeComponent: 'Slick'
     }
   },
   mounted() {

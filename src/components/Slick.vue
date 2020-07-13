@@ -9,12 +9,12 @@
     >
       <div
         class="single-slide"
-        v-for="slide in sliderContent"
-        :key="slide.image"
+        v-for="slide in sliderImages"
+        :key="slide.id"
       >
         <div class="single-slide-inner">
           <img
-            :src="slide.image"
+            :src="slide.largeImageURL"
             alt=""
             class="slide-image"
           >
@@ -40,6 +40,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
   import Slick from 'vue-slick'
 
   export default {
@@ -49,23 +50,7 @@
     name: 'EmptyComponent',
     data() {
       return {
-        sliderContent: [
-          {
-            image: 'assets/images/slider-image-01.jpg'
-          },
-          {
-            image: 'assets/images/slider-image-02.jpg'
-          },
-          {
-            image: 'assets/images/slider-image-03.jpg'
-          },
-          {
-            image: 'assets/images/slider-image-04.jpg'
-          },
-          {
-            image: 'assets/images/slider-image-05.jpg'
-          }
-        ],
+        images: undefined,
         sliderOptions: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -83,6 +68,15 @@
         totalSliderSlides: 0
       }
     },
+    computed: {
+      sliderImages() {
+        if (this.images !== undefined) {
+          this.reInit()
+          return this.images
+        }
+        return undefined
+      }
+    },
     beforeUpdate() {
       // if (this.$refs.slick) {
       //   this.$refs.slick.destroy()
@@ -96,7 +90,7 @@
       // })
     },
     methods: {
-      reInit () {
+      reInit() {
         let currIndex = this.$refs.slick.currentSlide()
         this.$refs.slick.destroy()
         this.$nextTick(() => {
@@ -106,12 +100,25 @@
       },
 
       handleInit(event, slick) {
-        this.totalSliderSlides = slick.slideCount;
+        this.totalSliderSlides = slick.slideCount
       },
 
       handleAfterChange(event, slick, currentSlide) {
-        this.currentSliderSlide = currentSlide + 1;
+        this.currentSliderSlide = currentSlide + 1
       }
+    },
+    mounted() {
+      axios.get('https://pixabay.com/api/' +
+        '?key=17459503-b53b6c0cdbd4d3bcd974119dc' +
+        '&q=gothic+darkness+black' +
+        '&image_type=photo' +
+        '&orientation=horizontal')
+        .then(response => {
+          this.images = response.data.hits
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   }
 </script>
