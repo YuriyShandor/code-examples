@@ -1,12 +1,15 @@
 <template>
   <div class="smooth-scroll">
-    <header class="header" v-scroll-lock="isMenuVisible">
+    <header
+      class="header"
+      :style= "[isMenuVisible ? {'padding-right': `${scrollbarWidth}px`} : '']"
+    >
       <div class="container">
         <div class="header-block">
           <button
             class="hamburger hamburger--collapse"
             :class="{ active: isMenuVisible }"
-            @click="isMenuVisible = !isMenuVisible"
+            @click="toggleMenu"
             type="button"
           >
             <span class="hamburger-box">
@@ -48,11 +51,21 @@ export default {
   name: 'SmoothScroll',
   data() {
     return {
-      isMenuVisible: false
+      isMenuVisible: false,
+      scrollbarWidth: 16
+    }
+  },
+  methods: {
+    toggleMenu() {
+      this.isMenuVisible = !this.isMenuVisible
+      this.scrollbarWidth = window.innerWidth - document.body.clientWidth
+      document.body.style.overflow = this.isMenuVisible ? 'hidden' : ''
+      document.body.style.marginRight = this.isMenuVisible ? `${this.scrollbarWidth}px` : ''
     }
   },
   mounted() {
     let header = document.querySelector('.header');
+
     window.addEventListener('scroll', function(){
       let scrollPos = window.scrollY;
       let winHeight = window.innerHeight;

@@ -18,11 +18,11 @@ export default {
   },
   data(){
     return{
-      activeComponent: 'Slick'
+      activeComponent: 'SmoothScroll'
     }
   },
   mounted() {
-    console.log(this.data);
+    console.log('при відкритій модалці чи меню, дай на боді margin-right: 17px; ахахах');
   }
 }
 </script>
