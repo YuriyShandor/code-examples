@@ -5,15 +5,16 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 import {store} from './store'
 
+import VueRouter from 'vue-router'
+import router from './routes'
+Vue.use(VueRouter)
+
 import VueScrollTo from 'vue-scrollto'
 Vue.use(VueScrollTo, {
   duration: 500,
   easing: 'ease-out',
   offset: 700
 });
-
-import VScrollLock from 'v-scroll-lock'
-Vue.use(VScrollLock)
 
 import VueLazyload from 'vue-lazyload'
 import VueMoment from 'vue-moment'
@@ -47,4 +48,5 @@ Vue.use(VueScrollactive);
 new Vue({
   store,
   render: h => h(App),
+  router
 }).$mount('#app')

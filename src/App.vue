@@ -1,28 +1,18 @@
 <template>
   <div id="app">
-    <keep-alive>
-      <component :is="activeComponent"></component>
-    </keep-alive>
+    <HeaderApp/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import SmoothScroll from './components/SmoothScroll.vue'
-import Slick from './components/Slick.vue'
+
+import HeaderApp from '@/components/HeaderApp.vue'
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    SmoothScroll,
-    Slick,
-  },
-  data(){
-    return{
-      activeComponent: 'SmoothScroll'
-    }
-  },
-  mounted() {
-    console.log('при відкритій модалці чи меню, дай на боді margin-right: 17px; ахахах');
+    HeaderApp
   }
 }
 </script>
