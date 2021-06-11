@@ -198,17 +198,8 @@ export default {
     }
   }
 
-  // Hamburger
-  $hamburger-padding-x: 0px !default;
-  $hamburger-padding-y: 0px !default;
-  $hamburger-layer-width: 25px !default;
-  $hamburger-layer-height: 1.5px !default;
-  $hamburger-layer-spacing: 6px !default;
-  $hamburger-layer-color: #fff !default;
-  $hamburger-layer-border-radius: 1px !default;
-
   .hamburger {
-    padding: $hamburger-padding-y $hamburger-padding-x;
+    padding: 0 0;
     display: inline-block;
     cursor: pointer;
     transition: all, .25s;
@@ -231,8 +222,8 @@ export default {
   }
 
   .hamburger-box {
-    width: $hamburger-layer-width;
-    height: $hamburger-layer-height * 3 + $hamburger-layer-spacing * 2;
+    width: 25px;
+    height: 1.5px * 3 + 6px * 2;
     display: inline-block;
     position: relative;
   }
@@ -240,25 +231,25 @@ export default {
   .hamburger-inner {
     display: block;
     top: 50%;
-    margin-top: $hamburger-layer-height / -2;
+    margin-top: 1.5px / -2;
 
     &, &::before, &::after {
       content: "";
       display: block;
-      width: $hamburger-layer-width;
-      height: $hamburger-layer-height;
-      background-color: $hamburger-layer-color;
-      border-radius: $hamburger-layer-border-radius;
+      width: 25px;
+      height: 1.5px;
+      background-color: #fff;
+      border-radius: 1px;
       position: absolute;
       transition: transform, .15s ease;
     }
 
     &::before {
-      top: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+      top: (6px + 1.5px) * -1;
     }
 
     &::after {
-      bottom: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+      bottom: (6px + 1.5px) * -1;
     }
   }
 
@@ -271,7 +262,7 @@ export default {
       transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
       &::after {
-        top: ($hamburger-layer-spacing * 2 + $hamburger-layer-height * 2) * -1;
+        top: (6px * 2 + 1.5px * 2) * -1;
         transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
         opacity 0.1s linear;
       }
@@ -284,7 +275,7 @@ export default {
 
     &.active {
       .hamburger-inner {
-        transform: translate3d(0, ($hamburger-layer-spacing + $hamburger-layer-height) * -1, 0) rotate(-45deg);
+        transform: translate3d(0, (6px + 1.5px) * -1, 0) rotate(-45deg);
         transition-delay: 0.22s;
         transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 

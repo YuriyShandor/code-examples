@@ -15,18 +15,11 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
+### Check lint errors
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### For Atom Vue syntax highlighting
-config.cson:
-core:
-  customFileTypes:
-    'text.html.basic': [
-      'vue'
-    ]
+### Development mode
+```
+npm run watch
+```
