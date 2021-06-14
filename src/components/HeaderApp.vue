@@ -1,5 +1,10 @@
 <template>
   <header class="header">
+    <div class="header-button"
+      :class="{'active': isMenuVisible}"
+      @click="toggleMenuVisibility"
+    ><span></span>
+    </div>
     <div class="container">
       <nav class="header-nav">
         <router-link
@@ -20,7 +25,7 @@ export default {
   name: 'Header',
   data() {
     return {
-      isMenuOpen: false,
+      isMenuVisible: false,
       menuItems: [
         {
           title: 'Home',
@@ -41,6 +46,11 @@ export default {
       ]
     }
   },
+  methods: {
+    toggleMenuVisibility() {
+      this.isMenuVisible = !this.isMenuVisible
+    }
+  },
   mounted() {
 
   }
@@ -48,8 +58,71 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.header {
-  width: 100%;
+.header-button {
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 6px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+
+  @media only screen and (min-width: 760px) {
+    top: 30px;
+    left: 30px;
+  }
+
+  @media only screen and (min-width: 760px) {
+    top: 50px;
+    left: 50px;
+  }
+
+  span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    backface-visibility: hidden;
+    border-radius: 2px;
+    transition: all, .25s;
+
+    &:before, &:after  {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: black;
+      backface-visibility: hidden;
+      border-radius: 2px;
+      transition: all, .25s;
+    }
+
+    &:before {
+      top: 9px;
+    }
+
+    &:after {
+      top: 18px;
+    }
+  }
+
+  &.active {
+    span {
+      background: transparent;
+
+      &:before {
+        transform: rotate(45deg) translate(-1px, 0px);
+      }
+
+      &:after {
+        transform: rotate(-45deg) translate(6px, -7px);
+      }
+    }
+  }
 }
 
 .header-nav {
