@@ -1,7 +1,7 @@
 <template>
   <div class="banner">
     <div class="banner-ttl">Vue Templates</div>
-    <img src="/images/banner-bg.jpg" alt="" class="banner-img">
+    <img src="images/banner-bg.jpg" alt="" class="banner-img">
   </div>
 </template>
 
@@ -9,9 +9,7 @@
   export default {
     name: 'Home',
     data() {
-      return {
-        publicPath: process.env.BASE_URL
-      }
+
     },
     computed: {
 

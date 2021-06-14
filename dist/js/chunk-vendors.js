@@ -1,4 +1,4 @@
-(window["webpackJsonp1623410818238"] = window["webpackJsonp1623410818238"] || []).push([["chunk-vendors"],{
+(window["webpackJsonp1623674871776"] = window["webpackJsonp1623674871776"] || []).push([["chunk-vendors"],{
 
 /***/ "./node_modules/@babel/runtime/helpers/classCallCheck.js":
 /*!***************************************************************!*\

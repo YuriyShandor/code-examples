@@ -66,7 +66,7 @@ a {
     background: #f8f9fb;
   }
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 760px) {
     padding: 60px 0;
   }
 
@@ -88,7 +88,7 @@ a {
   margin: 0;
   margin-bottom: 25px;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 760px) {
     font-size: 26px;
     margin-bottom: 30px;
   }
@@ -224,29 +224,5 @@ a {
     position: relative;
     padding: 15px;
   }
-}
-
-@media only screen and (min-width: 500px) {
-
-}
-
-@media only screen and (min-width: 768px) {
-
-}
-
-@media only screen and (min-width: 992px) {
-
-}
-
-@media only screen and (min-width: 1200px) {
-
-}
-
-@media only screen and (min-width: 1320px) {
-
-}
-
-@media only screen and (min-width: 1420px) {
-
 }
 </style>
