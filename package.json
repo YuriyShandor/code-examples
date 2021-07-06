@@ -18,7 +18,7 @@
     "numeral": "^2.0.6",
     "postcss-cli": "^7.1.1",
     "store": "^2.0.12",
-    "swiper": "^5.3.7",
+    "swiper": "^6.5.1",
     "vue": "^2.6.10",
     "vue-awesome-swiper": "^4.1.1",
     "vue-cookies": "^1.7.3",
@@ -44,8 +44,8 @@
     "node-sass": "^4.14.1",
     "sass": "^1.26.10",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.10",
-    "vue-direction-hover": "0.0.5"
+    "vue-direction-hover": "0.0.5",
+    "vue-template-compiler": "^2.6.10"
   },
   "browserslist": [
     "> 0.5%",

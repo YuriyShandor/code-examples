@@ -1,9 +1,7 @@
 import VueRouter from 'vue-router'
 
-import Home from '@/components/Home.vue'
-import Slick from '@/components/Slick.vue'
-import SmoothScroll from '@/components/SmoothScroll.vue'
-import UsersList from '@/components/UsersList.vue'
+import HomePage from '@/components/home-page/HomePage.vue'
+
 
 export default new VueRouter({
 	// mode: 'history',
@@ -11,26 +9,11 @@ export default new VueRouter({
 		{
 			name: 'Home',
 			path: '/',
-			component: Home
-		},
-		{
-			name: 'Slick',
-			path: '/slick',
-			component: Slick
-		},
-		{
-			name: 'Smooth Scroll',
-			path: '/smooth-scroll',
-			component: SmoothScroll
-		},
-		{
-			name: 'Users List',
-			path: '/users',
-			component: UsersList
+			component: HomePage
 		},
 		{
 			path: '*',
-			redirect: Home
+			redirect: HomePage
 		}
 	],
 	scrollBehavior (to, from, savedPosition) {

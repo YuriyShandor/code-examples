@@ -1,13 +1,13 @@
 <template>
   <div class="banner">
-    <div class="banner-ttl">Vue Templates</div>
+    <div class="banner-ttl">Code Examples</div>
     <img src="images/banner-bg.jpg" alt="" class="banner-img">
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Home',
+    name: 'HomePage',
     data() {
 
     },
@@ -34,7 +34,7 @@
 
   .banner-ttl {
     width: 100%;
-    background: #b71c1c;
+    background: $main-bg-color;
     padding: 50px 0;
     border-top: 10px solid #9e9e9e;
     border-bottom: 10px solid #9e9e9e;

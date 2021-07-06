@@ -5,7 +5,12 @@ module.exports = {
   runtimeCompiler: true,
 
   css: {
-    extract: true
+    extract: true,
+    loaderOptions: {
+      sass: {
+        prependData: `@import "./src/assets/scss/variables.scss";`
+      }
+    }
   },
 
   configureWebpack: {
