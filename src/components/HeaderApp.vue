@@ -139,6 +139,7 @@ export default {
   z-index: 1000;
 }
 
+
 .header-nav__item {
   font-size: 16px;
   font-weight: 500;
