@@ -1,13 +1,13 @@
 <template>
   <div class="banner">
-    <div class="banner-ttl">Code Examples</div>
+    <div class="banner-ttl">Page 404</div>
     <img src="images/banner-bg.jpg" alt="" class="banner-img">
   </div>
 </template>
 
 <script>
   export default {
-    name: 'HomePage'
+    name: 'Page404'
   }
 </script>
 
@@ -28,12 +28,10 @@
     border-bottom: 10px solid #9e9e9e;
     position: relative;
     z-index: 2;
-    font-family: $secondary-font-family;
     font-size: 40px;
     font-weight: 500;
-    line-height: 1;
     text-align: center;
-    color: $secondary-text-color;
+    color: $primary-text-color;
 
     @media only screen and (min-width: 700px) {
       font-size: 60px;

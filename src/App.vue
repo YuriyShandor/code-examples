@@ -18,28 +18,9 @@ export default {
 </script>
 
 <style lang="scss">
-* {
-  box-sizing: border-box;
-}
 
-html, body {
-  margin: 0;
-  padding: 0;
-}
 
-#app {
-  font-family: 'Lato', Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  color: #2c3e50;
-}
 
-a {
-  text-decoration: none;
-}
 
 .container {
   width: 90vw;

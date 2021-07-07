@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router'
 
 import HomePage from '@/components/home-page/HomePage.vue'
-
+import Page404 from '@/components/page-404/Page404.vue'
 
 export default new VueRouter({
 	// mode: 'history',
@@ -13,7 +13,7 @@ export default new VueRouter({
 		},
 		{
 			path: '*',
-			redirect: HomePage
+			component: Page404
 		}
 	],
 	scrollBehavior (to, from, savedPosition) {
