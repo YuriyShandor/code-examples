@@ -1,17 +1,19 @@
+import RouterHelper from '@/helpers/router.helper'
+
 export default {
   state: {
     headerMenu: [
       {
-        itemTitle: 'Vue',
-        itemLink: '/vue'
+        itemTitle: 'Vue Templates',
+        itemLink: `/${RouterHelper.constructor.VUE_TEMPLATES_PAGE_PATH}`
       },
       {
         itemTitle: 'UI Elements',
-        itemLink: '/ui-elements'
+        itemLink: `/${RouterHelper.constructor.UI_ELEMENTS_PAGE_PATH}`
       },
       {
         itemTitle: 'CodeWars',
-        itemLink: '/codewars'
+        itemLink: `/${RouterHelper.constructor.CODEWARS_PAGE_PATH}`
       }
     ]
   },

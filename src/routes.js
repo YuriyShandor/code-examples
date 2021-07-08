@@ -1,5 +1,7 @@
 import VueRouter from 'vue-router'
 
+import RouterHelper from '@/helpers/router.helper'
+
 import HomePage from '@/components/home-page/HomePage.vue'
 import Page404 from '@/components/page-404/Page404.vue'
 
@@ -7,7 +9,7 @@ export default new VueRouter({
 	// mode: 'history',
 	routes: [
 		{
-			name: 'Home',
+			name: RouterHelper.constructor.HOME_PAGE_NAME,
 			path: '/',
 			component: HomePage
 		},
