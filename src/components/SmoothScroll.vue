@@ -64,7 +64,7 @@ export default {
     }
   },
   mounted() {
-    let header = document.querySelector('.header');
+    let header = document.querySelector('.global-menu');
 
     window.addEventListener('scroll', function(){
       let scrollPos = window.scrollY;

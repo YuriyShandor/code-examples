@@ -4,22 +4,36 @@ export default {
   state: {
     headerMenu: [
       {
-        itemTitle: 'Vue Templates',
-        itemLink: `/${RouterHelper.constructor.VUE_TEMPLATES_PAGE_PATH}`
+        title: 'Vue Templates',
+        link: `/${RouterHelper.constructor.VUE_TEMPLATES_PAGE_PATH}`,
+        subItems: [
+          {
+            title: 'SubTitle01',
+            link: ''
+          },
+          {
+            title: 'SubTitle02',
+            link: ''
+          },
+          {
+            title: 'SubTitle03',
+            link: ''
+          },
+        ]
       },
       {
-        itemTitle: 'UI Elements',
-        itemLink: `/${RouterHelper.constructor.UI_ELEMENTS_PAGE_PATH}`
+        title: 'UI Elements',
+        link: `/${RouterHelper.constructor.UI_ELEMENTS_PAGE_PATH}`
       },
       {
-        itemTitle: 'CodeWars',
-        itemLink: `/${RouterHelper.constructor.CODEWARS_PAGE_PATH}`
+        title: 'CodeWars',
+        link: `/${RouterHelper.constructor.CODEWARS_PAGE_PATH}`
       }
     ]
   },
   getters: {
     GET_HEADER_MENU: state => {
-      return state.cabinetConfig
+      return state.headerMenu
     }
   }
 }

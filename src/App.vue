@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <HeaderApp/>
+    <GlobalMenu/>
     <router-view/>
   </div>
 </template>
 
 <script>
 
-import HeaderApp from '@/components/header/HeaderApp.vue'
+import GlobalMenu from '@/components/global-menu/GlobalMenu.vue'
 
 export default {
   name: 'App',
   components: {
-    HeaderApp
+    GlobalMenu
   }
 }
 </script>
