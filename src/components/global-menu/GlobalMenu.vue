@@ -11,8 +11,11 @@
     >
       <div class="container">
         <badger-accordion class="global-menu-accordion" :options="globalMenuAccordionOptions">
-          <badger-accordion-item v-for="item in headerMenu" :key="item.title">
-            <template slot="header">{{ item.title }}</template>
+          <badger-accordion-item v-for="item in globalMenu" :key="item.title">
+            <template slot="header">
+              <div class="global-menu__item">{{ item.title }}</div>
+              <div class="global-menu__item-arrow"></div>
+            </template>
             <template slot="content">
               <router-link
                 class="global-menu__sub-item"
@@ -48,8 +51,8 @@ export default {
     }
   },
   computed: {
-    headerMenu() {
-      return this.$store.getters.GET_HEADER_MENU
+    globalMenu() {
+      return this.$store.getters.GET_GLOBAL_MENU
     }
   },
   methods: {
@@ -167,11 +170,72 @@ export default {
   &.visible {
     transform: translateX(0);
   }
+
+  @media only screen and (min-width: 700px) {
+    width: 500px;
+    border-radius: 20px 0 0 20px;
+  }
 }
 
-
-.global-menu-content {
+.global-menu__item {
   width: 100%;
+  font-family: $secondary-font-family;
+  font-size: 22px;
+  font-weight: 500;
+  color: $secondary-text-color;
+}
+
+.global-menu__item-arrow {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 9px;
+  right: 10px;
+
+  &:before, &:after {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 2px;
+    background: $secondary-text-color;
+    position: absolute;
+    top: 9px;
+    transition: all, .25s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+    left: -2px;
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+    right: -2px;
+  }
+}
+
+.global-menu__sub-item {
+  width: 100%;
+  font-family: $secondary-font-family;
+  font-size: 18px;
+  font-weight: 500;
+  color: $secondary-text-color;
+  margin-bottom: 5px;
+  transition: all, .25s;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    color: $hover-text-color;
+  }
+
+  &:first-child {
+    margin-top: 5px;
+  }
+
+  &:last-child {
+    margin-bottom: 10px;
+  }
 }
 </style>
 
@@ -179,24 +243,67 @@ export default {
 .global-menu-accordion {
   width: 100%;
 
-  .badger-accordion-title {
-    width: 100%;
-    padding: 5px 0;
-    font-family: $secondary-font-family;
-    font-size: 20px;
-    font-weight: 500;
-    color: $secondary-text-color;
+  .badger-accordion__header {
+    &:first-child {
+      .js-badger-accordion-header {
+        border-top: 1px solid $secondary-text-color;
+      }
+    }
+  }
+
+  .js-badger-accordion-header {
+    position: relative;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $secondary-text-color;
+    background: transparent;
+    transition: all, .25s;
+    -webkit-tap-highlight-color: transparent;
+
+    &:hover {
+      background: darken(#18191a, 5%);
+    }
+
+    &.-ba-is-active {
+      background: darken(#18191a, 5%);
+
+      .global-menu__item-arrow {
+        &:before, &:after {
+          width: 18px;
+          top: 9px;
+        }
+
+        &:before {
+          left: 1px;
+        }
+
+        &:after {
+          right: 1px;
+        }
+      }
+    }
+  }
+
+  .badger-toggle-indicator {
+    opacity: 0;
   }
 
   .badger-accordion__panel {
-    margin-left: 15px;
+    margin-left: 0;
+    padding-left: 15px;
+
+    &.-ba-is-active {
+      border-bottom: 1px solid $secondary-text-color;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 
   .js-badger-accordion-panel-inner {
     width: 100%;
     display: flex;
     flex-direction: column;
-
   }
 }
 </style>

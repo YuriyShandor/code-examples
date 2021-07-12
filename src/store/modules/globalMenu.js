@@ -2,7 +2,7 @@ import RouterHelper from '@/helpers/router.helper'
 
 export default {
   state: {
-    headerMenu: [
+    globalMenu: [
       {
         title: 'Vue Templates',
         link: `/${RouterHelper.constructor.VUE_TEMPLATES_PAGE_PATH}`,
@@ -60,8 +60,8 @@ export default {
     ]
   },
   getters: {
-    GET_HEADER_MENU: state => {
-      return state.headerMenu
+    GET_GLOBAL_MENU: state => {
+      return state.globalMenu
     }
   }
 }
