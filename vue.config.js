@@ -1,6 +1,6 @@
 module.exports = {
   publicPath: '',
-  outputDir: './dist',
+  outputDir: './docs',
   filenameHashing: false,
   runtimeCompiler: true,
 
