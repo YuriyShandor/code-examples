@@ -10,43 +10,41 @@
       :class="{'visible': isMenuVisible}"
     >
       <div class="container">
-        <div class="global-menu-content">
-          <div
-            class="menu-item"
-            v-for="item in headerMenu"
-            :key="item.title"
-          >
-            <div class="menu-item__heading">
+        <badger-accordion class="global-menu-accordion" :options="globalMenuAccordionOptions">
+          <badger-accordion-item v-for="item in headerMenu" :key="item.title">
+            <template slot="header">{{ item.title }}</template>
+            <template slot="content">
               <router-link
-                class="menu-item__link"
-                :to="item.link"
-              >
-                {{ item.title }}
-              </router-link>
-            </div>
-            <div class="menu-item__sub-list">
-              <router-link
-                class="menu-sub-item"
+                class="global-menu__sub-item"
                 v-for="subItem in item.subItems"
                 :key="subItem.title"
                 :to="subItem.link"
               >
                 {{ subItem.title }}
               </router-link>
-            </div>
-          </div>
-        </div>
+            </template>
+          </badger-accordion-item>
+        </badger-accordion>
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script>/* eslint-disable */
+import {BadgerAccordion, BadgerAccordionItem} from 'vue-badger-accordion'
+
 export default {
   name: 'GlobalMenu',
+  components: {
+    BadgerAccordion,
+    BadgerAccordionItem
+  },
   data() {
     return {
-      isMenuVisible: false
+      isMenuVisible: false,
+      globalMenuAccordionOptions: {
+        openMultiplePanels: true
+      }
     }
   },
   computed: {
@@ -160,10 +158,10 @@ export default {
   position: fixed;
   bottom: 0;
   right: 0;
-  padding: 20px 10px;
+  padding: 20px 0;
   z-index: 1000;
   transform: translateX(100%);
-  transition: all, .7s;
+  transition: all, .5s;
   -webkit-tap-highlight-color: transparent;
 
   &.visible {
@@ -172,8 +170,33 @@ export default {
 }
 
 
-.header-nav__item {
-  font-size: 16px;
-  font-weight: 500;
+.global-menu-content {
+  width: 100%;
+}
+</style>
+
+<style lang="scss">
+.global-menu-accordion {
+  width: 100%;
+
+  .badger-accordion-title {
+    width: 100%;
+    padding: 5px 0;
+    font-family: $secondary-font-family;
+    font-size: 20px;
+    font-weight: 500;
+    color: $secondary-text-color;
+  }
+
+  .badger-accordion__panel {
+    margin-left: 15px;
+  }
+
+  .js-badger-accordion-panel-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+  }
 }
 </style>

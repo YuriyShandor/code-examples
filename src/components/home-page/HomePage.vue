@@ -24,8 +24,8 @@
     width: 100%;
     background: $primary-bg-color;
     padding: 30px 0;
-    border-top: 10px solid #9e9e9e;
-    border-bottom: 10px solid #9e9e9e;
+    border-top: 10px solid $secondary-text-color;
+    border-bottom: 10px solid $secondary-text-color;
     position: relative;
     z-index: 2;
     font-family: $secondary-font-family;

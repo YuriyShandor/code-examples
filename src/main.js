@@ -9,6 +9,9 @@ import VueRouter from 'vue-router'
 import router from './routes'
 Vue.use(VueRouter)
 
+import ElementUI from 'element-ui'
+Vue.use(ElementUI)
+
 import VueScrollTo from 'vue-scrollto'
 Vue.use(VueScrollTo, {
   duration: 500,

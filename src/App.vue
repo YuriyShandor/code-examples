@@ -6,7 +6,6 @@
 </template>
 
 <script>
-
 import GlobalMenu from '@/components/global-menu/GlobalMenu.vue'
 
 export default {
