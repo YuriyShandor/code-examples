@@ -2,14 +2,18 @@
   <div class="global-menu-wrap">
     <div class="global-menu-btn"
       :class="{'active': isMenuVisible}"
-      @click="toggleMenuVisibility"
+      @click="isMenuVisible = !isMenuVisible"
     ><span></span>
     </div>
     <div
       class="global-menu-block"
       :class="{'visible': isMenuVisible}"
     >
-      <div class="container">
+      <div class="global-menu-overlay" @click="isMenuVisible = false"></div>
+      <div
+        class="global-menu-content"
+        :class="{'visible': isMenuVisible}"
+      >
         <badger-accordion class="global-menu-accordion" :options="globalMenuAccordionOptions">
           <badger-accordion-item v-for="item in globalMenu" :key="item.title">
             <template slot="header">
@@ -153,16 +157,42 @@ export default {
 .global-menu-block {
   width: 100vw;
   height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  opacity: 0;
+  transition: all, .25s;
+  -webkit-tap-highlight-color: transparent;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+.global-menu-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.global-menu-content {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: $secondary-bg-color;
   box-shadow: -10px -1px 75px 0px rgba(36,37,38,0.55);
-  position: fixed;
-  bottom: 0;
+  position: absolute;
+  top: 0;
   right: 0;
-  padding: 20px 0;
-  z-index: 1000;
+  padding: 20px;
+  z-index: 2;
   transform: translateX(100%);
   transition: all, .5s;
   -webkit-tap-highlight-color: transparent;
@@ -173,6 +203,7 @@ export default {
 
   @media only screen and (min-width: 700px) {
     width: 500px;
+    padding: 30px;
     border-radius: 20px 0 0 20px;
   }
 }
