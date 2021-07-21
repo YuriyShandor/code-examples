@@ -26,7 +26,7 @@ import VHover from 'v-hover'
 import VueDirectionHover from 'vue-direction-hover'
 import VueScrollactive from 'vue-scrollactive'
 
-import './assets/scss/common.scss'
+import './assets/scss/components/common.scss'
 
 Vue.config.productionTip = false;
 

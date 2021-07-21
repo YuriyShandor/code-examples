@@ -1,15 +1,16 @@
-import RouterHelper from '@/helpers/router/pagesRouter.helper'
+import PagesRouterHelper from '@/helpers/router/pagesRouter.helper'
+import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper'
 
 export default {
   state: {
     globalMenu: [
       {
         title: 'Vue Templates',
-        link: `/${RouterHelper.constructor.VUE_TEMPLATES_PAGE_PATH}`,
+        link: `/${PagesRouterHelper.constructor.VUE_EXAMPLES_PAGE_PATH}`,
         subItems: [
           {
-            title: 'SubTitle01',
-            link: ''
+            title: VueExamplesRouterHelper.constructor.VUEX_EXAMPLES_PAGE_NAME,
+            link: `/${PagesRouterHelper.constructor.VUE_EXAMPLES_PAGE_PATH}/${VueExamplesRouterHelper.constructor.VUEX_EXAMPLES_PAGE_PATH}`
           },
           {
             title: 'SubTitle02',
@@ -23,7 +24,7 @@ export default {
       },
       {
         title: 'UI Elements',
-        link: `/${RouterHelper.constructor.UI_ELEMENTS_PAGE_PATH}`,
+        link: `/${PagesRouterHelper.constructor.UI_ELEMENTS_PAGE_PATH}`,
         subItems: [
           {
             title: 'SubTitle01',
@@ -41,7 +42,7 @@ export default {
       },
       {
         title: 'CodeWars',
-        link: `/${RouterHelper.constructor.CODEWARS_PAGE_PATH}`,
+        link: `/${PagesRouterHelper.constructor.CODEWARS_PAGE_PATH}`,
         subItems: [
           {
             title: 'SubTitle01',

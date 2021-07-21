@@ -8,10 +8,10 @@ class PagesRouterHelper {
 		return ''
 	}
 
-	static get VUE_TEMPLATES_PAGE_NAME() {
+	static get VUE_EXAMPLES_PAGE_NAME() {
 		return 'Vue Templates Page'
 	}
-	static get VUE_TEMPLATES_PAGE_PATH() {
+	static get VUE_EXAMPLES_PAGE_PATH() {
 		return 'vue'
 	}
 

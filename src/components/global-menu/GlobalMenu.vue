@@ -155,6 +155,7 @@ export default {
 }
 
 .global-menu-block {
+  display: none;
   width: 100vw;
   height: 100vh;
   position: fixed;
