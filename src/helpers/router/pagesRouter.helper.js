@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-class RouterHelper {
+class PagesRouterHelper {
 	static get HOME_PAGE_NAME() {
 		return 'Home Page'
 	}
@@ -30,4 +30,4 @@ class RouterHelper {
 	}
 }
 
-export default new RouterHelper()
+export default new PagesRouterHelper()

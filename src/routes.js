@@ -1,17 +1,33 @@
 import VueRouter from 'vue-router'
 
-import RouterHelper from '@/helpers/router.helper'
+import PagesRouterHelper from '@/helpers/router/pagesRouter.helper'
+import VueRouterHelper from '@/helpers/router/vueRouter.helper'
 
-import HomePage from '@/components/home-page/HomePage.vue'
-import Page404 from '@/components/page-404/Page404.vue'
+import HomePage from '@/components/pages/HomePage.vue'
+import Page404 from '@/components/pages/Page404.vue'
+import SinglePage from '@/components/pages/SinglePage.vue'
+
+import VuexExamples from '@/components/vue/VuexExamples.vue'
 
 export default new VueRouter({
 	// mode: 'history',
 	routes: [
 		{
-			name: RouterHelper.constructor.HOME_PAGE_NAME,
+			name: PagesRouterHelper.constructor.HOME_PAGE_NAME,
 			path: '/',
 			component: HomePage
+		},
+		{
+			name: PagesRouterHelper.constructor.VUE_TEMPLATES_PAGE_NAME,
+			path: `/${PagesRouterHelper.constructor.VUE_TEMPLATES_PAGE_PATH}`,
+			component: SinglePage,
+			children: [
+				{
+					name: VueRouterHelper.constructor.VUEX_TEMPLATES_PAGE_NAME,
+					path: VueRouterHelper.constructor.VUEX_TEMPLATES_PAGE_PATH,
+					component: VuexExamples
+				}
+			]
 		},
 		{
 			path: '*',

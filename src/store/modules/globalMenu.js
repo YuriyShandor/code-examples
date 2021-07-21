@@ -1,4 +1,4 @@
-import RouterHelper from '@/helpers/router.helper'
+import RouterHelper from '@/helpers/router/pagesRouter.helper'
 
 export default {
   state: {
