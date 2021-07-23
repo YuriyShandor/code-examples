@@ -1,6 +1,28 @@
 <template>
-  <div class="vuex">
-    <h1>vuex</h1>
+  <div class="vuex-examples">
+    <h1 class="page-title">Vuex Examples</h1>
+    <div class="code-example-wrap">
+      <div class="code-example__title">Single Vuex Variable Init</div>
+      <div class="code-example__description">
+        Single init of store, getter, setter and action.
+      </div>
+      <div class="code-example"></div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example"></div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example"></div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example"></div>
+    </div>
   </div>
 </template>
 

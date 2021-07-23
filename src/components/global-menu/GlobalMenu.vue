@@ -155,7 +155,6 @@ export default {
 }
 
 .global-menu-block {
-  display: none;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -163,18 +162,20 @@ export default {
   left: 0;
   z-index: 1000;
   opacity: 0;
+  pointer-events: none;
   transition: all, .25s;
   -webkit-tap-highlight-color: transparent;
 
   &.visible {
     opacity: 1;
+    pointer-events: auto;
   }
 }
 
 .global-menu-overlay {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.85);
   position: absolute;
   top: 0;
   left: 0;
