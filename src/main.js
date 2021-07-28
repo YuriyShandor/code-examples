@@ -9,6 +9,9 @@ import VueRouter from 'vue-router'
 import router from './routes'
 Vue.use(VueRouter)
 
+import VueCodeHighlight from 'vue-code-highlight'
+Vue.use(VueCodeHighlight)
+
 import ElementUI from 'element-ui'
 Vue.use(ElementUI)
 
