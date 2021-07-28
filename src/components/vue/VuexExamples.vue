@@ -48,11 +48,11 @@
           <div v-highlight>
           <pre class="language-jsx">
             <code>
-              <div class="global-menu-btn"
+              `<div class="global-menu-btn"
                    :class="{'active': isMenuVisible}"
                    @click="isMenuVisible = !isMenuVisible"
               ><span></span>
-              </div>
+              </div>`
             </code>
           </pre>
           </div>
@@ -155,15 +155,227 @@
         </div>
       </div>
     </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+        <ssh-pre language="js" label="Javascript">
+          const i = 3;
+          // Some more Javascript content.
+        </ssh-pre>
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+        <ssh-pre language="html" label="HTML Vue Template">
+          &lt;html lang="en"&gt;
+          &lt;head&gt;
+          &lt;title&gt;Title&lt;/title&gt;
+          &lt;/head&gt;
+          &lt;body&gt;
+          Some content.
+          &lt;/body&gt;
+          &lt;/html&gt;
+        </ssh-pre>
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+        <ssh-pre language="CSS" label="CSS">
+          pre.ssh-pre {
+          position: relative;
+          padding: 0.5em;
+          margin: 2.5em 0 2em;
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          background-color: rgba(0, 0, 0, 0.025);
+          border-radius: 4px;
+          display: block;
+          white-space: pre-wrap;
+          word-break: break-word;
+          }
+
+          .ssh-pre[data-label]:before {
+          content: attr(data-label);
+          position: absolute;
+          bottom: 100%;
+          right: 1em;
+          padding: 0.1em 0.5em;
+          background-color: #f8f8f8;
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          border-bottom: none;
+          border-radius: 3px;
+          margin-bottom: -1px;
+          font-size: 11px;
+          }
+        </ssh-pre>
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+        <ssh-pre language="html-vue" label="HTML Vue Template">
+          &lt;div class="global-menu-btn"
+            :class="{'active': isMenuVisible}"
+            @click="isMenuVisible = !isMenuVisible"
+          &gt;&lt;span&gt;&lt;/span&gt;
+          &lt;/div&gt;
+        </ssh-pre>
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+        <highlight-code lang="javascript">
+          let str = 'Hello, World!';
+          console.log(str);
+        </highlight-code>
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+        <highlightjs
+          language="js"
+          code="console.log('Hello World');"
+        />
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+        <pre class="language-js">
+          <code>
+            export default {
+              name: 'hello'
+            }
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+<pre class="language-css">
+  <code>
+    .my-class {
+      background-color: red;
+      margin: 0;
+    }
+  </code>
+</pre>
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+<pre><code class="language-javascript">
+  // code here for example
+  function hello(){
+     console.log(Hello World)
+  }
+</code></pre>
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+<pre><code class="language-markup"><script type="prism-html-markup">
+  // code here
+ <div>Hello World</div></script>
+</code></pre>
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+<pre><code class="language-scss">
+  // code here for example
+  span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $secondary-text-color;
+    backface-visibility: hidden;
+    border-radius: 2px;
+    transition: all, .25s;
+
+    &:before, &:after  {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $secondary-text-color;
+      backface-visibility: hidden;
+      border-radius: 2px;
+      transition: all, .25s;
+    }
+
+    &:before {
+      top: 9px;
+    }
+
+    &:after {
+      top: 18px;
+    }
+  }
+</code></pre>
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+
+      </div>
+    </div>
   </div>
 </template>
 
 <script>/* eslint-disable */
+import Prism from "prismjs";
+// import "prismjs/themes/prism.css";
+import 'prismjs/components/prism-javascript'
+import 'prismjs/components/prism-markdown'
+import 'prismjs/components/prism-scss'
 
 export default {
   name: 'VuexExamples',
   components: {
 
+  },
+  mounted() {
+    window.Prism = window.Prism || {};
+    window.Prism.manual = true;
+    Prism.highlightAll(); // highlight your code on mount
   }
 }
 </script>
