@@ -9,18 +9,14 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@highlightjs/vue-plugin": "^1.0.2",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
-    "braintree-web": "^3.63.0",
     "core-js": "^3.4.3",
     "element-ui": "^2.15.3",
-    "highlight.js": "^11.1.0",
     "jquery": "^3.5.0",
     "numeral": "^2.0.6",
     "postcss-cli": "^7.1.1",
     "prismjs": "^1.24.1",
-    "simple-syntax-highlighter": "^1.4.8",
     "store": "^2.0.12",
     "swiper": "^6.5.1",
     "v-hover": "^0.2.0",

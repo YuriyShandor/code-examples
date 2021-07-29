@@ -7,333 +7,133 @@
         Single init of store, getter, setter and action.
       </div>
       <div class="code-example">
-        <div v-highlight>
-          <pre class="language-javascript">
-            <code>
-              let isPalindrome = (word) => {
-              let [length, result] = [word.length, true];
-              for (let i = 0; i &lt; length / 2; i++) {
-              if (word[i] !== word[length - 1 - i]) result = false;
-              }
-              return result;
-              }
-              module.exports = isPalindrome;
-            </code>
-          </pre>
-        </div>
+
       </div>
     </div>
     <div class="code-example-wrap">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
-        <div v-highlight>
-          <pre class="language-html">
-            <code>
-              <div class="global-menu-btn"
-                   :class="{'active': isMenuVisible}"
-                   @click="isMenuVisible = !isMenuVisible"
-              ><span></span>
-              </div>
-            </code>
-          </pre>
-        </div>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <div class="code-example">
-          <div v-highlight>
-          <pre class="language-jsx">
-            <code>
-              `<div class="global-menu-btn"
-                   :class="{'active': isMenuVisible}"
-                   @click="isMenuVisible = !isMenuVisible"
-              ><span></span>
-              </div>`
-            </code>
-          </pre>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <div class="code-example">
-          <div v-highlight>
-          <pre class="language-scss">
-            <code>
-              .global-menu-btn {
-  display: block;
-  width: 50px;
-  height: 41px;
-  padding: 10px;
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background: $secondary-bg-color;
-  border: 1px solid $secondary-text-color;
-  z-index: 1001;
-  cursor: pointer;
-  transition: all, .25s;
+      <pre><code class="language-javascript">
+        methods: {
+          sortedSubscriptionsList(statusSubscriptions) {
+            return _.orderBy(statusSubscriptions, ['with_box', 'dateCreated'], ['desc', 'desc'])
+          },
 
-  &:hover {
-    border: 1px solid $hover-text-color;
+          changeCancellationModalVisibility(value) {
+            this.isCancellationModalVisible = value
+          },
 
-    span {
-      background-color: $hover-text-color;
-
-      &:before, &:after {
-        background-color: $hover-text-color;
-      }
-    }
-  }
-
-  @media only screen and (min-width: 700px) {
-    bottom: 15px;
-    right: 15px;
-  }
-
-  @media only screen and (min-width: 1200px) {
-    bottom: 20px;
-    right: 20px;
-  }
-
-  span {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: $secondary-text-color;
-    backface-visibility: hidden;
-    border-radius: 2px;
-    transition: all, .25s;
-
-    &:before, &:after  {
-      content: '';
-      display: block;
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: $secondary-text-color;
-      backface-visibility: hidden;
-      border-radius: 2px;
-      transition: all, .25s;
-    }
-
-    &:before {
-      top: 9px;
-    }
-
-    &:after {
-      top: 18px;
-    }
-  }
-
-  &.active {
-    span {
-      background: transparent;
-
-      &:before {
-        transform: rotate(45deg) translate(-1px, 0px);
-      }
-
-      &:after {
-        transform: rotate(-45deg) translate(6px, -7px);
-      }
-    }
-  }
-}
-            </code>
-          </pre>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <ssh-pre language="js" label="Javascript">
-          const i = 3;
-          // Some more Javascript content.
-        </ssh-pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <ssh-pre language="html" label="HTML Vue Template">
-          &lt;html lang="en"&gt;
-          &lt;head&gt;
-          &lt;title&gt;Title&lt;/title&gt;
-          &lt;/head&gt;
-          &lt;body&gt;
-          Some content.
-          &lt;/body&gt;
-          &lt;/html&gt;
-        </ssh-pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <ssh-pre language="CSS" label="CSS">
-          pre.ssh-pre {
-          position: relative;
-          padding: 0.5em;
-          margin: 2.5em 0 2em;
-          border: 1px solid rgba(0, 0, 0, 0.06);
-          background-color: rgba(0, 0, 0, 0.025);
-          border-radius: 4px;
-          display: block;
-          white-space: pre-wrap;
-          word-break: break-word;
-          }
-
-          .ssh-pre[data-label]:before {
-          content: attr(data-label);
-          position: absolute;
-          bottom: 100%;
-          right: 1em;
-          padding: 0.1em 0.5em;
-          background-color: #f8f8f8;
-          border: 1px solid rgba(0, 0, 0, 0.06);
-          border-bottom: none;
-          border-radius: 3px;
-          margin-bottom: -1px;
-          font-size: 11px;
-          }
-        </ssh-pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <ssh-pre language="html-vue" label="HTML Vue Template">
-          &lt;div class="global-menu-btn"
-            :class="{'active': isMenuVisible}"
-            @click="isMenuVisible = !isMenuVisible"
-          &gt;&lt;span&gt;&lt;/span&gt;
-          &lt;/div&gt;
-        </ssh-pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <highlight-code lang="javascript">
-          let str = 'Hello, World!';
-          console.log(str);
-        </highlight-code>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <highlightjs
-          language="js"
-          code="console.log('Hello World');"
-        />
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre class="language-js">
-          <code>
-            export default {
-              name: 'hello'
+          checkIfUserDontHaveSubscriptions() {
+            if(this.subscriptionsList !== undefined && this.subscriptionsList.length === 0) {
+              this.userDontHaveSubscriptions = true
             }
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-<pre class="language-css">
-  <code>
-    .my-class {
-      background-color: red;
-      margin: 0;
-    }
-  </code>
-</pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-<pre><code class="language-javascript">
-  // code here for example
-  function hello(){
-     console.log(Hello World)
-  }
-</code></pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-<pre><code class="language-markup"><script type="prism-html-markup">
-  // code here
- <div>Hello World</div></script>
-</code></pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-<pre><code class="language-scss">
-  // code here for example
-  span {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: $secondary-text-color;
-    backface-visibility: hidden;
-    border-radius: 2px;
-    transition: all, .25s;
+          }
+        },
+        mounted() {
+          if (this.subscriptionList === undefined) {
+            this.$store.dispatch('SET_SUBSCRIPTION_LIST', ConstantService.insightlyid)
+          }
 
-    &:before, &:after  {
-      content: '';
-      display: block;
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: $secondary-text-color;
-      backface-visibility: hidden;
-      border-radius: 2px;
-      transition: all, .25s;
-    }
+          this.checkIfUserDontHaveSubscriptions()
+        }
+      </code></pre>
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+        <pre><code class="language-markup">
+          <script type="prism-html-markup">
+            <div class="manage-subscription__create-first-subscription" v-if="userDontHaveSubscriptions">
+              <img class="manage-subscription__create-first-subscription-img"
+                :src="imagePath + '/images/vue-subscription-cabinet/settings/manage-subscription-is-empty.png'" alt="">
+              <div class="manage-subscription__create-first-subscription_content-wrap">
+                <div class="manage-subscription__create-first-subscription-ttl">
+                  Get more opportunity
+                </div>
+                <router-link to="/app/purchase"
+                  class="manage-subscription__create-first-subscription-btn">
+                  Create First Subscription
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0)">
+                      <path d="M1.57031 6.78906L12.1328 6.78906" stroke="white" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"/>
+                      <path d="M6.85156 1.50586V12.0684" stroke="white" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0">
+                        <rect width="13" height="13" fill="white" transform="translate(0.234375 0.5)"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </router-link>
+              </div>
+            </div>
+          </script>
+        </code></pre>
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+      <pre><code class="language-scss">
+        // code here for example
+        span {
+          position: relative;
+          display: block;
+          width: 100%;
+          height: 2px;
+          background-color: $secondary-text-color;
+          backface-visibility: hidden;
+          border-radius: 2px;
+          transition: all, .25s;
 
-    &:before {
-      top: 9px;
-    }
+          &:before, &:after  {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: $secondary-text-color;
+            backface-visibility: hidden;
+            border-radius: 2px;
+            transition: all, .25s;
+          }
 
-    &:after {
-      top: 18px;
-    }
-  }
-</code></pre>
+          &:before {
+            top: 9px;
+          }
+
+          &:after {
+            top: 18px;
+          }
+        }
+        .manage-subscription__create-subscription {
+          height: 150px;
+          background: #F2EDE7;
+          box-shadow: 0 40px 90px rgba(179, 179, 179, 0.2);
+          border-radius: 8px;
+          position: relative;
+          overflow: hidden;
+          margin-bottom: 43px;
+          padding: 10px 20px;
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-end;
+
+          @media only screen and (min-width: 760px) {
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 30px;
+            height: 121px;
+          }
+        }
+      </code></pre>
       </div>
     </div>
     <div class="code-example-wrap">
@@ -369,9 +169,7 @@ import 'prismjs/components/prism-scss'
 
 export default {
   name: 'VuexExamples',
-  components: {
-
-  },
+  components: {},
   mounted() {
     window.Prism = window.Prism || {};
     window.Prism.manual = true;
