@@ -25,6 +25,7 @@
           },
 
           checkIfUserDontHaveSubscriptions() {
+            let hello = 'Hello World'
             if(this.subscriptionsList !== undefined && this.subscriptionsList.length === 0) {
               this.userDontHaveSubscriptions = true
             }
@@ -89,7 +90,7 @@
           height: 2px;
           background-color: $secondary-text-color;
           backface-visibility: hidden;
-          border-radius: 2px;
+          border-radius: 2px !important;
           transition: all, .25s;
 
           &:before, &:after  {
@@ -161,8 +162,7 @@
 </template>
 
 <script>/* eslint-disable */
-import Prism from "prismjs";
-// import "prismjs/themes/prism.css";
+import Prism from 'prismjs'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-markdown'
 import 'prismjs/components/prism-scss'
@@ -173,7 +173,7 @@ export default {
   mounted() {
     window.Prism = window.Prism || {};
     window.Prism.manual = true;
-    Prism.highlightAll(); // highlight your code on mount
+    Prism.highlightAll();
   }
 }
 </script>

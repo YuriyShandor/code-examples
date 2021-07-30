@@ -2,7 +2,7 @@
   <div class="global-menu-wrap">
     <div class="global-menu-btn"
       :class="{'active': isMenuVisible}"
-      @click="isMenuVisible = !isMenuVisible"
+      @click="toggleMenuVisibility"
     ><span></span>
     </div>
     <div
@@ -66,6 +66,11 @@ export default {
   },
   mounted() {
 
+  },
+  watch: {
+    $route() {
+      this.isMenuVisible = false
+    }
   }
 }
 </script>

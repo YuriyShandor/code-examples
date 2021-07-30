@@ -9,7 +9,7 @@ div pre[class*="language-"] {
 
 code[class*="language-"],
 pre[class*="language-"] {
-  color: #ABB2BF;
+  color: #fff;
   background: none;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   text-align: left;
@@ -40,7 +40,7 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
     text-shadow: none;
   }
 }
-/* Code blocks */
+
 pre[class*="language-"] {
   padding: 1em;
   margin: .5em 0;
@@ -49,14 +49,22 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #282c34;
+  background: #0C1021;
 }
 
-/* Inline code */
+
 :not(pre) > code[class*="language-"] {
   padding: .1em;
   border-radius: .3em;
   white-space: normal;
+}
+
+code[class*="language-scss"] {
+  color: #61CE3C;
+}
+
+code[class*="language-javascript"] {
+  color: #FF6400;
 }
 
 .token {
@@ -72,24 +80,43 @@ pre[class*="language-"] {
   }
 
   &.selector,
-  &.tag {
+  &.tag,
+  &.parent,
+  &.atrule {
     color: #FF6400;
   }
+  
+  &.attr-name {
+    color: #FF6400;
+  }
+  
+  &.attr-value {
+    color: #61CE3C;
+  }
+  
+  &.property {
+    color: #8DA6CE;
+  }
+  
+  &.variable {
+    color: #bf0000;
+  }
 
-  &.token.attr-name {
-    color: #d19a66;
+  &.important,
+  &.rule {
+    color: #FBDE2D;
+  }
+
+  &.important,
+  &.bold {
+    font-weight: bold;
+  }
+
+  &.atrule {
+
   }
 }
 
-
-
-
-
-
-
-
-
-.token.property,
 .token.boolean,
 .token.number,
 .token.constant,
@@ -100,7 +127,6 @@ pre[class*="language-"] {
 
 .token.string,
 .token.char,
-.token.attr-value,
 .token.builtin,
 .token.inserted {
   color: #98c379;
@@ -114,7 +140,6 @@ pre[class*="language-"] {
   color: #56b6c2;
 }
 
-.token.atrule,
 .token.keyword {
   color: #c678dd;
 }
@@ -123,15 +148,8 @@ pre[class*="language-"] {
   color: #61afef;
 }
 
-.token.regex,
-.token.important,
-.token.variable {
+.token.regex, {
   color: #c678dd;
-}
-
-.token.important,
-.token.bold {
-  font-weight: bold;
 }
 
 .token.italic {
