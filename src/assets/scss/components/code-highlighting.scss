@@ -4,7 +4,7 @@ div pre[class*="language-"] {
   padding-right: 10em;
   padding-top: 3rem;
   border-radius: 6px;
-  box-shadow: 1px 1px 15px 0 rgba(50, 50, 50, 0.75);
+  box-shadow: 1px 1px 15px 0 rgba(0, 0, 0, 0.75);
 }
 
 code[class*="language-"],
@@ -49,7 +49,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #0C1021;
+  background: #000;
 }
 
 
@@ -81,16 +81,14 @@ code[class*="language-javascript"] {
 
   &.selector,
   &.tag,
+  &.attr-name,
   &.parent,
   &.atrule {
     color: #FF6400;
   }
   
-  &.attr-name {
-    color: #FF6400;
-  }
-  
-  &.attr-value {
+  &.attr-value,
+  &.string {
     color: #61CE3C;
   }
   
@@ -103,7 +101,13 @@ code[class*="language-javascript"] {
   }
 
   &.important,
-  &.rule {
+  &.rule,
+  &.keyword,
+  &.boolean,
+  &.number,
+  &.constant,
+  &.symbol,
+  &.deleted {
     color: #FBDE2D;
   }
 
@@ -117,15 +121,6 @@ code[class*="language-javascript"] {
   }
 }
 
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  color: #000;
-}
-
-.token.string,
 .token.char,
 .token.builtin,
 .token.inserted {
@@ -138,10 +133,6 @@ code[class*="language-javascript"] {
 .language-css .token.string,
 .style .token.string {
   color: #56b6c2;
-}
-
-.token.keyword {
-  color: #c678dd;
 }
 
 .token.function {
