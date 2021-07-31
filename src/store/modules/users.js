@@ -6,7 +6,7 @@ export default {
 		usersPagesCount: undefined
 	},
 	getters: {
-		USERS: state => {
+		GET_USERS: state => {
 			return state.users
 		},
 

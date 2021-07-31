@@ -2,7 +2,7 @@
   <div class="vuex-examples">
     <h1 class="page-title">Vuex Examples</h1>
     <div class="code-example-wrap">
-      <div class="code-example__title">Single Vuex Variable Init</div>
+      <div class="code-example__title">Single Vuex Variable Using</div>
       <div class="code-example__description">
         Single init of store, getter, setter and action.
       </div>
@@ -27,6 +27,25 @@
                 SET_EXAMPLE_TEXT: (context, payload) => {
                   context.commit('SET_EXAMPLE_TEXT', payload)
                 }
+              }
+            }
+          </code>
+        </pre>
+      </div>
+      <div class="code-example__description">
+        Single using of store inside vue component
+      </div>
+      <div class="code-example">
+        <pre>
+          <code class="language-javascript">
+            computed: {
+              exampleText() {
+                return this.$store.getters.GET_EXAMPLE_TEXT
+              }
+            },
+            methods: {
+              setExampleText() {
+                this.$store.dispatch('SET_EXAMPLE_TEXT', 'Example Text')
               }
             }
           </code>
@@ -89,10 +108,26 @@ import 'prismjs/components/prism-scss'
 export default {
   name: 'VuexExamples',
   components: {},
+  computed: {
+    exampleText() {
+      return this.$store.getters.GET_EXAMPLE_TEXT
+    },
+
+    users() {
+      return this.$store.getters.GET_USERS
+    }
+  },
+  methods: {
+    setExampleText() {
+      this.$store.dispatch('SET_EXAMPLE_TEXT', 'Example Text')
+    }
+  },
   mounted() {
-    window.Prism = window.Prism || {};
-    window.Prism.manual = true;
-    Prism.highlightAll();
+    window.Prism = window.Prism || {}
+    window.Prism.manual = true
+    Prism.highlightAll()
+
+    this.$store.dispatch('SET_USERS', [1])
   }
 }
 </script>
