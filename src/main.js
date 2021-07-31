@@ -8,6 +8,11 @@ import {store} from './store'
 import VueRouter from 'vue-router'
 import router from './routes'
 Vue.use(VueRouter)
+router.afterEach((to, from) => {
+  Vue.nextTick( () => {
+    document.title = to.name ? to.name : 'Code Examples'
+  })
+})
 
 import ElementUI from 'element-ui'
 Vue.use(ElementUI)

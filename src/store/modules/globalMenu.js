@@ -13,8 +13,8 @@ export default {
             link: `/${PagesRouterHelper.constructor.VUE_EXAMPLES_PAGE_PATH}/${VueExamplesRouterHelper.constructor.VUEX_EXAMPLES_PAGE_PATH}`
           },
           {
-            title: 'SubTitle02',
-            link: ''
+            title: VueExamplesRouterHelper.constructor.AXIOS_EXAMPLES_PAGE_NAME,
+            link: `/${PagesRouterHelper.constructor.VUE_EXAMPLES_PAGE_PATH}/${VueExamplesRouterHelper.constructor.AXIOS_EXAMPLES_PAGE_PATH}`
           },
           {
             title: 'SubTitle03',

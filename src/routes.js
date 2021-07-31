@@ -8,6 +8,7 @@ import Page404 from '@/components/pages/Page404.vue'
 import SinglePage from '@/components/pages/SinglePage.vue'
 
 import VuexExamples from '@/components/vue/VuexExamples.vue'
+import AxiosExamples from '@/components/vue/AxiosExamples.vue'
 
 export default new VueRouter({
 	// mode: 'history',
@@ -32,7 +33,18 @@ export default new VueRouter({
 				{
 					name: VueExamplesRouterHelper.constructor.VUEX_EXAMPLES_PAGE_NAME,
 					path: VueExamplesRouterHelper.constructor.VUEX_EXAMPLES_PAGE_PATH,
-					component: VuexExamples
+					component: VuexExamples,
+					meta: {
+						title: VueExamplesRouterHelper.constructor.VUEX_EXAMPLES_PAGE_NAME
+					}
+				},
+				{
+					name: VueExamplesRouterHelper.constructor.AXIOS_EXAMPLES_PAGE_NAME,
+					path: VueExamplesRouterHelper.constructor.AXIOS_EXAMPLES_PAGE_PATH,
+					component: AxiosExamples,
+					meta: {
+						title: VueExamplesRouterHelper.constructor.AXIOS_EXAMPLES_PAGE_NAME
+					}
 				}
 			]
 		},

@@ -14,6 +14,13 @@ class VueExamplesRouterHelper {
 	static get VUEX_EXAMPLES_PAGE_PATH() {
 		return 'vuex'
 	}
+
+	static get AXIOS_EXAMPLES_PAGE_NAME() {
+		return 'Axios Examples'
+	}
+	static get AXIOS_EXAMPLES_PAGE_PATH() {
+		return 'axios'
+	}
 }
 
 export default new VueExamplesRouterHelper()

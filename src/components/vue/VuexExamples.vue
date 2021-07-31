@@ -87,7 +87,6 @@
                   &access-token=d9RNoCGT5ERohcjWtxkJ8qkrc3o_Ap8Q8pUr&page=${page}`)
                     .then(response => {
                       context.commit('SET_USERS', response.result)
-                      context.commit('SET_USERS_PAGES_COUNT', response['_meta'].pageCount)
                     })
                     .catch(error => {
                       console.log(error)
