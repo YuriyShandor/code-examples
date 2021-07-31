@@ -121,34 +121,6 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-
-      </div>
-    </div>
   </div>
 </template>
 

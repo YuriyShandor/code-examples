@@ -5,7 +5,35 @@
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
-
+        <pre>
+          <code class="language-javascript">
+            // code here
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+        <pre>
+          <code class="language-markup">
+            <script type="prism-html-markup">
+              // code here
+            </script>
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div class="code-example-wrap">
+      <div class="code-example__title"></div>
+      <div class="code-example__description"></div>
+      <div class="code-example">
+        <pre>
+          <code class="language-scss">
+            // code here
+          </code>
+        </pre>
       </div>
     </div>
     <div class="code-example-wrap">
@@ -47,21 +75,35 @@
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
-
+        <pre>
+          <code class="language-javascript">
+            // code here
+          </code>
+        </pre>
       </div>
     </div>
     <div class="code-example-wrap">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
-
+        <pre>
+          <code class="language-markup">
+            <script type="prism-html-markup">
+              // code here
+            </script>
+          </code>
+        </pre>
       </div>
     </div>
     <div class="code-example-wrap">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
-
+        <pre>
+          <code class="language-scss">
+            // code here
+          </code>
+        </pre>
       </div>
     </div>
   </div>
@@ -74,7 +116,7 @@ import 'prismjs/components/prism-markdown'
 import 'prismjs/components/prism-scss'
 
 export default {
-  name: 'VuexExamples',
+  name: 'PrismExamples',
   props: [],
   components: {},
   computed: {
