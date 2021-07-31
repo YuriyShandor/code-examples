@@ -30,19 +30,11 @@ export default {
   },
   computed: {
     usersList() {
-      let usersList = this.$store.getters.USERS
-      if (usersList !== undefined) {
-        return usersList
-      }
-      return undefined
+      return this.$store.getters.GET_USERS
     },
 
-    usersPageCount: function () {
-      let usersPageCount = this.$store.getters.USERS_PAGES_COUNT
-      if (usersPageCount !== undefined) {
-        return usersPageCount
-      }
-      return undefined
+    usersPageCount() {
+      return this.$store.getters.USERS_PAGES_COUNT
     },
   },
   methods: {
@@ -54,6 +46,11 @@ export default {
     setUserArticles(userId) {
       console.log(userId)
       this.$store.dispatch('SET_USER_ARTICLES', [1])
+    }
+  },
+  watch: {
+    usersList() {
+      console.log('Users list updated')
     }
   }
 }

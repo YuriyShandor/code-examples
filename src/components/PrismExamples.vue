@@ -89,7 +89,9 @@ export default {
     Prism.highlightAll()
   },
   watch: {
-
+    exampleText() {
+      console.log('Example Text Was Changed')
+    }
   }
 }
 </script>
