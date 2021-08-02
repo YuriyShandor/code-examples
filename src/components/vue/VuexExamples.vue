@@ -2,9 +2,9 @@
   <div class="vuex-examples">
     <h1 class="page-title">Vuex Examples</h1>
     <div class="code-example-wrap">
-      <div class="code-example__title">Using Simple Vuex Variable</div>
+      <div class="code-example__title">Simple Vuex Variable</div>
       <div class="code-example__description">
-        Init simple variable in vuex.
+        Init simple vuex variable.
       </div>
       <div class="code-example">
         <pre>
@@ -58,9 +58,9 @@
       </div>
     </div>
     <div class="code-example-wrap">
-      <div class="code-example__title">Using Asynchronous Vuex Variable</div>
+      <div class="code-example__title">Asynchronous Vuex Variable</div>
       <div class="code-example__description">
-        Init asynchronous variable in vuex.
+        Init asynchronous vuex variable.
       </div>
       <div class="code-example">
         <pre>
@@ -97,9 +97,6 @@
           </code>
         </pre>
       </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
       <div class="code-example__description">
         Using asynchronous vuex variable in vue component.
       </div>
