@@ -2,6 +2,26 @@
   <div class="vuex-examples">
     <h1 class="page-title">Router Examples</h1>
     <div class="code-example-wrap">
+      <div class="code-example__title">Router Init</div>
+      <div class="code-example__description">
+        Router init with dynamic page title
+      </div>
+      <div class="code-example">
+        <pre>
+          <code class="language-javascript">
+            import VueRouter from 'vue-router'
+            import router from './routes'
+            Vue.use(VueRouter)
+            router.afterEach((to, from) => {
+              Vue.nextTick( () => {
+                document.title = to.name ? to.name : 'Default Page Title'
+              })
+            })
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div class="code-example-wrap">
       <div class="code-example__title">Routes Structure</div>
       <div class="code-example__description">
         Creating routes structure in routes.js
@@ -69,17 +89,7 @@
     <div class="code-example-wrap">
       <div class="code-example__title">Using Router Inside Vue Component</div>
       <div class="code-example__description">
-        Redirect to another page in js code
-      </div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            this.$router.push(`/single-page/sub-page`)
-          </code>
-        </pre>
-      </div>
-      <div class="code-example__description">
-        Redirect to another page in html code
+        Redirect to another page
       </div>
       <div class="code-example">
         <pre>
@@ -91,19 +101,14 @@
             </script>
           </code>
         </pre>
-      </div>
-      <div class="code-example__description">
-        Redirect to previous page in js code
-      </div>
-      <div class="code-example">
         <pre>
           <code class="language-javascript">
-            this.$router.go(-1)
+            this.$router.push(`/single-page/sub-page`)
           </code>
         </pre>
       </div>
       <div class="code-example__description">
-        Redirect to previous page in html code
+        Redirect to previous page
       </div>
       <div class="code-example">
         <pre>
@@ -115,11 +120,29 @@
             </script>
           </code>
         </pre>
+        <pre>
+          <code class="language-javascript">
+            this.$router.go(-1)
+          </code>
+        </pre>
       </div>
       <div class="code-example__description">
         Get route params and queries
       </div>
       <div class="code-example">
+        <pre>
+          <code class="language-markup">
+            <script type="prism-html-markup">
+              <div v-if="$route.params.number === 3">
+                Third block
+              </div>
+
+              <div v-if="$route.query.number === 5">
+                Fifth block
+              </div>
+            </script>
+          </code>
+        </pre>
         <pre>
           <code class="language-javascript">
             this.$route.params.paramsName
@@ -127,23 +150,26 @@
           </code>
         </pre>
       </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title">Router Init</div>
       <div class="code-example__description">
-        Router init with dynamic page title
+        Use @click action on router link
       </div>
       <div class="code-example">
         <pre>
+          <code class="language-markup">
+            <script type="prism-html-markup">
+              <router-link :to="/some-page" @click.native="scrollToTop">
+                Go To Some Page
+              </router-link>
+            </script>
+          </code>
+        </pre>
+        <pre>
           <code class="language-javascript">
-            import VueRouter from 'vue-router'
-            import router from './routes'
-            Vue.use(VueRouter)
-            router.afterEach((to, from) => {
-              Vue.nextTick( () => {
-                document.title = to.name ? to.name : 'Default Page Title'
-              })
-            })
+            scrollToTop() {
+              setTimeout(() => {
+                window.scrollTo(0,0)
+              }, 1)
+            }
           </code>
         </pre>
       </div>
