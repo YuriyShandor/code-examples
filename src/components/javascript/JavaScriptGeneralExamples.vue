@@ -1,6 +1,6 @@
 <template>
   <div class="vuex-examples">
-    <h1 class="page-title">JavaScript Arrays Examples</h1>
+    <h1 class="page-title">JavaScript General Examples</h1>
     <div class="code-example-wrap">
       <div class="code-example__title">Random Elements</div>
       <div class="code-example__description">
