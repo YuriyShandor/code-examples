@@ -1,11 +1,12 @@
 import PagesRouterHelper from '@/helpers/router/pagesRouter.helper'
 import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper'
+import JavaScriptExamplesRouterHelper from '@/helpers/router/javascriptExamplesRouter.helper'
 
 export default {
   state: {
     globalMenu: [
       {
-        title: 'Vue Templates',
+        title: PagesRouterHelper.constructor.VUE_EXAMPLES_PAGE_NAME,
         link: `/${PagesRouterHelper.constructor.VUE_EXAMPLES_PAGE_PATH}`,
         subItems: [
           {
@@ -19,6 +20,20 @@ export default {
           {
             title: VueExamplesRouterHelper.constructor.AXIOS_EXAMPLES_PAGE_NAME,
             link: `/${PagesRouterHelper.constructor.VUE_EXAMPLES_PAGE_PATH}/${VueExamplesRouterHelper.constructor.AXIOS_EXAMPLES_PAGE_PATH}`
+          }
+        ]
+      },
+      {
+        title: PagesRouterHelper.constructor.JAVASCRIPT_EXAMPLES_PAGE_NAME,
+        link: `/${PagesRouterHelper.constructor.JAVASCRIPT_EXAMPLES_PAGE_PATH}`,
+        subItems: [
+          {
+            title: JavaScriptExamplesRouterHelper.constructor.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_NAME,
+            link: `/${PagesRouterHelper.constructor.JAVASCRIPT_EXAMPLES_PAGE_PATH}/${JavaScriptExamplesRouterHelper.constructor.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_PATH}`
+          },
+          {
+            title: JavaScriptExamplesRouterHelper.constructor.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_NAME,
+            link: `/${PagesRouterHelper.constructor.JAVASCRIPT_EXAMPLES_PAGE_PATH}/${JavaScriptExamplesRouterHelper.constructor.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_PATH}`
           }
         ]
       },

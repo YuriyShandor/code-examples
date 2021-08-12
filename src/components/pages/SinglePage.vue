@@ -8,7 +8,29 @@
 
 <script>
   export default {
-    name: 'SinglePage'
+    name: 'SinglePage',
+    methods: {
+      redirectToLastChild() {
+        let parentsRoutes = this.$router.options.routes
+        let childrenRoutes = undefined
+        parentsRoutes.forEach(route => {
+          if(route.name === this.$route.name) {
+            childrenRoutes = route.children
+          }
+        })
+        if(childrenRoutes !== undefined) {
+          this.$router.push(`${this.$route.fullPath}/${childrenRoutes[0].path}`)
+        }
+      }
+    },
+    mounted() {
+      this.redirectToLastChild()
+    },
+    watch: {
+      $route() {
+        this.redirectToLastChild()
+      }
+    }
   }
 </script>
 

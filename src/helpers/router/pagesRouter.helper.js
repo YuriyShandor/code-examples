@@ -9,10 +9,17 @@ class PagesRouterHelper {
 	}
 
 	static get VUE_EXAMPLES_PAGE_NAME() {
-		return 'Vue Templates Page'
+		return 'Vue Examples'
 	}
 	static get VUE_EXAMPLES_PAGE_PATH() {
 		return 'vue'
+	}
+
+	static get JAVASCRIPT_EXAMPLES_PAGE_NAME() {
+		return 'JavaScript Examples'
+	}
+	static get JAVASCRIPT_EXAMPLES_PAGE_PATH() {
+		return 'javascript'
 	}
 
 	static get UI_ELEMENTS_PAGE_NAME() {
