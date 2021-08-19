@@ -1,6 +1,7 @@
 import PagesRouterHelper from '@/helpers/router/pagesRouter.helper'
 import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper'
 import JavaScriptExamplesRouterHelper from '@/helpers/router/javascriptExamplesRouter.helper'
+import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper'
 
 export default {
   state: {
@@ -38,21 +39,13 @@ export default {
         ]
       },
       {
-        title: 'UI Elements',
+        title: PagesRouterHelper.constructor.UI_ELEMENTS_PAGE_NAME,
         link: `/${PagesRouterHelper.constructor.UI_ELEMENTS_PAGE_PATH}`,
         subItems: [
           {
-            title: 'SubTitle01',
-            link: ''
-          },
-          {
-            title: 'SubTitle02',
-            link: ''
-          },
-          {
-            title: 'SubTitle03',
-            link: ''
-          },
+            title: UIElementsRouterHelper.constructor.MODALS_EXAMPLES_PAGE_NAME,
+            link: `/${PagesRouterHelper.constructor.UI_ELEMENTS_PAGE_PATH}/${UIElementsRouterHelper.constructor.MODALS_EXAMPLES_PAGE_PATH}`
+          }
         ]
       },
       {

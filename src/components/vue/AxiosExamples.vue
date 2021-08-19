@@ -1,5 +1,5 @@
 <template>
-  <div class="vuex-examples">
+  <div class="axios-examples">
     <h1 class="page-title">Axios Examples</h1>
     <div class="code-example-wrap">
       <div class="code-example__title">Simple Axios Using</div>
@@ -11,11 +11,9 @@
           <code class="language-javascript">
             import axios from 'axios'
 
-            axios.get(`url-request`)
-              .then(response => {
+            axios.get(`url-request`).then(response => {
                 console.log(response)
-              })
-              .catch(error => {
+              }).catch(error => {
                 console.log(error)
               })
 
@@ -24,11 +22,9 @@
                 firstField: 'firstFieldValue',
                 secondField: 'secondFieldValue'
               }
-            })
-              .then(response => {
-              console.log(response)
-              })
-              .catch(e => {
+            }).then(response => {
+                console.log(response)
+              }).catch(e => {
                 this.errors.push(e)
               })
           </code>
@@ -117,23 +113,10 @@ import 'prismjs/components/prism-scss'
 
 export default {
   name: 'AxiosExamples',
-  props: [],
-  components: {},
-  computed: {
-
-  },
-  methods: {
-
-  },
   mounted() {
     window.Prism = window.Prism || {}
     window.Prism.manual = true
     Prism.highlightAll()
-  },
-  watch: {
-    exampleText() {
-      console.log('Example Text Was Changed')
-    }
   }
 }
 </script>

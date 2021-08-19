@@ -1,5 +1,5 @@
 <template>
-  <div class="vuex-examples">
+  <div class="java-script-arrays-examples">
     <h1 class="page-title">JavaScript Arrays Examples</h1>
     <div class="code-example-wrap">
       <div class="code-example__title">Arrays Methods</div>
@@ -98,135 +98,15 @@
           </code>
         </pre>
       </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
+      <div class="code-example__description">
+        The <strong>splice()</strong> method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
       </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
+            const months = ['Jan', 'March', 'April', 'May']
+            months.splice(1, 0, 'Feb')
+            console.log(months)
           </code>
         </pre>
       </div>
@@ -242,25 +122,10 @@ import 'prismjs/components/prism-scss'
 
 export default {
   name: 'JavaScriptArraysExamples',
-  props: [],
-  components: {},
-  computed: {
-
-  },
-  methods: {
-
-  },
   mounted() {
     window.Prism = window.Prism || {}
     window.Prism.manual = true
     Prism.highlightAll()
-
-    let numbers = [74, 42, 99, 3, 53, 90, -91, 85, 12, -25]
-    let numbersIncludeNumberTwo = numbers.includes(2)
-    console.log(numbersIncludeNumberTwo)
-  },
-  watch: {
-
   }
 }
 </script>

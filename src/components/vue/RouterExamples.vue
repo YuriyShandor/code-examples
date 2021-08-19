@@ -1,5 +1,5 @@
 <template>
-  <div class="vuex-examples">
+  <div class="router-examples">
     <h1 class="page-title">Router Examples</h1>
     <div class="code-example-wrap">
       <div class="code-example__title">Router Init</div>
