@@ -5,7 +5,7 @@
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example__block">
-        <SingleModal/>
+        <SimpleModal/>
       </div>
       <div class="code-example">
         <pre>
@@ -118,12 +118,12 @@ import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-markdown'
 import 'prismjs/components/prism-scss'
 
-import SingleModal from '@/components/ui-elements/modals/SingleModal.vue'
+import SimpleModal from '@/components/ui-elements/modals/SimpleModal.vue'
 
 export default {
   name: 'ModalsExamples',
   components: {
-    SingleModal
+    SimpleModal
   },
   computed: {
 

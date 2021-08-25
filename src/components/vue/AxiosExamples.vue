@@ -48,7 +48,7 @@
                 'X-Requested-With': 'XMLHttpRequest'
               },
               withCredentials: true,
-              baseURL: ConstantService.domain + '/api/v1'
+              baseURL: domain + '/api/v1'
             })
             // global request interceptor
             $axios.interceptors.request.use((config) => {
