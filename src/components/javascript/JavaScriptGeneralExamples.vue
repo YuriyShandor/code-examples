@@ -170,25 +170,12 @@
 </template>
 
 <script>/* eslint-disable */
-import Prism from 'prismjs'
-import 'prismjs/components/prism-javascript'
-import 'prismjs/components/prism-markdown'
-import 'prismjs/components/prism-scss'
+import PrismApiHelper from '@/api-helpers/prism.api-helper'
 
 export default {
   name: 'JavaScriptGeneralExamples',
-  props: [],
-  components: {},
-  computed: {
-
-  },
-  methods: {
-
-  },
   mounted() {
-    window.Prism = window.Prism || {}
-    window.Prism.manual = true
-    Prism.highlightAll()
+    PrismApiHelper.initPrism()
 
     const generateRandomInteger = (min, max) => {
       return Math.floor(min + Math.random() * (max + 1 - min))

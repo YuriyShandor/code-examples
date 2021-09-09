@@ -113,11 +113,7 @@
 </template>
 
 <script>/* eslint-disable */
-import Prism from 'prismjs'
-import 'prismjs/components/prism-javascript'
-import 'prismjs/components/prism-markdown'
-import 'prismjs/components/prism-scss'
-
+import PrismApiHelper from '@/api-helpers/prism.api-helper'
 import SimpleModal from '@/components/ui-elements/modals/SimpleModal.vue'
 
 export default {
@@ -125,19 +121,8 @@ export default {
   components: {
     SimpleModal
   },
-  computed: {
-
-  },
-  methods: {
-
-  },
   mounted() {
-    window.Prism = window.Prism || {}
-    window.Prism.manual = true
-    Prism.highlightAll()
-  },
-  watch: {
-
+    PrismApiHelper.initPrism()
   }
 }
 </script>

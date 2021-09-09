@@ -30,19 +30,12 @@ export default {
     }
   },
   computed: {
-    modalImages() {
-      PixabayApiHelper.getImages('mountains').then(({ data }) => {
-        return data
-      })
-    }
+
   },
   methods: {
     openSimpleModal() {
       this.isSimpleModalVisible = true
-      PixabayApiHelper.getImages('mountains').then(({ data }) => {
-        this.mountains = data
-        console.log(this.mountains)
-      })
+      this.mountains = PixabayApiHelper.getImages('mountains')
     },
 
     closeSimpleModal() {
@@ -50,16 +43,10 @@ export default {
     }
   },
   mounted() {
-    window.Prism = window.Prism || {}
-    window.Prism.manual = true
-    Prism.highlightAll()
-
     PixabayApiHelper.getImages('mountains').then(({ data }) => {
-      this.mountains = data
-      console.log(this.mountains)
+      console.log(data)
+      return data
     })
-
-
   },
   watch: {
 
