@@ -1,6 +1,6 @@
 import PagesRouterHelper from '@/helpers/router/pagesRouter.helper'
 import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper'
-import JavaScriptExamplesRouterHelper from '@/helpers/router/javascriptExamplesRouter.helper'
+import JavaScriptExamplesRouterHelper from '@/helpers/router/javascript-examples/javascriptExamplesRouter.helper'
 import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper'
 
 export default {
@@ -24,20 +24,7 @@ export default {
           }
         ]
       },
-      {
-        title: PagesRouterHelper.constructor.JAVASCRIPT_EXAMPLES_PAGE_NAME,
-        link: `/${PagesRouterHelper.constructor.JAVASCRIPT_EXAMPLES_PAGE_PATH}`,
-        subItems: [
-          {
-            title: JavaScriptExamplesRouterHelper.constructor.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_NAME,
-            link: `/${PagesRouterHelper.constructor.JAVASCRIPT_EXAMPLES_PAGE_PATH}/${JavaScriptExamplesRouterHelper.constructor.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_PATH}`
-          },
-          {
-            title: JavaScriptExamplesRouterHelper.constructor.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_NAME,
-            link: `/${PagesRouterHelper.constructor.JAVASCRIPT_EXAMPLES_PAGE_PATH}/${JavaScriptExamplesRouterHelper.constructor.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_PATH}`
-          }
-        ]
-      },
+      JavaScriptExamplesRouterHelper.menuItems(),
       {
         title: PagesRouterHelper.constructor.UI_ELEMENTS_PAGE_NAME,
         link: `/${PagesRouterHelper.constructor.UI_ELEMENTS_PAGE_PATH}`,

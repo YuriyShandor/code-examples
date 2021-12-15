@@ -133,10 +133,14 @@
         <pre>
           <code class="language-markup">
             <script type="prism-html-markup">
+              // path: `/single-page/sub-page/:number` (from routes path)
+              // link - http://single-page/sub-page/3
+
               <div v-if="$route.params.number === 3">
                 Third block
               </div>
 
+              // link - http://single-page/sub-page?number=3
               <div v-if="$route.query.number === 5">
                 Fifth block
               </div>

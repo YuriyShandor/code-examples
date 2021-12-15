@@ -15,13 +15,6 @@ class PagesRouterHelper {
 		return 'vue'
 	}
 
-	static get JAVASCRIPT_EXAMPLES_PAGE_NAME() {
-		return 'JavaScript Examples'
-	}
-	static get JAVASCRIPT_EXAMPLES_PAGE_PATH() {
-		return 'javascript'
-	}
-
 	static get UI_ELEMENTS_PAGE_NAME() {
 		return 'UI Elements Page'
 	}
