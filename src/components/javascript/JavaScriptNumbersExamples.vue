@@ -1,6 +1,6 @@
 <template>
   <div class="java-script-general-examples">
-    <h1 class="page-title">JavaScript General Examples</h1>
+    <h1 class="page-title">JavaScript Numbers Examples</h1>
     <div class="code-example-wrap">
       <div class="code-example__title">Random Elements</div>
       <div class="code-example__description">

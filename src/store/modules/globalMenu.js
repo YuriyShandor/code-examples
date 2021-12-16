@@ -1,40 +1,14 @@
 import PagesRouterHelper from '@/helpers/router/pagesRouter.helper'
 import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper'
-import JavaScriptExamplesRouterHelper from '@/helpers/router/javascript-examples/javascriptExamplesRouter.helper'
+import JavaScriptExamplesRouterHelper from '@/helpers/router/javascriptExamplesRouter.helper'
 import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper'
 
 export default {
   state: {
     globalMenu: [
-      {
-        title: PagesRouterHelper.constructor.VUE_EXAMPLES_PAGE_NAME,
-        link: `/${PagesRouterHelper.constructor.VUE_EXAMPLES_PAGE_PATH}`,
-        subItems: [
-          {
-            title: VueExamplesRouterHelper.constructor.VUEX_EXAMPLES_PAGE_NAME,
-            link: `/${PagesRouterHelper.constructor.VUE_EXAMPLES_PAGE_PATH}/${VueExamplesRouterHelper.constructor.VUEX_EXAMPLES_PAGE_PATH}`
-          },
-          {
-            title: VueExamplesRouterHelper.constructor.ROUTER_EXAMPLES_PAGE_NAME,
-            link: `/${PagesRouterHelper.constructor.VUE_EXAMPLES_PAGE_PATH}/${VueExamplesRouterHelper.constructor.ROUTER_EXAMPLES_PAGE_PATH}`
-          },
-          {
-            title: VueExamplesRouterHelper.constructor.AXIOS_EXAMPLES_PAGE_NAME,
-            link: `/${PagesRouterHelper.constructor.VUE_EXAMPLES_PAGE_PATH}/${VueExamplesRouterHelper.constructor.AXIOS_EXAMPLES_PAGE_PATH}`
-          }
-        ]
-      },
+      VueExamplesRouterHelper.menuItems(),
       JavaScriptExamplesRouterHelper.menuItems(),
-      {
-        title: PagesRouterHelper.constructor.UI_ELEMENTS_PAGE_NAME,
-        link: `/${PagesRouterHelper.constructor.UI_ELEMENTS_PAGE_PATH}`,
-        subItems: [
-          {
-            title: UIElementsRouterHelper.constructor.MODALS_EXAMPLES_PAGE_NAME,
-            link: `/${PagesRouterHelper.constructor.UI_ELEMENTS_PAGE_PATH}/${UIElementsRouterHelper.constructor.MODALS_EXAMPLES_PAGE_PATH}`
-          }
-        ]
-      },
+      UIElementsRouterHelper.menuItems(),
       {
         title: 'CodeWars',
         link: `/${PagesRouterHelper.constructor.CODEWARS_PAGE_PATH}`,

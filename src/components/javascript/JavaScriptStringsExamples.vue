@@ -1,6 +1,6 @@
 <template>
   <div class="java-script-general-examples">
-    <h1 class="page-title">JavaScript General Examples</h1>
+    <h1 class="page-title">JavaScript Strings Examples</h1>
     <div class="code-example-wrap">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
@@ -140,18 +140,9 @@
 import PrismApiHelper from '@/api-helpers/prism.api-helper'
 
 export default {
-  name: 'JavaScriptGeneralExamples',
+  name: 'JavaScriptStringsExamples',
   mounted() {
     PrismApiHelper.initPrism()
-
-    const generateRandomInteger = (min, max) => {
-      return Math.floor(min + Math.random() * (max + 1 - min))
-    }
-    let randomNumbers = []
-    for(let i = 0; i < 10; i++) {
-      randomNumbers.push(generateRandomInteger(-100, 100))
-    }
-    console.log(randomNumbers)
   },
   watch: {
 

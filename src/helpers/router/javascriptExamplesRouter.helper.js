@@ -4,12 +4,12 @@ import SinglePage from '@/components/pages/SinglePage'
 import JavaScriptGeneralExamples from '@/components/javascript/JavaScriptGeneralExamples'
 import JavaScriptArraysExamples from '@/components/javascript/JavaScriptArraysExamples'
 import JavaScriptNumbersExamples from '@/components/javascript/JavaScriptNumbersExamples'
+import JavaScriptStringsExamples from '@/components/javascript/JavaScriptStringsExamples'
 
 class JavaScriptExamplesRouterHelper {
   static get JAVASCRIPT_EXAMPLES_PAGE_NAME() {
     return 'JavaScript Examples'
   }
-
   static get JAVASCRIPT_EXAMPLES_PAGE_PATH() {
     return 'javascript'
   }
@@ -17,7 +17,6 @@ class JavaScriptExamplesRouterHelper {
   static get JAVASCRIPT_GENERAL_EXAMPLES_PAGE_NAME() {
     return 'General Examples'
   }
-
   static get JAVASCRIPT_GENERAL_EXAMPLES_PAGE_PATH() {
     return 'general'
   }
@@ -25,7 +24,6 @@ class JavaScriptExamplesRouterHelper {
   static get JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_NAME() {
     return 'Arrays Examples'
   }
-
   static get JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_PATH() {
     return 'arrays'
   }
@@ -33,9 +31,15 @@ class JavaScriptExamplesRouterHelper {
   static get JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_NAME() {
     return 'Numbers Examples'
   }
-
   static get JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_PATH() {
     return 'numbers'
+  }
+
+  static get JAVASCRIPT_STRINGS_EXAMPLES_PAGE_NAME() {
+    return 'Strings Examples'
+  }
+  static get JAVASCRIPT_STRINGS_EXAMPLES_PAGE_PATH() {
+    return 'strings'
   }
 
   routes() {
@@ -58,6 +62,11 @@ class JavaScriptExamplesRouterHelper {
           name: this.constructor.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_NAME,
           path: this.constructor.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_PATH,
           component: JavaScriptNumbersExamples
+        },
+        {
+          name: this.constructor.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_NAME,
+          path: this.constructor.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_PATH,
+          component: JavaScriptStringsExamples
         }
       ]
     }
@@ -79,6 +88,10 @@ class JavaScriptExamplesRouterHelper {
         {
           title: this.constructor.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_NAME,
           link: `/${this.constructor.JAVASCRIPT_EXAMPLES_PAGE_PATH}/${this.constructor.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_PATH}`
+        },
+        {
+          title: this.constructor.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_NAME,
+          link: `/${this.constructor.JAVASCRIPT_EXAMPLES_PAGE_PATH}/${this.constructor.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_PATH}`
         }
       ]
     }
