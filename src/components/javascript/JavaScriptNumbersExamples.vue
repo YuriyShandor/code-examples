@@ -1,8 +1,12 @@
 <template>
   <div class="java-script-general-examples">
-    <h1 class="page-title">JavaScript Numbers Examples</h1>
+    <h1 class="page-title">
+      JavaScript Numbers Examples
+    </h1>
     <div class="code-example-wrap">
-      <div class="code-example__title">Random Elements</div>
+      <div class="code-example__title">
+        Random Numbers
+      </div>
       <div class="code-example__description">
         Random number between two numbers
       </div>
@@ -35,12 +39,19 @@
       </div>
     </div>
     <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
+      <div class="code-example__title">
+        Rounding Numbers
+      </div>
+      <div class="code-example__description">
+        Rounding numbers to decimal places
+      </div>
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            // code here
+            const getRoundingNumbers = (number, decimalPlaces) => {
+              return +(Math.round(number + `e+${decimalPlaces}`)  + `e-${decimalPlaces}`);
+            }
+            console.log(getRoundingNumbers(0.5618744, 2))
           </code>
         </pre>
       </div>
@@ -177,14 +188,10 @@ export default {
   mounted() {
     PrismApiHelper.initPrism()
 
-    const generateRandomInteger = (min, max) => {
-      return Math.floor(min + Math.random() * (max + 1 - min))
+    const getRoundingNumbers = (number, decimalPlaces) => {
+      return +(Math.round(number + `e+${decimalPlaces}`)  + `e-${decimalPlaces}`);
     }
-    let randomNumbers = []
-    for(let i = 0; i < 10; i++) {
-      randomNumbers.push(generateRandomInteger(-100, 100))
-    }
-    console.log(randomNumbers)
+    console.log(getRoundingNumbers(2, 3))
   },
   watch: {
 

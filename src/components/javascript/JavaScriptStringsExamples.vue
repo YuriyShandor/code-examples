@@ -1,8 +1,12 @@
 <template>
   <div class="java-script-general-examples">
-    <h1 class="page-title">JavaScript Strings Examples</h1>
+    <h1 class="page-title">
+      JavaScript Strings Examples
+    </h1>
     <div class="code-example-wrap">
-      <div class="code-example__title"></div>
+      <div class="code-example__title">
+
+      </div>
       <div class="code-example__description"></div>
       <div class="code-example">
         <pre>

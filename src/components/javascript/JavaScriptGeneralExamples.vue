@@ -1,13 +1,35 @@
 <template>
   <div class="java-script-general-examples">
-    <h1 class="page-title">JavaScript General Examples</h1>
+    <h1 class="page-title">
+      JavaScript General Examples
+    </h1>
     <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
+      <div class="code-example__title">
+        Url Query Params
+      </div>
+      <div class="code-example__description">
+        Converting object with params to query string
+      </div>
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            // code here
+            let queryParamsObj = {
+              firstName: 'John',
+              lastName: 'Wick',
+              profession: 'killer'
+            }
+            const paramsToQueryString = (params) => {
+              let queryParamsString = ''
+              if (params !== undefined && Object.keys(params).length) {
+                let isFistIteration = true
+                Object.keys(params).forEach((key) => {
+                  queryParamsString += (isFistIteration ? '?' : '&') + key + '=' + params[key]
+                  isFistIteration = false
+                })
+              }
+              return queryParamsString
+            }
+            console.log(paramsToQueryString(queryParamsObj))
           </code>
         </pre>
       </div>
@@ -144,14 +166,23 @@ export default {
   mounted() {
     PrismApiHelper.initPrism()
 
-    const generateRandomInteger = (min, max) => {
-      return Math.floor(min + Math.random() * (max + 1 - min))
+    let queryParamsObj = {
+      firstName: 'John',
+      lastName: 'Wick',
+      profession: 'killer'
     }
-    let randomNumbers = []
-    for(let i = 0; i < 10; i++) {
-      randomNumbers.push(generateRandomInteger(-100, 100))
+    const paramsToQueryString = (params) => {
+      let queryParamsString = ''
+      if (params !== undefined && Object.keys(params).length) {
+        let isFistIteration = true
+        Object.keys(params).forEach((key) => {
+          queryParamsString += (isFistIteration ? '?' : '&') + key + '=' + params[key]
+          isFistIteration = false
+        })
+      }
+      return queryParamsString
     }
-    console.log(randomNumbers)
+    console.log(paramsToQueryString(queryParamsObj))
   },
   watch: {
 
