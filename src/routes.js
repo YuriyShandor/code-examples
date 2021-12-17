@@ -1,8 +1,8 @@
 import VueRouter from 'vue-router'
 
-import PagesRouterHelper from '@/helpers/router/pagesRouter.helper'
 import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper'
 import JavaScriptExamplesRouterHelper from '@/helpers/router/javaScriptExamplesRouter.helper'
+import ExternalLibrariesRouterHelper from '@/helpers/router/externalLibrariesRouter.helper'
 import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper'
 import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper'
 
@@ -13,12 +13,13 @@ export default new VueRouter({
 	// mode: 'history',
 	routes: [
 		{
-			name: PagesRouterHelper.constructor.HOME_PAGE_NAME,
+			name: 'Home Page',
 			path: '/',
 			component: HomePage
 		},
 		VueExamplesRouterHelper.routes(),
 		JavaScriptExamplesRouterHelper.routes(),
+		ExternalLibrariesRouterHelper.routes(),
 		UIElementsRouterHelper.routes(),
 		CodeWarsJavaScriptRouterHelper.routes(),
 		{

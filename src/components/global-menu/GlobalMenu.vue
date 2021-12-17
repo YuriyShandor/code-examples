@@ -41,6 +41,7 @@
 import {BadgerAccordion, BadgerAccordionItem} from 'vue-badger-accordion'
 import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper'
 import JavaScriptExamplesRouterHelper from '@/helpers/router/javaScriptExamplesRouter.helper'
+import ExternalLibrariesRouterHelper from '@/helpers/router/externalLibrariesRouter.helper'
 import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper'
 import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper'
 
@@ -63,6 +64,7 @@ export default {
       return [
         VueExamplesRouterHelper.menuItems(),
         JavaScriptExamplesRouterHelper.menuItems(),
+        ExternalLibrariesRouterHelper.menuItems(),
         UIElementsRouterHelper.menuItems(),
         CodeWarsJavaScriptRouterHelper.menuItems()
       ]
