@@ -2,14 +2,12 @@ import VueRouter from 'vue-router'
 
 import PagesRouterHelper from '@/helpers/router/pagesRouter.helper'
 import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper'
-import JavaScriptExamplesRouterHelper from '@/helpers/router/javascriptExamplesRouter.helper'
+import JavaScriptExamplesRouterHelper from '@/helpers/router/javaScriptExamplesRouter.helper'
 import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper'
+import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper'
 
 import HomePage from '@/components/pages/HomePage.vue'
 import Page404 from '@/components/pages/Page404.vue'
-import SinglePage from '@/components/pages/SinglePage.vue'
-
-import ModalsExamples from '@/components/ui-elements/ModalsExamples.vue'
 
 export default new VueRouter({
 	// mode: 'history',
@@ -22,6 +20,7 @@ export default new VueRouter({
 		VueExamplesRouterHelper.routes(),
 		JavaScriptExamplesRouterHelper.routes(),
 		UIElementsRouterHelper.routes(),
+		CodeWarsJavaScriptRouterHelper.routes(),
 		{
 			path: '*',
 			component: Page404

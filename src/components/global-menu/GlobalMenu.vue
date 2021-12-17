@@ -39,6 +39,10 @@
 
 <script>/* eslint-disable */
 import {BadgerAccordion, BadgerAccordionItem} from 'vue-badger-accordion'
+import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper'
+import JavaScriptExamplesRouterHelper from '@/helpers/router/javaScriptExamplesRouter.helper'
+import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper'
+import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper'
 
 export default {
   name: 'GlobalMenu',
@@ -56,7 +60,12 @@ export default {
   },
   computed: {
     globalMenu() {
-      return this.$store.getters.GET_GLOBAL_MENU
+      return [
+        VueExamplesRouterHelper.menuItems(),
+        JavaScriptExamplesRouterHelper.menuItems(),
+        UIElementsRouterHelper.menuItems(),
+        CodeWarsJavaScriptRouterHelper.menuItems()
+      ]
     }
   },
   methods: {
