@@ -45,7 +45,32 @@
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            // code here
+            let month_title = 'December'
+            let prev_months_qty = 7
+
+            const getPrevMonthsTitles = (month_title, prev_months_qty) => {
+              let prev_months_titles_arr = []
+              let prev_months_titles_string = ''
+              let month_number = moment().month(month_title).format('M')
+
+              for (let i = prev_months_qty; i > 0; i--) {
+                prev_months_titles_arr.push(moment(month_number).subtract(i, 'months').format('MMMM'))
+              }
+
+              prev_months_titles_arr.forEach((title, index) => {
+                if(index === 0) {
+                  prev_months_titles_string += title
+                } else if(index === prev_months_titles_arr.length - 1) {
+                  prev_months_titles_string += ` and ${title}`
+                } else {
+                  prev_months_titles_string += `, ${title}`
+                }
+              })
+
+              return prev_months_titles_string
+            }
+
+            console.log(getPrevMonthsTitles(month_title, prev_months_qty))
           </code>
         </pre>
       </div>
@@ -72,138 +97,28 @@
             let next_months_qty = 5
 
             const getNextMonthsTitles = (month_title, next_months_qty) => {
-              let nextMonthsTitlesArr = []
-              let nextMonthsTitlesString = ''
-              let current_date_day_number = moment().month(month_title).format('M')
+              let next_months_titles_arr = []
+              let next_months_titles_string = ''
+              let current_month_number = moment().month(month_title).format('M')
 
               for (let i = 1; i <= next_months_qty; i++) {
-                nextMonthsTitlesArr.push(moment(current_date_day_number).add(i, 'months').format('MMMM'))
+                next_months_titles_arr.push(moment(month_number).add(i, 'months').format('MMMM'))
               }
 
-              nextMonthsTitlesArr.forEach((monthTitle, index) => {
+              next_months_titles_arr.forEach((title, index) => {
                 if(index === 0) {
-                  nextMonthsTitlesString += monthTitle
-                } else if(index === nextMonthsTitlesArr.length - 1) {
-                  nextMonthsTitlesString += ` and ${monthTitle}`
+                  next_months_titles_string += title
+                } else if(index === next_months_titles_arr.length - 1) {
+                  next_months_titles_string += ` and ${title}`
                 } else {
-                  nextMonthsTitlesString += `, ${monthTitle}`
+                  next_months_titles_string += `, ${title}`
                 }
               })
 
-              return nextMonthsTitlesString
+              return next_months_titles_string
             }
 
             console.log(getNextMonthsTitles(month_title, next_months_qty))
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-wrap">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
           </code>
         </pre>
       </div>
@@ -231,59 +146,6 @@ export default {
   name: 'MomentExamples',
   mounted() {
     PrismApiHelper.initPrism()
-
-    let month_title = 'December'
-    let next_months_qty = 5
-
-    const getNextMonthsTitles = (month_title, next_months_qty) => {
-      let nextMonthsTitlesArr = []
-      let nextMonthsTitlesString = ''
-      let current_date_day_number = moment().month(month_title).format('M')
-
-      for (let i = 1; i <= next_months_qty; i++) {
-        nextMonthsTitlesArr.push(moment(current_date_day_number).add(i, 'months').format('MMMM'))
-      }
-
-      nextMonthsTitlesArr.forEach((monthTitle, index) => {
-        if(index === 0) {
-          nextMonthsTitlesString += monthTitle
-        } else if(index === nextMonthsTitlesArr.length - 1) {
-          nextMonthsTitlesString += ` and ${monthTitle}`
-        } else {
-          nextMonthsTitlesString += `, ${monthTitle}`
-        }
-      })
-
-      return nextMonthsTitlesString
-    }
-
-    console.log(getNextMonthsTitles(month_title, next_months_qty))
-
-    // let month_title = 'December'
-    // let previous_months_qty = 5
-    // const getPreviousMonthsTitles = (month_title, previous_months_qty) => {
-    //   let previousMonthsTitlesArr = []
-    //   let previousMonthsTitlesString = ''
-    //   let current_date_day_number = moment().month(month_title).format('M')
-    //
-    //   for (let i = 1; i <= previous_months_qty; i++) {
-    //     previousMonthsTitlesArr.push(moment(current_date_day_number).add(i, 'months').format('MMMM'))
-    //   }
-    //
-    //   previousMonthsTitlesArr.forEach((monthTitle, index) => {
-    //     if(index === 0) {
-    //       previousMonthsTitlesString += monthTitle
-    //     } else if(index === previousMonthsTitlesArr.length - 1) {
-    //       previousMonthsTitlesString += ` and ${monthTitle}`
-    //     } else {
-    //       previousMonthsTitlesString += `, ${monthTitle}`
-    //     }
-    //   })
-    //
-    //   return previousMonthsTitlesString
-    // }
-    //
-    // console.log(getPreviousMonthsTitles(month_title, previous_months_qty))
   },
   watch: {
 
