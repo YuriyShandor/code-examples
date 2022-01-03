@@ -1,9 +1,7 @@
 <template>
-  <div class="java-script-general-examples">
-    <h1 class="page-title">
-      Swiper Examples
-    </h1>
-    <SlidesPerView/>
+  <div class="modals-examples">
+    <h1 class="page-title">Modals Examples</h1>
+    <SimpleModal/>
     <div class="code-example-wrap">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
@@ -19,12 +17,18 @@
 </template>
 
 <script>/* eslint-disable */
-import SlidesPerView from '@/components/external-libraries/swiper/SlidesPerView';
+import SimpleModal from '@/components/ui-elements/modals/SimpleModal.vue'
 
 export default {
-  name: 'SwiperExamples',
+  name: 'ModalsExamples',
   components: {
-    SlidesPerView
+    SimpleModal
+  },
+  mounted() {
   }
 }
 </script>
+
+<style scoped lang="scss">
+
+</style>

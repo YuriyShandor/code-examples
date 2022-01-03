@@ -1,7 +1,7 @@
 /* eslint-disable */
 import SinglePage from '@/components/pages/SinglePage'
 
-import ModalsExamples from '@/components/ui-elements/ModalsExamples'
+import ModalsExamples from '@/components/ui-elements/modals/ModalsExamples'
 
 class UIElementsRouterHelper {
 	static get UI_ELEMENTS_PAGE_NAME() {

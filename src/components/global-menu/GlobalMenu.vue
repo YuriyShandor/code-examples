@@ -44,6 +44,7 @@ import JavaScriptExamplesRouterHelper from '@/helpers/router/javaScriptExamplesR
 import ExternalLibrariesRouterHelper from '@/helpers/router/externalLibrariesRouter.helper'
 import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper'
 import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper'
+import ScrollHelper from '@/helpers/scroll.helper';
 
 export default {
   name: 'GlobalMenu',
@@ -73,6 +74,7 @@ export default {
   methods: {
     toggleMenuVisibility() {
       this.isMenuVisible = !this.isMenuVisible
+      this.isMenuVisible ? ScrollHelper.disableScroll() : ScrollHelper.enableScroll()
     }
   },
   mounted() {
