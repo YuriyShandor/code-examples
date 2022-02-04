@@ -1,7 +1,7 @@
 <template>
   <div class="code-example-wrap">
     <div class="code-example__title">
-      Simple Modal
+      Simple Modal With vue100vh Plugin
     </div>
     <div class="code-example__description">
       Simple modal with vue100vh plugin for maximum adaptability on all devices
@@ -11,7 +11,7 @@
         <div class="button" @click="openSimpleModal">
           Open Modal
         </div>
-        <div class="simple-modal-wrap" v-if="isSimpleModalVisible">
+        <div class="simple-modal-wrap" :class="{'visible': isSimpleModalVisible}">
           <div class="simple-modal__overlay" @click="closeSimpleModal"></div>
           <vue100vh
             class="simple-modal"
@@ -24,7 +24,7 @@
             </div>
             <div class="simple-modal__content">
               <img
-                v-for="image in rivers_images"
+                v-for="image in riversImages"
                 :src="image.largeImageURL" :key="image.id"
                 alt="" class="simple-modal__image">
             </div>
@@ -53,7 +53,7 @@
                   </div>
                   <div class="simple-modal__content">
                     <img
-                      v-for="image in rivers_images"
+                      v-for="image in riversImages"
                       :src="image.largeImageURL" :key="image.id"
                       alt="" class="simple-modal__image">
                   </div>
@@ -75,7 +75,7 @@
               data() {
                 return {
                   isSimpleModalVisible: false,
-                  rivers_images: []
+                  riversImages: []
                 }
               },
               methods: {
@@ -93,7 +93,7 @@
                 PixabayApiHelper.getImages('rivers', 10).then(({ data }) => {
                   if(data.hits.length > 0) {
                     data.hits.forEach(image => {
-                      this.rivers_images.push(image)
+                      this.riversImages.push(image)
                     })
                   }
                 })
@@ -217,14 +217,14 @@ import vue100vh from 'vue-100vh'
 import ScrollHelper from '@/helpers/scroll.helper'
 
 export default {
-  name: 'SimpleModal',
+  name: 'SimpleModalWith100vhPlugin',
   components: {
     vue100vh
   },
   data() {
     return {
       isSimpleModalVisible: false,
-      rivers_images: []
+      riversImages: []
     }
   },
   methods: {
@@ -242,7 +242,7 @@ export default {
     PixabayApiHelper.getImages('rivers', 10).then(({ data }) => {
       if(data.hits.length > 0) {
         data.hits.forEach(image => {
-          this.rivers_images.push(image)
+          this.riversImages.push(image)
         })
       }
     })
@@ -267,7 +267,15 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-tap-highlight-color: transparent;
   transition: all, .25s;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 .simple-modal__overlay {
@@ -276,8 +284,8 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  background: #413030;
-  opacity: 0.3;
+  background: #000;
+  opacity: 0.85;
 }
 
 .simple-modal {
@@ -288,7 +296,6 @@ export default {
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  box-shadow: 0 40px 90px rgba(179, 179, 179, 0.2);
   border-radius: 20px;
   overflow: hidden;
 }

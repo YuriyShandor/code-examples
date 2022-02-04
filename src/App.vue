@@ -15,7 +15,16 @@ export default {
     GlobalMenu
   },
   mounted() {
-    PrismApiHelper.initPrism()
+    setTimeout(() => {
+      PrismApiHelper.initPrism()
+    }, 1)
+  },
+  watch: {
+    $route() {
+      setTimeout(() => {
+        PrismApiHelper.initPrism()
+      }, 1)
+    }
   }
 }
 </script>
