@@ -267,10 +267,16 @@ export default {
   justify-content: center;
   opacity: 0;
   pointer-events: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all, .25s;
 
   &.visible {
     opacity: 1;
     pointer-events: auto;
+
+    .simple-modal {
+      transform: translateX(0);
+    }
   }
 }
 
@@ -280,8 +286,10 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  background: #000;
   opacity: 0.85;
+  background-color: rgba(255, 255, 255, .5);
+  -webkit-backdrop-filter: blur(2em);
+  backdrop-filter: blur(2em);
 }
 
 .simple-modal {
@@ -295,6 +303,9 @@ export default {
   background: #FFFFFF;
   border-radius: 20px;
   overflow: hidden;
+  transform: translateX(100vw);
+  -webkit-tap-highlight-color: transparent;
+  transition: all, .5s;
 }
 
 .simple-modal__close-button {

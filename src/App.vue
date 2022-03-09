@@ -17,13 +17,13 @@ export default {
   mounted() {
     setTimeout(() => {
       PrismApiHelper.initPrism()
-    }, 1)
+    }, 100)
   },
   watch: {
     $route() {
       setTimeout(() => {
         PrismApiHelper.initPrism()
-      }, 1)
+      }, 100)
     }
   }
 }

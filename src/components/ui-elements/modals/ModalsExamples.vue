@@ -1,7 +1,7 @@
 <template>
   <div class="modals-examples">
     <h1 class="page-title">Modals Examples</h1>
-    <SimpleModalWith100vhPlugin/>
+<!--    <SimpleModalWith100vhPlugin/>-->
     <SimpleModalWithAnimation/>
     <div class="code-example-wrap">
       <div class="code-example__title"></div>

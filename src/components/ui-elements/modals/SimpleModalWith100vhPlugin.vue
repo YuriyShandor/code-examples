@@ -117,7 +117,13 @@
               display: flex;
               align-items: center;
               justify-content: center;
-              transition: all, .25s;
+              opacity: 0;
+              pointer-events: none;
+
+              &.visible {
+                opacity: 1;
+                pointer-events: auto;
+              }
             }
 
             .simple-modal__overlay {
@@ -126,8 +132,8 @@
               right: 0;
               bottom: 0;
               left: 0;
-              background: #413030;
-              opacity: 0.3;
+              background: #000;
+              opacity: 0.85;
             }
 
             .simple-modal {
@@ -138,7 +144,6 @@
               position: relative;
               z-index: 1;
               background: #FFFFFF;
-              box-shadow: 0 40px 90px rgba(179, 179, 179, 0.2);
               border-radius: 20px;
               overflow: hidden;
             }
@@ -208,7 +213,6 @@
         </pre>
     </div>
   </div>
-
 </template>
 
 <script>/* eslint-disable */
@@ -230,7 +234,7 @@ export default {
   methods: {
     openSimpleModal() {
       this.isSimpleModalVisible = true
-      ScrollHelper.disableScroll()
+      ScrollHelper.disableScroll('.simple-modal__image')
     },
 
     closeSimpleModal() {
@@ -269,8 +273,6 @@ export default {
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: all, .25s;
 
   &.visible {
     opacity: 1;

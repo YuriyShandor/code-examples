@@ -3,10 +3,14 @@ const body = document.querySelector('body')
 const header = document.querySelector('.header')
 
 class ScrollHelper {
-	disableScroll() {
+	moseWeeHandler(e) {
+
+	}
+
+	disableScroll(exceptClass = '') {
 		let scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
 		scrollYPosition = window.pageYOffset
-		body.style.overflow = 'hidden'
+		body.style.overflowY = 'hidden'
 		body.style.position = 'fixed'
 		body.style.top = `-${scrollYPosition}px`
 		body.style.width = '100%'
