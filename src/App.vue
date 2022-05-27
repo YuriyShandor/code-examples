@@ -1,34 +1,35 @@
 <template>
-  <div id="app">
-    <GlobalMenu/>
-    <router-view/>
-  </div>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link> |
+    <router-link to="/superhero">Super Heroes</router-link>
+  </nav>
+  <router-view/>
 </template>
 
-<script>
-import GlobalMenu from '@/components/global-menu/GlobalMenu.vue'
-import PrismApiHelper from '@/api-helpers/prism.api-helper'
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
-export default {
-  name: 'App',
-  components: {
-    GlobalMenu
-  },
-  mounted() {
-    setTimeout(() => {
-      PrismApiHelper.initPrism()
-    }, 100)
-  },
-  watch: {
-    $route() {
-      setTimeout(() => {
-        PrismApiHelper.initPrism()
-      }, 100)
+nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
     }
   }
 }
-</script>
 
-<style lang="scss" scoped>
-
+* {
+  box-sizing: border-box;
+}
 </style>

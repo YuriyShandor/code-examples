@@ -16,11 +16,11 @@
       >
         <badger-accordion class="global-menu-accordion" :options="globalMenuAccordionOptions">
           <badger-accordion-item v-for="item in globalMenu" :key="item.title">
-            <template slot="header">
+            <template v-slot:header>
               <div class="global-menu__item">{{ item.title }}</div>
               <div class="global-menu__item-arrow"></div>
             </template>
-            <template slot="content">
+            <template v-slot:content>
               <router-link
                 class="global-menu__sub-item"
                 v-for="subItem in item.subItems"

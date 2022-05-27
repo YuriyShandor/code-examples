@@ -52,32 +52,32 @@ export default {
   data() {
     return {
       isMenuVisible: false,
-      scrollbarWidth: 16
-    }
+      scrollbarWidth: 16,
+    };
   },
   methods: {
     toggleMenu() {
-      this.isMenuVisible = !this.isMenuVisible
-      this.scrollbarWidth = window.innerWidth - document.body.clientWidth
-      document.body.style.overflow = this.isMenuVisible ? 'hidden' : ''
-      document.body.style.marginRight = this.isMenuVisible ? `${this.scrollbarWidth}px` : ''
-    }
+      this.isMenuVisible = !this.isMenuVisible;
+      this.scrollbarWidth = window.innerWidth - document.body.clientWidth;
+      document.body.style.overflow = this.isMenuVisible ? 'hidden' : '';
+      document.body.style.marginRight = this.isMenuVisible ? `${this.scrollbarWidth}px` : '';
+    },
   },
   mounted() {
-    let header = document.querySelector('.global-menu');
+    const header = document.querySelector('.global-menu');
 
-    window.addEventListener('scroll', function(){
-      let scrollPos = window.scrollY;
-      let winHeight = window.innerHeight;
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY;
+      const winHeight = window.innerHeight;
 
       if (scrollPos >= winHeight - 65) {
         header.classList.add('scroll');
       } else {
         header.classList.remove('scroll');
       }
-    })
-  }
-}
+    });
+  },
+};
 </script>
 
 <style scoped lang="scss">

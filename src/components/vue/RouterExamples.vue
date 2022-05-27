@@ -24,7 +24,7 @@
     <div class="code-example-wrap">
       <div class="code-example__title">Routes Structure</div>
       <div class="code-example__description">
-        Creating routes structure in routes.js
+        Creating routes structure in
       </div>
       <div class="code-example">
         <pre>

@@ -40,87 +40,87 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import Slick from 'vue-slick'
+import axios from 'axios';
+import Slick from 'vue-slick';
 
-  export default {
-    components: {
-      Slick
-    },
-    name: 'EmptyComponent',
-    data() {
-      return {
-        images: undefined,
-        sliderOptions: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: true,
-          prevArrow: '.slider__nav_prev',
-          nextArrow: '.slider__nav_next',
-          mobileFirst: true,
-          dots: true,
-          dotsClass: 'slider-dots',
-          autoplay: false,
-          autoplaySpeed: 5000,
-          speed: 750
-        },
-        currentSliderSlide: 1,
-        totalSliderSlides: 0
-      }
-    },
-    computed: {
-      sliderImages() {
-        if (this.images !== undefined) {
-          this.reInit()
-          return this.images
-        }
-        return undefined
-      }
-    },
-    beforeUpdate() {
-      // if (this.$refs.slick) {
-      //   this.$refs.slick.destroy()
-      // }
-    },
-    updated() {
-      // this.$nextTick(() => {
-      //   if (this.$refs.slick) {
-      //     this.$refs.slick.create(this.sliderOptions)
-      //   }
-      // })
-    },
-    methods: {
-      reInit() {
-        let currIndex = this.$refs.slick.currentSlide()
-        this.$refs.slick.destroy()
-        this.$nextTick(() => {
-          this.$refs.slick.create()
-          this.$refs.slick.goTo(currIndex, true)
-        })
+export default {
+  components: {
+    Slick,
+  },
+  name: 'EmptyComponent',
+  data() {
+    return {
+      images: undefined,
+      sliderOptions: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow: '.slider__nav_prev',
+        nextArrow: '.slider__nav_next',
+        mobileFirst: true,
+        dots: true,
+        dotsClass: 'slider-dots',
+        autoplay: false,
+        autoplaySpeed: 5000,
+        speed: 750,
       },
-
-      handleInit(event, slick) {
-        this.totalSliderSlides = slick.slideCount
-      },
-
-      handleAfterChange(event, slick, currentSlide) {
-        this.currentSliderSlide = currentSlide + 1
+      currentSliderSlide: 1,
+      totalSliderSlides: 0,
+    };
+  },
+  computed: {
+    sliderImages() {
+      if (this.images !== undefined) {
+        this.reInit();
+        return this.images;
       }
+      return undefined;
     },
-    mounted() {
-      axios.get('https://pixabay.com/api/' +
-        '?key=17459503-b53b6c0cdbd4d3bcd974119dc' +
-        '&q=gothic+darkness+black' +
-        '&image_type=photo' +
-        '&orientation=horizontal')
-        .then(response => {
-          this.images = response.data.hits
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    }
-  }
+  },
+  beforeUpdate() {
+    // if (this.$refs.slick) {
+    //   this.$refs.slick.destroy()
+    // }
+  },
+  updated() {
+    // this.$nextTick(() => {
+    //   if (this.$refs.slick) {
+    //     this.$refs.slick.create(this.sliderOptions)
+    //   }
+    // })
+  },
+  methods: {
+    reInit() {
+      const currIndex = this.$refs.slick.currentSlide();
+      this.$refs.slick.destroy();
+      this.$nextTick(() => {
+        this.$refs.slick.create();
+        this.$refs.slick.goTo(currIndex, true);
+      });
+    },
+
+    handleInit(event, slick) {
+      this.totalSliderSlides = slick.slideCount;
+    },
+
+    handleAfterChange(event, slick, currentSlide) {
+      this.currentSliderSlide = currentSlide + 1;
+    },
+  },
+  mounted() {
+    axios.get('https://pixabay.com/api/'
+        + '?key=17459503-b53b6c0cdbd4d3bcd974119dc'
+        + '&q=gothic+darkness+black'
+        + '&image_type=photo'
+        + '&orientation=horizontal')
+      .then((response) => {
+        this.images = response.data.hits;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+};
 </script>
 
 <style lang="scss">

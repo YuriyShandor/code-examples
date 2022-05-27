@@ -7,31 +7,31 @@
 </template>
 
 <script>
-  export default {
-    name: 'SinglePage',
-    methods: {
-      redirectToLastChild() {
-        let parentsRoutes = this.$router.options.routes
-        let childrenRoutes = undefined
-        parentsRoutes.forEach(route => {
-          if(route.name === this.$route.name) {
-            childrenRoutes = route.children
-          }
-        })
-        if(childrenRoutes !== undefined) {
-          this.$router.push(`${this.$route.fullPath}/${childrenRoutes[0].path}`)
+export default {
+  name: 'SinglePage',
+  methods: {
+    redirectToLastChild() {
+      const parentsRoutes = this.$router.options.routes;
+      let childrenRoutes;
+      parentsRoutes.forEach((route) => {
+        if (route.name === this.$route.name) {
+          childrenRoutes = route.children;
         }
+      });
+      if (childrenRoutes !== undefined) {
+        this.$router.push(`${this.$route.fullPath}/${childrenRoutes[0].path}`);
       }
     },
-    mounted() {
-      this.redirectToLastChild()
+  },
+  mounted() {
+    this.redirectToLastChild();
+  },
+  watch: {
+    $route() {
+      this.redirectToLastChild();
     },
-    watch: {
-      $route() {
-        this.redirectToLastChild()
-      }
-    }
-  }
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -40,11 +40,11 @@
   display: flex;
   align-items: flex-start;
   padding: 20px 0;
-  
+
   @media only screen and (min-width: 700px) {
     padding: 20px 0;
   }
-  
+
   @media only screen and (min-width: 1200px) {
     padding: 50px 0;
   }
