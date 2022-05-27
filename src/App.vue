@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-
-
-    new
     <GlobalMenu/>
     <router-view/>
   </div>
