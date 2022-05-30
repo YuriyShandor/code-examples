@@ -7,6 +7,7 @@ import {store} from './store'
 
 import VueRouter from 'vue-router'
 import router from './routes'
+
 Vue.use(VueRouter)
 router.afterEach((to, from) => {
   Vue.nextTick( () => {
