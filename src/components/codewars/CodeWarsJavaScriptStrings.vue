@@ -137,12 +137,12 @@
 </template>
 
 <script>/* eslint-disable */
-import PrismApiHelper from '@/api-helpers/prism.api-helper'
+// import PrismApiHelper from '@/api-helpers/prism.api-helper'
 
 export default {
   name: 'CodeWarsJavaScriptStrings',
   mounted() {
-    PrismApiHelper.initPrism()
+    // PrismApiHelper.initPrism()
   },
   watch: {
 

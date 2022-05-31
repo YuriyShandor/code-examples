@@ -63,20 +63,20 @@ class VueExamplesRouterHelper {
 
   menuItems() {
     return {
-      title: VueExamplesRouterHelper.VUE_EXAMPLES_PAGE_NAME,
-      link: `/${VueExamplesRouterHelper.VUE_EXAMPLES_PAGE_PATH}`,
+      title: VueExamplesRouterHelper.VUE_EXAMPLES_PAGE_NAME(),
+      link: `/${VueExamplesRouterHelper.VUE_EXAMPLES_PAGE_PATH()}`,
       subItems: [
         {
-          title: VueExamplesRouterHelper.VUEX_EXAMPLES_PAGE_NAME,
-          link: `/${VueExamplesRouterHelper.VUE_EXAMPLES_PAGE_PATH}/${VueExamplesRouterHelper.VUEX_EXAMPLES_PAGE_PATH}`,
+          title: VueExamplesRouterHelper.VUEX_EXAMPLES_PAGE_NAME(),
+          link: `/${VueExamplesRouterHelper.VUE_EXAMPLES_PAGE_PATH()}/${VueExamplesRouterHelper.VUEX_EXAMPLES_PAGE_PATH()}`,
         },
         {
-          title: VueExamplesRouterHelper.ROUTER_EXAMPLES_PAGE_NAME,
-          link: `/${VueExamplesRouterHelper.VUE_EXAMPLES_PAGE_PATH}/${VueExamplesRouterHelper.ROUTER_EXAMPLES_PAGE_PATH}`,
+          title: VueExamplesRouterHelper.ROUTER_EXAMPLES_PAGE_NAME(),
+          link: `/${VueExamplesRouterHelper.VUE_EXAMPLES_PAGE_PATH()}/${VueExamplesRouterHelper.ROUTER_EXAMPLES_PAGE_PATH()}`,
         },
         {
-          title: VueExamplesRouterHelper.AXIOS_EXAMPLES_PAGE_NAME,
-          link: `/${VueExamplesRouterHelper.VUE_EXAMPLES_PAGE_PATH}/${VueExamplesRouterHelper.AXIOS_EXAMPLES_PAGE_PATH}`,
+          title: VueExamplesRouterHelper.AXIOS_EXAMPLES_PAGE_NAME(),
+          link: `/${VueExamplesRouterHelper.VUE_EXAMPLES_PAGE_PATH()}/${VueExamplesRouterHelper.AXIOS_EXAMPLES_PAGE_PATH()}`,
         },
       ],
     };

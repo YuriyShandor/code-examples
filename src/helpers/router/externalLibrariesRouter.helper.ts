@@ -30,18 +30,18 @@ class ExternalLibrariesRouterHelper {
 
   routes() {
     return {
-      name: ExternalLibrariesRouterHelper.EXTERNAL_LIBRARIES_PAGE_NAME,
-      path: `/${ExternalLibrariesRouterHelper.EXTERNAL_LIBRARIES_PAGE_PATH}`,
+      name: ExternalLibrariesRouterHelper.EXTERNAL_LIBRARIES_PAGE_NAME(),
+      path: `/${ExternalLibrariesRouterHelper.EXTERNAL_LIBRARIES_PAGE_PATH()}`,
       component: SinglePage,
       children: [
         {
-          name: ExternalLibrariesRouterHelper.SWIPER_EXAMPLES_PAGE_NAME,
-          path: ExternalLibrariesRouterHelper.SWIPER_EXAMPLES_PAGE_PATH,
+          name: ExternalLibrariesRouterHelper.SWIPER_EXAMPLES_PAGE_NAME(),
+          path: ExternalLibrariesRouterHelper.SWIPER_EXAMPLES_PAGE_PATH(),
           component: SwiperExamples,
         },
         {
-          name: ExternalLibrariesRouterHelper.MOMENT_EXAMPLES_PAGE_NAME,
-          path: ExternalLibrariesRouterHelper.MOMENT_EXAMPLES_PAGE_PATH,
+          name: ExternalLibrariesRouterHelper.MOMENT_EXAMPLES_PAGE_NAME(),
+          path: ExternalLibrariesRouterHelper.MOMENT_EXAMPLES_PAGE_PATH(),
           component: MomentExamples,
         },
       ],
@@ -50,16 +50,16 @@ class ExternalLibrariesRouterHelper {
 
   menuItems() {
     return {
-      title: ExternalLibrariesRouterHelper.EXTERNAL_LIBRARIES_PAGE_NAME,
-      link: `/${ExternalLibrariesRouterHelper.EXTERNAL_LIBRARIES_PAGE_PATH}`,
+      title: ExternalLibrariesRouterHelper.EXTERNAL_LIBRARIES_PAGE_NAME(),
+      link: `/${ExternalLibrariesRouterHelper.EXTERNAL_LIBRARIES_PAGE_PATH()}`,
       subItems: [
         {
-          title: ExternalLibrariesRouterHelper.SWIPER_EXAMPLES_PAGE_NAME,
-          link: `/${ExternalLibrariesRouterHelper.EXTERNAL_LIBRARIES_PAGE_PATH}/${ExternalLibrariesRouterHelper.SWIPER_EXAMPLES_PAGE_PATH}`,
+          title: ExternalLibrariesRouterHelper.SWIPER_EXAMPLES_PAGE_NAME(),
+          link: `/${ExternalLibrariesRouterHelper.EXTERNAL_LIBRARIES_PAGE_PATH()}/${ExternalLibrariesRouterHelper.SWIPER_EXAMPLES_PAGE_PATH()}`,
         },
         {
-          title: ExternalLibrariesRouterHelper.MOMENT_EXAMPLES_PAGE_NAME,
-          link: `/${ExternalLibrariesRouterHelper.EXTERNAL_LIBRARIES_PAGE_PATH}/${ExternalLibrariesRouterHelper.MOMENT_EXAMPLES_PAGE_PATH}`,
+          title: ExternalLibrariesRouterHelper.MOMENT_EXAMPLES_PAGE_NAME(),
+          link: `/${ExternalLibrariesRouterHelper.EXTERNAL_LIBRARIES_PAGE_PATH()}/${ExternalLibrariesRouterHelper.MOMENT_EXAMPLES_PAGE_PATH()}`,
         },
       ],
     };

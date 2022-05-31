@@ -1,81 +1,81 @@
 <template>
   <div class="single-slider-wrap">
-    <slick
-      class="single-slider"
-      ref="slick"
-      :options="sliderOptions"
-      @init="handleInit"
-      @afterChange="handleAfterChange"
-    >
-      <div
-        class="single-slide"
-        v-for="slide in sliderImages"
-        :key="slide.id"
-      >
-        <div class="single-slide-inner">
-          <img
-            :src="slide.largeImageURL"
-            alt=""
-            class="slide-image"
-          >
-        </div>
-      </div>
-    </slick>
-    <div class="slider__nav slider__nav_prev">
-      <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7.63672 12.605L1.91531 7.04576L7.63672 1.48654" stroke="#FF9993" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <div class="slider__nav slider__nav_next">
-      <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1.90234 1.48682L7.62375 7.04604L1.90234 12.6053" stroke="#FF9993" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <div class="slider-count">
-      <span class="slider-count__current">{{ currentSliderSlide }}</span>
-      <span>of</span>
-      <span class="slider-count__total">{{ totalSliderSlides }}</span>
-    </div>
+<!--    <slick-->
+<!--      class="single-slider"-->
+<!--      ref="slick"-->
+<!--      :options="sliderOptions"-->
+<!--      @init="handleInit"-->
+<!--      @afterChange="handleAfterChange"-->
+<!--    >-->
+<!--      <div-->
+<!--        class="single-slide"-->
+<!--        v-for="slide in sliderImages"-->
+<!--        :key="slide.id"-->
+<!--      >-->
+<!--        <div class="single-slide-inner">-->
+<!--          <img-->
+<!--            :src="slide.largeImageURL"-->
+<!--            alt=""-->
+<!--            class="slide-image"-->
+<!--          >-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </slick>-->
+<!--    <div class="slider__nav slider__nav_prev">-->
+<!--      <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--        <path d="M7.63672 12.605L1.91531 7.04576L7.63672 1.48654" stroke="#FF9993" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>-->
+<!--      </svg>-->
+<!--    </div>-->
+<!--    <div class="slider__nav slider__nav_next">-->
+<!--      <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--        <path d="M1.90234 1.48682L7.62375 7.04604L1.90234 12.6053" stroke="#FF9993" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>-->
+<!--      </svg>-->
+<!--    </div>-->
+<!--    <div class="slider-count">-->
+<!--      <span class="slider-count__current">{{ currentSliderSlide }}</span>-->
+<!--      <span>of</span>-->
+<!--      <span class="slider-count__total">{{ totalSliderSlides }}</span>-->
+<!--    </div>-->
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import Slick from 'vue-slick';
+// import axios from 'axios';
+// import Slick from 'vue-slick';
 
 export default {
   components: {
-    Slick,
+    // Slick,
   },
   name: 'EmptyComponent',
   data() {
     return {
-      images: undefined,
-      sliderOptions: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        prevArrow: '.slider__nav_prev',
-        nextArrow: '.slider__nav_next',
-        mobileFirst: true,
-        dots: true,
-        dotsClass: 'slider-dots',
-        autoplay: false,
-        autoplaySpeed: 5000,
-        speed: 750,
-      },
-      currentSliderSlide: 1,
-      totalSliderSlides: 0,
+      // images: undefined,
+      // sliderOptions: {
+      //   slidesToShow: 1,
+      //   slidesToScroll: 1,
+      //   arrows: true,
+      //   prevArrow: '.slider__nav_prev',
+      //   nextArrow: '.slider__nav_next',
+      //   mobileFirst: true,
+      //   dots: true,
+      //   dotsClass: 'slider-dots',
+      //   autoplay: false,
+      //   autoplaySpeed: 5000,
+      //   speed: 750,
+      // },
+      // currentSliderSlide: 1,
+      // totalSliderSlides: 0,
     };
   },
   computed: {
-    sliderImages() {
-      if (this.images !== undefined) {
-        this.reInit();
-        return this.images;
-      }
-      return undefined;
-    },
+    // sliderImages() {
+    //   if (this.images !== undefined) {
+    //     this.reInit();
+    //     return this.images;
+    //   }
+    //   return undefined;
+    // },
   },
   beforeUpdate() {
     // if (this.$refs.slick) {
@@ -90,35 +90,35 @@ export default {
     // })
   },
   methods: {
-    reInit() {
-      const currIndex = this.$refs.slick.currentSlide();
-      this.$refs.slick.destroy();
-      this.$nextTick(() => {
-        this.$refs.slick.create();
-        this.$refs.slick.goTo(currIndex, true);
-      });
-    },
-
-    handleInit(event, slick) {
-      this.totalSliderSlides = slick.slideCount;
-    },
-
-    handleAfterChange(event, slick, currentSlide) {
-      this.currentSliderSlide = currentSlide + 1;
-    },
+    // reInit() {
+    //   const currIndex = this.$refs.slick.currentSlide();
+    //   this.$refs.slick.destroy();
+    //   this.$nextTick(() => {
+    //     this.$refs.slick.create();
+    //     this.$refs.slick.goTo(currIndex, true);
+    //   });
+    // },
+    //
+    // handleInit(event, slick) {
+    //   this.totalSliderSlides = slick.slideCount;
+    // },
+    //
+    // handleAfterChange(event, slick, currentSlide) {
+    //   this.currentSliderSlide = currentSlide + 1;
+    // },
   },
   mounted() {
-    axios.get('https://pixabay.com/api/'
-        + '?key=17459503-b53b6c0cdbd4d3bcd974119dc'
-        + '&q=gothic+darkness+black'
-        + '&image_type=photo'
-        + '&orientation=horizontal')
-      .then((response) => {
-        this.images = response.data.hits;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // axios.get('https://pixabay.com/api/'
+    //     + '?key=17459503-b53b6c0cdbd4d3bcd974119dc'
+    //     + '&q=gothic+darkness+black'
+    //     + '&image_type=photo'
+    //     + '&orientation=horizontal')
+    //   .then((response) => {
+    //     this.images = response.data.hits;
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   },
 };
 </script>

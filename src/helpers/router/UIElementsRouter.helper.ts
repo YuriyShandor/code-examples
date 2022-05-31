@@ -22,13 +22,13 @@ class UIElementsRouterHelper {
 
   routes() {
     return {
-      name: UIElementsRouterHelper.UI_ELEMENTS_PAGE_NAME,
-      path: `/${UIElementsRouterHelper.UI_ELEMENTS_PAGE_PATH}`,
+      name: UIElementsRouterHelper.UI_ELEMENTS_PAGE_NAME(),
+      path: `/${UIElementsRouterHelper.UI_ELEMENTS_PAGE_PATH()}`,
       component: SinglePage,
       children: [
         {
-          name: UIElementsRouterHelper.MODALS_EXAMPLES_PAGE_NAME,
-          path: UIElementsRouterHelper.MODALS_EXAMPLES_PAGE_PATH,
+          name: UIElementsRouterHelper.MODALS_EXAMPLES_PAGE_NAME(),
+          path: UIElementsRouterHelper.MODALS_EXAMPLES_PAGE_PATH(),
           component: ModalsExamples
         }
       ]
@@ -37,12 +37,12 @@ class UIElementsRouterHelper {
 
   menuItems() {
     return {
-      title: UIElementsRouterHelper.UI_ELEMENTS_PAGE_NAME,
-      link: `/${UIElementsRouterHelper.UI_ELEMENTS_PAGE_PATH}`,
+      title: UIElementsRouterHelper.UI_ELEMENTS_PAGE_NAME(),
+      link: `/${UIElementsRouterHelper.UI_ELEMENTS_PAGE_PATH()}`,
       subItems: [
         {
-          title: UIElementsRouterHelper.MODALS_EXAMPLES_PAGE_NAME,
-          link: `/${UIElementsRouterHelper.UI_ELEMENTS_PAGE_PATH}/${UIElementsRouterHelper.MODALS_EXAMPLES_PAGE_PATH}`
+          title: UIElementsRouterHelper.MODALS_EXAMPLES_PAGE_NAME(),
+          link: `/${UIElementsRouterHelper.UI_ELEMENTS_PAGE_PATH()}/${UIElementsRouterHelper.MODALS_EXAMPLES_PAGE_PATH()}`
         }
       ]
     };

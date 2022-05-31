@@ -3,7 +3,7 @@
     <h1 class="page-title">
       Swiper Examples
     </h1>
-    <SlidesPerView/>
+<!--    <SlidesPerView/>-->
     <div class="code-example-wrap">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
@@ -19,12 +19,12 @@
 </template>
 
 <script>/* eslint-disable */
-import SlidesPerView from '@/components/external-libraries/swiper/SlidesPerView';
+// import SlidesPerView from '@/components/external-libraries/swiper/SlidesPerView';
 
 export default {
   name: 'SwiperExamples',
   components: {
-    SlidesPerView
+    // SlidesPerView
   }
 }
 </script>

@@ -1,48 +1,48 @@
 <template>
   <div class="smooth-scroll">
-    <header
-      class="header"
-      :style= "[isMenuVisible ? {'padding-right': `${scrollbarWidth}px`} : '']"
-    >
-      <div class="container">
-        <div class="header-block">
-          <button
-            class="hamburger hamburger--collapse"
-            :class="{ active: isMenuVisible }"
-            @click="toggleMenu"
-            type="button"
-          >
-            <span class="hamburger-box">
-              <span class="hamburger-inner"></span>
-            </span>
-          </button>
-          <scrollactive
-            class="header-nav"
-            :class="{ active: isMenuVisible }"
-            active-class="active"
-          >
-            <a
-              v-for="item in 7"
-              :key="item"
-              :href="`#section-${item}`"
-              v-scroll-to="`#section-${item}`"
-              class="header-nav__item scrollactive-item"
-            >
-              Section {{item}}
-            </a>
-          </scrollactive>
-        </div>
-      </div>
-    </header>
-    <section
-      class="section scrollactive-item"
-      v-for="item in 7"
-      :key="item"
-      :id="`section-${item}`"
-      :data-section-selector="`section-${item}`"
-    >
-      <h2 class="section-ttl">Section {{ item }}</h2>
-    </section>
+<!--    <header-->
+<!--      class="header"-->
+<!--      :style= "[isMenuVisible ? {'padding-right': `${scrollbarWidth}px`} : '']"-->
+<!--    >-->
+<!--      <div class="container">-->
+<!--        <div class="header-block">-->
+<!--          <button-->
+<!--            class="hamburger hamburger&#45;&#45;collapse"-->
+<!--            :class="{ active: isMenuVisible }"-->
+<!--            @click="toggleMenu"-->
+<!--            type="button"-->
+<!--          >-->
+<!--            <span class="hamburger-box">-->
+<!--              <span class="hamburger-inner"></span>-->
+<!--            </span>-->
+<!--          </button>-->
+<!--          <scrollactive-->
+<!--            class="header-nav"-->
+<!--            :class="{ active: isMenuVisible }"-->
+<!--            active-class="active"-->
+<!--          >-->
+<!--            <a-->
+<!--              v-for="item in 7"-->
+<!--              :key="item"-->
+<!--              :href="`#section-${item}`"-->
+<!--              v-scroll-to="`#section-${item}`"-->
+<!--              class="header-nav__item scrollactive-item"-->
+<!--            >-->
+<!--              Section {{item}}-->
+<!--            </a>-->
+<!--          </scrollactive>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </header>-->
+<!--    <section-->
+<!--      class="section scrollactive-item"-->
+<!--      v-for="item in 7"-->
+<!--      :key="item"-->
+<!--      :id="`section-${item}`"-->
+<!--      :data-section-selector="`section-${item}`"-->
+<!--    >-->
+<!--      <h2 class="section-ttl">Section {{ item }}</h2>-->
+<!--    </section>-->
   </div>
 </template>
 
@@ -51,31 +51,31 @@ export default {
   name: 'SmoothScroll',
   data() {
     return {
-      isMenuVisible: false,
-      scrollbarWidth: 16,
+      // isMenuVisible: false,
+      // scrollbarWidth: 16,
     };
   },
   methods: {
-    toggleMenu() {
-      this.isMenuVisible = !this.isMenuVisible;
-      this.scrollbarWidth = window.innerWidth - document.body.clientWidth;
-      document.body.style.overflow = this.isMenuVisible ? 'hidden' : '';
-      document.body.style.marginRight = this.isMenuVisible ? `${this.scrollbarWidth}px` : '';
-    },
+    // toggleMenu() {
+    //   this.isMenuVisible = !this.isMenuVisible;
+    //   this.scrollbarWidth = window.innerWidth - document.body.clientWidth;
+    //   document.body.style.overflow = this.isMenuVisible ? 'hidden' : '';
+    //   document.body.style.marginRight = this.isMenuVisible ? `${this.scrollbarWidth}px` : '';
+    // },
   },
   mounted() {
-    const header = document.querySelector('.global-menu');
-
-    window.addEventListener('scroll', () => {
-      const scrollPos = window.scrollY;
-      const winHeight = window.innerHeight;
-
-      if (scrollPos >= winHeight - 65) {
-        header.classList.add('scroll');
-      } else {
-        header.classList.remove('scroll');
-      }
-    });
+    // const header = document.querySelector('.global-menu');
+    //
+    // window.addEventListener('scroll', () => {
+    //   const scrollPos = window.scrollY;
+    //   const winHeight = window.innerHeight;
+    //
+    //   if (scrollPos >= winHeight - 65) {
+    //     header.classList.add('scroll');
+    //   } else {
+    //     header.classList.remove('scroll');
+    //   }
+    // });
   },
 };
 </script>

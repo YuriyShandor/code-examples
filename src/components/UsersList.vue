@@ -1,20 +1,20 @@
 <template>
   <section class="section-users-list">
-    <div class="users-list">
-      <router-link
-        class="users-list-item"
-        v-for="item in usersList"
-        :key="item.id"
-        :to="'/user-' + item.id + '/articles'"
-      >
-        <div
-          class="users-list-item__name"
-          @click="setUserArticles(item.id)"
-        >
-          {{ item.first_name + ' ' + item.last_name }}
-        </div>
-      </router-link>
-    </div>
+<!--    <div class="users-list">-->
+<!--      <router-link-->
+<!--        class="users-list-item"-->
+<!--        v-for="item in usersList"-->
+<!--        :key="item.id"-->
+<!--        :to="'/user-' + item.id + '/articles'"-->
+<!--      >-->
+<!--        <div-->
+<!--          class="users-list-item__name"-->
+<!--          @click="setUserArticles(item.id)"-->
+<!--        >-->
+<!--          {{ item.first_name + ' ' + item.last_name }}-->
+<!--        </div>-->
+<!--      </router-link>-->
+<!--    </div>-->
   </section>
 </template>
 
@@ -25,33 +25,33 @@ export default {
   name: 'UsersListPage',
   data() {
     return {
-      currentPage: 1
+      // currentPage: 1
     }
   },
   computed: {
-    usersList() {
-      return this.$store.getters.GET_USERS
-    },
-
-    usersPageCount() {
-      return this.$store.getters.USERS_PAGES_COUNT
-    },
+    // usersList() {
+    //   return this.$store.getters.GET_USERS
+    // },
+    //
+    // usersPageCount() {
+    //   return this.$store.getters.USERS_PAGES_COUNT
+    // },
   },
   methods: {
-    handleCurrentChange(val) {
-      window.scrollTo( 0, 0 );
-      this.$store.dispatch('SET_USERS', [val])
-    },
-
-    setUserArticles(userId) {
-      console.log(userId)
-      this.$store.dispatch('SET_USER_ARTICLES', [1])
-    }
+    // handleCurrentChange(val) {
+    //   window.scrollTo( 0, 0 );
+    //   this.$store.dispatch('SET_USERS', [val])
+    // },
+    //
+    // setUserArticles(userId) {
+    //   console.log(userId)
+    //   this.$store.dispatch('SET_USER_ARTICLES', [1])
+    // }
   },
   watch: {
-    usersList() {
-      console.log('Users list updated')
-    }
+    // usersList() {
+    //   console.log('Users list updated')
+    // }
   }
 }
 </script>

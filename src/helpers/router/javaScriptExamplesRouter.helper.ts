@@ -49,28 +49,28 @@ class JavaScriptExamplesRouterHelper {
 
   routes() {
     return {
-      name: JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_NAME,
-      path: `/${JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_PATH}`,
+      name: JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_NAME(),
+      path: `/${JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_PATH()}`,
       component: SinglePage,
       children: [
         {
-          name: JavaScriptExamplesRouterHelper.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_NAME,
-          path: JavaScriptExamplesRouterHelper.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_PATH,
+          name: JavaScriptExamplesRouterHelper.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_NAME(),
+          path: JavaScriptExamplesRouterHelper.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_PATH(),
           component: JavaScriptGeneralExamples
         },
         {
-          name: JavaScriptExamplesRouterHelper.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_NAME,
-          path: JavaScriptExamplesRouterHelper.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_PATH,
+          name: JavaScriptExamplesRouterHelper.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_NAME(),
+          path: JavaScriptExamplesRouterHelper.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_PATH(),
           component: JavaScriptArraysExamples
         },
         {
-          name: JavaScriptExamplesRouterHelper.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_NAME,
-          path: JavaScriptExamplesRouterHelper.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_PATH,
+          name: JavaScriptExamplesRouterHelper.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_NAME(),
+          path: JavaScriptExamplesRouterHelper.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_PATH(),
           component: JavaScriptNumbersExamples
         },
         {
-          name: JavaScriptExamplesRouterHelper.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_NAME,
-          path: JavaScriptExamplesRouterHelper.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_PATH,
+          name: JavaScriptExamplesRouterHelper.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_NAME(),
+          path: JavaScriptExamplesRouterHelper.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_PATH(),
           component: JavaScriptStringsExamples
         }
       ]
@@ -79,24 +79,24 @@ class JavaScriptExamplesRouterHelper {
 
   menuItems() {
     return {
-      title: JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_NAME,
-      link: `/${JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_PATH}`,
+      title: JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_NAME(),
+      link: `/${JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_PATH()}`,
       subItems: [
         {
-          title: JavaScriptExamplesRouterHelper.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_NAME,
-          link: `/${JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_PATH}/${JavaScriptExamplesRouterHelper.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_PATH}`
+          title: JavaScriptExamplesRouterHelper.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_NAME(),
+          link: `/${JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_PATH()}/${JavaScriptExamplesRouterHelper.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_PATH()}`
         },
         {
-          title: JavaScriptExamplesRouterHelper.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_NAME,
-          link: `/${JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_PATH}/${JavaScriptExamplesRouterHelper.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_PATH}`
+          title: JavaScriptExamplesRouterHelper.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_NAME(),
+          link: `/${JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_PATH()}/${JavaScriptExamplesRouterHelper.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_PATH()}`
         },
         {
-          title: JavaScriptExamplesRouterHelper.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_NAME,
-          link: `/${JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_PATH}/${JavaScriptExamplesRouterHelper.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_PATH}`
+          title: JavaScriptExamplesRouterHelper.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_NAME(),
+          link: `/${JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_PATH()}/${JavaScriptExamplesRouterHelper.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_PATH()}`
         },
         {
-          title: JavaScriptExamplesRouterHelper.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_NAME,
-          link: `/${JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_PATH}/${JavaScriptExamplesRouterHelper.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_PATH}`
+          title: JavaScriptExamplesRouterHelper.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_NAME(),
+          link: `/${JavaScriptExamplesRouterHelper.JAVASCRIPT_EXAMPLES_PAGE_PATH()}/${JavaScriptExamplesRouterHelper.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_PATH()}`
         }
       ]
     };

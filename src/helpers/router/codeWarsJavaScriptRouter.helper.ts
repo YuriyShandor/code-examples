@@ -48,28 +48,28 @@ class CodeWarsJavaScriptRouterHelper {
 
   routes() {
     return {
-      name: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_NAME,
-      path: `/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_PATH}`,
+      name: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_NAME(),
+      path: `/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_PATH()}`,
       component: SinglePage,
       children: [
         {
-          name: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_GENERAL_PAGE_NAME,
-          path: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_GENERAL_PAGE_PATH,
+          name: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_GENERAL_PAGE_NAME(),
+          path: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_GENERAL_PAGE_PATH(),
           component: CodeWarsJavaScriptGeneral,
         },
         {
-          name: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_NAME,
-          path: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_PATH,
+          name: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_NAME(),
+          path: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_PATH(),
           component: CodeWarsJavaScriptArrays,
         },
         {
-          name: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_NAME,
-          path: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_PATH,
+          name: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_NAME(),
+          path: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_PATH(),
           component: CodeWarsJavaScriptNumbers,
         },
         {
-          name: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_STRINGS_PAGE_NAME,
-          path: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_STRINGS_PAGE_PATH,
+          name: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_STRINGS_PAGE_NAME(),
+          path: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_STRINGS_PAGE_PATH(),
           component: CodeWarsJavaScriptStrings,
         },
       ],
@@ -78,24 +78,24 @@ class CodeWarsJavaScriptRouterHelper {
 
   menuItems() {
     return {
-      title: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_NAME,
-      link: `/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_PATH}`,
+      title: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_NAME(),
+      link: `/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_PATH()}`,
       subItems: [
         {
-          title: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_GENERAL_PAGE_NAME,
-          link: `/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_PATH}/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_GENERAL_PAGE_PATH}`,
+          title: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_GENERAL_PAGE_NAME(),
+          link: `/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_PATH()}/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_GENERAL_PAGE_PATH()}`,
         },
         {
-          title: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_NAME,
-          link: `/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_PATH}/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_PATH}`,
+          title: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_NAME(),
+          link: `/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_PATH()}/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_PATH()}`,
         },
         {
-          title: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_NAME,
-          link: `/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_PATH}/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_PATH}`,
+          title: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_NAME(),
+          link: `/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_PATH()}/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_PATH()}`,
         },
         {
-          title: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_STRINGS_PAGE_NAME,
-          link: `/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_PATH}/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_STRINGS_PAGE_PATH}`,
+          title: CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_STRINGS_PAGE_NAME(),
+          link: `/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_PAGE_PATH()}/${CodeWarsJavaScriptRouterHelper.CODEWARS_JAVASCRIPT_STRINGS_PAGE_PATH()}`,
         },
       ],
     };

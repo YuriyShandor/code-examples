@@ -2,7 +2,7 @@
   <div class="modals-examples">
     <h1 class="page-title">Modals Examples</h1>
 <!--    <SimpleModalWith100vhPlugin/>-->
-    <SimpleModalWithAnimation/>
+<!--    <SimpleModalWithAnimation/>-->
     <div class="code-example-wrap">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
@@ -18,14 +18,14 @@
 </template>
 
 <script>/* eslint-disable */
-import SimpleModalWith100vhPlugin from '@/components/ui-elements/modals/SimpleModalWith100vhPlugin.vue'
-import SimpleModalWithAnimation from '@/components/ui-elements/modals/SimpleModalWithAnimation.vue'
+// import SimpleModalWith100vhPlugin from '@/components/ui-elements/modals/SimpleModalWith100vhPlugin.vue'
+// import SimpleModalWithAnimation from '@/components/ui-elements/modals/SimpleModalWithAnimation.vue'
 
 export default {
   name: 'ModalsExamples',
   components: {
-    SimpleModalWith100vhPlugin,
-    SimpleModalWithAnimation
+    // SimpleModalWith100vhPlugin,
+    // SimpleModalWithAnimation
   }
 }
 </script>
