@@ -2,27 +2,26 @@
   <div class="global-menu-wrap">
     <div class="global-menu-btn"
       :class="{'active': isMenuVisible}"
-      @click="toggleMenuVisibility"
+      @click="toggleMenuVisibility()"
     ><span></span>
     </div>
     <div
       class="global-menu-block"
-      :class="{'visible': isMenuVisible}"
-    >
+      :class="{'visible': isMenuVisible}">
       <div class="global-menu-overlay" @click="isMenuVisible = false"></div>
       <div
         class="global-menu-content"
-        :class="{'visible': isMenuVisible}"
-      >
-      <badger-accordion
-              class="global-menu-accordion"
-              :options="globalMenuAccordionOptions">-->
-          <badger-accordion-item v-for="item in globalMenu" :key="item.title">
-            <template v-slot:header>
-              <div class="global-menu__item">{{ item.title }}</div>
-              <div class="global-menu__item-arrow"></div>
+        :class="{'visible': isMenuVisible}">
+        <el-collapse v-model="state.activeName" accordion>
+          <el-collapse-item
+            class="global-menu-item" :name="item.title"
+            v-for="item in globalMenu" :key="item.title">
+            <template #title>
+              <div class="global-menu-item__title">
+                {{ item.title }}
+              </div>
             </template>
-            <template v-slot:content>
+            <div class="global-menu-item__content">
               <router-link
                 class="global-menu__sub-item"
                 v-for="subItem in item.subItems"
@@ -31,111 +30,51 @@
               >
                 {{ subItem.title }}
               </router-link>
-            </template>
-          </badger-accordion-item>
-        </badger-accordion>
+            </div>
+          </el-collapse-item>
+        </el-collapse>
       </div>
     </div>
-    <el-collapse v-model="activeName" accordion>
-      <el-collapse-item title="Consistency" name="1">
-        <div>
-          Consistent with real life: in line with the process and logic of real
-          life, and comply with languages and habits that the users are used to;
-        </div>
-        <div>
-          Consistent within interface: all elements should be consistent, such
-          as: design style, icons and texts, position of elements, etc.
-        </div>
-      </el-collapse-item>
-      <el-collapse-item title="Feedback" name="2">
-        <div>
-          Operation feedback: enable the users to clearly perceive their
-          operations by style updates and interactive effects;
-        </div>
-        <div>
-          Visual feedback: reflect current state by updating or rearranging
-          elements of the page.
-        </div>
-      </el-collapse-item>
-      <el-collapse-item title="Efficiency" name="3">
-        <div>
-          Simplify the process: keep operating process simple and intuitive;
-        </div>
-        <div>
-          Definite and clear: enunciate your intentions clearly so that the
-          users can quickly understand and make decisions;
-        </div>
-        <div>
-          Easy to identify: the interface should be straightforward, which helps
-          the users to identify and frees them from memorizing and recalling.
-        </div>
-      </el-collapse-item>
-      <el-collapse-item title="Controllability" name="4">
-        <div>
-          Decision making: giving advices about operations is acceptable, but do
-          not make decisions for the users;
-        </div>
-        <div>
-          Controlled consequences: users should be granted the freedom to
-          operate, including canceling, aborting or terminating current
-          operation.
-        </div>
-      </el-collapse-item>
-    </el-collapse>
   </div>
 </template>
 
-<script lang="ts">/* eslint-disable */
-import { reactive, ref } from 'vue';
+<script lang="ts">
+import { reactive } from 'vue';
 
 import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper';
-import JavaScriptExamplesRouterHelper from '@/helpers/router/javaScriptExamplesRouter.helper'
-import ExternalLibrariesRouterHelper from '@/helpers/router/externalLibrariesRouter.helper'
-import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper'
-import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper'
-import ScrollHelper from '@/helpers/scroll.helper'
+import JavaScriptExamplesRouterHelper from '@/helpers/router/javaScriptExamplesRouter.helper';
+import ExternalLibrariesRouterHelper from '@/helpers/router/externalLibrariesRouter.helper';
+import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper';
+import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper';
+import ScrollHelper from '@/helpers/scroll.helper';
 
 export default {
   name: 'GlobalMenu',
-  components: {
-
-  },
+  components: {},
   setup() {
-    const activeName = ref('1');
+    const globalMenu: any[] = [
+      VueExamplesRouterHelper.menuItems(),
+      JavaScriptExamplesRouterHelper.menuItems(),
+      ExternalLibrariesRouterHelper.menuItems(),
+      UIElementsRouterHelper.menuItems(),
+      CodeWarsJavaScriptRouterHelper.menuItems(),
+    ];
     const state = reactive({
+      activeName: '' as string,
       isMenuVisible: false as boolean,
     });
 
     const toggleMenuVisibility = () => {
-      state.isMenuVisible = !state.isMenuVisible
-    }
+      state.isMenuVisible = !state.isMenuVisible;
+    };
+
+    return {
+      state,
+      globalMenu,
+      toggleMenuVisibility,
+    };
   },
 
-
-  // data() {
-  //   return {
-  //     isMenuVisible: false,
-  //     globalMenuAccordionOptions: {
-  //       openMultiplePanels: true
-  //     }
-  //   }
-  // },
-  // computed: {
-  //   globalMenu() {
-  //     return [
-  //       VueExamplesRouterHelper.menuItems(),
-  //       JavaScriptExamplesRouterHelper.menuItems(),
-  //       ExternalLibrariesRouterHelper.menuItems(),
-  //       UIElementsRouterHelper.menuItems(),
-  //       CodeWarsJavaScriptRouterHelper.menuItems()
-  //     ]
-  //   }
-  // },
-  // methods: {
-  //   toggleMenuVisibility() {
-  //     this.isMenuVisible = !this.isMenuVisible
-  //   }
-  // },
   // watch: {
   //   $route() {
   //     this.isMenuVisible = false
@@ -145,7 +84,7 @@ export default {
   //     this.isMenuVisible ? ScrollHelper.disableScroll() : ScrollHelper.enableScroll()
   //   }
   // }
-}
+};
 </script>
 
 <!--<style scoped lang="scss">-->
