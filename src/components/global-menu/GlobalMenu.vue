@@ -12,7 +12,9 @@
       <div
         class="global-menu-content"
         :class="{'visible': state.isMenuVisible}">
-        <el-collapse v-model="state.activeName" accordion>
+        <el-collapse
+          v-model="state.activeName" accordion
+          class="global-menu-accordion">
           <el-collapse-item
             class="global-menu-item" :name="item.title"
             v-for="item in globalMenu" :key="item.title">
@@ -58,6 +60,16 @@ export default defineComponent({
       ExternalLibrariesRouterHelper.menuItems(),
       UIElementsRouterHelper.menuItems(),
       CodeWarsJavaScriptRouterHelper.menuItems(),
+      {
+        title: 'SuperHero Api',
+        link: '/superhero',
+        subItems: [
+          {
+            title: 'SuperHero Page',
+            link: '/superhero',
+          },
+        ],
+      },
     ];
     const state = reactive({
       activeName: '' as string,
@@ -65,9 +77,7 @@ export default defineComponent({
     });
 
     const toggleMenuVisibility = () => {
-      console.log('state.isMenuVisible', state.isMenuVisible);
       state.isMenuVisible = !state.isMenuVisible;
-      console.log('state.isMenuVisible', state.isMenuVisible);
     };
 
     onMounted(() => {
@@ -216,7 +226,6 @@ export default defineComponent({
   position: absolute;
   top: 0;
   right: 0;
-  padding: 20px;
   z-index: 2;
   transform: translateX(100%);
   transition: all, .5s;
@@ -228,47 +237,35 @@ export default defineComponent({
 
   @media only screen and (min-width: 700px) {
     width: 500px;
-    padding: 30px;
     border-radius: 20px 0 0 20px;
+  }
+}
+
+.global-menu-accordion {
+  width: 100%;
+  padding: 20px;
+  border: none;
+
+  @media only screen and (min-width: 700px) {
+    padding: 30px;
   }
 }
 
 .global-menu__item {
   width: 100%;
+}
+
+.global-menu-item__title {
   font-family: $secondary-font-family;
   font-size: 22px;
   font-weight: 500;
   color: $secondary-text-color;
 }
 
-.global-menu__item-arrow {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 9px;
-  right: 10px;
-
-  &:before, &:after {
-    content: '';
-    display: block;
-    width: 15px;
-    height: 2px;
-    background: $secondary-text-color;
-    position: absolute;
-    top: 9px;
-    transition: all, .25s;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  &:before {
-    transform: rotate(45deg);
-    left: -2px;
-  }
-
-  &:after {
-    transform: rotate(-45deg);
-    right: -2px;
-  }
+.global-menu-item__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .global-menu__sub-item {
@@ -278,6 +275,7 @@ export default defineComponent({
   font-weight: 500;
   color: $secondary-text-color;
   margin-bottom: 5px;
+  padding: 0 10px;
   transition: all, .25s;
   -webkit-tap-highlight-color: transparent;
 
@@ -297,69 +295,38 @@ export default defineComponent({
 
 <style lang="scss">
 .global-menu-accordion {
-  width: 100%;
-
-  .badger-accordion__header {
+  .global-menu-item {
     &:first-child {
-      .js-badger-accordion-header {
+      .el-collapse-item__header {
         border-top: 1px solid $secondary-text-color;
       }
     }
-  }
 
-  .js-badger-accordion-header {
-    position: relative;
-    padding-bottom: 5px;
-    border-bottom: 1px solid $secondary-text-color;
-    background: transparent;
-    transition: all, .25s;
-    -webkit-tap-highlight-color: transparent;
-
-    &:hover {
-      background: darken(#18191a, 5%);
-    }
-
-    &.-ba-is-active {
-      background: darken(#18191a, 5%);
-
-      .global-menu__item-arrow {
-        &:before, &:after {
-          width: 18px;
-          top: 9px;
-        }
-
-        &:before {
-          left: 1px;
-        }
-
-        &:after {
-          right: 1px;
-        }
+    &.is-active {
+      .el-collapse-item__header {
+        background: darken(#18191a, 5%);
       }
     }
   }
 
-  .badger-toggle-indicator {
-    opacity: 0;
-  }
+  .el-collapse-item__header {
+    padding: 5px;
+    border-bottom: 1px solid $secondary-text-color;
+    background: transparent;
+    transition: all, .25s;
 
-  .badger-accordion__panel {
-    margin-left: 0;
-    padding-left: 15px;
-
-    &.-ba-is-active {
-      border-bottom: 1px solid $secondary-text-color;
-    }
-
-    &:last-child {
-      border-bottom: none;
+    .el-collapse-item__arrow {
+      font-size: 20px;
+      color: $secondary-text-color;
     }
   }
 
-  .js-badger-accordion-panel-inner {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  .el-collapse-item__wrap {
+    background: transparent;
+  }
+
+  .el-collapse-item__content {
+    padding: 0;
   }
 }
 </style>

@@ -75,7 +75,7 @@ export default defineComponent({
   font-weight: 500;
   font-size: 18px;
   line-height: 21px;
-  color: #282828;
+  color: $secondary-text-color;
   margin-bottom: 10px;
 }
 
@@ -83,7 +83,7 @@ export default defineComponent({
   width: calc(100% - 20px);
   margin: 0 auto 10px;
   height: 35px;
-  background: #FC654C;
+  background: $hover-text-color;
   border-radius: 8px;
   font-weight: 500;
   font-size: 18px;
@@ -97,7 +97,7 @@ export default defineComponent({
   -webkit-tap-highlight-color: transparent;
   transition: all, .25s;
   &:hover {
-    background: darken(#FC654C, 7%);
+    background: darken($hover-text-color, 7%);
   }
 }
 </style>

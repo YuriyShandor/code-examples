@@ -1,7 +1,7 @@
 <template>
   <div class="superhero-search">
     <div class="superhero-search__title">
-      Find you superhero: {{searchField}}
+      Find your superhero: {{searchField}}
     </div>
     <div class="superhero-search__form">
       <label class="superhero-search__input-label" for="superhero-search-input">

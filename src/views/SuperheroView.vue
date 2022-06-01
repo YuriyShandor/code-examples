@@ -1,6 +1,8 @@
 <template>
   <div class="superhero-page">
-    <h1>This is an superhero page</h1>
+    <h1 class="superhero-page__title">
+      This is a superheroes page
+    </h1>
     <SuperHeroSearch
       @update-superhero-list="updateSuperHeroList"
     />
@@ -37,7 +39,7 @@ export default defineComponent({
   },
   setup() {
     const state = reactive({
-      superHeroList: [] as any,
+      superHeroList: [] as any[],
       selectedSuperHero: undefined as any,
     });
     const updateSuperHeroList = (value: string) => {
@@ -66,6 +68,12 @@ export default defineComponent({
 <style scoped lang="scss">
 .superhero-page {
   width: 100%;
+}
+
+.superhero-page__title {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
 }
 
 .superhero-list {
