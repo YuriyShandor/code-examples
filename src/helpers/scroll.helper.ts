@@ -16,6 +16,7 @@ class ScrollHelper {
     if (header !== null) {
       header.style.paddingRight = `${scrollBarWidth}px`;
     }
+    return true;
   }
 
   enableScroll() {
@@ -30,6 +31,7 @@ class ScrollHelper {
       header.style.removeProperty('padding-right');
     }
     window.scrollTo(0, scrollYPosition);
+    return true;
   }
 }
 

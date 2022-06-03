@@ -41,19 +41,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, onMounted } from 'vue';
+import { defineComponent, reactive, onMounted, watch } from 'vue';
+import { useRoute } from 'vue-router';
 
 import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper';
 import JavaScriptExamplesRouterHelper from '@/helpers/router/javaScriptExamplesRouter.helper';
 import ExternalLibrariesRouterHelper from '@/helpers/router/externalLibrariesRouter.helper';
 import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper';
 import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper';
-// import ScrollHelper from '@/helpers/scroll.helper';
+import ScrollHelper from '@/helpers/scroll.helper';
 
 export default defineComponent({
   name: 'GlobalMenu',
   components: {},
   setup() {
+    const route = useRoute();
     const globalMenu: any[] = [
       VueExamplesRouterHelper.menuItems(),
       JavaScriptExamplesRouterHelper.menuItems(),
@@ -84,22 +86,26 @@ export default defineComponent({
       console.log(globalMenu);
     });
 
+    watch(() => state.isMenuVisible, (value) => {
+      if (value) {
+        ScrollHelper.disableScroll();
+      } else {
+        ScrollHelper.enableScroll();
+      }
+      // const oleh: boolean = value ? ScrollHelper.disableScroll() : ScrollHelper.enableScroll();
+    });
+
+    watch(() => route, () => {
+      console.log(route);
+      state.isMenuVisible = false;
+    });
+
     return {
       state,
       globalMenu,
       toggleMenuVisibility,
     };
   },
-
-  // watch: {
-  //   $route() {
-  //     this.isMenuVisible = false
-  //   },
-  //
-  //   isMenuVisible() {
-  //     this.isMenuVisible ? ScrollHelper.disableScroll() : ScrollHelper.enableScroll()
-  //   }
-  // }
 });
 </script>
 

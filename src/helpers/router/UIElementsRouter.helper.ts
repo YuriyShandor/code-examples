@@ -1,5 +1,5 @@
 /* eslint-disable */
-import SinglePage from '@/components/pages/SinglePage.vue';
+import SinglePage from '@/components/SinglePage.vue';
 
 import ModalsExamples from '@/components/ui-elements/modals/ModalsExamples.vue';
 

@@ -1,4 +1,4 @@
-import SinglePage from '@/components/pages/SinglePage.vue';
+import SinglePage from '@/components/SinglePage.vue';
 
 import SwiperExamples from '@/components/external-libraries/swiper/SwiperExamples.vue';
 import MomentExamples from '@/components/external-libraries/moment/MomentExamples.vue';

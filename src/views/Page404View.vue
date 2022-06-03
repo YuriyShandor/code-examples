@@ -6,9 +6,11 @@
 </template>
 
 <script>
-export default {
-  name: 'Page404',
-};
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'Page404View',
+});
 </script>
 
 <style scoped lang="scss">
