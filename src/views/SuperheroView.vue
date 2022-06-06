@@ -28,7 +28,7 @@ import SuperHeroSearch from '@/components/superhero/SuperHeroSearch.vue';
 import SuperHeroCard from '@/components/superhero/SuperHeroCard.vue';
 import SuperHeroDetailsModal from '@/components/superhero/SuperHeroDetailsModal.vue';
 import SuperHeroApiHelper from '@/api-helpers/superhero.api-helper';
-import ObjectHelper from '@/helpers/object.helper';
+import ObjectsHelper from '@/helpers/objects.helper';
 
 export default defineComponent({
   name: 'SuperheroView',
@@ -46,7 +46,7 @@ export default defineComponent({
       SuperHeroApiHelper.findSuperHero(value).then(({ data }) => {
         state.superHeroList = [];
         data.results.forEach((item: any) => {
-          state.superHeroList.push(ObjectHelper.normalizeSuperHeroObject(item));
+          state.superHeroList.push(ObjectsHelper.normalizeSuperHeroObject(item));
         });
       }).catch((error: any) => {
         console.log(error);

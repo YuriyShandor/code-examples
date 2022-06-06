@@ -83,7 +83,7 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      console.log(globalMenu);
+      console.log('onMounted');
     });
 
     watch(() => state.isMenuVisible, (value) => {

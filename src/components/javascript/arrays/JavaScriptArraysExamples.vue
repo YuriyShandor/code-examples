@@ -126,15 +126,56 @@
   </div>
 </template>
 
-<script>/* eslint-disable */
-// import PrismApiHelper from '@/api-helpers/prism.api-helper'
+<script lang="ts">
+import { defineComponent, reactive, onMounted, watch } from 'vue';
+import { useRoute } from 'vue-router';
 
-export default {
+import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper';
+import JavaScriptExamplesRouterHelper from '@/helpers/router/javaScriptExamplesRouter.helper';
+import ExternalLibrariesRouterHelper from '@/helpers/router/externalLibrariesRouter.helper';
+import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper';
+import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper';
+import ScrollHelper from '@/helpers/scroll.helper';
+
+export default defineComponent({
   name: 'JavaScriptArraysExamples',
-  mounted() {
-    // PrismApiHelper.initPrism()
-  }
-};
+  components: {},
+  setup() {
+    let numbers: [] = [];
+    const state = reactive({
+      activeName: '' as string,
+      isMenuVisible: false as boolean,
+    });
+
+    const toggleMenuVisibility = () => {
+      state.isMenuVisible = !state.isMenuVisible;
+    };
+
+    onMounted(() => {
+      console.log('onMounted');
+    });
+
+    watch(() => state.isMenuVisible, (value) => {
+      if (value) {
+        ScrollHelper.disableScroll();
+      } else {
+        ScrollHelper.enableScroll();
+      }
+      // const oleh: boolean = value ? ScrollHelper.disableScroll() : ScrollHelper.enableScroll();
+    });
+
+    watch(() => route, () => {
+      console.log(route);
+      state.isMenuVisible = false;
+    });
+
+    return {
+      state,
+      globalMenu,
+      toggleMenuVisibility,
+    };
+  },
+});
 </script>
 
 <style scoped lang="scss">

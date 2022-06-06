@@ -1,4 +1,4 @@
-class ObjectHelper {
+class ArraysHelper {
   normalizeSuperHeroObject(obj: any) {
     const superHero = { ...obj };
     Object.keys(superHero)
@@ -16,4 +16,4 @@ class ObjectHelper {
   }
 }
 
-export default new ObjectHelper();
+export default new ArraysHelper();
