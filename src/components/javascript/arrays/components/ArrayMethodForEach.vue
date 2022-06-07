@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  let numbers: number[] = [];
+import NumbersHelper from '@/helpers/numbers.helper';
 
-  const getRandomInt = () => {
+const randomNumbers: number[] = NumbersHelper.getXRandomNumbersBetweenTwoNumbers(10, -100, 100);
 
-  };
+randomNumbers.forEach((number) => console.log(number));
 </script>

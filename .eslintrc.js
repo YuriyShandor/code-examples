@@ -20,6 +20,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'max-len': 'off',
     'object-curly-newline': 'off',
+    'no-plusplus': 'off',
   },
   overrides: [
     {

@@ -8,12 +8,10 @@
         element.
       </div>
       <div class="code-example">
-<!--        <pre>-->
-<!--          <code class="language-javascript">-->
-<!--            let numbers = [81, -74, -56, 52, -48, 63, -56, 93, -3, -58]-->
-<!--            numbers.forEach(number => console.log(number))-->
-<!--          </code>-->
-<!--        </pre>-->
+        <img src="images/" alt="" class="code-example__image">
+      </div>
+      <div class="button code-example__button">
+        Watch on GitHub
       </div>
       <div class="code-example__description">
         The <strong>map()</strong> method creates a new array populated with the results of calling
@@ -127,54 +125,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, onMounted, watch } from 'vue';
-import { useRoute } from 'vue-router';
-
-import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper';
-import JavaScriptExamplesRouterHelper from '@/helpers/router/javaScriptExamplesRouter.helper';
-import ExternalLibrariesRouterHelper from '@/helpers/router/externalLibrariesRouter.helper';
-import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper';
-import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper';
-import ScrollHelper from '@/helpers/scroll.helper';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'JavaScriptArraysExamples',
-  components: {},
-  setup() {
-    let numbers: [] = [];
-    const state = reactive({
-      activeName: '' as string,
-      isMenuVisible: false as boolean,
-    });
-
-    const toggleMenuVisibility = () => {
-      state.isMenuVisible = !state.isMenuVisible;
-    };
-
-    onMounted(() => {
-      console.log('onMounted');
-    });
-
-    watch(() => state.isMenuVisible, (value) => {
-      if (value) {
-        ScrollHelper.disableScroll();
-      } else {
-        ScrollHelper.enableScroll();
-      }
-      // const oleh: boolean = value ? ScrollHelper.disableScroll() : ScrollHelper.enableScroll();
-    });
-
-    watch(() => route, () => {
-      console.log(route);
-      state.isMenuVisible = false;
-    });
-
-    return {
-      state,
-      globalMenu,
-      toggleMenuVisibility,
-    };
-  },
 });
 </script>
 

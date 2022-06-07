@@ -1,4 +1,4 @@
-class ArraysHelper {
+class NumbersHelper {
   getXRandomNumbersBetweenTwoNumbers(numbersQty: number, fromNumber: number, toNumber: number) {
     const generateRandomInteger = (min: number, max: number) => Math.floor(min + Math.random() * (max + 1 - min));
     const randomNumbers: number[] = [];
@@ -9,4 +9,4 @@ class ArraysHelper {
   }
 }
 
-export default new ArraysHelper();
+export default new NumbersHelper();
