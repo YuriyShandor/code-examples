@@ -49,6 +49,7 @@ import JavaScriptExamplesRouterHelper from '@/helpers/router/javaScriptExamplesR
 import ExternalLibrariesRouterHelper from '@/helpers/router/externalLibrariesRouter.helper';
 import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper';
 import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper';
+import TypeScriptRouterHelper from '@/helpers/router/typeScriptRouter.helper';
 import ScrollHelper from '@/helpers/scroll.helper';
 
 export default defineComponent({
@@ -62,6 +63,7 @@ export default defineComponent({
       ExternalLibrariesRouterHelper.menuItems(),
       UIElementsRouterHelper.menuItems(),
       CodeWarsJavaScriptRouterHelper.menuItems(),
+      TypeScriptRouterHelper.menuItems(),
       {
         title: 'SuperHero Api',
         link: '/superhero',

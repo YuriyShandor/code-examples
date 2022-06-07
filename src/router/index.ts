@@ -8,6 +8,7 @@ import JavaScriptExamplesRouterHelper from '@/helpers/router/javaScriptExamplesR
 import ExternalLibrariesRouterHelper from '@/helpers/router/externalLibrariesRouter.helper';
 import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper';
 import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper';
+import TypeScriptRouterHelper from '@/helpers/router/typeScriptRouter.helper';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -25,6 +26,7 @@ const routes: Array<RouteRecordRaw> = [
   ExternalLibrariesRouterHelper.routes(),
   UIElementsRouterHelper.routes(),
   CodeWarsJavaScriptRouterHelper.routes(),
+  TypeScriptRouterHelper.routes(),
   {
     path: '/:pathMatch(.*)*',
     component: Page404View,

@@ -64,7 +64,7 @@
   }
 
   @media only screen and (min-width: 1200px) {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 10px;
   }
 }
@@ -102,6 +102,11 @@
 
 .code-example__button {
   max-width: 340px;
+}
+
+.code-example__button-image {
+  width: 25px;
+  margin-left: 10px;
 }
 
 .code-example__divider {

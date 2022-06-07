@@ -18,6 +18,7 @@ module.exports = {
     'vuejs-accessibility/click-events-have-key-events': 'off',
     'class-methods-use-this': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-inferrable-types': 'off',
     'max-len': 'off',
     'object-curly-newline': 'off',
     'no-plusplus': 'off',

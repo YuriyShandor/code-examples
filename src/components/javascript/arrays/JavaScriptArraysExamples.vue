@@ -10,10 +10,13 @@
       <div class="code-example">
         <img src="/images/javascript/arrays/for-each-method.png" alt="" class="code-example__image">
       </div>
-      <div class="button code-example__button">
+      <a
+        href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/javascript/arrays/components/ArrayMethodForEach.vue"
+        target="_blank"
+        class="button code-example__button">
         Watch on GitHub
-        <img src="/images/github-logo.svg" alt="" class="code-example__image">
-      </div>
+        <img src="/images/github-logo.svg" alt="" class="code-example__button-image">
+      </a>
       <div class="code-example__divider"></div>
       <div class="code-example__description">
         The <strong>map()</strong> method creates a new array populated with the results of calling
