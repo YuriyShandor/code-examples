@@ -8,7 +8,7 @@
         element.
       </div>
       <div class="code-example">
-        <img src="images/" alt="" class="code-example__image">
+        <img src="/images/javascript/arrays/for-each-method.png" alt="" class="code-example__image">
       </div>
       <div class="button code-example__button">
         Watch on GitHub
