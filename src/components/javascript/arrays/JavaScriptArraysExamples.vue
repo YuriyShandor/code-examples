@@ -1,7 +1,7 @@
 <template>
   <div class="java-script-arrays-examples">
     <h1 class="page-title">JavaScript Arrays Examples</h1>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title">Arrays Methods</div>
       <div class="code-example__description">
         The <strong>forEach()</strong> method executes a provided function once for each array
@@ -12,7 +12,9 @@
       </div>
       <div class="button code-example__button">
         Watch on GitHub
+        <img src="/images/github-logo.svg" alt="" class="code-example__image">
       </div>
+      <div class="code-example__divider"></div>
       <div class="code-example__description">
         The <strong>map()</strong> method creates a new array populated with the results of calling
         a provided function on every element in the calling array.

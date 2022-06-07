@@ -84,6 +84,7 @@ export default defineComponent({
 
     onMounted(() => {
       console.log('onMounted');
+      console.log(process.env.VUE_APP_BASE_URL);
     });
 
     watch(() => state.isMenuVisible, (value) => {
