@@ -22,6 +22,7 @@ module.exports = {
     'max-len': 'off',
     'object-curly-newline': 'off',
     'no-plusplus': 'off',
+    'invalid-first-character-of-tag-name': 'off',
   },
   overrides: [
     {

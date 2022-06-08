@@ -82,12 +82,12 @@
 </template>
 
 <script>/* eslint-disable */
-// import PrismApiHelper from '@/api-helpers/prism.api-helper'
+// import PrismHelper from '@/api-helpers/prism.api-helper'
 
 export default {
   name: 'CodeWarsJavaScriptGeneral',
   mounted() {
-    // PrismApiHelper.initPrism()
+    // PrismHelper.initPrism()
   },
   watch: {
 

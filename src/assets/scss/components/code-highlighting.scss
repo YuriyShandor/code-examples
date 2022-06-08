@@ -5,6 +5,27 @@ div pre[class*="language-"] {
   padding-top: 3rem;
   border-radius: 6px;
   box-shadow: 1px 1px 15px 0 rgba(0, 0, 0, 0.75);
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: block;
+    height: 7px;
+    background-color: lighten($primary-bg-color, 25%);
+    border-radius: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    display: block;
+    background: lighten($primary-bg-color, 5%);
+    border-radius: 7px;
+    cursor: pointer;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    &::-webkit-scrollbar {
+      height: 10px;
+    }
+  }
 }
 
 code[class*="language-"],
@@ -86,16 +107,16 @@ code[class*="language-javascript"] {
   &.atrule {
     color: #FF6400;
   }
-  
+
   &.attr-value,
   &.string {
     color: #61CE3C;
   }
-  
+
   &.property {
     color: #8DA6CE;
   }
-  
+
   &.variable {
     color: #bf0000;
   }

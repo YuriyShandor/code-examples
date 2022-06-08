@@ -71,29 +71,6 @@
 
 .code-example {
   width: 100%;
-  margin-bottom: 10px;
-  overflow: auto;
-  padding-bottom: 7px;
-
-  &::-webkit-scrollbar {
-    display: block;
-    height: 5px;
-    background-color: lighten($primary-bg-color, 10%);
-    border-radius: 7px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    display: block;
-    background: darken($primary-bg-color, 5%);
-    border-radius: 7px;
-    cursor: pointer;
-  }
-
-  @media only screen and (min-width: 1200px) {
-    &::-webkit-scrollbar {
-      height: 7px;
-    }
-  }
 }
 
 .code-example__image {

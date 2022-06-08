@@ -1,1 +1,3 @@
-// var variableWithVar01: string = 'Variable With Var 01';
+export default function helloWorld() {
+  console.log('Hello, world!');
+}
