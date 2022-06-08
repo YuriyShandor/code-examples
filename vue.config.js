@@ -18,7 +18,7 @@ module.exports = defineConfig({
 
   configureWebpack: {
     devServer: {
-      historyApiFallback: true,
+      historyApiFallback: false,
     },
   },
 });

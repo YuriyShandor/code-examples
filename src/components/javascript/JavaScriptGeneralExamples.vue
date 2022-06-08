@@ -3,7 +3,7 @@
     <h1 class="page-title">
       JavaScript General Examples
     </h1>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title">
         Url Query Params
       </div>
@@ -34,7 +34,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title">
         Scroll Helpers Functions
       </div>
@@ -69,7 +69,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -80,7 +80,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -91,7 +91,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -102,7 +102,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -113,7 +113,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -124,7 +124,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -135,7 +135,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -146,7 +146,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -157,7 +157,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -168,7 +168,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -181,12 +181,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import PrismApiHelper from '@/helpers/prism.helper';
-import { onMounted } from 'vue';
-
-onMounted(() => {
-  PrismApiHelper.initPrism();
-});
-</script>

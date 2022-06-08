@@ -2,7 +2,7 @@
 import SinglePage from '@/components/SinglePage.vue';
 
 import JavaScriptGeneralExamples from '@/components/javascript/JavaScriptGeneralExamples.vue';
-import JavaScriptArraysExamples from '@/components/javascript/arrays/JavaScriptArraysExamples.vue';
+import JavaScriptArraysExamples from '@/components/javascript/JavaScriptArraysExamples.vue';
 import JavaScriptNumbersExamples from '@/components/javascript/JavaScriptNumbersExamples.vue';
 import JavaScriptStringsExamples from '@/components/javascript/JavaScriptStringsExamples.vue';
 

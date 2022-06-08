@@ -1,7 +1,7 @@
 <template>
   <div class="java-script-general-examples">
     <h1 class="page-title">CodeWars Numbers Examples</h1>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -12,7 +12,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -23,7 +23,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -34,7 +34,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -45,7 +45,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -56,7 +56,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -67,7 +67,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -78,7 +78,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -89,7 +89,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -100,7 +100,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -111,7 +111,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
@@ -122,7 +122,7 @@
         </pre>
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">

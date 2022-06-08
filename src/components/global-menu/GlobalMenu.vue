@@ -41,7 +41,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, onMounted, watch } from 'vue';
+import { defineComponent, reactive, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper';
@@ -84,11 +84,6 @@ export default defineComponent({
       state.isMenuVisible = !state.isMenuVisible;
     };
 
-    onMounted(() => {
-      console.log('onMounted');
-      console.log(process.env.VUE_APP_BASE_URL);
-    });
-
     watch(() => state.isMenuVisible, (value) => {
       if (value) {
         ScrollHelper.disableScroll();
@@ -98,8 +93,7 @@ export default defineComponent({
       // const oleh: boolean = value ? ScrollHelper.disableScroll() : ScrollHelper.enableScroll();
     });
 
-    watch(() => route, () => {
-      console.log(route);
+    watch(() => route.name, () => {
       state.isMenuVisible = false;
     });
 

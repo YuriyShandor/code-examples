@@ -116,7 +116,7 @@
         </pre>
       </div>
       <a
-        href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/helpers/typescript/components/TypeScriptInterface.vue"
+        href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/helpers/typescript/typescript.helper.ts"
         target="_blank"
         class="button code-example__button">
         Watch on GitHub
@@ -126,23 +126,12 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted, reactive } from 'vue';
+<script setup lang="ts">
+import { onMounted } from 'vue';
 import TypeScriptHelper from '@/helpers/typescript/typescript.helper';
-import PrismApiHelper from '@/helpers/prism.helper';
 
-export default defineComponent({
-  name: 'TypeScriptExamples',
-  setup() {
-    onMounted(() => {
-      TypeScriptHelper.showDifferentVars();
-      TypeScriptHelper.implementClass();
-      PrismApiHelper.initPrism();
-    });
-  },
+onMounted(() => {
+  // TypeScriptHelper.showDifferentVars();
+  // TypeScriptHelper.implementClass();
 });
 </script>
-
-<style scoped lang="scss">
-
-</style>

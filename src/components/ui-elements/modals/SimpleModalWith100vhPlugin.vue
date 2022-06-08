@@ -1,5 +1,5 @@
 <template>
-  <div class="code-example-wrap">
+  <div class="code-example-block">
     <div class="code-example__title">
       Simple Modal With vue100vh Plugin
     </div>

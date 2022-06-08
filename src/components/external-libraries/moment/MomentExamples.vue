@@ -3,7 +3,7 @@
     <h1 class="page-title">
       Moment Examples
     </h1>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title">
         Get current date info
       </div>
@@ -22,7 +22,7 @@
         <!--        </pre>-->
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title">
         Get previous and next months
       </div>
@@ -123,7 +123,7 @@
 <!--        </pre>-->
       </div>
     </div>
-    <div class="code-example-wrap">
+    <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
       <div class="code-example">
