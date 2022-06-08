@@ -51,26 +51,72 @@
       </a>
     </div>
     <div class="code-example-block">
-      <div class="code-example__title">Type Inference in TypeScript</div>
+      <div class="code-example__title">Class in TypeScript</div>
       <div class="code-example__description">
-        Using interface for a simple object and for reactive state.
+        Simple classes in TypeScript
       </div>
       <div class="code-example">
        <pre>
           <code class="language-javascript">
-            export var pi: number = 3.14;
-            export let squareTwo: number = 1.41;
-            export const phi: number = 1.61;
-            export class RandomNumberGenerator {}
-            export function absolute(num: number): number {
-              if (num &lt; 0) return num * -1;
-              return num;
+            class Car {
+              name: string;
+
+              constructor(name: string) {
+                this.name = name;
+              }
+
+              run(speed:number = 0) {
+                console.log(`A ${this.name} from is moving at ${speed} mph!`);
+              }
             }
+
+            class Mercedes extends Car {
+              year: number;
+
+              constructor(name: string, year: number) {
+                super(name);
+                this.year = year;
+              }
+
+              created() {
+                console.log(`A ${this.name} was created in ${this.year}`);
+              }
+
+              run(speed = 150) {
+                console.log('A Mercedes started');
+                super.run(speed);
+              }
+            }
+
+            class Honda extends Car {
+              country: string;
+
+              constructor(name: string, country: string) {
+                super(name);
+                this.country = country;
+              }
+
+              countryOfOrigin() {
+                console.log(`A country of origin for ${this.name} is ${this.country}`);
+              }
+
+              run(speed = 100) {
+                console.log('A Honda started');
+                super.run(speed);
+              }
+            }
+            const mercObj = new Mercedes('Mercedes-Benz GLA', 2000);
+            const hondaObj = new Honda('Honda City', 'Japan');
+
+            mercObj.run();
+            mercObj.created();
+            hondaObj.run();
+            hondaObj.countryOfOrigin();
           </code>
         </pre>
       </div>
       <a
-        href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/typescript/components/TypeScriptInterface.vue"
+        href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/helpers/typescript/components/TypeScriptInterface.vue"
         target="_blank"
         class="button code-example__button">
         Watch on GitHub
@@ -90,6 +136,7 @@ export default defineComponent({
   setup() {
     onMounted(() => {
       TypeScriptHelper.showDifferentVars();
+      TypeScriptHelper.implementClass();
       PrismApiHelper.initPrism();
     });
   },

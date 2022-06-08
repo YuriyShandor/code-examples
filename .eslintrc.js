@@ -23,6 +23,7 @@ module.exports = {
     'object-curly-newline': 'off',
     'no-plusplus': 'off',
     'invalid-first-character-of-tag-name': 'off',
+    'max-classes-per-file': 'off',
   },
   overrides: [
     {
