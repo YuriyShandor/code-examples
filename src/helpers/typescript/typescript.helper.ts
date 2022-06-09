@@ -14,11 +14,14 @@ class TypeScriptHelper {
     class Car {
       name: string;
 
+      protected userName: string = 'User Name';
+
       constructor(name: string) {
         this.name = name;
       }
 
       run(speed:number = 0) {
+        console.log(this.userName);
         console.log(`A ${this.name} from is moving at ${speed} mph!`);
       }
     }
@@ -32,6 +35,7 @@ class TypeScriptHelper {
       }
 
       created() {
+        console.log('created', this.userName);
         console.log(`A ${this.name} was created in ${this.year}`);
       }
 
@@ -63,6 +67,7 @@ class TypeScriptHelper {
 
     mercObj.run();
     mercObj.created();
+    // mercObj.userName;
     hondaObj.run();
     hondaObj.countryOfOrigin();
   }

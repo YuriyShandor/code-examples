@@ -10,8 +10,8 @@
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            let numbers = [81, -74, -56, 52, -48, 63, -56, 93, -3, -58]
-            numbers.forEach(number => console.log(number))
+            const numbers: number[] = [81, -74, -56, 52, -48, 63, -56, 93, -3, -58];
+            numbers.forEach((number) => console.log(number));
           </code>
         </pre>
       </div>
@@ -23,9 +23,9 @@
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            let numbers = [43, -36, -67, -67, -83, 19, 43, 4, -70, 17]
-            let doubleNumbers = numbers.map(number => number * 2)
-            console.log(doubleNumbers)
+            const numbers = [43, -36, -67, -67, -83, 19, 43, 4, -70, 17];
+            const doubleNumbers = numbers.map((number) => number * 2);
+            console.log(doubleNumbers);
           </code>
         </pre>
       </div>
@@ -36,9 +36,9 @@
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            let numbers = [34, 6, 36, -20, -54, 41, -8, -36, 64, 26]
-            let numbersSum = numbers.reduce((sum, number) => sum + number)
-            console.log(numbersSum)
+            const numbers = [34, 6, 36, -20, -54, 41, -8, -36, 64, 26];
+            const numbersSum = numbers.reduce((sum, number) => sum + number);
+            console.log(numbersSum);
           </code>
         </pre>
       </div>
@@ -49,9 +49,9 @@
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            let numbers = [75, 4, -7, 58, -54, -76, 25, 34, -89, -2]
-            let positiveNumbers = numbers.filter(number => number > 0)
-            console.log(positiveNumbers)
+            const numbers = [75, 4, -7, 58, -54, -76, 25, 34, -89, -2];
+            const positiveNumbers = numbers.filter((number) => number > 0);
+            console.log(positiveNumbers);
           </code>
         </pre>
       </div>
@@ -64,9 +64,9 @@
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            let numbers = [94, 98, 14, -91, -98, -7, -50, 20, -88, -9]
-            let isNumbersHasNegativeNumber = numbers.some(number => number &lt; 0)
-            console.log(isNumbersHasNegativeNumber)
+            const numbers = [94, 98, 14, -91, -98, -7, -50, 20, -88, -9];
+            const isNumbersHasNegativeNumber = numbers.some((number) => number &lt; 0);
+            console.log(isNumbersHasNegativeNumber);
           </code>
         </pre>
       </div>
@@ -77,9 +77,9 @@
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            let numbers = [95, 36, -53, -67, -34, 42, -39, -51, -59, 1]
-            let allNumbersAreNegative = numbers.every(number => number &lt; 0)
-            console.log(allNumbersAreNegative)
+            const numbers = [95, 36, -53, -67, -34, 42, -39, -51, -59, 1];
+            const allNumbersAreNegative = numbers.every((number) => number &lt; 0);
+            console.log(allNumbersAreNegative);
           </code>
         </pre>
       </div>
@@ -91,9 +91,9 @@
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            let numbers = [42, -44, -32, -87, 51, -65, 26, 36, 65, 73]
-            let indexOfFirstPositiveNumber = numbers.findIndex(number => number > 0)
-            console.log(indexOfFirstPositiveNumber)
+            const numbers = [42, -44, -32, -87, 51, -65, 26, 36, 65, 73];
+            const indexOfFirstPositiveNumber = numbers.findIndex((number) => number > 0);
+            console.log(indexOfFirstPositiveNumber);
           </code>
         </pre>
       </div>
@@ -104,9 +104,9 @@
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            let numbers = [74, 42, 99, 3, 53, 90, -91, 85, 12, -25]
-            let numbersIncludeNumberTwo = numbers.includes(2)
-            console.log(numbersIncludeNumberTwo)
+            const numbers = [74, 42, 99, 3, 53, 90, -91, 85, 12, -25];
+            const isNumbersIncludeNumberTwo = numbers.includes(2);
+            console.log(isNumbersIncludeNumberTwo);
           </code>
         </pre>
       </div>
@@ -117,12 +117,20 @@
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            const months = ['Jan', 'March', 'April', 'May']
-            months.splice(1, 0, 'Feb')
-            console.log(months)
+            const months = ['Jan', 'March', 'April', 'May'];
+            months.splice(1, 0, 'Feb');
+            console.log(months);
           </code>
         </pre>
       </div>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  console.log('JavaScript Arrays Examples');
+});
+</script>

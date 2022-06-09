@@ -1,11 +1,12 @@
-let scrollYPosition = 0;
-const body = document.querySelector('body');
-const header = document.querySelector<HTMLElement>('.header');
+let scrollYPosition: number = 0;
+const body: (HTMLElement | null) = document.querySelector('body');
+const header: (HTMLElement | null) = document.querySelector('.header');
 
 class ScrollHelper {
   disableScroll() {
-    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const scrollBarWidth: number = window.innerWidth - document.documentElement.clientWidth;
     scrollYPosition = window.pageYOffset;
+    console.log(scrollYPosition);
     if (body !== null) {
       body.style.overflowY = 'hidden';
       body.style.position = 'fixed';

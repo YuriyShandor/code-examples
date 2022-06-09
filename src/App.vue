@@ -23,7 +23,7 @@ export default {
     onMounted(() => {
       setTimeout(() => {
         PrismHelper.initPrism();
-      }, 10);
+      }, 100);
     });
 
     watch(() => route.name, () => {

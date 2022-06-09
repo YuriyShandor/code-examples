@@ -13,23 +13,28 @@
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            let queryParamsObj = {
+            interface IParams {
+              [key: string]: (string | number | boolean);
+            }
+
+            const queryParamsObj: IParams = {
               firstName: 'John',
               lastName: 'Wick',
-              profession: 'killer'
-            }
-            const paramsToQueryString = (params) => {
-              let queryParamsString = ''
-              if (params !== undefined && Object.keys(params).length) {
-                let isFistIteration = true
+              profession: 'killer',
+            };
+
+            const paramsToQueryString = (params: IParams) => {
+              let queryParamsString: string = '';
+              if (Object.keys(params).length) {
+                let isFistIteration: boolean = true;
                 Object.keys(params).forEach((key) => {
-                  queryParamsString += (isFistIteration ? '?' : '&') + key + '=' + params[key]
-                  isFistIteration = false
-                })
+                  queryParamsString += `${(isFistIteration ? '?' : '&') + key}=${params[key]}`;
+                  isFistIteration = false;
+                });
               }
-              return queryParamsString
-            }
-            console.log(paramsToQueryString(queryParamsObj))
+              return queryParamsString;
+            };
+            console.log(paramsToQueryString(queryParamsObj));
           </code>
         </pre>
       </div>
@@ -44,126 +49,45 @@
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            let scrollYPosition = 0
-            let body = document.querySelector('body')
+            let scrollYPosition: number = 0;
+            const body: (HTMLElement | null) = document.querySelector('body');
+            const header: (HTMLElement | null) = document.querySelector('.header');
 
-            const disableScroll = () => {
-              let scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
-              scrollYPosition = window.pageYOffset
-              body.style.overflow = 'hidden'
-              body.style.position = 'fixed'
-              body.style.top = `-${scrollYPosition}px`
-              body.style.width = '100%'
-              body.style.paddingRight = `${scrollBarWidth}px`
+            class ScrollHelper {
+              disableScroll() {
+                const scrollBarWidth: number = window.innerWidth - document.documentElement.clientWidth;
+                scrollYPosition = window.pageYOffset;
+                console.log(scrollYPosition);
+                if (body !== null) {
+                  body.style.overflowY = 'hidden';
+                  body.style.position = 'fixed';
+                  body.style.top = `-${scrollYPosition}px`;
+                  body.style.width = '100%';
+                  body.style.paddingRight = `${scrollBarWidth}px`;
+                }
+                if (header !== null) {
+                  header.style.paddingRight = `${scrollBarWidth}px`;
+                }
+                return true;
+              }
+
+              enableScroll() {
+                if (body !== null) {
+                  body.style.removeProperty('overflow');
+                  body.style.removeProperty('position');
+                  body.style.removeProperty('top');
+                  body.style.removeProperty('width');
+                  body.style.removeProperty('padding-right');
+                }
+                if (header !== null) {
+                  header.style.removeProperty('padding-right');
+                }
+                window.scrollTo(0, scrollYPosition);
+                return true;
+              }
             }
 
-            const enableScroll = () => {
-              body.style.removeProperty('overflow')
-              body.style.removeProperty('position')
-              body.style.removeProperty('top')
-              body.style.removeProperty('width')
-              body.style.removeProperty('padding-right')
-              window.scrollTo(0, scrollYPosition)
-            }
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-block">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-block">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-block">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-block">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-block">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-block">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-block">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-block">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
-          </code>
-        </pre>
-      </div>
-    </div>
-    <div class="code-example-block">
-      <div class="code-example__title"></div>
-      <div class="code-example__description"></div>
-      <div class="code-example">
-        <pre>
-          <code class="language-javascript">
-            // code here
+            export default new ScrollHelper();
           </code>
         </pre>
       </div>
@@ -181,3 +105,11 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  console.log('JavaScript General Examples');
+});
+</script>
