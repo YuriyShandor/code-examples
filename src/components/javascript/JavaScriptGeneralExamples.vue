@@ -57,7 +57,6 @@
               disableScroll() {
                 const scrollBarWidth: number = window.innerWidth - document.documentElement.clientWidth;
                 scrollYPosition = window.pageYOffset;
-                console.log(scrollYPosition);
                 if (body !== null) {
                   body.style.overflowY = 'hidden';
                   body.style.position = 'fixed';
