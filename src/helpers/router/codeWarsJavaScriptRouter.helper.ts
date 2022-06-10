@@ -6,70 +6,50 @@ import CodeWarsJavaScriptNumbers from '@/components/codewars/CodeWarsJavaScriptN
 import CodeWarsJavaScriptStrings from '@/components/codewars/CodeWarsJavaScriptStrings.vue';
 
 class CodeWarsJavaScriptRouterHelper {
-  CODEWARS_JAVASCRIPT_PAGE_NAME(): string {
-    return 'CodeWars JavaScript';
-  }
+  readonly CODEWARS_JAVASCRIPT_PAGE_NAME: string = 'CodeWars JavaScript';
 
-  CODEWARS_JAVASCRIPT_PAGE_PATH(): string {
-    return 'codewars';
-  }
+  readonly CODEWARS_JAVASCRIPT_PAGE_PATH: string = 'codewars';
 
-  CODEWARS_JAVASCRIPT_GENERAL_PAGE_NAME(): string {
-    return 'CodeWars JavaScript General';
-  }
+  readonly CODEWARS_JAVASCRIPT_GENERAL_PAGE_NAME: string = 'CodeWars JavaScript General';
 
-  CODEWARS_JAVASCRIPT_GENERAL_PAGE_PATH(): string {
-    return 'general';
-  }
+  readonly CODEWARS_JAVASCRIPT_GENERAL_PAGE_PATH: string = 'general';
 
-  CODEWARS_JAVASCRIPT_ARRAYS_PAGE_NAME(): string {
-    return 'CodeWars JavaScript Arrays';
-  }
+  readonly CODEWARS_JAVASCRIPT_ARRAYS_PAGE_NAME: string = 'CodeWars JavaScript Arrays';
 
-  CODEWARS_JAVASCRIPT_ARRAYS_PAGE_PATH(): string {
-    return 'arrays';
-  }
+  readonly CODEWARS_JAVASCRIPT_ARRAYS_PAGE_PATH: string = 'arrays';
 
-  CODEWARS_JAVASCRIPT_NUMBERS_PAGE_NAME(): string {
-    return 'CodeWars JavaScript Numbers';
-  }
+  readonly CODEWARS_JAVASCRIPT_NUMBERS_PAGE_NAME: string = 'CodeWars JavaScript Numbers';
 
-  CODEWARS_JAVASCRIPT_NUMBERS_PAGE_PATH(): string {
-    return 'numbers';
-  }
+  readonly CODEWARS_JAVASCRIPT_NUMBERS_PAGE_PATH: string = 'numbers';
 
-  CODEWARS_JAVASCRIPT_STRINGS_PAGE_NAME(): string {
-    return 'CodeWars JavaScript Strings';
-  }
+  readonly CODEWARS_JAVASCRIPT_STRINGS_PAGE_NAME: string = 'CodeWars JavaScript Strings';
 
-  CODEWARS_JAVASCRIPT_STRINGS_PAGE_PATH(): string {
-    return 'strings';
-  }
+  readonly CODEWARS_JAVASCRIPT_STRINGS_PAGE_PATH: string = 'strings';
 
   routes() {
     return {
-      name: this.CODEWARS_JAVASCRIPT_PAGE_NAME(),
-      path: `/${this.CODEWARS_JAVASCRIPT_PAGE_PATH()}`,
+      name: this.CODEWARS_JAVASCRIPT_PAGE_NAME,
+      path: `/${this.CODEWARS_JAVASCRIPT_PAGE_PATH}`,
       component: SinglePage,
       children: [
         {
-          name: this.CODEWARS_JAVASCRIPT_GENERAL_PAGE_NAME(),
-          path: this.CODEWARS_JAVASCRIPT_GENERAL_PAGE_PATH(),
+          name: this.CODEWARS_JAVASCRIPT_GENERAL_PAGE_NAME,
+          path: this.CODEWARS_JAVASCRIPT_GENERAL_PAGE_PATH,
           component: CodeWarsJavaScriptGeneral,
         },
         {
-          name: this.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_NAME(),
-          path: this.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_PATH(),
+          name: this.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_NAME,
+          path: this.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_PATH,
           component: CodeWarsJavaScriptArrays,
         },
         {
-          name: this.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_NAME(),
-          path: this.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_PATH(),
+          name: this.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_NAME,
+          path: this.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_PATH,
           component: CodeWarsJavaScriptNumbers,
         },
         {
-          name: this.CODEWARS_JAVASCRIPT_STRINGS_PAGE_NAME(),
-          path: this.CODEWARS_JAVASCRIPT_STRINGS_PAGE_PATH(),
+          name: this.CODEWARS_JAVASCRIPT_STRINGS_PAGE_NAME,
+          path: this.CODEWARS_JAVASCRIPT_STRINGS_PAGE_PATH,
           component: CodeWarsJavaScriptStrings,
         },
       ],
@@ -78,24 +58,24 @@ class CodeWarsJavaScriptRouterHelper {
 
   menuItems() {
     return {
-      title: this.CODEWARS_JAVASCRIPT_PAGE_NAME(),
-      link: `/${this.CODEWARS_JAVASCRIPT_PAGE_PATH()}`,
+      title: this.CODEWARS_JAVASCRIPT_PAGE_NAME,
+      link: `/${this.CODEWARS_JAVASCRIPT_PAGE_PATH}`,
       subItems: [
         {
-          title: this.CODEWARS_JAVASCRIPT_GENERAL_PAGE_NAME(),
-          link: `/${this.CODEWARS_JAVASCRIPT_PAGE_PATH()}/${this.CODEWARS_JAVASCRIPT_GENERAL_PAGE_PATH()}`,
+          title: this.CODEWARS_JAVASCRIPT_GENERAL_PAGE_NAME,
+          link: `/${this.CODEWARS_JAVASCRIPT_PAGE_PATH}/${this.CODEWARS_JAVASCRIPT_GENERAL_PAGE_PATH}`,
         },
         {
-          title: this.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_NAME(),
-          link: `/${this.CODEWARS_JAVASCRIPT_PAGE_PATH()}/${this.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_PATH()}`,
+          title: this.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_NAME,
+          link: `/${this.CODEWARS_JAVASCRIPT_PAGE_PATH}/${this.CODEWARS_JAVASCRIPT_ARRAYS_PAGE_PATH}`,
         },
         {
-          title: this.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_NAME(),
-          link: `/${this.CODEWARS_JAVASCRIPT_PAGE_PATH()}/${this.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_PATH()}`,
+          title: this.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_NAME,
+          link: `/${this.CODEWARS_JAVASCRIPT_PAGE_PATH}/${this.CODEWARS_JAVASCRIPT_NUMBERS_PAGE_PATH}`,
         },
         {
-          title: this.CODEWARS_JAVASCRIPT_STRINGS_PAGE_NAME(),
-          link: `/${this.CODEWARS_JAVASCRIPT_PAGE_PATH()}/${this.CODEWARS_JAVASCRIPT_STRINGS_PAGE_PATH()}`,
+          title: this.CODEWARS_JAVASCRIPT_STRINGS_PAGE_NAME,
+          link: `/${this.CODEWARS_JAVASCRIPT_PAGE_PATH}/${this.CODEWARS_JAVASCRIPT_STRINGS_PAGE_PATH}`,
         },
       ],
     };

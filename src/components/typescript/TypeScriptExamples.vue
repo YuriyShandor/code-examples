@@ -132,6 +132,6 @@ import TypeScriptHelper from '@/helpers/typescript/typescript.helper';
 
 onMounted(() => {
   // TypeScriptHelper.showDifferentVars();
-  // TypeScriptHelper.implementClass();
+  TypeScriptHelper.implementClass();
 });
 </script>

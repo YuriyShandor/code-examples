@@ -71,11 +71,14 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
+import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper';
 
 onMounted(() => {
   console.log('JavaScript Numbers Examples');
 
-  const getRoundingNumbers = (number: number, decimalPlaces: number): number => +(`${Math.round(number + `e+${decimalPlaces}`)}e-${decimalPlaces}`);
-  console.log(getRoundingNumbers(0.5618744, 2));
+  // const getRoundingNumbers = (number: number, decimalPlaces: number): number => {
+  //   return +(`${Math.round(`${number}e+${decimalPlaces}`)}e-${decimalPlaces}`);
+  // };
+  // console.log(getRoundingNumbers(0.5618744, 2));
 });
 </script>

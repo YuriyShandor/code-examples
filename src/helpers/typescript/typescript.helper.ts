@@ -14,6 +14,10 @@ class TypeScriptHelper {
     class Car {
       name: string;
 
+      readonly readonlyName: string = 'Readonly Name';
+
+      static staticName: string = 'Static Name';
+
       protected userName: string = 'User Name';
 
       constructor(name: string) {
@@ -21,6 +25,8 @@ class TypeScriptHelper {
       }
 
       run(speed:number = 0) {
+        console.log(this.readonlyName);
+        console.log(Car.staticName);
         console.log(this.userName);
         console.log(`A ${this.name} from is moving at ${speed} mph!`);
       }
@@ -35,6 +41,7 @@ class TypeScriptHelper {
       }
 
       created() {
+        this.userName = '';
         console.log('created', this.userName);
         console.log(`A ${this.name} was created in ${this.year}`);
       }
@@ -67,9 +74,17 @@ class TypeScriptHelper {
 
     mercObj.run();
     mercObj.created();
+    // eslint-disable-next-line no-unused-expressions
     // mercObj.userName;
     hondaObj.run();
     hondaObj.countryOfOrigin();
+
+    const Car01 = new Car('Car01');
+    const Car02 = new Car('Car02');
+
+    // eslint-disable-next-line no-unused-expressions
+    Car.staticName = '20000';
+    console.log(Car.staticName);
   }
 }
 
