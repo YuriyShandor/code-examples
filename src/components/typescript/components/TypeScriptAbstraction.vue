@@ -17,7 +17,7 @@
           <code class="language-javascript">
             import { onMounted } from 'vue';
 
-            abstract class ParentClass {
+            abstract class BaseClass {
               firstName: string;
 
               lastName: string;
@@ -38,10 +38,10 @@
                 return this.age;
               }
 
-              public abstract getEmployedStatus(): boolean;
+              abstract getEmployedStatus(): boolean;
             }
 
-            class ChildClass extends ParentClass {
+            class ChildClass extends BaseClass {
               isEmployed: boolean;
 
               constructor(firstName: string, lastName: string, age: number, isEmployed: boolean) {
@@ -79,7 +79,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 
-abstract class ParentClass {
+abstract class BaseClass {
   firstName: string;
 
   lastName: string;
@@ -100,10 +100,10 @@ abstract class ParentClass {
     return this.age;
   }
 
-  public abstract getEmployedStatus(): boolean;
+  abstract getEmployedStatus(): boolean;
 }
 
-class ChildClass extends ParentClass {
+class ChildClass extends BaseClass {
   isEmployed: boolean;
 
   constructor(firstName: string, lastName: string, age: number, isEmployed: boolean) {
