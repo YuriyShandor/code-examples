@@ -1,4 +1,3 @@
-/* eslint-disable */
 import SinglePage from '@/components/SinglePage.vue';
 
 import ModalsExamples from '@/components/ui-elements/modals/ModalsExamples.vue';
@@ -29,9 +28,9 @@ class UIElementsRouterHelper {
         {
           name: this.MODALS_EXAMPLES_PAGE_NAME(),
           path: this.MODALS_EXAMPLES_PAGE_PATH(),
-          component: ModalsExamples
-        }
-      ]
+          component: ModalsExamples,
+        },
+      ],
     };
   }
 
@@ -42,9 +41,9 @@ class UIElementsRouterHelper {
       subItems: [
         {
           title: this.MODALS_EXAMPLES_PAGE_NAME(),
-          link: `/${this.UI_ELEMENTS_PAGE_PATH()}/${this.MODALS_EXAMPLES_PAGE_PATH()}`
-        }
-      ]
+          link: `/${this.UI_ELEMENTS_PAGE_PATH()}/${this.MODALS_EXAMPLES_PAGE_PATH()}`,
+        },
+      ],
     };
   }
 }

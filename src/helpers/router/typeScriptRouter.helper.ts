@@ -3,31 +3,23 @@ import SinglePage from '@/components/SinglePage.vue';
 import TypeScriptExamples from '@/components/typescript/TypeScriptExamples.vue';
 
 class TypeScriptRouterHelper {
-  TYPESCRIPT_EXAMPLES_PAGE_NAME(): string {
-    return 'Typescript Examples';
-  }
+  readonly TYPESCRIPT_EXAMPLES_PAGE_NAME: string = 'Typescript Examples';
 
-  TYPESCRIPT_EXAMPLES_PAGE_PATH(): string {
-    return 'typescript';
-  }
+  readonly TYPESCRIPT_EXAMPLES_PAGE_PATH: string = 'typescript';
 
-  TYPESCRIPT_GENERAL_EXAMPLES_PAGE_NAME(): string {
-    return 'Typescript General Examples';
-  }
+  readonly TYPESCRIPT_GENERAL_EXAMPLES_PAGE_NAME: string = 'Typescript General Examples';
 
-  TYPESCRIPT_GENERAL_EXAMPLES_PAGE_PATH(): string {
-    return 'general';
-  }
+  readonly TYPESCRIPT_GENERAL_EXAMPLES_PAGE_PATH: string = 'general';
 
   routes() {
     return {
-      name: this.TYPESCRIPT_EXAMPLES_PAGE_NAME(),
-      path: `/${this.TYPESCRIPT_EXAMPLES_PAGE_PATH()}`,
+      name: this.TYPESCRIPT_EXAMPLES_PAGE_NAME,
+      path: `/${this.TYPESCRIPT_EXAMPLES_PAGE_PATH}`,
       component: SinglePage,
       children: [
         {
-          name: this.TYPESCRIPT_GENERAL_EXAMPLES_PAGE_NAME(),
-          path: this.TYPESCRIPT_GENERAL_EXAMPLES_PAGE_PATH(),
+          name: this.TYPESCRIPT_GENERAL_EXAMPLES_PAGE_NAME,
+          path: this.TYPESCRIPT_GENERAL_EXAMPLES_PAGE_PATH,
           component: TypeScriptExamples,
         },
       ],
@@ -36,12 +28,12 @@ class TypeScriptRouterHelper {
 
   menuItems() {
     return {
-      title: this.TYPESCRIPT_EXAMPLES_PAGE_NAME(),
-      link: `/${this.TYPESCRIPT_EXAMPLES_PAGE_PATH()}`,
+      title: this.TYPESCRIPT_EXAMPLES_PAGE_NAME,
+      link: `/${this.TYPESCRIPT_EXAMPLES_PAGE_PATH}`,
       subItems: [
         {
-          title: this.TYPESCRIPT_GENERAL_EXAMPLES_PAGE_NAME(),
-          link: `/${this.TYPESCRIPT_EXAMPLES_PAGE_PATH()}/${this.TYPESCRIPT_GENERAL_EXAMPLES_PAGE_PATH()}`,
+          title: this.TYPESCRIPT_GENERAL_EXAMPLES_PAGE_NAME,
+          link: `/${this.TYPESCRIPT_EXAMPLES_PAGE_PATH}/${this.TYPESCRIPT_GENERAL_EXAMPLES_PAGE_PATH}`,
         },
       ],
     };

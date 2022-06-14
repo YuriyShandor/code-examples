@@ -1,4 +1,3 @@
-/* eslint-disable */
 import SinglePage from '@/components/SinglePage.vue';
 
 import JavaScriptGeneralExamples from '@/components/javascript/JavaScriptGeneralExamples.vue';
@@ -7,98 +6,78 @@ import JavaScriptNumbersExamples from '@/components/javascript/JavaScriptNumbers
 import JavaScriptStringsExamples from '@/components/javascript/JavaScriptStringsExamples.vue';
 
 class JavaScriptExamplesRouterHelper {
-  JAVASCRIPT_EXAMPLES_PAGE_NAME(): string {
-    return 'JavaScript Examples';
-  }
+  readonly JAVASCRIPT_EXAMPLES_PAGE_NAME: string = 'JavaScript Examples';
 
-  JAVASCRIPT_EXAMPLES_PAGE_PATH(): string {
-    return 'javascript';
-  }
+  readonly JAVASCRIPT_EXAMPLES_PAGE_PATH: string = 'javascript';
 
-  JAVASCRIPT_GENERAL_EXAMPLES_PAGE_NAME(): string {
-    return 'General Examples';
-  }
+  readonly JAVASCRIPT_GENERAL_EXAMPLES_PAGE_NAME: string = 'General Examples';
 
-  JAVASCRIPT_GENERAL_EXAMPLES_PAGE_PATH(): string {
-    return 'general';
-  }
+  readonly JAVASCRIPT_GENERAL_EXAMPLES_PAGE_PATH: string = 'general';
 
-  JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_NAME(): string {
-    return 'Arrays Examples';
-  }
+  readonly JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_NAME: string = 'Arrays Examples';
 
-  JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_PATH(): string {
-    return 'arrays';
-  }
+  readonly JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_PATH: string = 'arrays';
 
-  JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_NAME(): string {
-    return 'Numbers Examples';
-  }
+  readonly JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_NAME: string = 'Numbers Examples';
 
-  JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_PATH(): string {
-    return 'numbers';
-  }
+  readonly JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_PATH: string = 'numbers';
 
-  JAVASCRIPT_STRINGS_EXAMPLES_PAGE_NAME(): string {
-    return 'Strings Examples';
-  }
+  readonly JAVASCRIPT_STRINGS_EXAMPLES_PAGE_NAME: string = 'Strings Examples';
 
-  JAVASCRIPT_STRINGS_EXAMPLES_PAGE_PATH(): string {
-    return 'strings';
-  }
+  readonly JAVASCRIPT_STRINGS_EXAMPLES_PAGE_PATH: string = 'strings';
 
   routes() {
     return {
-      name: this.JAVASCRIPT_EXAMPLES_PAGE_NAME(),
-      path: `/${this.JAVASCRIPT_EXAMPLES_PAGE_PATH()}`,
+      name: this.JAVASCRIPT_EXAMPLES_PAGE_NAME,
+      path: `/${this.JAVASCRIPT_EXAMPLES_PAGE_PATH}`,
       component: SinglePage,
       children: [
         {
-          name: this.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_NAME(),
-          path: this.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_PATH(),
-          component: JavaScriptGeneralExamples
+          name: this.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_NAME,
+          path: this.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_PATH,
+          component: JavaScriptGeneralExamples,
         },
         {
-          name: this.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_NAME(),
-          path: this.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_PATH(),
-          component: JavaScriptArraysExamples
+          name: this.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_NAME,
+          path: this.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_PATH,
+          component: JavaScriptArraysExamples,
         },
         {
-          name: this.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_NAME(),
-          path: this.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_PATH(),
-          component: JavaScriptNumbersExamples
+          name: this.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_NAME,
+          path: this.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_PATH,
+          component: JavaScriptNumbersExamples,
         },
         {
-          name: this.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_NAME(),
-          path: this.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_PATH(),
-          component: JavaScriptStringsExamples
-        }
-      ]
+          name: this.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_NAME,
+          path: this.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_PATH,
+          component: JavaScriptStringsExamples,
+        },
+      ],
     };
   }
 
   menuItems() {
     return {
-      title: this.JAVASCRIPT_EXAMPLES_PAGE_NAME(),
-      link: `/${this.JAVASCRIPT_EXAMPLES_PAGE_PATH()}`,
+      title: this.JAVASCRIPT_EXAMPLES_PAGE_NAME,
+      link: `/${this.JAVASCRIPT_EXAMPLES_PAGE_PATH}`,
       subItems: [
         {
-          title: this.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_NAME(),
-          link: `/${this.JAVASCRIPT_EXAMPLES_PAGE_PATH()}/${this.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_PATH()}`
+          title: this.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_NAME,
+          link: `/${this.JAVASCRIPT_EXAMPLES_PAGE_PATH}/${this.JAVASCRIPT_GENERAL_EXAMPLES_PAGE_PATH}`,
         },
         {
-          title: this.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_NAME(),
-          link: `/${this.JAVASCRIPT_EXAMPLES_PAGE_PATH()}/${this.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_PATH()}`
+          title: this.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_NAME,
+          link: `/${this.JAVASCRIPT_EXAMPLES_PAGE_PATH}/${this.JAVASCRIPT_ARRAYS_EXAMPLES_PAGE_PATH}`,
         },
         {
-          title: this.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_NAME(),
-          link: `/${this.JAVASCRIPT_EXAMPLES_PAGE_PATH()}/${this.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_PATH()}`
+          title: this.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_NAME,
+          link: `/${this.JAVASCRIPT_EXAMPLES_PAGE_PATH}/${this.JAVASCRIPT_NUMBERS_EXAMPLES_PAGE_PATH}`,
         },
         {
-          title: this.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_NAME(),
-          link: `/${this.JAVASCRIPT_EXAMPLES_PAGE_PATH()}/${this.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_PATH()}`
-        }
-      ]
+          title: this.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_NAME,
+          link: `/${this.JAVASCRIPT_EXAMPLES_PAGE_PATH}/${this.JAVASCRIPT_STRINGS_EXAMPLES_PAGE_PATH}`,
+        },
+      ],
     };
   }
 }
