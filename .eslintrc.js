@@ -24,6 +24,7 @@ module.exports = {
     'no-plusplus': 'off',
     'invalid-first-character-of-tag-name': 'off',
     'max-classes-per-file': 'off',
+    'no-useless-constructor': 'off',
   },
   overrides: [
     {
