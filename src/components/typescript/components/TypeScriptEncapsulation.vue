@@ -6,7 +6,13 @@
       <div class="code-example__description">
         Encapsulation is built on the idea of hiding data. This is where we restrict access to specific properties or methods. <br>
         <br>
-        <b>Private:</b> private members can only be accessed within the class it was defined in. Outside clients as well as inheriting classes are unauthorized.
+        Types of properties and methods in TypeScript: <br>
+        <b>Public:</b> default type of properties and methods.
+        We can use and change public values in the child class and from the instance.
+        <br>
+        <b>Protected:</b> for this type of values, we have access from that class where they were declared, and from child classes, but not from the instance.
+        <br>
+        <b>Private:</b> for this type of values, we have access only from that class where they were declared, we can't change and use these values outside this class.
       </div>
       <div class="code-example">
         <pre>
@@ -30,52 +36,65 @@
 import { onMounted } from 'vue';
 
 class BaseClass {
-  private _firstName: string;
+  publicName: string;
 
-  protected _lastName: string;
+  protected _protectedName: string;
 
-  age: number;
+  private _privateName: string;
 
-  protected constructor(firstName: string, lastName: string, age: number) {
-    this._firstName = firstName;
-    this._lastName = lastName;
-    this.age = age;
+  protected constructor(publicName: string, protectedName: string, privateName: string) {
+    this.publicName = publicName;
+    this._protectedName = protectedName;
+    this._privateName = privateName;
   }
 
-  private getName(): string {
-    return `${this._firstName} ${this._lastName}`;
+  getPublicName(): string {
+    return this.publicName;
   }
 
-  getAge(): number {
-    return this.age;
+  getProtectedName(): string {
+    return this._protectedName;
+  }
+
+  getPrivateName(): string {
+    return this._privateName;
   }
 }
 
 class ChildClass extends BaseClass {
-  isEmployed: boolean;
-
-  constructor(firstName: string, lastName: string, age: number, isEmployed: boolean) {
-    super(firstName, lastName, age);
-    this.isEmployed = isEmployed;
+  constructor(publicName: string, protectedName: string, privateName: string) {
+    super(publicName, protectedName, privateName);
   }
 
-  getFirstName(): string {
-    this._firstName = 'gfdfgdf';
-    return this._firstName;
+  changePublicNameFromChildClass() {
+    this.publicName = 'Changed Public Name from Child Class';
   }
 
-  getEmployedStatus(): boolean {
-    return this.isEmployed;
+  changeProtectedNameFromChildClass() {
+    this._protectedName = 'Changed Protected Name from Child Class';
   }
+
+  // changePrivateName() {
+  //   this._privateName = 'Changed Private Name from Child Class';
+  // }
 }
 
 onMounted(() => {
   console.log('Encapsulation in TypeScript');
-  const NewEmployee = new ChildClass('John', 'Snow', 33, true);
+  const ExampleClass = new ChildClass('Public Name', 'Protected Name', 'Private Name');
 
-  console.log(NewEmployee._firstName);
-  console.log(NewEmployee.getName());
-  console.log(NewEmployee.getAge());
-  console.log(NewEmployee.getEmployedStatus());
+  // console.log(ExampleClass.publicName);
+  // ExampleClass.publicName = 'Change Public Name from Instance';
+  // console.log(ExampleClass.publicName);
+  // ExampleClass.changePublicNameFromChildClass();
+  // console.log(ExampleClass.getPublicName());
+
+  // // console.log(ExampleClass._protectedName);
+  // console.log(ExampleClass.getProtectedName());
+  // ExampleClass.changeProtectedNameFromChildClass();
+  // console.log(ExampleClass.getProtectedName());
+
+  // console.log(ExampleClass._privateName);
+  console.log(ExampleClass.getPrivateName());
 });
 </script>

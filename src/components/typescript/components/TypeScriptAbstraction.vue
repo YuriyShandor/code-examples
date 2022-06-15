@@ -9,7 +9,7 @@
         We can't create an instance of an abstract class.
         But other classes can derived from abstract class and reuse the functionality of base class. <br>
         To declare an abstract class, we need to use the <b>abstract</b> keyword. <br>
-        We must declare an abstract method in the derived class. <br>
+        We must declare an abstract method in the child class. <br>
         We can't declare an abstract method in the not-abstract class. <br>
         The most common use of abstract classes in TypeScript is to locate some common behavior to share within related subclasses.
       </div>
