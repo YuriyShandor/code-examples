@@ -25,6 +25,7 @@ module.exports = {
     'invalid-first-character-of-tag-name': 'off',
     'max-classes-per-file': 'off',
     'no-useless-constructor': 'off',
+    'no-underscore-dangle': 'off',
   },
   overrides: [
     {

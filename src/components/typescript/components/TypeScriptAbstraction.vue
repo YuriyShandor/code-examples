@@ -11,6 +11,7 @@
         To declare an abstract class, we need to use the <b>abstract</b> keyword. <br>
         We must declare an abstract method in the derived class. <br>
         We can't declare an abstract method in the not-abstract class. <br>
+        The most common use of abstract classes in TypeScript is to locate some common behavior to share within related subclasses.
       </div>
       <div class="code-example">
         <pre>
@@ -66,7 +67,7 @@
         </pre>
       </div>
       <a
-        href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/typescript/components/TypeScriptInterface.vue"
+        href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/typescript/components/TypeScriptAbstraction.vue"
         target="_blank"
         class="button code-example__button">
         Watch on GitHub
