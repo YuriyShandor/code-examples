@@ -8,11 +8,11 @@
         <br>
         Types of properties and methods in TypeScript: <br>
         <b>Public:</b> default type of properties and methods.
-        We can use and change public values in the child class and from the instance.
+        We can use and change public properties and methods in the child class and from the instance.
         <br>
-        <b>Protected:</b> for this type of values, we have access from that class where they were declared, and from child classes, but not from the instance.
+        <b>Protected:</b> for this type of properties and methods, we have access from that class where they were declared, and from child classes, but not from the instance.
         <br>
-        <b>Private:</b> for this type of values, we have access only from that class where they were declared, we can't change and use these values outside this class.
+        <b>Private:</b> for this type of properties and methods, we have access only from that class where they were declared, we can't change and use these values outside this class.
       </div>
       <div class="code-example">
         <pre>
@@ -52,11 +52,11 @@ class BaseClass {
     return this.publicName;
   }
 
-  getProtectedName(): string {
+  protected getProtectedName(): string {
     return this._protectedName;
   }
 
-  getPrivateName(): string {
+  private getPrivateName(): string {
     return this._privateName;
   }
 }
@@ -72,10 +72,12 @@ class ChildClass extends BaseClass {
 
   changeProtectedNameFromChildClass() {
     this._protectedName = 'Changed Protected Name from Child Class';
+    // this.getProtectedName();
   }
 
   // changePrivateName() {
   //   this._privateName = 'Changed Private Name from Child Class';
+  //   this.getPrivateName();
   // }
 }
 
@@ -94,7 +96,7 @@ onMounted(() => {
   // ExampleClass.changeProtectedNameFromChildClass();
   // console.log(ExampleClass.getProtectedName());
 
-  // console.log(ExampleClass._privateName);
-  console.log(ExampleClass.getPrivateName());
+  // // console.log(ExampleClass._privateName);
+  // console.log(ExampleClass.getPrivateName());
 });
 </script>
