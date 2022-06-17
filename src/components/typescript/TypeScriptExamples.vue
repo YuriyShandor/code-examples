@@ -128,10 +128,8 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import TypeScriptHelper from '@/helpers/typescript/typescript.helper';
 
 onMounted(() => {
-  // TypeScriptHelper.showDifferentVars();
-  // TypeScriptHelper.implementClass();
+  console.log('Typescript Examples');
 });
 </script>

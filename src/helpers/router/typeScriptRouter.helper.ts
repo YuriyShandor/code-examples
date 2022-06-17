@@ -1,10 +1,11 @@
 import SinglePage from '@/components/SinglePage.vue';
 
 import TypeScriptExamples from '@/components/typescript/TypeScriptExamples.vue';
-import TypeScriptAbstraction from '@/components/typescript/components/TypeScriptAbstraction.vue';
-import TypeScriptEncapsulation from '@/components/typescript/components/TypeScriptEncapsulation.vue';
-import TypeScriptInheritance from '@/components/typescript/components/TypeScriptInheritance.vue';
-import TypeScriptPolymorphism from '@/components/typescript/components/TypeScriptPolymorphism.vue';
+import TypeScriptAbstraction from '@/components/typescript/TypeScriptAbstraction.vue';
+import TypeScriptEncapsulation from '@/components/typescript/TypeScriptEncapsulation.vue';
+import TypeScriptInheritance from '@/components/typescript/TypeScriptInheritance.vue';
+import TypeScriptPolymorphism from '@/components/typescript/TypeScriptPolymorphism.vue';
+import TypeScriptGettersAndSetters from '@/components/typescript/TypeScriptGettersAndSetters.vue';
 
 class TypeScriptRouterHelper {
   readonly TYPESCRIPT_EXAMPLES_PAGE_NAME: string = 'Typescript Examples';
@@ -30,6 +31,10 @@ class TypeScriptRouterHelper {
   readonly OOP_POLYMORPHISM_EXAMPLES_PAGE_NAME: string = 'Polymorphism in TypeScript';
 
   readonly OOP_POLYMORPHISM_EXAMPLES_PAGE_PATH: string = 'polymorphism';
+
+  readonly GETTERS_AND_SETTERS_EXAMPLES_PAGE_NAME: string = 'Getters and Setters';
+
+  readonly GETTERS_AND_SETTERS_EXAMPLES_PAGE_PATH: string = 'getters-and-setters';
 
   routes() {
     return {
@@ -62,6 +67,11 @@ class TypeScriptRouterHelper {
           path: this.OOP_POLYMORPHISM_EXAMPLES_PAGE_PATH,
           component: TypeScriptPolymorphism,
         },
+        {
+          name: this.GETTERS_AND_SETTERS_EXAMPLES_PAGE_NAME,
+          path: this.GETTERS_AND_SETTERS_EXAMPLES_PAGE_PATH,
+          component: TypeScriptGettersAndSetters,
+        },
       ],
     };
   }
@@ -90,6 +100,10 @@ class TypeScriptRouterHelper {
         {
           title: this.OOP_POLYMORPHISM_EXAMPLES_PAGE_NAME,
           link: `/${this.TYPESCRIPT_EXAMPLES_PAGE_PATH}/${this.OOP_POLYMORPHISM_EXAMPLES_PAGE_PATH}`,
+        },
+        {
+          title: this.GETTERS_AND_SETTERS_EXAMPLES_PAGE_NAME,
+          link: `/${this.TYPESCRIPT_EXAMPLES_PAGE_PATH}/${this.GETTERS_AND_SETTERS_EXAMPLES_PAGE_PATH}`,
         },
       ],
     };

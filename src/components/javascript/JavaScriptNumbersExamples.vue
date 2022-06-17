@@ -71,7 +71,6 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper';
 
 onMounted(() => {
   console.log('JavaScript Numbers Examples');

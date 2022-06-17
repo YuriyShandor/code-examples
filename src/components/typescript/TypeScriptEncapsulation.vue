@@ -219,11 +219,11 @@ onMounted(() => {
   console.log('Encapsulation in TypeScript');
   const ExampleClass = new ChildClass('Public Name', 'Protected Name', 'Private Name');
 
-  // console.log(ExampleClass.publicName);
-  // ExampleClass.publicName = 'Change Public Name from Instance';
-  // console.log(ExampleClass.publicName);
-  // ExampleClass.changePublicNameFromChildClass();
-  // console.log(ExampleClass.getPublicName());
+  console.log(ExampleClass.publicName);
+  ExampleClass.publicName = 'Change Public Name from Instance';
+  console.log(ExampleClass.publicName);
+  ExampleClass.changePublicNameFromChildClass();
+  console.log(ExampleClass.getPublicName());
 
   // // console.log(ExampleClass._protectedName);
   // console.log(ExampleClass.getProtectedName());
