@@ -1,7 +1,7 @@
 import SinglePage from '@/components/SinglePage.vue';
+
 import VuexExamples from '@/components/vue/VuexExamples.vue';
 import RouterExamples from '@/components/vue/RouterExamples.vue';
-import AxiosExamples from '@/components/vue/AxiosExamples.vue';
 
 class VueExamplesRouterHelper {
   readonly VUE_EXAMPLES_PAGE_NAME: string = 'Vue Examples';
@@ -15,10 +15,6 @@ class VueExamplesRouterHelper {
   readonly ROUTER_EXAMPLES_PAGE_NAME: string = 'Router Examples';
 
   readonly ROUTER_EXAMPLES_PAGE_PATH: string = 'router';
-
-  readonly AXIOS_EXAMPLES_PAGE_NAME: string = 'Axios Examples';
-
-  readonly AXIOS_EXAMPLES_PAGE_PATH: string = 'axios';
 
   routes() {
     return {
@@ -36,11 +32,6 @@ class VueExamplesRouterHelper {
           path: this.ROUTER_EXAMPLES_PAGE_PATH,
           component: RouterExamples,
         },
-        {
-          name: this.AXIOS_EXAMPLES_PAGE_NAME,
-          path: this.AXIOS_EXAMPLES_PAGE_PATH,
-          component: AxiosExamples,
-        },
       ],
     };
   }
@@ -57,10 +48,6 @@ class VueExamplesRouterHelper {
         {
           title: this.ROUTER_EXAMPLES_PAGE_NAME,
           link: `/${this.VUE_EXAMPLES_PAGE_PATH}/${this.ROUTER_EXAMPLES_PAGE_PATH}`,
-        },
-        {
-          title: this.AXIOS_EXAMPLES_PAGE_NAME,
-          link: `/${this.VUE_EXAMPLES_PAGE_PATH}/${this.AXIOS_EXAMPLES_PAGE_PATH}`,
         },
       ],
     };

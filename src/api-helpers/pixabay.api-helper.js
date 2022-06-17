@@ -1,5 +1,4 @@
 import axios from 'axios';
-import $axios from '@/services/axios.service';
 import GlobalHelper from '@/helpers/global.helper';
 
 class PixabayApiHelper {
