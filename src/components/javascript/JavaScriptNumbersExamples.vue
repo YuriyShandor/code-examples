@@ -47,9 +47,7 @@
       <div class="code-example">
         <pre>
           <code class="language-javascript">
-            const getRoundingNumbers = (number, decimalPlaces) => {
-              return +(Math.round(number + `e+${decimalPlaces}`)  + `e-${decimalPlaces}`);
-            }
+            const getRoundingNumbers = (number: number, decimalPlaces: number): number => +`${Math.round(+`${number}e+${decimalPlaces}`)}e-${decimalPlaces}`;
             console.log(getRoundingNumbers(0.5618744, 2))
           </code>
         </pre>
@@ -75,9 +73,7 @@ import { onMounted } from 'vue';
 onMounted(() => {
   console.log('JavaScript Numbers Examples');
 
-  // const getRoundingNumbers = (number: number, decimalPlaces: number): number => {
-  //   return +(`${Math.round(`${number}e+${decimalPlaces}`)}e-${decimalPlaces}`);
-  // };
-  // console.log(getRoundingNumbers(0.5618744, 2));
+  const getRoundingNumbers = (number: number, decimalPlaces: number): number => +`${Math.round(+`${number}e+${decimalPlaces}`)}e-${decimalPlaces}`;
+  console.log(getRoundingNumbers(555.7, 5));
 });
 </script>
