@@ -6,6 +6,7 @@ import TypeScriptEncapsulation from '@/components/typescript/TypeScriptEncapsula
 import TypeScriptInheritance from '@/components/typescript/TypeScriptInheritance.vue';
 import TypeScriptPolymorphism from '@/components/typescript/TypeScriptPolymorphism.vue';
 import TypeScriptGettersAndSetters from '@/components/typescript/TypeScriptGettersAndSetters.vue';
+import TypeScriptInterface from '@/components/typescript/TypeScriptInterface.vue';
 
 class TypeScriptRouterHelper {
   readonly TYPESCRIPT_EXAMPLES_PAGE_NAME: string = 'Typescript Examples';
@@ -32,9 +33,13 @@ class TypeScriptRouterHelper {
 
   readonly OOP_POLYMORPHISM_EXAMPLES_PAGE_PATH: string = 'polymorphism';
 
-  readonly GETTERS_AND_SETTERS_EXAMPLES_PAGE_NAME: string = 'Getters and Setters';
+  readonly GETTERS_AND_SETTERS_EXAMPLES_PAGE_NAME: string = 'Getters and Setters in TypeScript';
 
   readonly GETTERS_AND_SETTERS_EXAMPLES_PAGE_PATH: string = 'getters-and-setters';
+
+  readonly INTERFACES_EXAMPLES_PAGE_NAME: string = 'Interfaces in TypeScript';
+
+  readonly INTERFACES_EXAMPLES_PAGE_PATH: string = 'interfaces';
 
   routes() {
     return {
@@ -72,6 +77,11 @@ class TypeScriptRouterHelper {
           path: this.GETTERS_AND_SETTERS_EXAMPLES_PAGE_PATH,
           component: TypeScriptGettersAndSetters,
         },
+        {
+          name: this.INTERFACES_EXAMPLES_PAGE_NAME,
+          path: this.INTERFACES_EXAMPLES_PAGE_PATH,
+          component: TypeScriptInterface,
+        },
       ],
     };
   }
@@ -104,6 +114,10 @@ class TypeScriptRouterHelper {
         {
           title: this.GETTERS_AND_SETTERS_EXAMPLES_PAGE_NAME,
           link: `/${this.TYPESCRIPT_EXAMPLES_PAGE_PATH}/${this.GETTERS_AND_SETTERS_EXAMPLES_PAGE_PATH}`,
+        },
+        {
+          title: this.INTERFACES_EXAMPLES_PAGE_NAME,
+          link: `/${this.TYPESCRIPT_EXAMPLES_PAGE_PATH}/${this.INTERFACES_EXAMPLES_PAGE_PATH}`,
         },
       ],
     };

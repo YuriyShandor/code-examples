@@ -133,7 +133,7 @@
         </pre>
       </div>
       <a
-        href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/typescript/components/TypeScriptInterface.vue"
+        href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/typescript/TypeScriptEncapsulation.vue"
         target="_blank"
         class="button code-example__button">
         Watch on GitHub
