@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
-import SuperheroView from '@/views/SuperheroView.vue';
+
 import Page404View from '@/views/Page404View.vue';
 
 import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper';
@@ -9,6 +9,7 @@ import ExternalLibrariesRouterHelper from '@/helpers/router/externalLibrariesRou
 import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper';
 import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper';
 import TypeScriptRouterHelper from '@/helpers/router/typeScriptRouter.helper';
+import OtherExamplesRouterHelper from '@/helpers/router/otherExamplesRouter.helper';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -16,17 +17,13 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Home Page',
     component: HomeView,
   },
-  {
-    path: '/superhero',
-    name: 'Superhero Page',
-    component: SuperheroView,
-  },
   VueExamplesRouterHelper.routes(),
   JavaScriptExamplesRouterHelper.routes(),
   ExternalLibrariesRouterHelper.routes(),
   UIElementsRouterHelper.routes(),
   CodeWarsJavaScriptRouterHelper.routes(),
   TypeScriptRouterHelper.routes(),
+  OtherExamplesRouterHelper.routes(),
   {
     path: '/:pathMatch(.*)*',
     component: Page404View,

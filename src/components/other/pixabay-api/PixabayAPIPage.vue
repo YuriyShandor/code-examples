@@ -1,7 +1,7 @@
 <template>
   <div class="superhero-page">
     <h1 class="superhero-page__title">
-      This is a superheroes page
+      This is a pixabay  page
     </h1>
     <SuperHeroSearch
       @update-superhero-list="updateSuperHeroList"
@@ -24,14 +24,14 @@
 
 <script lang="ts">
 import { reactive, defineComponent } from 'vue';
-import SuperHeroSearch from '@/components/superhero/SuperHeroSearch.vue';
-import SuperHeroCard from '@/components/superhero/SuperHeroCard.vue';
-import SuperHeroDetailsModal from '@/components/superhero/SuperHeroDetailsModal.vue';
+import SuperHeroSearch from '@/components/other/superhero-api/SuperHeroSearch.vue';
+import SuperHeroCard from '@/components/other/superhero-api/SuperHeroCard.vue';
+import SuperHeroDetailsModal from '@/components/other/superhero-api/SuperHeroDetailsModal.vue';
 import SuperHeroApiHelper from '@/api-helpers/superhero.api-helper';
 import ObjectsHelper from '@/helpers/objects.helper';
 
 export default defineComponent({
-  name: 'SuperheroView',
+  name: 'SuperheroAPIPage',
   components: {
     SuperHeroSearch,
     SuperHeroCard,

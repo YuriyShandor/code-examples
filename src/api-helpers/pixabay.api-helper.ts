@@ -2,7 +2,7 @@ import axios from 'axios';
 import GlobalHelper from '@/helpers/global.helper';
 
 class PixabayApiHelper {
-  getImages(searchField, imagesQty, orientation = 'horizontal') {
+  getImages(searchField: string, imagesQty: number, orientation: string = 'horizontal') {
     const pixabayImagesQueryParams = {
       key: '17459503-b53b6c0cdbd4d3bcd974119dc',
       q: searchField,

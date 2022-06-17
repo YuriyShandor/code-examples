@@ -72,8 +72,5 @@ import { onMounted } from 'vue';
 
 onMounted(() => {
   console.log('JavaScript Numbers Examples');
-
-  const getRoundingNumbers = (number: number, decimalPlaces: number): number => +`${Math.round(+`${number}e+${decimalPlaces}`)}e-${decimalPlaces}`;
-  console.log(getRoundingNumbers(555.7, 5));
 });
 </script>

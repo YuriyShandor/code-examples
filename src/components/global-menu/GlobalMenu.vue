@@ -50,6 +50,7 @@ import ExternalLibrariesRouterHelper from '@/helpers/router/externalLibrariesRou
 import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper';
 import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper';
 import TypeScriptRouterHelper from '@/helpers/router/typeScriptRouter.helper';
+import OtherExamplesRouterHelper from '@/helpers/router/otherExamplesRouter.helper';
 import ScrollHelper from '@/helpers/scroll.helper';
 
 export default defineComponent({
@@ -64,16 +65,7 @@ export default defineComponent({
       UIElementsRouterHelper.menuItems(),
       CodeWarsJavaScriptRouterHelper.menuItems(),
       TypeScriptRouterHelper.menuItems(),
-      {
-        title: 'SuperHero Api',
-        link: '/superhero',
-        subItems: [
-          {
-            title: 'SuperHero Page',
-            link: '/superhero',
-          },
-        ],
-      },
+      OtherExamplesRouterHelper.menuItems(),
     ];
     const state = reactive({
       activeName: '' as string,
