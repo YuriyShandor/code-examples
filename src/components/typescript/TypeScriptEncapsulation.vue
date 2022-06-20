@@ -140,6 +140,162 @@
         <img src="/images/github-logo.svg" alt="" class="code-example__button-image">
       </a>
     </div>
+    <div class="code-example-block">
+      <div class="code-example__title">Public Properties and Methods</div>
+      <div class="code-example__description">
+        <b>Public:</b> default type of properties and methods.
+        We can use and change public properties and methods
+        in the class where they were declared, child class and from the instance.
+      </div>
+      <div class="code-example">
+        <pre>
+          <code class="language-javascript">
+            import { onMounted } from 'vue';
+
+            class BaseClass {
+              publicName: string;
+
+              protected constructor(publicName: string) {
+                this.publicName = publicName;
+              }
+
+              getPublicName(): string {
+                return this.publicName;
+              }
+            }
+
+            class ChildClass extends BaseClass {
+              constructor(publicName: string) {
+                super(publicName);
+              }
+
+              changePublicNameFromChildClass() {
+                this.publicName = 'Changed Public Name from Child Class';
+              }
+            }
+
+            onMounted(() => {
+              console.log('Public Properties and Methods');
+              const ExampleClass = new ChildClass('Public Name');
+
+              console.log(ExampleClass.publicName);
+              ExampleClass.publicName = 'Change Public Name from Instance';
+              console.log(ExampleClass.publicName);
+              ExampleClass.changePublicNameFromChildClass();
+              console.log(ExampleClass.getPublicName());
+            });
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div class="code-example-block">
+      <div class="code-example__title">Protected Properties and Methods</div>
+      <div class="code-example__description">
+        <b>Protected:</b> for this type of properties and methods,
+        we have access from that class where they were declared,
+        and from child classes, but not from the instance.
+      </div>
+      <div class="code-example">
+        <pre>
+          <code class="language-javascript">
+            import { onMounted } from 'vue';
+
+            class BaseClass {
+              protected _protectedName: string;
+
+              constructor(protectedName: string) {
+                this._protectedName = protectedName;
+              }
+
+              getProtectedName(): string {
+                return this._protectedName;
+              }
+            }
+
+            class ChildClass extends BaseClass {
+              protected _baseClassInstance = new BaseClass('Base Class');
+
+              constructor(protectedName: string) {
+                super(protectedName);
+              }
+
+              getProtectedName(): string {
+                return this._protectedName;
+              }
+
+              changeProtectedNameFromChildClass(name: string) {
+                this._protectedName = name;
+              }
+
+              changePropertyInBaseClass(name: string) {
+                this._baseClassInstance._protectedName = name;
+              }
+            }
+
+            onMounted(() => {
+              console.log('Protected Properties and Methods');
+              const ExampleClass = new ChildClass('Protected Name');
+
+              console.log(ExampleClass._protectedName);
+              console.log(ExampleClass.getProtectedName());
+              ExampleClass.changeProtectedNameFromChildClass('Changed Protected Name from Child Class');
+              console.log(ExampleClass.getProtectedName());
+
+              const BaseClassExample = new BaseClass('BaseClassExample');
+              const ChildClassExample = new ChildClass('ChildClassExample');
+
+              ChildClassExample.changePropertyInBaseClass('aaaa');
+              console.log(BaseClassExample.getProtectedName());
+            });
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div class="code-example-block">
+      <div class="code-example__title">Private Properties and Methods</div>
+      <div class="code-example__description">
+        <b>Private:</b> for this type of properties and methods,
+        we have access only from that class where they were declared,
+        we can't change and use these values outside this class.
+      </div>
+      <div class="code-example">
+        <pre>
+          <code class="language-javascript">
+
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div class="code-example-block">
+      <div class="code-example__title">Public Properties and Methods</div>
+      <div class="code-example__description">
+        <b>Public:</b> default type of properties and methods.
+        We can use and change public properties and methods
+        in the class where they were declared, child class and from the instance.
+      </div>
+      <div class="code-example">
+        <pre>
+          <code class="language-javascript">
+
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div class="code-example-block">
+      <div class="code-example__title">Public Properties and Methods</div>
+      <div class="code-example__description">
+        <b>Public:</b> default type of properties and methods.
+        We can use and change public properties and methods
+        in the class where they were declared, child class and from the instance.
+      </div>
+      <div class="code-example">
+        <pre>
+          <code class="language-javascript">
+
+          </code>
+        </pre>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -171,7 +327,7 @@ class BaseClass {
     return this._protectedName;
   }
 
-  getPrivateName(): string {
+  private getPrivateName(): string {
     return this._privateName;
   }
 
@@ -199,9 +355,9 @@ class ChildClass extends BaseClass {
     // this.getProtectedName();
   }
 
-  getProtectedName(): string {
-    return this._protectedName;
-  }
+  // getProtectedName(): string {
+  //   return this._protectedName;
+  // }
 
   // changePrivateName() {
   //   this._privateName = 'Changed Private Name from Child Class';
@@ -225,7 +381,7 @@ onMounted(() => {
   // ExampleClass.changePublicNameFromChildClass();
   // console.log(ExampleClass.getPublicName());
 
-  // console.log(ExampleClass._protectedName);
+  // // console.log(ExampleClass._protectedName);
   // console.log(ExampleClass.getProtectedName());
   // ExampleClass.changeProtectedNameFromChildClass();
   // console.log(ExampleClass.getProtectedName());
