@@ -125,8 +125,12 @@ class ChildClass extends BaseClass {
     return this.isEmployed;
   }
 
+  getAge(): number {
+    return this.age * 2;
+  }
+
   getNameAndAge(): string {
-    return `${super.getName()} is ${super.getAge()} old`;
+    return `${this.getName()} is ${super.getAge()} old`;
   }
 }
 

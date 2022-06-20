@@ -171,7 +171,7 @@ class BaseClass {
     return this._protectedName;
   }
 
-  private getPrivateName(): string {
+  getPrivateName(): string {
     return this._privateName;
   }
 
@@ -199,9 +199,9 @@ class ChildClass extends BaseClass {
     // this.getProtectedName();
   }
 
-  // getProtectedName(): string {
-  //   return this._protectedName;
-  // }
+  getProtectedName(): string {
+    return this._protectedName;
+  }
 
   // changePrivateName() {
   //   this._privateName = 'Changed Private Name from Child Class';
@@ -219,13 +219,13 @@ onMounted(() => {
   console.log('Encapsulation in TypeScript');
   const ExampleClass = new ChildClass('Public Name', 'Protected Name', 'Private Name');
 
-  console.log(ExampleClass.publicName);
-  ExampleClass.publicName = 'Change Public Name from Instance';
-  console.log(ExampleClass.publicName);
-  ExampleClass.changePublicNameFromChildClass();
-  console.log(ExampleClass.getPublicName());
+  // console.log(ExampleClass.publicName);
+  // ExampleClass.publicName = 'Change Public Name from Instance';
+  // console.log(ExampleClass.publicName);
+  // ExampleClass.changePublicNameFromChildClass();
+  // console.log(ExampleClass.getPublicName());
 
-  // // console.log(ExampleClass._protectedName);
+  // console.log(ExampleClass._protectedName);
   // console.log(ExampleClass.getProtectedName());
   // ExampleClass.changeProtectedNameFromChildClass();
   // console.log(ExampleClass.getProtectedName());

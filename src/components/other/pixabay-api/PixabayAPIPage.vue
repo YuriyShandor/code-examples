@@ -1,7 +1,7 @@
 <template>
   <div class="superhero-page">
     <h1 class="superhero-page__title">
-      This is a pixabay  page
+      This is a pixabay page
     </h1>
     <SuperHeroSearch
       @update-superhero-list="updateSuperHeroList"
