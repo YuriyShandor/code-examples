@@ -1,4 +1,4 @@
-import SinglePage from '@/components/SinglePage.vue';
+import SinglePage from '@/components/pages/SinglePage.vue';
 
 import TypeScriptExamples from '@/components/typescript/TypeScriptExamples.vue';
 import TypeScriptAbstraction from '@/components/typescript/TypeScriptAbstraction.vue';

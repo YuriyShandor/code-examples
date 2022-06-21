@@ -1,6 +1,7 @@
-import SinglePage from '@/components/SinglePage.vue';
+import SinglePage from '@/components/pages/SinglePage.vue';
 
 import SuperheroAPIPage from '@/components/other/superhero-api/SuperheroAPIPage.vue';
+import PixabayAPIPage from '@/components/other/pixabay-api/PixabayAPIPage.vue';
 
 class OtherExamplesRouterHelper {
   readonly OTHER_EXAMPLES_PAGE_NAME: string = 'Other Examples';
@@ -10,6 +11,10 @@ class OtherExamplesRouterHelper {
   readonly SUPERHERO_API_PAGE_NAME: string = 'Superhero API';
 
   readonly SUPERHEROES_PAGE_PATH: string = 'superhero';
+
+  readonly PIXABAY_API_PAGE_NAME: string = 'Pixabay API';
+
+  readonly PIXABAY_PAGE_PATH: string = 'pixabay';
 
   routes() {
     return {
@@ -21,6 +26,11 @@ class OtherExamplesRouterHelper {
           name: this.SUPERHERO_API_PAGE_NAME,
           path: this.SUPERHEROES_PAGE_PATH,
           component: SuperheroAPIPage,
+        },
+        {
+          name: this.PIXABAY_API_PAGE_NAME,
+          path: this.PIXABAY_PAGE_PATH,
+          component: PixabayAPIPage,
         },
       ],
     };
@@ -34,6 +44,10 @@ class OtherExamplesRouterHelper {
         {
           title: this.SUPERHERO_API_PAGE_NAME,
           link: `/${this.OTHER_EXAMPLES_PAGE_PATH}/${this.SUPERHEROES_PAGE_PATH}`,
+        },
+        {
+          title: this.PIXABAY_API_PAGE_NAME,
+          link: `/${this.OTHER_EXAMPLES_PAGE_PATH}/${this.PIXABAY_PAGE_PATH}`,
         },
       ],
     };

@@ -59,6 +59,16 @@
   font-weight: 400;
   margin-bottom: 5px;
 
+  a {
+    color: darken($primary-text-color, 35%);
+    -webkit-tap-highlight-color: transparent;
+    transition: all, .25s;
+
+    &:hover {
+      color: $hover-text-color;
+    }
+  }
+
   @media only screen and (min-width: 700px) {
     font-size: 16px;
   }

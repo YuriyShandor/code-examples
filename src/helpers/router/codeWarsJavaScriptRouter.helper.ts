@@ -1,4 +1,4 @@
-import SinglePage from '@/components/SinglePage.vue';
+import SinglePage from '@/components/pages/SinglePage.vue';
 
 import CodeWarsJavaScriptGeneral from '@/components/codewars/CodeWarsJavaScriptGeneral.vue';
 import CodeWarsJavaScriptArrays from '@/components/codewars/CodeWarsJavaScriptArrays.vue';

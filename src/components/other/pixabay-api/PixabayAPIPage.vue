@@ -1,41 +1,57 @@
 <template>
-  <div class="superhero-page">
-    <h1 class="superhero-page__title">
-      This is a pixabay page
-    </h1>
-    <SuperHeroSearch
-      @update-superhero-list="updateSuperHeroList"
-    />
-    <div class="superhero-list">
-      <SuperHeroCard
-        v-for="superHero in state.superHeroList"
-        :key="superHero.id"
-        :superHero="superHero"
-        @set-selected-superhero="setSelectedSuperHero"
-      />
+  <div class="pixabay-page">
+    <div class="container">
+      <h1 class="page-title">
+        Pixabay API Usage
+      </h1>
+      <div class="code-example-block">
+        <div class="code-example__description">
+          <b><a href="https://pixabay.com/">Pixabay.com</a></b> is a free stock photography
+          and royalty-free stock media website. It is used for sharing photos,
+          illustrations, vector graphics, film footage, and music, exclusively
+          under the custom Pixabay license, which generally allows the free use
+          of the material with some restrictions.
+          <br>
+          The overall quality of the photos on the service has been described
+          as "mediocre for the most part" and "variable" but covering a "wide range of subjects."
+        </div>
+        <div class="pixabay-page-content">
+          <PixabayImagesSearch
+            @find-images="findImages"
+          />
+          <div class="pixabay-page-images">
+            <SuperHeroCard
+              v-for="superHero in state.superHeroList"
+              :key="superHero.id"
+              :superHero="superHero"
+              @set-selected-superhero="setSelectedSuperHero"
+            />
+          </div>
+        </div>
+        <a
+          href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/typescript/TypeScriptAbstraction.vue"
+          target="_blank"
+          class="button code-example__button">
+          Watch Code on GitHub
+          <img src="/images/github-logo.svg" alt="" class="code-example__button-image">
+        </a>
+      </div>
     </div>
-    <SuperHeroDetailsModal
-      v-if="state.selectedSuperHero !== undefined"
-      :superHero="state.selectedSuperHero"
-      @set-selected-superhero="setSelectedSuperHero"
-    />
   </div>
 </template>
 
 <script lang="ts">
 import { reactive, defineComponent } from 'vue';
-import SuperHeroSearch from '@/components/other/superhero-api/SuperHeroSearch.vue';
-import SuperHeroCard from '@/components/other/superhero-api/SuperHeroCard.vue';
-import SuperHeroDetailsModal from '@/components/other/superhero-api/SuperHeroDetailsModal.vue';
+import PixabayImagesSearch from '@/components/other/pixabay-api/PixabayImagesSearch.vue';
+import SuperHeroCard from '@/components/other/pixabay-api/SuperHeroCard.vue';
 import SuperHeroApiHelper from '@/api-helpers/superhero.api-helper';
 import ObjectsHelper from '@/helpers/objects.helper';
 
 export default defineComponent({
   name: 'SuperheroAPIPage',
   components: {
-    SuperHeroSearch,
+    PixabayImagesSearch,
     SuperHeroCard,
-    SuperHeroDetailsModal,
   },
   setup() {
     const state = reactive({
@@ -66,20 +82,31 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.superhero-page {
+.pixabay-page {
   width: 100%;
 }
 
-.superhero-page__title {
+.pixabay-page__title {
   width: 100%;
   padding: 20px;
   text-align: center;
 }
 
-.superhero-list {
+.pixabay-page-content {
   width: 100%;
-  overflow: hidden;
-  position: relative;
+  margin: 30px 0 20px;
+
+  @media only screen and (min-width: 760px) {
+    margin: 40px 0 30px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    margin: 50px 0 30px;
+  }
+}
+
+.pixabay-page-images {
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: flex-start;

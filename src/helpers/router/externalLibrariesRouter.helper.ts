@@ -1,4 +1,4 @@
-import SinglePage from '@/components/SinglePage.vue';
+import SinglePage from '@/components/pages/SinglePage.vue';
 
 import AxiosExamples from '@/components/external-libraries/axios/AxiosExamples.vue';
 import SwiperExamples from '@/components/external-libraries/swiper/SwiperExamples.vue';

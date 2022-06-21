@@ -1,14 +1,11 @@
 <template>
   <div class="superhero-search">
-    <div class="superhero-search__title">
-      Find your superhero: {{searchField}}
-    </div>
     <div class="superhero-search__form">
       <label class="superhero-search__input-label" for="superhero-search-input">
         <input
           type="text"
           class="superhero-search__input"
-          placeholder="Superhero name"
+          placeholder="Image title"
           v-model="searchField"
           @input="findSuperHero"
           id="superhero-search-input">
@@ -26,6 +23,9 @@
         </svg>
       </div>
     </div>
+    <div class="superhero-search__results-text">
+      Results for {{ searchField }}:
+    </div>
   </div>
 </template>
 
@@ -33,12 +33,12 @@
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
-  name: 'SuperHeroSearch',
+  name: 'PixabayImagesSearch',
   setup(props, { emit }) {
     const searchField = ref('');
 
     const findSuperHero = () => {
-      emit('update-superhero-list', searchField.value);
+      emit('find-images', searchField.value);
     };
 
     return {
@@ -56,12 +56,6 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   margin-bottom: 30px;
-}
-
-.superhero-search__title {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 10px;
 }
 
 .superhero-search__form {
@@ -113,5 +107,11 @@ export default defineComponent({
   &:hover {
     background: #000;
   }
+}
+
+.superhero-search__results-text {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 10px 0 20px;
 }
 </style>

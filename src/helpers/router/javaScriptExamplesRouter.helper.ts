@@ -1,4 +1,4 @@
-import SinglePage from '@/components/SinglePage.vue';
+import SinglePage from '@/components/pages/SinglePage.vue';
 
 import JavaScriptGeneralExamples from '@/components/javascript/JavaScriptGeneralExamples.vue';
 import JavaScriptArraysExamples from '@/components/javascript/JavaScriptArraysExamples.vue';

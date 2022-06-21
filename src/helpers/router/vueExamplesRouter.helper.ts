@@ -1,4 +1,4 @@
-import SinglePage from '@/components/SinglePage.vue';
+import SinglePage from '@/components/pages/SinglePage.vue';
 
 import VuexExamples from '@/components/vue/VuexExamples.vue';
 import RouterExamples from '@/components/vue/RouterExamples.vue';
