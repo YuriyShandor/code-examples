@@ -81,20 +81,15 @@
   </div>
 </template>
 
-<script>/* eslint-disable */
-// import PrismHelper from '@/api-helpers/prism.api-helper'
+<script lang="ts">
+import { defineComponent, onMounted } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'CodeWarsJavaScriptGeneral',
-  mounted() {
-    // PrismHelper.initPrism()
+  setup() {
+    onMounted(() => {
+      console.log('CodeWarsJavaScriptGeneral');
+    });
   },
-  watch: {
-
-  }
-}
+});
 </script>
-
-<style scoped lang="scss">
-
-</style>

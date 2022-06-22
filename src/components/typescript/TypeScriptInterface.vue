@@ -59,40 +59,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive } from 'vue';
+import { defineComponent, onMounted } from 'vue';
 
 export default defineComponent({
   name: 'TypeScriptInterface',
   setup() {
-    interface Book {
-      title: string;
-      year: number;
-    }
-
-    interface IParams {
-      [key: string]: (string | number | boolean);
-    }
-
-    const bookObj: Book = {
-      title: 'Vue 3 Guide',
-      year: 2022,
-    };
-
-    const state: Book = reactive({
-      title: 'Vue 3 Guide',
-      year: 2022,
-    });
-
     onMounted(() => {
       console.log('Interface in TypeScript');
-      // console.log(state);
-      // console.log(bookObj);
     });
-
-    return {
-      state,
-      bookObj,
-    };
   },
 });
 </script>

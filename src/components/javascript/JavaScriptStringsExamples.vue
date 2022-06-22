@@ -139,3 +139,16 @@
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import { defineComponent, onMounted } from 'vue';
+
+export default defineComponent({
+  name: 'JavaScriptStringsExamples',
+  setup() {
+    onMounted(() => {
+      console.log('JavaScriptStringsExamples');
+    });
+  },
+});
+</script>

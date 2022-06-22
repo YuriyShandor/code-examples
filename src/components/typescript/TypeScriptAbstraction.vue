@@ -77,52 +77,57 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { onMounted } from 'vue';
+<script lang="ts">
+import { defineComponent, onMounted } from 'vue';
 
-abstract class BaseClass {
-  firstName: string;
+export default defineComponent({
+  name: 'CodeWarsJavaScriptArrays',
+  setup() {
+    abstract class BaseClass {
+      firstName: string;
 
-  lastName: string;
+      lastName: string;
 
-  age: number;
+      age: number;
 
-  protected constructor(firstName: string, lastName: string, age: number) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.age = age;
-  }
+      protected constructor(firstName: string, lastName: string, age: number) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+      }
 
-  getName(): string {
-    return `${this.firstName} ${this.lastName}`;
-  }
+      getName(): string {
+        return `${this.firstName} ${this.lastName}`;
+      }
 
-  getAge(): number {
-    return this.age;
-  }
+      getAge(): number {
+        return this.age;
+      }
 
-  abstract getEmployedStatus(): boolean;
-}
+      abstract getEmployedStatus(): boolean;
+    }
 
-class ChildClass extends BaseClass {
-  isEmployed: boolean;
+    class ChildClass extends BaseClass {
+      isEmployed: boolean;
 
-  constructor(firstName: string, lastName: string, age: number, isEmployed: boolean) {
-    super(firstName, lastName, age);
-    this.isEmployed = isEmployed;
-  }
+      constructor(firstName: string, lastName: string, age: number, isEmployed: boolean) {
+        super(firstName, lastName, age);
+        this.isEmployed = isEmployed;
+      }
 
-  getEmployedStatus(): boolean {
-    return this.isEmployed;
-  }
-}
+      getEmployedStatus(): boolean {
+        return this.isEmployed;
+      }
+    }
 
-onMounted(() => {
-  console.log('Abstraction in TypeScript');
-  const NewEmployee = new ChildClass('John', 'Wick', 36, true);
+    onMounted(() => {
+      console.log('Abstraction in TypeScript');
+      const NewEmployee = new ChildClass('John', 'Wick', 36, true);
 
-  console.log(NewEmployee.getName());
-  console.log(NewEmployee.getAge());
-  console.log(NewEmployee.getEmployedStatus());
+      console.log(NewEmployee.getName());
+      console.log(NewEmployee.getAge());
+      console.log(NewEmployee.getEmployedStatus());
+    });
+  },
 });
 </script>

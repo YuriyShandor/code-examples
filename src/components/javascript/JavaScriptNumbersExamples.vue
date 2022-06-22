@@ -67,10 +67,15 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { onMounted } from 'vue';
+<script lang="ts">
+import { defineComponent, onMounted } from 'vue';
 
-onMounted(() => {
-  console.log('JavaScript Numbers Examples');
+export default defineComponent({
+  name: 'JavaScriptNumbersExamples',
+  setup() {
+    onMounted(() => {
+      console.log('JavaScript Numbers Examples');
+    });
+  },
 });
 </script>

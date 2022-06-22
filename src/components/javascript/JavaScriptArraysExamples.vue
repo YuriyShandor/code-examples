@@ -138,10 +138,15 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { onMounted } from 'vue';
+<script lang="ts">
+import { defineComponent, onMounted } from 'vue';
 
-onMounted(() => {
-  console.log('JavaScript Arrays Examples');
+export default defineComponent({
+  name: 'JavaScriptArraysExamples',
+  setup() {
+    onMounted(() => {
+      console.log('JavaScript Arrays Examples');
+    });
+  },
 });
 </script>

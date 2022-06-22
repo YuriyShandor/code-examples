@@ -21,4 +21,11 @@ module.exports = defineConfig({
       historyApiFallback: false,
     },
   },
+
+  chainWebpack: (config) => {
+    config.plugin('fork-ts-checker').tap((options) => {
+      options[0].async = false;
+      return options;
+    });
+  },
 });

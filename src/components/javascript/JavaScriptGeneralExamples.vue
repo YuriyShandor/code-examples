@@ -105,10 +105,15 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { onMounted } from 'vue';
+<script lang="ts">
+import { defineComponent, onMounted } from 'vue';
 
-onMounted(() => {
-  console.log('JavaScript General Examples');
+export default defineComponent({
+  name: 'JavaScriptGeneralExamples',
+  setup() {
+    onMounted(() => {
+      console.log('JavaScript General Examples');
+    });
+  },
 });
 </script>

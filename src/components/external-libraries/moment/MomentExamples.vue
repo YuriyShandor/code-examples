@@ -137,20 +137,15 @@
   </div>
 </template>
 
-<script>/* eslint-disable */
-// import PrismApiHelper from '@/api-helpers/prism.api-helper'
+<script lang="ts">
+import { defineComponent, onMounted } from 'vue';
 
-// import moment from 'moment';
-
-export default {
+export default defineComponent({
   name: 'MomentExamples',
-  mounted() {
-    // PrismApiHelper.initPrism()
+  setup() {
+    onMounted(() => {
+      console.log('MomentExamples');
+    });
   },
-  watch: {}
-};
+});
 </script>
-
-<style scoped lang="scss">
-
-</style>

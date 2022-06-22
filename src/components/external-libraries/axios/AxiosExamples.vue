@@ -42,20 +42,15 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { onMounted } from 'vue';
-import axios from 'axios';
+<script lang="ts">
+import { defineComponent, onMounted } from 'vue';
 
-axios.post('request-url', {
-  firstName: 'FirstName',
-  lastName: 'LastName',
-}).then((response) => {
-  console.log('Response ', response);
-}).catch((error) => {
-  console.log('Error: ', error);
-});
-
-onMounted(() => {
-  console.log('Axios Examples');
+export default defineComponent({
+  name: 'AxiosExamples',
+  setup() {
+    onMounted(() => {
+      console.log('Axios Examples');
+    });
+  },
 });
 </script>
