@@ -23,9 +23,6 @@
         </svg>
       </div>
     </div>
-    <div class="superhero-search__results-text">
-      Results for {{ searchField }}:
-    </div>
   </div>
 </template>
 
@@ -107,11 +104,5 @@ export default defineComponent({
   &:hover {
     background: #000;
   }
-}
-
-.superhero-search__results-text {
-  font-size: 22px;
-  font-weight: 600;
-  margin: 10px 0 20px;
 }
 </style>

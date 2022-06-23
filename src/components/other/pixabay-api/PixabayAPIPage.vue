@@ -15,26 +15,38 @@
           The overall quality of the photos on the service has been described
           as "mediocre for the most part" and "variable" but covering a "wide range of subjects."
         </div>
-        <div class="pixabay-page-content">
-          <PixabayImagesSearch
-            @find-images="findImages"
-          />
-          <div class="pixabay-page-images-block">
-            <PixabayImageItem
-              v-for="superHero in state.superHeroList"
-              :key="superHero.id"
-              :superHero="superHero"
-              @set-selected-superhero="setSelectedSuperHero"
-            />
-          </div>
-        </div>
         <a
-          href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/typescript/TypeScriptAbstraction.vue"
+          href="https://github.com/YuriyShandor/code-examples/tree/vue3-with-typescript/src/components/other/pixabay-api"
           target="_blank"
           class="button code-example__button">
           Watch Code on GitHub
           <img src="/images/github-logo.svg" alt="" class="code-example__button-image">
         </a>
+        <div class="pixabay-page-content">
+          <div class="pixabay-page-heading">
+            <div class="page-title pixabay-page-heading__title">
+              Pixabay Images
+            </div>
+            <div class="pixabay-page-heading__tabs-block">
+              <div class="pixabay-page-heading__tab">
+                Selected images
+              </div>
+              <div class="pixabay-page-heading__tab">
+                Find new images
+              </div>
+            </div>
+          </div>
+          <PixabayImagesSearch
+            @find-images="findImages"
+          />
+          <div class="pixabay-page-images-block">
+            <PixabayImageItem
+              v-for="pixabayImage in state.pixabayImages"
+              :key="pixabayImage.id"
+              :pixabayImage="pixabayImage"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -44,8 +56,7 @@
 import { reactive, defineComponent } from 'vue';
 import PixabayImagesSearch from '@/components/other/pixabay-api/PixabayImagesSearch.vue';
 import PixabayImageItem from '@/components/other/pixabay-api/PixabayImageItem.vue';
-import SuperHeroApiHelper from '@/api-helpers/superhero.api-helper';
-import ObjectsHelper from '@/helpers/objects.helper';
+import PixabayApiHelper from '@/api-helpers/pixabay.api-helper';
 
 export default defineComponent({
   name: 'SuperheroAPIPage',
@@ -55,27 +66,28 @@ export default defineComponent({
   },
   setup() {
     const state = reactive({
-      superHeroList: [] as any[],
-      selectedSuperHero: undefined as any,
+      pixabayImages: [] as any[],
+      selectedImagesTab: 'new' as string,
     });
-    const updateSuperHeroList = (value: string) => {
-      SuperHeroApiHelper.findSuperHero(value).then(({ data }) => {
-        state.superHeroList = [];
-        data.results.forEach((item: any) => {
-          state.superHeroList.push(ObjectsHelper.normalizeSuperHeroObject(item));
+    const findImages = (searchField: string) => {
+      state.pixabayImages = [];
+      if (searchField.length > 0) {
+        PixabayApiHelper.getImages(searchField, 100).then(({ data }) => {
+          if (data.hits.length > 0) {
+            data.hits.forEach((image) => {
+              state.pixabayImages.push(image);
+            });
+            console.log(state.pixabayImages);
+          }
+        }).catch((error: any) => {
+          console.log(error);
         });
-      }).catch((error: any) => {
-        console.log(error);
-      });
-    };
-    const setSelectedSuperHero = (value: any) => {
-      state.selectedSuperHero = value;
+      }
     };
 
     return {
       state,
-      updateSuperHeroList,
-      setSelectedSuperHero,
+      findImages,
     };
   },
 });
@@ -105,7 +117,54 @@ export default defineComponent({
   }
 }
 
-.pixabay-page-images {
+.pixabay-page-heading {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pixabay-page-heading__title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.pixabay-page-heading__tabs-block {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.pixabay-page-heading__tab {
+  width: calc(50% - 20px);
+  max-width: 320px;
+  height: 50px;
+  border-radius: 10px;
+  background: #807D7D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $secondary-font-family;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: all, .25s;
+
+  &:hover {
+    background: darken(#807D7D, 10%);
+  }
+
+  &.selected {
+    background: darken(#807D7D, 15%);
+  }
+}
+
+.pixabay-page-images-block {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -116,10 +175,6 @@ export default defineComponent({
 
   @media only screen and (min-width: 760px) {
     gap: 20px;
-  }
-
-  @media only screen and (min-width: 1200px) {
-    gap: 25px;
   }
 }
 </style>
