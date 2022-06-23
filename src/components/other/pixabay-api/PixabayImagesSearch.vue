@@ -7,10 +7,10 @@
           class="superhero-search__input"
           placeholder="Image title"
           v-model="searchField"
-          @input="findSuperHero"
+          @input="findImage"
           id="superhero-search-input">
       </label>
-      <div class="superhero-search__button" @click="findSuperHero">
+      <div class="superhero-search__button" @click="findImage">
         <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
           <path
             d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438
@@ -37,13 +37,13 @@ export default defineComponent({
   setup(props, { emit }) {
     const searchField = ref('');
 
-    const findSuperHero = () => {
+    const findImage = () => {
       emit('find-images', searchField.value);
     };
 
     return {
       searchField,
-      findSuperHero,
+      findImage,
     };
   },
 });

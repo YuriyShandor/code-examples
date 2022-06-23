@@ -19,8 +19,8 @@
           <PixabayImagesSearch
             @find-images="findImages"
           />
-          <div class="pixabay-page-images">
-            <SuperHeroCard
+          <div class="pixabay-page-images-block">
+            <PixabayImageItem
               v-for="superHero in state.superHeroList"
               :key="superHero.id"
               :superHero="superHero"
@@ -43,7 +43,7 @@
 <script lang="ts">
 import { reactive, defineComponent } from 'vue';
 import PixabayImagesSearch from '@/components/other/pixabay-api/PixabayImagesSearch.vue';
-import SuperHeroCard from '@/components/other/pixabay-api/SuperHeroCard.vue';
+import PixabayImageItem from '@/components/other/pixabay-api/PixabayImageItem.vue';
 import SuperHeroApiHelper from '@/api-helpers/superhero.api-helper';
 import ObjectsHelper from '@/helpers/objects.helper';
 
@@ -51,7 +51,7 @@ export default defineComponent({
   name: 'SuperheroAPIPage',
   components: {
     PixabayImagesSearch,
-    SuperHeroCard,
+    PixabayImageItem,
   },
   setup() {
     const state = reactive({

@@ -1,16 +1,6 @@
 <template>
-  <div class="superhero-card">
-    <div class="superhero-card__image-block">
-      <img :src="superHero.image.url" alt="" class="superhero-card__image">
-    </div>
-    <div class="superhero-card__name">
-      {{ superHero.name }}
-    </div>
-    <div
-      class="superhero-card__button"
-      @click="setSelectedSuperHero">
-      Show details
-    </div>
+  <div class="pixabay-image-block">
+    <img :src="superHero.image.url" alt="" class="pixabay-image">
   </div>
 </template>
 
@@ -18,38 +8,19 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'SuperHeroCard',
+  name: 'PixabayImageItem',
   props: {
-    superHero: Object,
-  },
-  setup(props, { emit }) {
-    const setSelectedSuperHero = () => {
-      emit('set-selected-superhero', props.superHero);
-    };
-
-    return {
-      setSelectedSuperHero,
-    };
+    pixabayImage: Object,
   },
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.superhero-card {
-  width: 180px;
-  border: 1px solid #EAE9E8;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
-  margin-bottom: 20px;
-  box-sizing: border-box;
-  overflow: hidden;
+.pixabay-image-block {
+  width: 100%;
 
-  @media only screen and (min-width: 1200px) {
-    width: 250px;
+  @media only screen and (min-width: 760px) {
+    width: 50%;
   }
 }
 
