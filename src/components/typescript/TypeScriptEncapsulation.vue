@@ -288,32 +288,33 @@
             export default defineComponent({
               name: 'TypeScriptEncapsulation',
               setup() {
-                class BaseClass {
-                  static staticName: string = 'Static Name';
-
-                  getStaticName(): string {
-                    return BaseClass.staticName;
-                  }
+                class Person {
+                  static counter: number = 0;
                 }
 
-                class ChildClass extends BaseClass {
-                  changeStaticNameFromChildClass(name) {
-                    BaseClass.staticName = name;
-                  }
+                class Man extends Person {
 
-                  getStaticNameFromChildClass(): string {
-                    return BaseClass.staticName;
-                  }
+                }
+
+                class Woman extends Person {
+
                 }
 
                 onMounted(() => {
                   console.log('Static Properties and Methods');
-                  const ExampleClass = new ChildClass();
 
-                  console.log(ExampleClass.staticName);
-                  console.log(ExampleClass.getStaticName());
-                  ExampleClass.changeStaticNameFromChildClass('Child Class Static Name');
-                  console.log(ExampleClass.getStaticName());
+                  Man.counter++;
+                  Man.counter++;
+                  Man.counter++;
+                  Woman.counter++;
+                  Woman.counter++;
+                  Woman.counter++;
+                  Woman.counter++;
+                  Person.counter = Man.counter + Woman.counter;
+
+                  console.log(`Man counter: ${Man.counter}`);
+                  console.log(`Woman counter: ${Woman.counter}`);
+                  console.log(`Person counter: ${Person.counter}`);
                 });
               },
             });
@@ -340,24 +341,32 @@
                 class BaseClass {
                   readonly readonlyName: string = 'ReadOnly Name';
 
+                  constructor(readonlyName: string) {
+                    this.readonlyName = readonlyName;
+                  }
+
                   getReadOnlyName(): string {
                     return this.readonlyName;
                   }
                 }
 
                 class ChildClass extends BaseClass {
+                  constructor(readonlyName: string) {
+                    super(readonlyName);
+                  }
+
                   getReadOnlyNameFromChildClass() {
                     return this.readonlyName;
                   }
 
                   changeReadOnlyNameFromChildClass(name) {
-                    this.readonlyName = name;
+                    // this.readonlyName = name;
                   }
                 }
 
                 onMounted(() => {
                   console.log('Readonly Properties and Methods');
-                  const ExampleClass = new ChildClass();
+                  const ExampleClass = new ChildClass('ReadOnly Name from Class Instance');
 
                   console.log(ExampleClass.readonlyName);
                   console.log(ExampleClass.getReadOnlyName());
@@ -379,73 +388,8 @@ import { defineComponent, onMounted } from 'vue';
 export default defineComponent({
   name: 'TypeScriptEncapsulation',
   setup() {
-    class BankAccount {
-      private _accountNumber: number;
-
-      private _moneyAmount: number = 0;
-
-      constructor(accountNumber: number) {
-        if (accountNumber.toString().length >= 10 && accountNumber.toString().length <= 20) {
-          this._accountNumber = accountNumber;
-        } else {
-          throw new Error('The length of the account number should be from 10 to 20');
-        }
-      }
-
-      getAccountNumber() {
-        return this._accountNumber;
-      }
-
-      getMoneyAmount() {
-        return this._moneyAmount;
-      }
-
-      increaseMoneyAmount(moneyAmount: number) {
-        if (moneyAmount > 1000000) {
-          throw new Error('You can increase more than 1000000$');
-        } else {
-          this._moneyAmount += moneyAmount;
-        }
-      }
-
-      decreaseMoneyAmount(moneyAmount: number) {
-        if (moneyAmount >= this._moneyAmount) {
-          throw new Error('You have no enough money');
-        } else {
-          this._moneyAmount -= moneyAmount;
-        }
-      }
-    }
-
-    class Customer extends BankAccount {
-      firstName: string;
-
-      lastName: string;
-
-      constructor(accountNumber: number, firstName: string, lastName: string) {
-        super(accountNumber);
-        this.firstName = firstName;
-        this.lastName = lastName;
-      }
-
-      getCustomerAccountNumber() {
-        return `The account number of ${this.firstName} ${this.lastName} is --- ${this.getAccountNumber()}`;
-      }
-
-      getCustomerMoneyAmount() {
-        return `The money amount of ${this.firstName} ${this.lastName} is --- ${this.getMoneyAmount()}`;
-      }
-    }
-
     onMounted(() => {
-      console.log('Private Properties and Methods');
-
-      const NewCustomer = new Customer(1111111111, 'John', 'now');
-      console.log(NewCustomer.getCustomerAccountNumber());
-      NewCustomer.increaseMoneyAmount(1000);
-      console.log(NewCustomer.getCustomerMoneyAmount());
-      NewCustomer.decreaseMoneyAmount(250);
-      console.log(NewCustomer.getCustomerMoneyAmount());
+      console.log('Encapsulation in TypeScript');
     });
   },
 });
