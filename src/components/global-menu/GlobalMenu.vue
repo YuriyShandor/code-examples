@@ -55,7 +55,6 @@ import ScrollHelper from '@/helpers/scroll.helper';
 
 export default defineComponent({
   name: 'GlobalMenu',
-  components: {},
   setup() {
     const route = useRoute();
     const globalMenu: any[] = [
