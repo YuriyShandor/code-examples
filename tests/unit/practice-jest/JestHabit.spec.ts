@@ -35,4 +35,17 @@ describe('JestHabit.vue', () => {
     await box.trigger('click');
     expect(spyOnHabitDone).toHaveBeenCalled();
   });
+
+  it('Updates the habit props name', async () => {
+    const wrapper = shallowMount(JestHabit, {
+      propsData: {
+        name: 'Learn something new',
+      },
+    });
+    const newHabitName = 'Brush my teeth';
+    await wrapper.setProps({
+      name: newHabitName,
+    });
+    expect(wrapper.props('name')).toBe(newHabitName);
+  });
 });
