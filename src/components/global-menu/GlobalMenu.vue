@@ -28,8 +28,7 @@
                 class="global-menu__sub-item"
                 v-for="subItem in item.subItems"
                 :key="subItem.title"
-                :to="subItem.link"
-              >
+                :to="subItem.link">
                 {{ subItem.title }}
               </router-link>
             </div>
@@ -44,13 +43,14 @@
 import { defineComponent, reactive, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
-import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper';
-import JavaScriptExamplesRouterHelper from '@/helpers/router/javaScriptExamplesRouter.helper';
-import ExternalLibrariesRouterHelper from '@/helpers/router/externalLibrariesRouter.helper';
-import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper';
-import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper';
-import TypeScriptRouterHelper from '@/helpers/router/typeScriptRouter.helper';
-import OtherExamplesRouterHelper from '@/helpers/router/otherExamplesRouter.helper';
+import VueExamplesRouterHelper from '@/router/helpers/vueExamplesRouter.helper';
+import JavaScriptExamplesRouterHelper from '@/router/helpers/javaScriptExamplesRouter.helper';
+import ExternalLibrariesRouterHelper from '@/router/helpers/externalLibrariesRouter.helper';
+import UIElementsRouterHelper from '@/router/helpers/UIElementsRouter.helper';
+import CodeWarsJavaScriptRouterHelper from '@/router/helpers/codeWarsJavaScriptRouter.helper';
+import TypeScriptRouterHelper from '@/router/helpers/typeScriptRouter.helper';
+import OtherExamplesRouterHelper from '@/router/helpers/otherExamplesRouter.helper';
+import InterviewQuestionsRouterHelper from '@/router/helpers/interviewQuestionsRouter.helper';
 import ScrollHelper from '@/helpers/scroll.helper';
 
 export default defineComponent({
@@ -65,6 +65,7 @@ export default defineComponent({
       CodeWarsJavaScriptRouterHelper.menuItems(),
       TypeScriptRouterHelper.menuItems(),
       OtherExamplesRouterHelper.menuItems(),
+      InterviewQuestionsRouterHelper.menuItems(),
     ];
     const state = reactive({
       activeName: '' as string,

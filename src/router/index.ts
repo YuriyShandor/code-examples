@@ -3,13 +3,14 @@ import HomeView from '@/views/HomeView.vue';
 
 import Page404View from '@/views/Page404View.vue';
 
-import VueExamplesRouterHelper from '@/helpers/router/vueExamplesRouter.helper';
-import JavaScriptExamplesRouterHelper from '@/helpers/router/javaScriptExamplesRouter.helper';
-import ExternalLibrariesRouterHelper from '@/helpers/router/externalLibrariesRouter.helper';
-import UIElementsRouterHelper from '@/helpers/router/UIElementsRouter.helper';
-import CodeWarsJavaScriptRouterHelper from '@/helpers/router/codeWarsJavaScriptRouter.helper';
-import TypeScriptRouterHelper from '@/helpers/router/typeScriptRouter.helper';
-import OtherExamplesRouterHelper from '@/helpers/router/otherExamplesRouter.helper';
+import VueExamplesRouterHelper from '@/router/helpers/vueExamplesRouter.helper';
+import JavaScriptExamplesRouterHelper from '@/router/helpers/javaScriptExamplesRouter.helper';
+import ExternalLibrariesRouterHelper from '@/router/helpers/externalLibrariesRouter.helper';
+import UIElementsRouterHelper from '@/router/helpers/UIElementsRouter.helper';
+import CodeWarsJavaScriptRouterHelper from '@/router/helpers/codeWarsJavaScriptRouter.helper';
+import TypeScriptRouterHelper from '@/router/helpers/typeScriptRouter.helper';
+import OtherExamplesRouterHelper from '@/router/helpers/otherExamplesRouter.helper';
+import InterviewQuestionsRouterHelper from '@/router/helpers/interviewQuestionsRouter.helper';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -24,6 +25,7 @@ const routes: Array<RouteRecordRaw> = [
   CodeWarsJavaScriptRouterHelper.routes(),
   TypeScriptRouterHelper.routes(),
   OtherExamplesRouterHelper.routes(),
+  InterviewQuestionsRouterHelper.routes(),
   {
     path: '/:pathMatch(.*)*',
     component: Page404View,
