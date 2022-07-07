@@ -7,17 +7,17 @@
   border: 1px solid $secondary-text-color;
 
   .el-collapse-item__header {
-    padding: 5px;
+    padding: 10px;
     border-bottom: 1px solid $secondary-text-color;
     background: transparent;
     transition: all, .25s;
 
     @media only screen and (min-width: 760px) {
-      padding: 10px;
+      padding: 15px;
     }
 
     @media only screen and (min-width: 1200px) {
-      padding: 15px;
+      padding: 20px;
     }
 
     .el-collapse-item__arrow {
@@ -56,4 +56,51 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding: 10px;
+  color: #fff;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+
+  @media only screen and (min-width: 760px) {
+    padding: 15px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    padding: 20px;
+  }
+
+  p {
+    margin: 0 0 10px;
+  }
+
+  ul {
+    margin: 0 0 10px;
+    padding-left: 20px;
+
+    li {
+      margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    ul {
+      padding-top: 5px;
+    }
+  }
+
+  .code-example {
+    text-align: left;
+
+    code {
+      width: 100%;
+      text-align: left;
+      
+      span {
+        text-align: left;
+      }
+    }
+  }
 }
