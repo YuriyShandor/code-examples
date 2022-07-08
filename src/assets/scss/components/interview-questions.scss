@@ -7,22 +7,24 @@
   border: 1px solid $secondary-text-color;
 
   .el-collapse-item__header {
-    padding: 10px;
+    height: auto;
+    padding: 10px 10px;
     border-bottom: 1px solid $secondary-text-color;
     background: transparent;
     transition: all, .25s;
 
     @media only screen and (min-width: 760px) {
-      padding: 15px;
+      padding: 10px 15px;
     }
 
     @media only screen and (min-width: 1200px) {
-      padding: 20px;
+      padding: 10px 20px;
     }
 
     .el-collapse-item__arrow {
       font-size: 20px;
       color: $secondary-text-color;
+      margin-right: 0;
     }
   }
 
@@ -50,6 +52,12 @@
   font-size: 24px;
   font-weight: 500;
   color: $secondary-text-color;
+  line-height: 1.2;
+  padding-right: 10px;
+
+  @media only screen and (min-width: 1200px) {
+    padding-right: 20px;
+  }
 }
 
 .interview-questions-accordion__item-content {
@@ -91,13 +99,23 @@
     }
   }
 
+  a {
+    color: lighten($hover-text-color, 10%);
+    -webkit-tap-highlight-color: transparent;
+    transition: all, .25s;
+
+    &:hover {
+      color: $hover-text-color;
+    }
+  }
+
   .code-example {
     text-align: left;
 
     code {
       width: 100%;
       text-align: left;
-      
+
       span {
         text-align: left;
       }

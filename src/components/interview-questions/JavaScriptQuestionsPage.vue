@@ -189,6 +189,1152 @@
             </ul>
           </div>
         </el-collapse-item>
+        <el-collapse-item name="09. Write a JavaScript code for adding new elements dynamically?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              09. Write a JavaScript code for adding new elements dynamically?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <div class="code-example">
+              <pre>
+                <code class="language-javascript">
+                  const createElement = () => {
+                    const element = document.createElement('div');
+                    element.classList.add('created-element');
+                    element.textContent = 'New Created Element';
+                    document.body.appendChild(element);
+                  };
+                  createElement();
+                </code>
+              </pre>
+            </div>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="10. What are global variables? How are these variable declared and what are the problems associated with them?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              10. What are global variables? How are these variable declared
+              and what are the problems associated with them?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              In contrast, global variables are the variables that are defined outside of functions.
+              These variables have a global scope, so they can be used by any function
+              without passing them to the function as parameters.
+            </p>
+            <p>
+              It is difficult to debug and test the code that relies on global variables.
+              Also, we can change this variable in some functions,
+              and it will change it in all places where we use it.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="11. What do you mean by NULL in JavaScript?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              11. What do you mean by NULL in JavaScript?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              The NULL value represents the no value or no object.
+              It can be called as empty value/object.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="12. How to delete property specific value?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              12. How to delete property specific value?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              The delete keyword is used to delete the whole property and all the values at once like
+            </p>
+            <div class="code-example">
+              <pre>
+                <code class="language-javascript">
+                  const someObj = {
+                    propertyOne: 'Value One',
+                    propertyTwo: 'Value Two',
+                    propertyThree: 'Value Three',
+                  };
+                  delete someObj.propertyTwo;
+                  console.log(someObj);
+                </code>
+              </pre>
+            </div>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="13. What is a prompt box?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              13. What is a prompt box?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              It is used to display a dialog box with an optional
+              message prompting the user to input some text.
+              It is often used if the user wants to input a value
+              before entering a page. It returns a string containing
+              the text entered by the user, or null.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="14. What is 'this' keyword in JavaScript?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              14. What is "this" keyword in JavaScript?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              Functions in JavaScript are essential objects.
+              Like objects, they can be assigned to variables,
+              passed to other functions and returned from functions.
+              And much like objects, they have their own properties.
+            </p>
+            <p>
+              Keyword "this" stores the current execution context of the JavaScript program.
+              Thus, when it used inside a function, the value of "this"
+              will change depending on how the function is defined,
+              how it is invoked and the default execution context.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="15. Explain the working of timers in JavaScript? Also elucidate the drawbacks of using the timer, if any?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              15. Explain the working of timers in JavaScript?
+              Also elucidate the drawbacks of using the timer, if any?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              Timer is used to execute some specific code at specific time
+              or any small amount of code in repetition to do that you need
+              to use the function <b>setTimout</b>, <b>setInterval</b> and <b>clearInterval</b>.
+              If JavaScript code set the timer of 2 minutes and when the times up
+              then the page display an alert message "times up".
+              The <b>setTimeout()</b> method calls a function or evaluates an
+              expression after a specified number of milliseconds.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="16. How can you submit a form using JavaScript?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              16. How can you submit a form using JavaScript?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              You can use <b>document.form[0].submit()</b> method to submit the form in JavaScript.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="17. Does JavaScript support automatic type conversion?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              17. Does JavaScript support automatic type conversion?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>Yes, JavaScript supports automatic type conversion.</p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="18. What are all the looping structures in JavaScript?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              18. What are all the looping structures in JavaScript?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <ul>
+              <li>
+                <b>while loop</b>: is a control flow statement that allows code
+                to be executed repeatedly based on a given Boolean condition.
+                The while loop can be thought of as a repeating if statement.
+              </li>
+              <li>
+                <b>for loop</b>: provides a concise way of writing the loop structure.
+                Unlike a while loop, for statement consumes the initialization,
+                condition and increment/decrement in one line thereby providing a shorter,
+                easy to debug structure of looping.
+              </li>
+              <li>
+                <b>do while loop</b>: is similar to while loop with the only difference
+                that it checks the condition after executing the statements,
+                and therefore is an example of Exit Control Loop.
+              </li>
+            </ul>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="19. How can style/class of an element be changed?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              19. How can style/class of an element be changed?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              To change the style/class of an element there are two possible ways.
+            </p>
+            <div class="code-example">
+              <pre>
+                <code class="language-javascript">
+                  document.querySelector('body').style.fontSize = '16px';
+                  document.querySelector('body').className = 'example-class';
+                </code>
+              </pre>
+            </div>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="20. How to convert the string of any base to integer in JavaScript?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              20. How to convert the string of any base to integer in JavaScript?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              In JavaScript, <b>parseInt()</b> function is used to convert
+              the string to an integer. This function returns an integer of base
+              which is specified in second argument of <b>parseInt()</b> function.
+              The <b>parseInt()</b> function returns Nan (not a number) when
+              the string doesn't contain number.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="21. Explain how to detect the operating system on the client machine?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              21. Explain how to detect the operating system on the client machine?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              To detect the operating system on the client machine, one can simply use
+              <b>navigator.appVersion</b> or navigator.userAgent property. The Navigator
+              appVersion property is a read-only property and it returns the string that
+              represents the version information of the browser.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="22. What are the types of Pop up boxes available in JavaScript?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              22. What are the types of Pop up boxes available in JavaScript?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>There are three types of pop boxes available in JavaScript.</p>
+            <ul>
+              <li>Alert</li>
+              <li>Confirm</li>
+              <li>Prompt</li>
+            </ul>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="23. What is the difference between an alert box and a confirmation box?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              23. What is the difference between an alert box and a confirmation box?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              An alert box will display only one button which is the OK button.
+              It is used to inform the user about the agreement has to agree.
+              But a Confirmation box displays two buttons OK and cancel,
+              where the user can decide to agree or not.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="24. What is the disadvantage of using innerHTML in JavaScript?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              24. What is the disadvantage of using innerHTML in JavaScript?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              There are lots of disadvantages of using the innerHTML in JavaScript
+              like the content will replace everywhere. If you use += like
+              "innerHTML = innerHTML + html" still the old content is replaced by HTML.
+              It preserves event handlers attached to any DOM elements.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="25. What are JavaScript Cookies?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              25. What are JavaScript Cookies?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Cookies are small files that are stored on a user’s computer.
+            They are used to hold a modest amount of data specific to
+            a particular client and website and can be accessed either
+            by the web server or by the client computer.
+            When cookies were invented, they were basically little documents
+            containing information about you and your preferences.
+            For instance, when you select your language in which you want
+            to view your website, the website would save the information in
+            a document called a cookie on your computer, and the next time
+            when you visit the website, it would be able to read a cookie saved earlier.
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="26. How to create a cookie using JavaScript?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              26. How to create a cookie using JavaScript?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              To create a cookie by using JavaScript you just need
+              to assign a string value to the document.cookie object.
+            </p>
+            <div class="code-example">
+              <pre>
+                <code class="language-javascript">
+                  document.cookie = 'key1 = value1; expires = date';
+                </code>
+              </pre>
+            </div>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="27. How to read a cookie using JavaScript?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              How to read a cookie using JavaScript?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              The value of the document.cookie is used to create a cookie.
+              Whenever you want to access the cookie you can use the string.
+              The document.cookie string keep a list of name = value pairs
+              separated by semicolons, where name is the name of a cookie
+              and the value is its string value.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="28. How to delete a cookie using JavaScript?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              28. How to delete a cookie using JavaScript?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              Deleting cookie is much easier than creating or reading a cookie,
+              you just need to set the expires = "past time" and make sure one
+              thing defines the right cookie path unless few will not allow
+              you to delete the cookie.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="29. What are escape characters and escape() function?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              29. What are escape characters and escape() function?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <ul>
+              <li>
+                <b>Escape character</b>: is required when you want to work with
+                some special characters like single and double quotes, apostrophes
+                and ampersands. All the special character plays an important role
+                in JavaScript, to ignore that or to print that special character,
+                you can use the escape character <b>backslash "\"</b>.
+                It will normally ignores and behave like a normal character.
+              </li>
+              <li>
+                <b>escape() function</b>: takes a string as a parameter and encodes
+                it so that it can be transmitted to any computer in any network
+                which supports ASCII characters.
+              </li>
+            </ul>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="30. Whether JavaScript has a concept level scope?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              30. Whether JavaScript has a concept level scope?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              JavaScript is not concept level scope, its declared the
+              variable inside any function has scope inside the function.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="31. Which keywords are used to handle exceptions?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              31. Which keywords are used to handle exceptions?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              When executing JavaScript code, errors will almost definitely occur.
+              These errors can occur due to the fault from the programmer's side due
+              to the wrong input or even if there is a problem with the logic of the program.
+              But all errors can be solved by using the below commands.
+            </p>
+            <ul>
+              <li>
+                The <b>try</b> statement lets you test a block of code to check for errors.
+              </li>
+              <li>
+                The <b>catch</b> statement lets you handle the error if any are present.
+              </li>
+              <li>
+                The <b>throw</b> statement lets you make your own errors.
+              </li>
+            </ul>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="32. What is the use of the blur function?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              32. What is the use of the blur function?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              It is used to remove focus from the selected element.
+              This method starts the blur event or it can be attached
+              a function to run when a blur event occurs.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="33. What is the unshift method in JavaScript?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              33. What is the unshift method in JavaScript?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              It is used to insert elements in the front of an array.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="34. What is the 'Strict' mode in JavaScript and how can it be enabled?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              34. What is the "Strict" mode in JavaScript and how can it be enabled?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              Strict Mode is a new feature in ECMAScript 5 that allows you to place
+              a program or a function in a “strict” operating context.
+              This strict context prevents certain actions from being taken
+              and throws more exceptions. The statement "use strict" instructs the browser
+              to use the Strict mode, which is a reduced and safer feature set of JavaScript.
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="35. How to get the status of a CheckBox?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              35. How to get the status of a CheckBox?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              The DOM Input Checkbox Property is used to set or return
+              the checked status of a checkbox field. This property is
+              used to reflect the HTML Checked attribute.
+            </p>
+            <div class="code-example">
+              <pre>
+                <code class="language-javascript">
+                  document.getElementById('element').checked;
+                </code>
+              </pre>
+            </div>
+            <p>If the CheckBox is checked then it returns True.</p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="36. How to explain closures in JavaScript and when to use it?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              36. How to explain closures in JavaScript and when to use it?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              The closure is created when a child functions to keep
+              the environment of the parent's scope even after the
+              parent's function has already executed. The Closure
+              is a locally declared variable related to a function.
+              The closure will provide better control over
+              the code when using them.
+            </p>
+            <p>
+              We have a great explanation of JavaScript Closures on
+              <a href="https://www.w3schools.com/js/js_function_closures.asp"
+                target="_blank">
+                w3schools
+              </a>
+            </p>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+        class="interview-questions-accordion__item">
+        <template #title>
+          <div class="interview-questions-accordion__item-title">
+            Example Title
+          </div>
+        </template>
+        <div class="interview-questions-accordion__item-content">
+          Example Content
+        </div>
+      </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="Example Title"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              Example Title
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            Example Content
+          </div>
+        </el-collapse-item>
         <el-collapse-item name="Example Title"
           class="interview-questions-accordion__item">
           <template #title>
