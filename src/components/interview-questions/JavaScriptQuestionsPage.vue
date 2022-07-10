@@ -719,92 +719,178 @@
             </p>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="37. What is the difference between 'call()' and 'apply()' methods?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              37. What is the difference between "call()" and "apply()" methods?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>
+              Both methods are used in a different situation:
+            </p>
+            <ul>
+              <li>
+                <b>call() method</b>: calls the method, taking the owner object as argument.
+                The keyword this refers to the "owner" of the function or the object it
+                belongs to. We can call a method that can be used on different objects.
+              </li>
+              <li>
+                <b>apply() method</b>: is used to write methods, which can be used
+                on different objects. It is different from the function "call()"
+                because it takes arguments as an array.
+              </li>
+            </ul>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="38. What types of errors do we have in JavaScript?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              38. What types of errors do we have in JavaScript?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>
+              There are three different types of errors in JavaScript:
+            </p>
+            <ul>
+              <li>
+                <b>Syntax error</b>: is an error in the syntax of a sequence of characters or tokens
+                that are intended to be written in a particular programming language.
+              </li>
+              <li>
+                <b>Logical error</b>: is the most difficult error to be traced as it is the error
+                on the logical part of the coding or logical error is a bug in a program
+                that causes to operate incorrectly and terminate abnormally.
+              </li>
+              <li>
+                <b>Runtime Error</b>: is an error that occurs during the running
+                of the program, also known as the exceptions.
+              </li>
+            </ul>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="39. How many ways an HTML element can be accessed in a JavaScript code?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              39. How many ways an HTML element can be accessed in a JavaScript code?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>There are four possible ways to access HTML element in JavaScript which are:</p>
+            <ul>
+              <li>
+                <b>getElementById() method</b>: is used to get the element by its id name.
+              </li>
+              <li>
+                <b>getElementsByClass() method</b>: is used to get all the elements
+                that have the given classname.
+              </li>
+              <li>
+                <b>getElementsByTagName() method</b>: is used to get all the elements
+                that have the given tag name.
+              </li>
+              <li>
+                <b>querySelector() method</b>: this function takes css style selector
+                and returns the first selected element.
+              </li>
+            </ul>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="40. What is the difference between 'innerHTML' & 'innerText'?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              40. What is the difference between "innerHTML" & "innerText"?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>
+              The "innerText" property sets or returns the text content as plain text of the
+              specified node, and all its descendants whereas the "innerHTML" property
+              sets or returns the plain text or HTML contents in the elements.
+              Unlike "innerText", "innerHTML" lets you work with HTML rich text and doesn't
+              automatically encode and decode text.
+            </p>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="41. What is an event bubbling in JavaScript?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              41. What is an event bubbling in JavaScript?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>
+              Consider a situation an element is present inside another element and both
+              of them handle an event. When an event occurs in bubbling, the innermost
+              element handles the event first, then outer, and so on.
+            </p>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="42. What is the syntax of 'Self Invoking Function'?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              42. What is the syntax of 'Self Invoking Function'?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>
+              The syntax for Self INvoking Function:
+              The last bracket contains the function expression.
+            </p>
+            <div class="code-example">
+              <pre>
+                <code class="language-javascript">
+                  // Self Invoking Function in ES5
+                  (function (x) {
+                    console.log(x);
+                  }(1));
+
+                  // Self Invoking Function in ES6
+                  ((x) => {
+                    console.log(x);
+                  })(2);
+                </code>
+              </pre>
+            </div>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="43. What is JavaScript(JS)?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              43. What is JavaScript(JS)?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>
+              JavaScript is a lightweight, interpreted programming language with
+              object-oriented capabilities that allows you to build
+              interactivity into otherwise static HTML pages.
+            </p>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="44. What are the features of JavaScript?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              44. What are the features of JavaScript?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <ul>
+              <li>JavaScript is a lightweight, interpreted programming language.</li>
+              <li>JavaScript is designed for creating network-centric applications.</li>
+              <li>JavaScript is complementary to and integrated with Java.</li>
+              <li>JavaScript is complementary to and integrated with HTML.</li>
+              <li>JavaScript is open and cross-platform.</li>
+            </ul>
           </div>
         </el-collapse-item>
         <el-collapse-item name="Example Title"
@@ -1359,6 +1445,16 @@ export default defineComponent({
   setup() {
     onMounted(() => {
       console.log('JavaScript Questions for Interview');
+
+      // Self Invoking Function in ES5
+      (function (x) {
+        console.log(x);
+      }(1));
+
+      // Self Invoking Function in ES6
+      ((x) => {
+        console.log(x);
+      })(2);
     });
   },
 });
