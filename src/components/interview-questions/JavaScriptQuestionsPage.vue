@@ -893,103 +893,140 @@
             </ul>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="45. What are the advantages of JavaScript?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              45. What are the advantages of JavaScript?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <ul>
+              <li>
+                <b>Less server interaction?</b> You can validate user input
+                before sending the page off to the server.
+              </li>
+              <li>
+                <b>Immediate feedback to the visitors?</b> They don't have to wait
+                for a page reload to see if they have forgotten to enter something.
+              </li>
+              <li>
+                <b>Increased interactivity?</b> You can create interfaces that
+                react when the user hovers over them with a mouse or activates
+                them via the keyboard
+              </li>
+            </ul>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="46. Is javascript case-sensitive?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              46. Is javascript case-sensitive?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>
+              Yes, JavaScript is a case-sensitive language. This means that language
+              keywords, variables, function names, and any other identifiers must
+              always be typed with a consistent capitalization of letters.
+            </p>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="47. How to define an anonymous function?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              47. How to define an anonymous function?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>
+              An anonymous function can be defined in a similar way as a normal
+              function but it would not have any name.
+            </p>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="48. Which built-in method calls a function for each element in the array?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              48. Which built-in method calls a function for each element in the array?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>
+              <b>forEach</b> method calls a function for each element in the array.
+            </p>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="49. Which type of variable among global and local, takes precedence over other if names are same?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              49. Which type of variable among global and local,
+              takes precedence over other if names are same?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>
+              A local variable takes precedence over a global variable with the same name.
+            </p>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="50. What difference between '==' and '==='?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              What difference between "==" and "==="?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>
+              "==" only compares values "===" compare values and type both.
+            </p>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="51. What difference between 'undefined' and 'NULL' Keywords?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              What difference between "undefined" and "NULL" Keywords?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>
+              When you define a var but not assign any value. typeof(undefined)=> undefine
+              Null- manually done. typeof(null)=> object
+            </p>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="52. What is prototypal Inheritance?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              52. What is prototypal Inheritance?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>
+              Every object has a property called a prototype, where we can add
+              methods to it and when you create another object from these the
+              newly created object will automatically inherit its parent's property.
+            </p>
           </div>
         </el-collapse-item>
-        <el-collapse-item name="Example Title"
+        <el-collapse-item name="53. How can you move element in lowercase to uppercase from an array?"
           class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              Example Title
+              53. How can you move element in lowercase to uppercase from an array?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
-            Example Content
+            <p>
+              <b>toUpperCase</b> method returns the calling string value converted to upper case.
+            </p>
           </div>
         </el-collapse-item>
         <el-collapse-item name="Example Title"
@@ -1445,16 +1482,6 @@ export default defineComponent({
   setup() {
     onMounted(() => {
       console.log('JavaScript Questions for Interview');
-
-      // Self Invoking Function in ES5
-      (function (x) {
-        console.log(x);
-      }(1));
-
-      // Self Invoking Function in ES6
-      ((x) => {
-        console.log(x);
-      })(2);
     });
   },
 });
