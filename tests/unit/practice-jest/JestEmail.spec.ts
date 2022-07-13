@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import JestEmail from '@/components/tests/unit/JestEmail.vue';
+import JestEmail from '@/components/tests/unit/jest/JestEmail.vue';
 
 describe('JestEmail.vue', () => {
   it('Sets the value', async () => {

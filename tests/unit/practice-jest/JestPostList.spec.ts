@@ -1,6 +1,6 @@
 import { mount, flushPromises } from '@vue/test-utils'
 import axios from 'axios'
-import JestPostList from '@/components/tests/unit/JestPostList.vue';
+import JestPostList from '@/components/tests/unit/jest/JestPostList.vue';
 
 const mockPostList = [
   { id: 1, title: 'title1' },

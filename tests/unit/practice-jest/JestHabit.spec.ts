@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import JestHabit from '@/components/tests/unit/JestHabit.vue';
+import JestHabit from '@/components/tests/unit/jest/JestHabit.vue';
 
 describe('JestHabit.vue', () => {
   let wrapper = null;

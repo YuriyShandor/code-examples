@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import JestHelloWorld from '@/components/tests/unit/JestHelloWorld.vue';
+import JestHelloWorld from '@/components/tests/unit/jest/JestHelloWorld.vue';
 
 describe('JestHelloWorld.vue', () => {
   it('props.msg was passed.', () => {
