@@ -1,16 +1,62 @@
 <template>
   <div class="pixabay-image-block">
     <img :src="pixabayImage.largeImageURL" alt="" class="pixabay-image">
+    <div class="pixabay-image-block__actions">
+      <div
+        class="button pixabay-image-block__button"
+        v-if="selectedTab === findNewImagesTabTittle"
+        @click="addImageToSelected">
+        Add to Selected
+      </div>
+      <div
+        class="button pixabay-image-block__button"
+        v-if="selectedTab === selectedImagesTabTittle"
+        @click="removeImageFromSelected">
+        Remove from Selected
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useStore } from 'vuex';
 
 export default defineComponent({
   name: 'PixabayImageItem',
   props: {
-    pixabayImage: Object,
+    pixabayImage: {
+      type: Object,
+      required: true,
+    },
+    selectedTab: {
+      type: String,
+      required: true,
+    },
+    selectedImagesTabTittle: {
+      type: String,
+      required: true,
+    },
+    findNewImagesTabTittle: {
+      type: String,
+      required: true,
+    },
+  },
+  setup(props) {
+    const store = useStore();
+
+    const addImageToSelected = () => {
+      store.dispatch('ADD_IMAGE', props.pixabayImage.largeImageURL);
+    };
+
+    const removeImageFromSelected = () => {
+      store.dispatch('REMOVE_IMAGE', props.pixabayImage.largeImageURL);
+    };
+
+    return {
+      addImageToSelected,
+      removeImageFromSelected,
+    };
   },
 });
 </script>
@@ -20,6 +66,7 @@ export default defineComponent({
   width: 100%;
   border-radius: 20px;
   overflow: hidden;
+  position: relative;
 
   @media only screen and (min-width: 760px) {
     width: calc(50% - 10px);
@@ -41,6 +88,12 @@ export default defineComponent({
   @media only screen and (min-width: 1300px) {
     height: 400px;
   }
+
+  &:hover {
+    .pixabay-image-block__actions {
+      opacity: 1;
+    }
+  }
 }
 
 .pixabay-image {
@@ -52,5 +105,21 @@ export default defineComponent({
   @media only screen and (min-width: 760px) {
     height: 100%;
   }
+}
+
+.pixabay-image-block__actions {
+  width: 100%;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  box-shadow: 0 0 17px 23px rgba(0,0,0,0.5);
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  -webkit-tap-highlight-color: transparent;
+  transition: all, .25s;
 }
 </style>

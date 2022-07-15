@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import JestHabit from '@/components/tests/unit/jest/JestHabit.vue';
 
 describe('JestHabit.vue', () => {
-  let wrapper = null;
+  let wrapper: any = null;
   const habitName = 'Learn something new';
 
   beforeEach(() => {

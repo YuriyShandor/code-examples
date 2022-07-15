@@ -28,15 +28,22 @@
               Pixabay Images
             </div>
             <div class="pixabay-page-heading__tabs-block">
-              <div class="pixabay-page-heading__tab">
+              <div
+                class="pixabay-page-heading__tab"
+                :class="{'selected': state.selectedTab === selectedImagesTabTittle}"
+                @click="state.selectedImagesTabTitle = selectedImagesTabTittle">
                 Selected images
               </div>
-              <div class="pixabay-page-heading__tab">
+              <div
+                class="pixabay-page-heading__tab"
+                :class="{'selected': state.selectedTab === findNewImagesTabTittle}"
+                @click="state.selectedImagesTabTitle = findNewImagesTabTittle">
                 Find new images
               </div>
             </div>
           </div>
           <PixabayImagesSearch
+            v-if="state.selectedTab === findNewImagesTabTittle"
             @find-images="findImages"
           />
           <div class="pixabay-page-images-block">
@@ -44,6 +51,9 @@
               v-for="pixabayImage in state.pixabayImages"
               :key="pixabayImage.id"
               :pixabayImage="pixabayImage"
+              :selectedTab="state.selectedTab"
+              :selectedImagesTabTittle="selectedImagesTabTittle"
+              :findNewImagesTabTittle="findNewImagesTabTittle"
             />
           </div>
         </div>
@@ -53,10 +63,12 @@
 </template>
 
 <script lang="ts">
-import { reactive, defineComponent } from 'vue';
+import { reactive, defineComponent, computed, onMounted, watch } from 'vue';
 import PixabayImagesSearch from '@/components/other/pixabay-api/PixabayImagesSearch.vue';
 import PixabayImageItem from '@/components/other/pixabay-api/PixabayImageItem.vue';
 import PixabayApiHelper from '@/api-helpers/pixabay.api-helper';
+import { useStore } from 'vuex';
+import ScrollHelper from '@/helpers/scroll.helper';
 
 export default defineComponent({
   name: 'SuperheroAPIPage',
@@ -65,16 +77,29 @@ export default defineComponent({
     PixabayImageItem,
   },
   setup() {
+    const store = useStore();
+
+    interface IImages {
+      [key: string]: (string | number | boolean);
+    }
+
+    const selectedImagesTabTittle: string = 'Selected Images';
+    const findNewImagesTabTittle = 'Find New Images';
+
     const state = reactive({
+      imagesList: [] as any[],
       pixabayImages: [] as any[],
-      selectedImagesTab: 'new' as string,
+      selectedTab: findNewImagesTabTittle as string,
     });
+
+    const selectedImages = computed(() => store.getters.IMAGES);
+
     const findImages = (searchField: string) => {
       state.pixabayImages = [];
       if (searchField.length > 0) {
         PixabayApiHelper.getImages(searchField, 100).then(({ data }) => {
           if (data.hits.length > 0) {
-            data.hits.forEach((image) => {
+            data.hits.forEach((image: string) => {
               state.pixabayImages.push(image);
             });
             console.log(state.pixabayImages);
@@ -85,8 +110,27 @@ export default defineComponent({
       }
     };
 
+    onMounted(() => {
+      console.log('');
+    });
+
+    watch(() => state.selectedTab, (value) => {
+      if (value === selectedImagesTabTittle) {
+        state.imagesList = [];
+        selectedImages.value.forEach((image: any) => {
+
+        });
+        state.imagesList = selectedImages;
+      } else if (value === findNewImagesTabTittle) {
+        state.imagesList = state.pixabayImages;
+      }
+    });
+
     return {
       state,
+      selectedImages,
+      selectedImagesTabTittle,
+      findNewImagesTabTittle,
       findImages,
     };
   },
