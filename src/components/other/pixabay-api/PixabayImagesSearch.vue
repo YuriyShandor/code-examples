@@ -6,8 +6,7 @@
           type="text"
           class="superhero-search__input"
           placeholder="Image title"
-          v-model="searchField"
-          @input="findImage"
+          v-model.lazy.trim="searchField"
           id="superhero-search-input">
       </label>
       <div class="superhero-search__button" @click="findImage">
@@ -27,20 +26,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, watch } from 'vue';
 
 export default defineComponent({
   name: 'PixabayImagesSearch',
   setup(props, { emit }) {
     const searchField = ref('');
 
-    const findImage = () => {
-      emit('find-images', searchField.value);
-    };
+    watch(() => searchField.value, (value) => {
+      emit('find-images', value);
+    });
 
     return {
       searchField,
-      findImage,
     };
   },
 });

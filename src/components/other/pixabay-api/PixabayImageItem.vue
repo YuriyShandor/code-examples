@@ -4,13 +4,13 @@
     <div class="pixabay-image-block__actions">
       <div
         class="button pixabay-image-block__button"
-        v-if="selectedTab === findNewImagesTabTittle"
+        v-if="!isImageSelected"
         @click="addImageToSelected">
         Add to Selected
       </div>
       <div
         class="button pixabay-image-block__button"
-        v-if="selectedTab === selectedImagesTabTittle"
+        v-if="isImageSelected"
         @click="removeImageFromSelected">
         Remove from Selected
       </div>
@@ -19,41 +19,50 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted, ref, watch } from 'vue';
 import { useStore } from 'vuex';
 
 export default defineComponent({
   name: 'PixabayImageItem',
   props: {
+    selectedImages: {
+      type: Array,
+      required: true,
+    },
     pixabayImage: {
       type: Object,
-      required: true,
-    },
-    selectedTab: {
-      type: String,
-      required: true,
-    },
-    selectedImagesTabTittle: {
-      type: String,
-      required: true,
-    },
-    findNewImagesTabTittle: {
-      type: String,
       required: true,
     },
   },
   setup(props) {
     const store = useStore();
 
+    const isImageSelected = ref(false);
+
+    const checkIsImageSelected = () => {
+      if (props.selectedImages.length > 0) {
+        isImageSelected.value = props.selectedImages.some((image: any) => image.id === props.pixabayImage.id);
+      }
+    };
+
     const addImageToSelected = () => {
-      store.dispatch('ADD_IMAGE', props.pixabayImage.largeImageURL);
+      store.dispatch('ADD_IMAGE', props.pixabayImage);
     };
 
     const removeImageFromSelected = () => {
-      store.dispatch('REMOVE_IMAGE', props.pixabayImage.largeImageURL);
+      store.dispatch('REMOVE_IMAGE', props.pixabayImage);
     };
 
+    onMounted(() => {
+      checkIsImageSelected();
+    });
+
+    watch(() => props.selectedImages, () => {
+      checkIsImageSelected();
+    }, { deep: true });
+
     return {
+      isImageSelected,
       addImageToSelected,
       removeImageFromSelected,
     };

@@ -31,13 +31,13 @@
               <div
                 class="pixabay-page-heading__tab"
                 :class="{'selected': state.selectedTab === selectedImagesTabTittle}"
-                @click="state.selectedImagesTabTitle = selectedImagesTabTittle">
+                @click="changeSelectedTab(selectedImagesTabTittle)">
                 Selected images
               </div>
               <div
                 class="pixabay-page-heading__tab"
                 :class="{'selected': state.selectedTab === findNewImagesTabTittle}"
-                @click="state.selectedImagesTabTitle = findNewImagesTabTittle">
+                @click="changeSelectedTab(findNewImagesTabTittle)">
                 Find new images
               </div>
             </div>
@@ -47,13 +47,24 @@
             @find-images="findImages"
           />
           <div class="pixabay-page-images-block">
+            <div
+              v-if="state.imagesList.length === 0
+              && state.selectedTab === selectedImagesTabTittle"
+              class="pixabay-page-images-block__empty-text">
+              For now, you have no selected images, please find some images and select them.
+            </div>
+            <div
+              v-if="state.imagesList.length === 0
+              && state.selectedTab === findNewImagesTabTittle
+              && state.isUserEnteredIncorrectSearchText"
+              class="pixabay-page-images-block__empty-text">
+              Please, enter the correct search text.
+            </div>
             <PixabayImageItem
-              v-for="pixabayImage in state.pixabayImages"
+              v-for="pixabayImage in state.imagesList"
               :key="pixabayImage.id"
+              :selectedImages="selectedImages"
               :pixabayImage="pixabayImage"
-              :selectedTab="state.selectedTab"
-              :selectedImagesTabTittle="selectedImagesTabTittle"
-              :findNewImagesTabTittle="findNewImagesTabTittle"
             />
           </div>
         </div>
@@ -68,7 +79,6 @@ import PixabayImagesSearch from '@/components/other/pixabay-api/PixabayImagesSea
 import PixabayImageItem from '@/components/other/pixabay-api/PixabayImageItem.vue';
 import PixabayApiHelper from '@/api-helpers/pixabay.api-helper';
 import { useStore } from 'vuex';
-import ScrollHelper from '@/helpers/scroll.helper';
 
 export default defineComponent({
   name: 'SuperheroAPIPage',
@@ -79,30 +89,40 @@ export default defineComponent({
   setup() {
     const store = useStore();
 
-    interface IImages {
-      [key: string]: (string | number | boolean);
-    }
-
     const selectedImagesTabTittle: string = 'Selected Images';
-    const findNewImagesTabTittle = 'Find New Images';
+    const findNewImagesTabTittle: string = 'Find New Images';
 
     const state = reactive({
-      imagesList: [] as any[],
-      pixabayImages: [] as any[],
+      imagesList: [] as any,
+      pixabayImages: [] as any,
       selectedTab: findNewImagesTabTittle as string,
+      isUserEnteredIncorrectSearchText: false,
     });
 
     const selectedImages = computed(() => store.getters.IMAGES);
 
+    const changeSelectedTab = (tabTitle: string) => {
+      state.selectedTab = tabTitle;
+    };
+
+    const updateImageList = (imagesArray: any) => {
+      state.imagesList = [];
+      if (imagesArray.length > 0) {
+        imagesArray.forEach((image: any) => state.imagesList.push(image));
+      }
+    };
+
     const findImages = (searchField: string) => {
       state.pixabayImages = [];
       if (searchField.length > 0) {
-        PixabayApiHelper.getImages(searchField, 100).then(({ data }) => {
+        PixabayApiHelper.getImages(searchField, 33).then(({ data }) => {
           if (data.hits.length > 0) {
+            state.isUserEnteredIncorrectSearchText = false;
             data.hits.forEach((image: string) => {
               state.pixabayImages.push(image);
             });
-            console.log(state.pixabayImages);
+          } else {
+            state.isUserEnteredIncorrectSearchText = true;
           }
         }).catch((error: any) => {
           console.log(error);
@@ -111,26 +131,34 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      console.log('');
+      console.log('Pixabay API Page');
     });
 
     watch(() => state.selectedTab, (value) => {
       if (value === selectedImagesTabTittle) {
-        state.imagesList = [];
-        selectedImages.value.forEach((image: any) => {
-
-        });
-        state.imagesList = selectedImages;
+        updateImageList(selectedImages.value);
       } else if (value === findNewImagesTabTittle) {
-        state.imagesList = state.pixabayImages;
+        state.pixabayImages = [];
+        updateImageList(state.pixabayImages);
       }
     });
+
+    watch(() => state.pixabayImages, () => {
+      updateImageList(state.pixabayImages);
+    }, { deep: true });
+
+    watch(() => selectedImages, () => {
+      if (state.selectedTab === selectedImagesTabTittle) {
+        updateImageList(selectedImages.value);
+      }
+    }, { deep: true });
 
     return {
       state,
       selectedImages,
       selectedImagesTabTittle,
       findNewImagesTabTittle,
+      changeSelectedTab,
       findImages,
     };
   },
@@ -220,5 +248,11 @@ export default defineComponent({
   @media only screen and (min-width: 760px) {
     gap: 20px;
   }
+}
+
+.pixabay-page-images-block__empty-text {
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
 }
 </style>
