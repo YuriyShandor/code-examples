@@ -100,7 +100,7 @@ export default defineComponent({
 
   &:hover {
     .pixabay-image-block__actions {
-      opacity: 1;
+      opacity: 1 !important;
     }
   }
 }

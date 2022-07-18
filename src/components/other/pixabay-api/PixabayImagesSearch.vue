@@ -1,15 +1,15 @@
 <template>
-  <div class="superhero-search">
-    <div class="superhero-search__form">
-      <label class="superhero-search__input-label" for="superhero-search-input">
+  <div class="pixabay-search">
+    <div class="pixabay-search__form">
+      <label class="pixabay-search__input-label" for="pixabay-search-input">
         <input
           type="text"
-          class="superhero-search__input"
+          class="pixabay-search__input"
           placeholder="Image title"
           v-model.lazy.trim="searchField"
-          id="superhero-search-input">
+          id="pixabay-search-input">
       </label>
-      <div class="superhero-search__button" @click="findImage">
+      <div class="pixabay-search__button" @click="findImage">
         <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
           <path
             d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438
@@ -33,37 +33,41 @@ export default defineComponent({
   setup(props, { emit }) {
     const searchField = ref('');
 
+    const findImage = () => {
+      emit('find-images', searchField.value);
+    };
+
     watch(() => searchField.value, (value) => {
       emit('find-images', value);
     });
 
     return {
       searchField,
+      findImage,
     };
   },
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.superhero-search {
+.pixabay-search {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 30px;
 }
 
-.superhero-search__form {
+.pixabay-search__form {
   width: 100%;
   max-width: 500px;
   position: relative;
 }
 
-.superhero-search__input-label {
+.pixabay-search__input-label {
   width: 100%;
 }
 
-.superhero-search__input {
+.pixabay-search__input {
   width: 100%;
   height: 50px;
   border: 1px solid #898989;
@@ -72,6 +76,7 @@ export default defineComponent({
   font-weight: 500;
   font-size: 18px;
   color: #282828;
+
   &::placeholder {
     font-weight: 500;
     font-size: 18px;
@@ -79,7 +84,7 @@ export default defineComponent({
   }
 }
 
-.superhero-search__button {
+.pixabay-search__button {
   width: 50px;
   height: 100%;
   background: #898989;
@@ -93,12 +98,14 @@ export default defineComponent({
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: all, .25s;
+
   svg {
     display: block;
     width: 18px;
     height: auto;
     fill: #fff;
   }
+
   &:hover {
     background: #000;
   }

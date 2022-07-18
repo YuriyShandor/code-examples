@@ -11,11 +11,11 @@ describe('JestHabit.vue', () => {
         name: habitName,
       },
     });
-  })
+  });
 
   afterEach(() => {
     wrapper = null;
-  })
+  });
 
   it('Makes sure the habit name is rendered', () => {
     expect(wrapper.props().name).toBe(habitName);
@@ -25,7 +25,7 @@ describe('JestHabit.vue', () => {
   it('Marks the habit as completed', async () => {
     const box = wrapper.find('.habit__box');
     await box.trigger('click');
-    expect(box.text()).toContain("✔");
+    expect(box.text()).toContain('✔');
   });
 
   it('Calls the onHabitDone method', async () => {

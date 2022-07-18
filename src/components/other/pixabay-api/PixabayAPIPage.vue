@@ -32,13 +32,13 @@
                 class="pixabay-page-heading__tab"
                 :class="{'selected': state.selectedTab === selectedImagesTabTittle}"
                 @click="changeSelectedTab(selectedImagesTabTittle)">
-                Selected images
+                Selected Images
               </div>
               <div
                 class="pixabay-page-heading__tab"
                 :class="{'selected': state.selectedTab === findNewImagesTabTittle}"
                 @click="changeSelectedTab(findNewImagesTabTittle)">
-                Find new images
+                Find New Images
               </div>
             </div>
           </div>

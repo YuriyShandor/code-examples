@@ -6,8 +6,8 @@ describe('JestHelloWorld.vue', () => {
     const message = 'new message';
     const wrapper = shallowMount(JestHelloWorld, {
       propsData: {
-        msg: message
-      }
+        msg: message,
+      },
     });
     expect(wrapper.props('msg')).toBe(message);
   });
@@ -16,8 +16,8 @@ describe('JestHelloWorld.vue', () => {
     const message = 'new message';
     const wrapper = shallowMount(JestHelloWorld, {
       propsData: {
-        msg: message
-      }
+        msg: message,
+      },
     });
     expect(wrapper.text()).toMatch(message);
   });
