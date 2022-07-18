@@ -23,7 +23,3 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-
-import { mount } from '@cypress/vue'
-
-Cypress.Commands.add('mount', mount)
