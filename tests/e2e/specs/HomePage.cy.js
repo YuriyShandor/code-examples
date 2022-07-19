@@ -2,6 +2,7 @@
 
 describe('Tests for Home Page', () => {
   it('Visits the app root url', () => {
+    cy.viewport(1440, 900);
     cy.visit('/');
     cy.pause();
     cy.contains('.banner-ttl', 'Code Examples');
