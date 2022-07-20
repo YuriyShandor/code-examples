@@ -109,7 +109,7 @@
     }
   }
 
-  code {
+  .code {
     background: #3a3a3a;
     color: #aac8e4;
   }
@@ -118,6 +118,7 @@
     text-align: left;
 
     code {
+      background: transparent;
       width: 100%;
       text-align: left;
 
