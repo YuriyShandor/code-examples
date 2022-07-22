@@ -21,10 +21,12 @@
             </p>
             <ul>
               <li>
-                <b>JavaScript:</b> is a light-weighted programming language
-                ("scripting language") and used to develop interactive web pages.
-                It can insert dynamic text into HTML element.
-                JavaScript is also known as the browser’s language.
+                <b>JavaScript</b> is a lightweight programming language("scripting language")
+                and is used to make web pages interactive. It can insert dynamic text
+                into HTML. JavaScript is also known as the browser’s language.
+                JavaScript(JS) is not similar or related to Java. Both the languages
+                have a C-like syntax and are widely used in client-side and server-side
+                Web applications, but there are few similarities only.
               </li>
               <li>
                 <b>Java:</b> is one of the most popular and widely used programming language.
