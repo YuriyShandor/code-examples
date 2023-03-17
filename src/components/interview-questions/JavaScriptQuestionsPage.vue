@@ -19,6 +19,7 @@
               and Java is Object Oriented Programming language,
               both of them are totally different from each other.
             </p>
+            <div>table</div>
             <ul>
               <li>
                 <b>JavaScript</b> is a lightweight programming language("scripting language")
