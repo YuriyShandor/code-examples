@@ -1,34 +1,30 @@
-import { Commit } from 'vuex';
-
-interface ImagesState {
-  images: any[]
-}
+import { PixabayImageObject } from '@/types';
 
 export default {
   state: {
-    images: [],
+    pixabaySelectedImages: [] as Array<PixabayImageObject>,
   },
   getters: {
-    IMAGES: (state: ImagesState) => state.images,
+    PIXABAY_SELECTED_IMAGES: (state) => state.pixabaySelectedImages,
   },
   mutations: {
-    ADD_IMAGE(state: ImagesState, payload: any) {
-      state.images.push(payload);
+    ADD_PIXABAY_SELECTED_IMAGE(state, payload: PixabayImageObject) {
+      state.pixabaySelectedImages.push(payload);
     },
 
-    REMOVE_IMAGE(state: ImagesState, payload: any) {
-      if (state.images.includes(payload)) {
-        state.images = state.images.filter((image: any) => image.id !== payload.id);
+    REMOVE_PIXABAY_SELECTED_IMAGE(state, payload: PixabayImageObject) {
+      if (state.pixabaySelectedImages.includes(payload)) {
+        state.pixabaySelectedImages = state.pixabaySelectedImages.filter((image: PixabayImageObject) => image.id !== payload.id);
       }
     },
   },
   actions: {
-    ADD_IMAGE({ commit }: { commit: Commit }, payload: any) {
-      commit('ADD_IMAGE', payload);
+    ADD_PIXABAY_SELECTED_IMAGE(context, payload: PixabayImageObject) {
+      context.commit('ADD_PIXABAY_SELECTED_IMAGE', payload);
     },
 
-    REMOVE_IMAGE({ commit }: { commit: Commit }, payload: any) {
-      commit('REMOVE_IMAGE', payload);
+    REMOVE_PIXABAY_SELECTED_IMAGE(context, payload: PixabayImageObject) {
+      context.commit('REMOVE_PIXABAY_SELECTED_IMAGE', payload);
     },
   },
 };

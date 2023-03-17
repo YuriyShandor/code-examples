@@ -43,14 +43,12 @@
 import { defineComponent, reactive, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
-import VueExamplesRouterHelper from '@/router/helpers/vueExamplesRouter.helper';
 import JavaScriptExamplesRouterHelper from '@/router/helpers/javaScriptExamplesRouter.helper';
 import ExternalLibrariesRouterHelper from '@/router/helpers/externalLibrariesRouter.helper';
 import UIElementsRouterHelper from '@/router/helpers/UIElementsRouter.helper';
 import CodeWarsJavaScriptRouterHelper from '@/router/helpers/codeWarsJavaScriptRouter.helper';
-import TypeScriptRouterHelper from '@/router/helpers/typeScriptRouter.helper';
+import OOPInTypeScriptRouterHelper from '@/router/helpers/OOPInTypeScriptRouter.helper';
 import OtherExamplesRouterHelper from '@/router/helpers/otherExamplesRouter.helper';
-import InterviewQuestionsRouterHelper from '@/router/helpers/interviewQuestionsRouter.helper';
 import ScrollHelper from '@/helpers/scroll.helper';
 
 export default defineComponent({
@@ -58,14 +56,12 @@ export default defineComponent({
   setup() {
     const route = useRoute();
     const globalMenu: any[] = [
-      VueExamplesRouterHelper.menuItems(),
       JavaScriptExamplesRouterHelper.menuItems(),
       ExternalLibrariesRouterHelper.menuItems(),
       UIElementsRouterHelper.menuItems(),
       CodeWarsJavaScriptRouterHelper.menuItems(),
-      TypeScriptRouterHelper.menuItems(),
       OtherExamplesRouterHelper.menuItems(),
-      InterviewQuestionsRouterHelper.menuItems(),
+      OOPInTypeScriptRouterHelper.menuItems(),
     ];
     const state = reactive({
       activeName: '' as string,

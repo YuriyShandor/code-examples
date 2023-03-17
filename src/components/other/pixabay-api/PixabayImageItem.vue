@@ -5,66 +5,42 @@
       <div
         class="button pixabay-image-block__button"
         v-if="!isImageSelected"
-        @click="addImageToSelected">
+        @click="pixabayImageButtonAction">
         Add to Selected
       </div>
       <div
         class="button pixabay-image-block__button"
         v-if="isImageSelected"
-        @click="removeImageFromSelected">
-        Remove from Selected
+        @click="pixabayImageButtonAction">
+        {{ isImageSelected ? 'Remove from Selected' : 'Add to Selected' }}
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, watch } from 'vue';
+import { defineComponent } from 'vue';
 import { useStore } from 'vuex';
 
 export default defineComponent({
   name: 'PixabayImageItem',
   props: {
-    selectedImages: {
-      type: Array,
-      required: true,
-    },
-    pixabayImage: {
-      type: Object,
-      required: true,
-    },
+    pixabayImage: Object,
+    isImageSelected: Boolean,
   },
   setup(props) {
     const store = useStore();
 
-    const isImageSelected = ref(false);
-
-    const checkIsImageSelected = () => {
-      if (props.selectedImages.length > 0) {
-        isImageSelected.value = props.selectedImages.some((image: any) => image.id === props.pixabayImage.id);
+    const pixabayImageButtonAction = () => {
+      if (props.isImageSelected) {
+        store.dispatch('REMOVE_PIXABAY_SELECTED_IMAGE', props.pixabayImage);
+      } else {
+        store.dispatch('ADD_PIXABAY_SELECTED_IMAGE', props.pixabayImage);
       }
     };
 
-    const addImageToSelected = () => {
-      store.dispatch('ADD_IMAGE', props.pixabayImage);
-    };
-
-    const removeImageFromSelected = () => {
-      store.dispatch('REMOVE_IMAGE', props.pixabayImage);
-    };
-
-    onMounted(() => {
-      checkIsImageSelected();
-    });
-
-    watch(() => props.selectedImages, () => {
-      checkIsImageSelected();
-    }, { deep: true });
-
     return {
-      isImageSelected,
-      addImageToSelected,
-      removeImageFromSelected,
+      pixabayImageButtonAction,
     };
   },
 });
@@ -73,13 +49,14 @@ export default defineComponent({
 <style scoped lang="scss">
 .pixabay-image-block {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
   position: relative;
 
   @media only screen and (min-width: 760px) {
     width: calc(50% - 10px);
     height: 200px;
+    border-radius: 15px;
   }
 
   @media only screen and (min-width: 900px) {
@@ -88,6 +65,7 @@ export default defineComponent({
 
   @media only screen and (min-width: 1100px) {
     height: 300px;
+    border-radius: 20px;
   }
 
   @media only screen and (min-width: 1300px) {

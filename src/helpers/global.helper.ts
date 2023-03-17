@@ -11,6 +11,14 @@ class GlobalHelper {
     }
     return queryParamsString;
   }
+
+  setDynamicNumberingForDOMElements(elementSelector: string) {
+    const questionItems = document.querySelectorAll(elementSelector);
+    questionItems.forEach((item, index) => {
+      // eslint-disable-next-line no-param-reassign
+      item.textContent = `${index < 9 ? 0 : ''}${index + 1}. ${item.textContent}`;
+    });
+  }
 }
 
 export default new GlobalHelper();

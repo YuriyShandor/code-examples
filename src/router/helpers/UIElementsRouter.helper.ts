@@ -3,31 +3,23 @@ import SinglePage from '@/components/pages/SinglePage.vue';
 import ModalsExamples from '@/components/ui-elements/modals/ModalsExamples.vue';
 
 class UIElementsRouterHelper {
-  UI_ELEMENTS_PAGE_NAME(): string {
-    return 'UI Elements Page';
-  }
+  readonly UI_ELEMENTS_PAGE_NAME: string = 'UI Elements';
 
-  UI_ELEMENTS_PAGE_PATH(): string {
-    return 'ui-elements';
-  }
+  readonly UI_ELEMENTS_PAGE_PATH: string = 'ui-elements';
 
-  MODALS_EXAMPLES_PAGE_NAME(): string {
-    return 'Modals Examples';
-  }
+  readonly MODALS_EXAMPLES_PAGE_NAME: string = 'Modals Examples';
 
-  MODALS_EXAMPLES_PAGE_PATH(): string {
-    return 'modals';
-  }
+  readonly MODALS_EXAMPLES_PAGE_PATH: string = 'modals';
 
   routes() {
     return {
-      name: this.UI_ELEMENTS_PAGE_NAME(),
-      path: `/${this.UI_ELEMENTS_PAGE_PATH()}`,
+      name: this.UI_ELEMENTS_PAGE_NAME,
+      path: `/${this.UI_ELEMENTS_PAGE_PATH}`,
       component: SinglePage,
       children: [
         {
-          name: this.MODALS_EXAMPLES_PAGE_NAME(),
-          path: this.MODALS_EXAMPLES_PAGE_PATH(),
+          name: this.MODALS_EXAMPLES_PAGE_NAME,
+          path: this.MODALS_EXAMPLES_PAGE_PATH,
           component: ModalsExamples,
         },
       ],
@@ -36,12 +28,12 @@ class UIElementsRouterHelper {
 
   menuItems() {
     return {
-      title: this.UI_ELEMENTS_PAGE_NAME(),
-      link: `/${this.UI_ELEMENTS_PAGE_PATH()}`,
+      title: this.UI_ELEMENTS_PAGE_NAME,
+      link: `/${this.UI_ELEMENTS_PAGE_PATH}`,
       subItems: [
         {
-          title: this.MODALS_EXAMPLES_PAGE_NAME(),
-          link: `/${this.UI_ELEMENTS_PAGE_PATH()}/${this.MODALS_EXAMPLES_PAGE_PATH()}`,
+          title: this.MODALS_EXAMPLES_PAGE_NAME,
+          link: `/${this.UI_ELEMENTS_PAGE_PATH}/${this.MODALS_EXAMPLES_PAGE_PATH}`,
         },
       ],
     };

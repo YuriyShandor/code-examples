@@ -6,11 +6,11 @@
       </h1>
       <el-collapse accordion
         class="interview-questions-accordion">
-        <el-collapse-item name="01. What are the differences between Java and JavaScript?"
-          class="interview-questions-accordion__item">
+        <el-collapse-item name="What are the differences between Java and JavaScript?"
+                          class="interview-questions-accordion__item">
           <template #title>
             <div class="interview-questions-accordion__item-title">
-              01. What are the differences between Java and JavaScript?
+              What are the differences between Java and JavaScript?
             </div>
           </template>
           <div class="interview-questions-accordion__item-content">
@@ -19,7 +19,43 @@
               and Java is Object Oriented Programming language,
               both of them are totally different from each other.
             </p>
-            <div>table</div>
+            <p>
+              The difference between Java and JavaScript is as follows:
+            </p>
+            <ul>
+              <li>
+                <b>JavaScript</b> is a lightweight programming language("scripting language")
+                and is used to make web pages interactive. It can insert dynamic text
+                into HTML. JavaScript is also known as the browser’s language.
+                JavaScript(JS) is not similar or related to Java. Both the languages
+                have a C-like syntax and are widely used in client-side and server-side
+                Web applications, but there are few similarities only.
+              </li>
+              <li>
+                <b>Java:</b> is one of the most popular and widely used programming language.
+                It is an object-oriented programming language and has a virtual machine platform
+                that allows you to create compiled programs that run on nearly every platform.
+                Java promised, "Write Once, Run Anywhere".
+              </li>
+            </ul>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item name="What are the differences between Java and JavaScript?"
+          class="interview-questions-accordion__item">
+          <template #title>
+            <div class="interview-questions-accordion__item-title">
+              What are the differences between Java and JavaScript?
+            </div>
+          </template>
+          <div class="interview-questions-accordion__item-content">
+            <p>
+              JavaScript is a client-side scripting language
+              and Java is Object Oriented Programming language,
+              both of them are totally different from each other.
+            </p>
+            <p>
+              The difference between Java and JavaScript is as follows:
+            </p>
             <ul>
               <li>
                 <b>JavaScript</b> is a lightweight programming language("scripting language")
@@ -1479,12 +1515,13 @@
 
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue';
+import GlobalHelper from '@/helpers/global.helper';
 
 export default defineComponent({
   name: 'JavaScriptQuestionsPage',
   setup() {
     onMounted(() => {
-      console.log('JavaScript Questions for Interview');
+      GlobalHelper.setDynamicNumberingForDOMElements('.interview-questions-accordion__item-title');
     });
   },
 });

@@ -1,6 +1,5 @@
 import SinglePage from '@/components/pages/SinglePage.vue';
 
-import TypeScriptExamples from '@/components/typescript/TypeScriptExamples.vue';
 import TypeScriptAbstraction from '@/components/typescript/TypeScriptAbstraction.vue';
 import TypeScriptEncapsulation from '@/components/typescript/TypeScriptEncapsulation.vue';
 import TypeScriptInheritance from '@/components/typescript/TypeScriptInheritance.vue';
@@ -8,14 +7,10 @@ import TypeScriptPolymorphism from '@/components/typescript/TypeScriptPolymorphi
 import TypeScriptGettersAndSetters from '@/components/typescript/TypeScriptGettersAndSetters.vue';
 import TypeScriptInterface from '@/components/typescript/TypeScriptInterface.vue';
 
-class TypeScriptRouterHelper {
-  readonly TYPESCRIPT_EXAMPLES_PAGE_NAME: string = 'Typescript Examples';
+class OOPInTypeScriptRouterHelper {
+  readonly TYPESCRIPT_EXAMPLES_PAGE_NAME: string = 'OOP in Typescript';
 
   readonly TYPESCRIPT_EXAMPLES_PAGE_PATH: string = 'typescript';
-
-  readonly TYPESCRIPT_GENERAL_EXAMPLES_PAGE_NAME: string = 'Typescript General Examples';
-
-  readonly TYPESCRIPT_GENERAL_EXAMPLES_PAGE_PATH: string = 'general';
 
   readonly OOP_ABSTRACTION_EXAMPLES_PAGE_NAME: string = 'Abstraction in TypeScript';
 
@@ -47,11 +42,6 @@ class TypeScriptRouterHelper {
       path: `/${this.TYPESCRIPT_EXAMPLES_PAGE_PATH}`,
       component: SinglePage,
       children: [
-        {
-          name: this.TYPESCRIPT_GENERAL_EXAMPLES_PAGE_NAME,
-          path: this.TYPESCRIPT_GENERAL_EXAMPLES_PAGE_PATH,
-          component: TypeScriptExamples,
-        },
         {
           name: this.OOP_ABSTRACTION_EXAMPLES_PAGE_NAME,
           path: this.OOP_ABSTRACTION_EXAMPLES_PAGE_PATH,
@@ -92,10 +82,6 @@ class TypeScriptRouterHelper {
       link: `/${this.TYPESCRIPT_EXAMPLES_PAGE_PATH}`,
       subItems: [
         {
-          title: this.TYPESCRIPT_GENERAL_EXAMPLES_PAGE_NAME,
-          link: `/${this.TYPESCRIPT_EXAMPLES_PAGE_PATH}/${this.TYPESCRIPT_GENERAL_EXAMPLES_PAGE_PATH}`,
-        },
-        {
           title: this.OOP_ABSTRACTION_EXAMPLES_PAGE_NAME,
           link: `/${this.TYPESCRIPT_EXAMPLES_PAGE_PATH}/${this.OOP_ABSTRACTION_EXAMPLES_PAGE_PATH}`,
         },
@@ -124,4 +110,4 @@ class TypeScriptRouterHelper {
   }
 }
 
-export default new TypeScriptRouterHelper();
+export default new OOPInTypeScriptRouterHelper();

@@ -1,72 +1,69 @@
 <template>
   <div class="pixabay-page">
-    <div class="container">
-      <h1 class="page-title">
-        Pixabay API Usage
-      </h1>
-      <div class="code-example-block">
-        <div class="code-example__description">
-          <b><a href="https://pixabay.com/">Pixabay.com</a></b> is a free stock photography
-          and royalty-free stock media website. It is used for sharing photos,
-          illustrations, vector graphics, film footage, and music, exclusively
-          under the custom Pixabay license, which generally allows the free use
-          of the material with some restrictions.
-          <br>
-          The overall quality of the photos on the service has been described
-          as "mediocre for the most part" and "variable" but covering a "wide range of subjects."
-        </div>
-        <a
-          href="https://github.com/YuriyShandor/code-examples/tree/vue3-with-typescript/src/components/other/pixabay-api"
-          target="_blank"
-          class="button code-example__button">
-          Watch Code on GitHub
-          <img src="/images/github-logo.svg" alt="" class="code-example__button-image">
-        </a>
-        <div class="pixabay-page-content">
-          <div class="pixabay-page-heading">
-            <div class="page-title pixabay-page-heading__title">
-              Pixabay Images
+    <h1 class="page-title">
+      Pixabay API Usage
+    </h1>
+    <div class="code-example-block">
+      <div class="code-example__description">
+        <b><a href="https://pixabay.com/">Pixabay.com</a></b> is a free stock photography
+        and royalty-free stock media website. It is used for sharing photos,
+        illustrations, vector graphics, film footage, and music, exclusively
+        under the custom Pixabay license, which generally allows the free use
+        of the material with some restrictions.
+      </div>
+      <a
+        href="https://github.com/YuriyShandor/code-examples/tree/vue3-with-typescript/src/components/other/pixabay-api"
+        target="_blank"
+        class="button code-example__button">
+        Watch Code on GitHub
+        <img src="/images/github-logo.svg" alt="" class="code-example__button-image">
+      </a>
+      <div class="pixabay-page-content">
+        <div class="pixabay-page-heading">
+          <div class="page-title pixabay-page-heading__title">
+            Pixabay Images
+          </div>
+          <div class="pixabay-page-heading__tabs-block">
+            <div
+              class="pixabay-page-heading__tab"
+              :class="{'selected': state.selectedTab === selectedImagesTabTittle}"
+              @click="changeSelectedTab(selectedImagesTabTittle)">
+              Selected Images
             </div>
-            <div class="pixabay-page-heading__tabs-block">
-              <div
-                class="pixabay-page-heading__tab"
-                :class="{'selected': state.selectedTab === selectedImagesTabTittle}"
-                @click="changeSelectedTab(selectedImagesTabTittle)">
-                Selected Images
-              </div>
-              <div
-                class="pixabay-page-heading__tab"
-                :class="{'selected': state.selectedTab === findNewImagesTabTittle}"
-                @click="changeSelectedTab(findNewImagesTabTittle)">
-                Find New Images
-              </div>
+            <div
+              class="pixabay-page-heading__tab"
+              :class="{'selected': state.selectedTab === findNewImagesTabTittle}"
+              @click="changeSelectedTab(findNewImagesTabTittle)">
+              Find New Images
             </div>
           </div>
-          <PixabayImagesSearch
-            v-if="state.selectedTab === findNewImagesTabTittle"
-            @find-images="findImages"
-          />
-          <div class="pixabay-page-images-block">
-            <div
-              v-if="state.imagesList.length === 0
+        </div>
+        <PixabayImagesSearch
+          v-if="state.selectedTab === findNewImagesTabTittle"
+          :defaultValue="state.searchRequest"
+          @update-search-request="updateSearchRequest"
+        />
+        <div class="pixabay-page-images-block">
+          <div
+            v-if="state.imagesList.length === 0
               && state.selectedTab === selectedImagesTabTittle"
-              class="pixabay-page-images-block__empty-text">
-              For now, you have no selected images, please find some images and select them.
-            </div>
-            <div
-              v-if="state.imagesList.length === 0
+            class="pixabay-page-images-block__empty-text">
+            For now, you have no selected images, please find some images and select them.
+          </div>
+          <div
+            v-if="state.imagesList.length === 0
               && state.selectedTab === findNewImagesTabTittle
               && state.isUserEnteredIncorrectSearchText"
-              class="pixabay-page-images-block__empty-text">
-              Please, enter the correct search text.
-            </div>
-            <PixabayImageItem
-              v-for="pixabayImage in state.imagesList"
-              :key="pixabayImage.id"
-              :selectedImages="selectedImages"
-              :pixabayImage="pixabayImage"
-            />
+            class="pixabay-page-images-block__empty-text">
+            Please, enter the correct search text.
           </div>
+          <PixabayImageItem
+            v-for="pixabayImage in state.imagesList"
+            :key="pixabayImage.id"
+            :selectedImages="selectedImages"
+            :pixabayImage="pixabayImage"
+            :isImageSelected="selectedImages.includes(pixabayImage)"
+          />
         </div>
       </div>
     </div>
@@ -79,6 +76,7 @@ import PixabayImagesSearch from '@/components/other/pixabay-api/PixabayImagesSea
 import PixabayImageItem from '@/components/other/pixabay-api/PixabayImageItem.vue';
 import PixabayApiHelper from '@/api-helpers/pixabay.api-helper';
 import { useStore } from 'vuex';
+import { PixabayImageObject } from '@/types';
 
 export default defineComponent({
   name: 'SuperheroAPIPage',
@@ -93,13 +91,14 @@ export default defineComponent({
     const findNewImagesTabTittle: string = 'Find New Images';
 
     const state = reactive({
-      imagesList: [] as any,
-      pixabayImages: [] as any,
+      imagesList: [] as Array<PixabayImageObject>,
+      pixabayImages: [] as Array<PixabayImageObject>,
       selectedTab: findNewImagesTabTittle as string,
+      searchRequest: '' as string,
       isUserEnteredIncorrectSearchText: false,
     });
 
-    const selectedImages = computed(() => store.getters.IMAGES);
+    const selectedImages = computed(() => store.getters.PIXABAY_SELECTED_IMAGES);
 
     const changeSelectedTab = (tabTitle: string) => {
       state.selectedTab = tabTitle;
@@ -112,13 +111,14 @@ export default defineComponent({
       }
     };
 
-    const findImages = (searchField: string) => {
+    const updateSearchRequest = (searchField: string) => {
+      state.searchRequest = searchField;
       state.pixabayImages = [];
-      if (searchField.length > 0) {
-        PixabayApiHelper.getImages(searchField, 33).then(({ data }) => {
+      if (state.searchRequest.length > 0) {
+        PixabayApiHelper.getImages(state.searchRequest, 33).then(({ data }) => {
           if (data.hits.length > 0) {
             state.isUserEnteredIncorrectSearchText = false;
-            data.hits.forEach((image: string) => {
+            data.hits.forEach((image: PixabayImageObject) => {
               state.pixabayImages.push(image);
             });
           } else {
@@ -130,15 +130,10 @@ export default defineComponent({
       }
     };
 
-    onMounted(() => {
-      console.log('Pixabay API Page');
-    });
-
-    watch(() => state.selectedTab, (value) => {
-      if (value === selectedImagesTabTittle) {
+    watch(() => state.selectedTab, () => {
+      if (state.selectedTab === selectedImagesTabTittle) {
         updateImageList(selectedImages.value);
-      } else if (value === findNewImagesTabTittle) {
-        state.pixabayImages = [];
+      } else if (state.selectedTab === findNewImagesTabTittle) {
         updateImageList(state.pixabayImages);
       }
     });
@@ -159,7 +154,7 @@ export default defineComponent({
       selectedImagesTabTittle,
       findNewImagesTabTittle,
       changeSelectedTab,
-      findImages,
+      updateSearchRequest,
     };
   },
 });
@@ -204,14 +199,17 @@ export default defineComponent({
 .pixabay-page-heading__tabs-block {
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
   margin-bottom: 20px;
+
+  @media only screen and (min-width: 700px) {
+    gap: 20px;
+  }
 }
 
 .pixabay-page-heading__tab {
-  width: calc(50% - 20px);
+  width: 50%;
   max-width: 320px;
   height: 50px;
   border-radius: 10px;
@@ -220,7 +218,7 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   font-family: $secondary-font-family;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
   text-align: center;
   cursor: pointer;
@@ -233,6 +231,10 @@ export default defineComponent({
 
   &.selected {
     background: darken(#807D7D, 15%);
+  }
+
+  @media only screen and (min-width: 700px) {
+    font-size: 20px;
   }
 }
 

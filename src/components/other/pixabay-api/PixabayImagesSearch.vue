@@ -26,19 +26,34 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from 'vue';
+import { defineComponent, ref, onMounted, watch } from 'vue';
 
 export default defineComponent({
   name: 'PixabayImagesSearch',
+  props: {
+    defaultValue: String,
+  },
   setup(props, { emit }) {
     const searchField = ref('');
 
     const findImage = () => {
-      emit('find-images', searchField.value);
+      emit('update-search-request', searchField.value);
     };
 
+    onMounted(() => {
+      if (props.defaultValue !== undefined && props.defaultValue.length > 0) {
+        searchField.value = props.defaultValue;
+      }
+    });
+
     watch(() => searchField.value, (value) => {
-      emit('find-images', value);
+      emit('update-search-request', value);
+    });
+
+    watch(() => props.defaultValue, () => {
+      if (searchField.value !== props.defaultValue) {
+        searchField.value = props.defaultValue;
+      }
     });
 
     return {
