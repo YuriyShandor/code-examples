@@ -16,7 +16,7 @@
           <div class="interview-questions-accordion__item-content">
             <p>
               JavaScript is a client-side scripting language
-              and Java is object Oriented Programming language,
+              and Java is Object Oriented Programming language,
               both of them are totally different from each other.
             </p>
             <ul>
