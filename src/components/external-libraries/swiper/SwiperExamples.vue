@@ -3,7 +3,7 @@
     <h1 class="page-title">
       Swiper Examples
     </h1>
-<!--    <SlidesPerView/>-->
+    <OneActiveSlide/>
     <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
@@ -18,13 +18,14 @@
   </div>
 </template>
 
-<script>/* eslint-disable */
-// import SlidesPerView from '@/components/external-libraries/swiper/SlidesPerView';
+<script lang="ts">
+import { defineComponent } from 'vue';
+import OneActiveSlide from '@/components/external-libraries/swiper/OneActiveSlide.vue';
 
-export default {
+export default defineComponent({
   name: 'SwiperExamples',
   components: {
-    // SlidesPerView
-  }
-}
+    OneActiveSlide,
+  },
+});
 </script>
