@@ -71,7 +71,7 @@
 </template>
 
 <script lang="ts">
-import { reactive, defineComponent, computed, onMounted, watch } from 'vue';
+import { reactive, defineComponent, computed, watch } from 'vue';
 import PixabayImagesSearch from '@/components/other/pixabay-api/PixabayImagesSearch.vue';
 import PixabayImageItem from '@/components/other/pixabay-api/PixabayImageItem.vue';
 import PixabayApiHelper from '@/api-helpers/pixabay.api-helper';
