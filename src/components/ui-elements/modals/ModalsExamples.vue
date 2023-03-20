@@ -1,20 +1,20 @@
 <template>
   <div class="modals-examples">
     <h1 class="page-title">Modals Examples</h1>
-    <SimpleModalWith100vhPlugin/>
-<!--    <SimpleModalWithAnimation/>-->
+    <ModalWith100vhPlugin/>
+    <ModalWithoutPlugins/>
   </div>
 </template>
 
 <script lang="ts">
-import SimpleModalWith100vhPlugin from '@/components/ui-elements/modals/ModalWith100vhPlugin.vue';
-// import SimpleModalWithAnimation from '@/components/ui-elements/modals/SimpleModalWithAnimation.vue';
+import ModalWith100vhPlugin from '@/components/ui-elements/modals/ModalWith100vhPlugin.vue';
+import ModalWithoutPlugins from '@/components/ui-elements/modals/ModalWithoutPlugins.vue';
 
 export default {
   name: 'ModalsExamples',
   components: {
-    SimpleModalWith100vhPlugin,
-    // SimpleModalWithAnimation,
+    ModalWith100vhPlugin,
+    ModalWithoutPlugins,
   },
 };
 </script>

@@ -1,12 +1,10 @@
 <template>
   <div class="code-example-block">
     <div class="code-example__title">
-      Modal With vue-100vh Plugin
+      Modal Without Plugins
     </div>
     <div class="code-example__description">
-      Modal with
-      <a href="https://www.npmjs.com/package/vue-100vh" target="_blank">vue-100vh</a>
-      plugin for maximum adaptability on all devices
+      Modal without plugins, with animation and blurred overlay.
     </div>
     <div
       class="button open-modal-button"
@@ -14,7 +12,7 @@
       Open Modal
     </div>
     <a
-      href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/ui-elements/modals/ModalWith100vhPlugin.vue"
+      href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/ui-elements/modals/ModalWithoutPlugins.vue"
       target="_blank"
       class="button code-example__button">
       Watch Code on GitHub
@@ -26,9 +24,7 @@
           class="modal-wrap"
           :class="{'visible': state.isModalVisible}">
           <div class="modal-overlay" @click="closeModal"></div>
-          <vue100vh
-            class="modal"
-            :css="{ height: '90rvh' }">
+          <div class="modal">
             <div class="modal-close-button" @click="closeModal">
               <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.9999 1.35556L1.00132 23.3542" stroke="#553F3F" stroke-width="2" stroke-linecap="round"/>
@@ -41,25 +37,22 @@
                 :src="image.largeImageURL" :key="image.id"
                 alt="" class="modal-content__image">
             </div>
-          </vue100vh>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 </template>
 
 <script lang="ts">
 import PixabayApiHelper from '@/api-helpers/pixabay.api-helper';
-import vue100vh from 'vue-100vh';
 import ScrollHelper from '@/helpers/scroll.helper';
 import { defineComponent, onMounted, reactive } from 'vue';
 import { PixabayImageObject } from '../../../types';
 
 export default defineComponent({
-  name: 'ModalWith100vhPlugin',
-  components: {
-    vue100vh,
-  },
+  name: 'ModalWithoutPlugins',
   setup() {
     const state = reactive({
       isModalVisible: false,
@@ -77,7 +70,7 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      PixabayApiHelper.getImages('rivers', 10).then(({ data }) => {
+      PixabayApiHelper.getImages('ukraine lakes', 10).then(({ data }) => {
         if (data.hits.length > 0) {
           data.hits.forEach((image) => {
             state.images.push(image);
@@ -127,12 +120,17 @@ export default defineComponent({
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: all, .25s;
   -webkit-tap-highlight-color: transparent;
+  transition: all, .5s;
 
   &.visible {
     opacity: 1;
     pointer-events: auto;
+    transition: all, .01s;
+
+    .modal {
+      transform: translateX(0);
+    }
   }
 }
 
@@ -142,24 +140,25 @@ export default defineComponent({
   right: 0;
   bottom: 0;
   left: 0;
-  background: #000;
-  opacity: 0.85;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, .7);
+  backdrop-filter: blur(17px);
 }
 
 .modal {
   width: calc(100% - 20px);
   max-width: 500px;
+  height: 90vh;
   max-height: 600px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
-
-  @media only screen and (min-width: 700px) {
-    border-radius: 20px;
-  }
+  transform: translateX(100vw);
+  -webkit-tap-highlight-color: transparent;
+  transition: all, .5s;
 }
 
 .modal-close-button {
