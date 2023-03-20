@@ -9,17 +9,17 @@
       </div>
       <div class="code-example__description"></div>
       <div class="code-example">
-        <!--        <pre>-->
-        <!--          <code class="language-javascript">-->
-        <!--            let current_date = moment()-->
-        <!--            let current_date_day = current_date.format('dddd')-->
-        <!--            let current_date_day_number = current_date.format('DDDD')-->
-        <!--            let current_month = current_date.format('MMMM')-->
-        <!--            let current_month_number = current_date.format('MM')-->
-        <!--            let current_year = current_date.format('YYYY')-->
-        <!--            console.log(current_year)-->
-        <!--          </code>-->
-        <!--        </pre>-->
+        <pre>
+          <code class="language-javascript">
+            const currentDate = moment();
+            const currentDay = currentDate.format('dddd');
+            const currentDayNumber = currentDate.format('DD');
+            const currentMonth = currentDate.format('MMMM');
+            const currentMonthNumber = currentDate.format('MM');
+            const currentYear = currentDate.format('YYYY');
+            const currenDateFormatted = currentDate.format('MMMM DD, YYYY');
+          </code>
+        </pre>
       </div>
     </div>
     <div class="code-example-block">
@@ -27,100 +27,117 @@
         Get previous and next months
       </div>
       <div class="code-example__description">
-        A previous month from the current month's title
+        Get the previous month's title from the month's title
       </div>
       <div class="code-example">
-        <!--        <pre>-->
-        <!--          <code class="language-javascript">-->
-        <!--            let current_month_title = 'December'-->
-        <!--            let current_month_number = moment().month(current_month_title).format('M')-->
-        <!--            let previous_month_title = moment().month(current_month_number - 2).format('MMMM')-->
-        <!--            console.log(previous_month_title)-->
-        <!--          </code>-->
-        <!--        </pre>-->
+        <pre>
+          <code class="language-javascript">
+            const monthTitle = 'May';
+            const monthNumber = moment().month(monthTitle).format('M');
+            const previousMonthTitle = moment().month(+monthNumber - 2).format('MMMM');
+            console.log(previousMonthTitle);
+          </code>
+        </pre>
       </div>
       <div class="code-example__description">
-        Get previous months from current month title
+        Get the previous months titles from the month's title
       </div>
       <div class="code-example">
-<!--        <pre>-->
-<!--          <code class="language-javascript">-->
-<!--            let month_title = 'December'-->
-<!--            let prev_months_qty = 7-->
+        <pre>
+          <code class="language-javascript">
+            const getPrevMonthsTitles = (monthTitle: string, prevMonthsQty: number) => {
+              const prevMonthsTitlesArr: string[] = [];
+              let prevMonthsTitlesString: string = '';
+              const monthNumber = moment().month(monthTitle).format('M');
 
-<!--            const getPrevMonthsTitles = (month_title, prev_months_qty) => {-->
-<!--              let prev_months_titles_arr = []-->
-<!--              let prev_months_titles_string = ''-->
-<!--              let month_number = moment().month(month_title).format('M')-->
+              for (let i = prevMonthsQty; i > 0; i--) {
+                prevMonthsTitlesArr.push(moment(monthNumber).subtract(i, 'months').format('MMMM'));
+              }
 
-<!--              for (let i = prev_months_qty; i > 0; i&#45;&#45;) {-->
-<!--                prev_months_titles_arr.push(moment(month_number).subtract(i, 'months').format('MMMM'))-->
-<!--              }-->
+              prevMonthsTitlesArr.forEach((title, index) => {
+                if (index === 0) {
+                  prevMonthsTitlesString += title;
+                } else if (index === prevMonthsTitlesArr.length - 1) {
+                  prevMonthsTitlesString += ` and ${title}`;
+                } else {
+                  prevMonthsTitlesString += `, ${title}`;
+                }
+              });
 
-<!--              prev_months_titles_arr.forEach((title, index) => {-->
-<!--                if(index === 0) {-->
-<!--                  prev_months_titles_string += title-->
-<!--                } else if(index === prev_months_titles_arr.length - 1) {-->
-<!--                  prev_months_titles_string += ` and ${title}`-->
-<!--                } else {-->
-<!--                  prev_months_titles_string += `, ${title}`-->
-<!--                }-->
-<!--              })-->
+              return prevMonthsTitlesString;
+            };
 
-<!--              return prev_months_titles_string-->
-<!--            }-->
-
-<!--            console.log(getPrevMonthsTitles(month_title, prev_months_qty))-->
-<!--          </code>-->
-<!--        </pre>-->
+            console.log(getPrevMonthsTitles('March', 7));
+          </code>
+        </pre>
       </div>
       <div class="code-example__description">
-        Next month from the current month's title
+        Get the next month's title from the month's title
       </div>
       <div class="code-example">
-<!--        <pre>-->
-<!--          <code class="language-javascript">-->
-<!--            let current_month_title = 'December'-->
-<!--            let current_month_number = moment().month(current_month_title).format('M')-->
-<!--            let next_month_title = moment().month(current_month_number).format('MMMM')-->
-<!--            console.log(next_month_title)-->
-<!--          </code>-->
-<!--        </pre>-->
+        <pre>
+          <code class="language-javascript">
+            const monthTitle = 'May';
+            const monthNumber = moment().month(monthTitle).format('M');
+            const nextMonthTitle = moment().month(+monthNumber).format('MMMM');
+            console.log(nextMonthTitle);
+          </code>
+        </pre>
       </div>
       <div class="code-example__description">
-        Get next months from current month title
+        Get the next months titles from the month's title
       </div>
       <div class="code-example">
-<!--        <pre>-->
-<!--          <code class="language-javascript">-->
-<!--            let month_title = 'December'-->
-<!--            let next_months_qty = 5-->
+        <pre>
+          <code class="language-javascript">
+            const getNextMonthsTitles = (monthTitle: string, nextMonthsQty: number) => {
+              const nextMonthsTitlesArr: string[] = [];
+              let nextMonthsTitlesString: string = '';
+              const monthNumber = moment().month(monthTitle).format('M');
 
-<!--            const getNextMonthsTitles = (month_title, next_months_qty) => {-->
-<!--              let next_months_titles_arr = []-->
-<!--              let next_months_titles_string = ''-->
-<!--              let current_month_number = moment().month(month_title).format('M')-->
+              for (let i = 1; i &lt;= nextMonthsQty; i++) {
+                nextMonthsTitlesArr.push(moment(monthNumber).add(i, 'months').format('MMMM'));
+              }
 
-<!--              for (let i = 1; i <= next_months_qty; i++) {-->
-<!--                next_months_titles_arr.push(moment(month_number).add(i, 'months').format('MMMM'))-->
-<!--              }-->
+              nextMonthsTitlesArr.forEach((title, index) => {
+                if (index === 0) {
+                  nextMonthsTitlesString += title;
+                } else if (index === nextMonthsTitlesArr.length - 1) {
+                  nextMonthsTitlesString += ` and ${title}`;
+                } else {
+                  nextMonthsTitlesString += `, ${title}`;
+                }
+              });
 
-<!--              next_months_titles_arr.forEach((title, index) => {-->
-<!--                if(index === 0) {-->
-<!--                  next_months_titles_string += title-->
-<!--                } else if(index === next_months_titles_arr.length - 1) {-->
-<!--                  next_months_titles_string += ` and ${title}`-->
-<!--                } else {-->
-<!--                  next_months_titles_string += `, ${title}`-->
-<!--                }-->
-<!--              })-->
+              return nextMonthsTitlesString;
+            };
 
-<!--              return next_months_titles_string-->
-<!--            }-->
-
-<!--            console.log(getNextMonthsTitles(month_title, next_months_qty))-->
-<!--          </code>-->
-<!--        </pre>-->
+            console.log(getNextMonthsTitles('December', 7));
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div class="code-example-block">
+      <div class="code-example__title">Formatting dates</div>
+      <div class="code-example__description">Format the javascript native date with the moment</div>
+      <div class="code-example">
+        <pre>
+          <code class="language-javascript">
+            const date = new Date();
+            const formattedDate = moment(date).format('MMMM DD, YYYY');
+            console.log(formattedDate);
+          </code>
+        </pre>
+      </div>
+      <div class="code-example__description">Another dates formatting with the moment</div>
+      <div class="code-example">
+        <pre>
+          <code class="language-javascript">
+            console.log(moment('2000-12-24').format('MM.DD.YYYY'));
+            console.log(moment('01-17-2023').format('MMMM DD, YYYY'));
+            console.log(moment('03-17-2023').format('dddd DD, MMMM YYYY'));
+          </code>
+        </pre>
       </div>
     </div>
     <div class="code-example-block">
@@ -139,12 +156,14 @@
 
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue';
+import moment from 'moment-mini-ts';
 
 export default defineComponent({
   name: 'MomentExamples',
   setup() {
     onMounted(() => {
       console.log('MomentExamples');
+      console.log(moment().format('MMMM DD, YYYY'));
     });
   },
 });
