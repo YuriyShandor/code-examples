@@ -4,7 +4,7 @@
       Simple Slider
     </div>
     <div class="code-example__description">
-      Simple slider with one active slide.
+      Simple slider with one active slide. dfgdfgdfgd
     </div>
     <a
       href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/ui-elements/modals/ModalWithoutPlugins.vue"
