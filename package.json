@@ -15,7 +15,6 @@
     "element-plus": "^2.2.2",
     "moment-mini-ts": "^2.20.1",
     "node-sass": "^7.0.1",
-    "pinia": "^2.0.13",
     "prismjs": "^1.28.0",
     "register-service-worker": "^1.7.2",
     "swiper": "^9.1.1",
