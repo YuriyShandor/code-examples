@@ -18,6 +18,7 @@
         <swiper
           :modules="modules"
           :slides-per-view="1"
+          :spaceBetween="30"
           :navigation="{
             enabled: true,
             prevEl: prev,
