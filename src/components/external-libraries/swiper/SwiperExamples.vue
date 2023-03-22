@@ -6,6 +6,7 @@
     <SimpleSlider/>
     <SlidesPerView/>
     <SliderWithScrollbar/>
+    <ParallaxSlider/>
     <div class="code-example-block">
       <div class="code-example__title"></div>
       <div class="code-example__description"></div>
@@ -25,6 +26,7 @@ import { defineComponent } from 'vue';
 import SimpleSlider from '@/components/external-libraries/swiper/SimpleSlider.vue';
 import SlidesPerView from '@/components/external-libraries/swiper/SlidesPerView.vue';
 import SliderWithScrollbar from '@/components/external-libraries/swiper/SliderWithScrollbar.vue';
+import ParallaxSlider from '@/components/external-libraries/swiper/ParallaxSlider.vue';
 
 // Import Swiper styles
 import 'swiper/scss';
@@ -38,6 +40,7 @@ export default defineComponent({
     SimpleSlider,
     SlidesPerView,
     SliderWithScrollbar,
+    ParallaxSlider,
   },
 });
 </script>

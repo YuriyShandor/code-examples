@@ -1,17 +1,17 @@
 <template>
   <div class="code-example-block">
     <div class="code-example__title">
-      Simple Slider
+      Parallax Slider
     </div>
     <a
-      href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/external-libraries/swiper/SimpleSlider.vue"
+      href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/external-libraries/swiper/ParallaxSlider.vue"
       target="_blank"
       class="button code-example__button">
       Watch Code on GitHub
       <img src="/images/github-logo.svg" alt="" class="code-example__button-image">
     </a>
     <div class="code-example__block">
-      <div class="swiper-slider-wrap simple-slider">
+      <div class="swiper-slider-wrap parallax-slider">
         <swiper
           :modules="modules"
           :slides-per-view="1"
@@ -26,15 +26,30 @@
             dynamicBullets: true,
           }"
           :speed="750"
-          :lazy="true">
+          :lazy="true"
+          :parallax="true">
           <swiper-slide
-            v-for="image in state.images"
+            v-for="(image, index) in state.images"
             :key="image.id">
             <div class="swiper-slide-content">
               <img
                 :src="image.largeImageURL" alt=""
                 class="swiper-slide-image"
                 loading="lazy">
+              <div class="swiper-slide-info">
+                <div class="swiper-slide-title" data-swiper-parallax="-300">
+                  Slide {{ index + 1 }}
+                </div>
+                <div class="swiper-slide-sub-title" data-swiper-parallax="-500">
+                  Eaque facilis obcaecati optio quod sapiente! Eos, consectetur adipisicing
+                </div>
+                <div class="swiper-slide-text" data-swiper-parallax="-700">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Aliquid at beatae cum cumque doloremque ea error eum exercitationem
+                  facere illum impedit incidunt inventore itaque iusto maxime molestias
+                  nam nemo neque nobis non obcaecati
+                </div>
+              </div>
             </div>
           </swiper-slide>
         </swiper>
@@ -56,12 +71,12 @@
 <script lang="ts">
 import { defineComponent, onMounted, reactive, ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Navigation, Pagination } from 'swiper';
+import { Navigation, Pagination, Parallax } from 'swiper';
 import { PixabayImageObject } from '@/types';
 import PixabayApiHelper from '@/api-helpers/pixabay.api-helper';
 
 export default defineComponent({
-  name: 'SimpleSlider',
+  name: 'ParallaxSlider',
   components: {
     Swiper,
     SwiperSlide,
@@ -75,7 +90,7 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      PixabayApiHelper.getImages('lakes nature', 10).then(({ data }) => {
+      PixabayApiHelper.getImages('rivers nature', 10).then(({ data }) => {
         if (data.hits.length > 0) {
           data.hits.forEach((image) => {
             state.images.push(image);
@@ -85,7 +100,7 @@ export default defineComponent({
     });
 
     return {
-      modules: [Navigation, Pagination],
+      modules: [Navigation, Pagination, Parallax],
       prev,
       next,
       state,
@@ -130,6 +145,72 @@ export default defineComponent({
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.swiper-slide-info {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  padding: 20px;
+
+  @media only screen and (min-width: 700px) {
+    padding: 40px 70px;
+  }
+
+  @media only screen and (min-width: 700px) {
+    padding: 75px 100px;
+  }
+}
+
+.swiper-slide-title {
+  font-family: $secondary-font-family;
+  font-size: 28px;
+  font-weight: 600;
+
+  @media only screen and (min-width: 700px) {
+    font-size: 38px;
+    margin-bottom: 10px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+}
+
+.swiper-slide-sub-title {
+  font-family: $secondary-font-family;
+  font-size: 18px;
+  font-weight: 500;
+
+  @media only screen and (min-width: 700px) {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+}
+
+.swiper-slide-text {
+  font-size: 14px;
+  font-weight: 400;
+
+  @media only screen and (min-width: 700px) {
+    font-size: 16px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 18px;
+  }
 }
 
 .slider-nav-button {
@@ -146,6 +227,8 @@ export default defineComponent({
   transform: translateY(-50%);
   z-index: 2;
   cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
   transition: all, .25s;
   -webkit-tap-highlight-color: transparent;
 
@@ -193,6 +276,8 @@ export default defineComponent({
   @media only screen and (min-width: 700px) {
     width: 35px;
     height: 35px;
+    opacity: 1;
+    pointer-events: auto;
 
     svg {
       width: 9px;
@@ -202,7 +287,7 @@ export default defineComponent({
 </style>
 
 <style lang="scss">
-.swiper-slider-wrap.simple-slider {
+.swiper-slider-wrap.parallax-slider {
   .swiper-pagination {
     width: auto;
     max-width: 100%;
