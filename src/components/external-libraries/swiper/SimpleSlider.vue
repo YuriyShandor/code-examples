@@ -3,11 +3,8 @@
     <div class="code-example__title">
       Simple Slider
     </div>
-    <div class="code-example__description">
-      Simple slider with one active slide.
-    </div>
     <a
-      href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/external-libraries/swiper/OneActiveSlide.vue"
+      href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/external-libraries/swiper/SimpleSlider.vue"
       target="_blank"
       class="button code-example__button">
       Watch Code on GitHub
@@ -18,7 +15,7 @@
         <swiper
           :modules="modules"
           :slides-per-view="1"
-          :spaceBetween="30"
+          :space-between="1"
           :navigation="{
             enabled: true,
             prevEl: prev,
@@ -69,7 +66,7 @@ import 'swiper/scss/pagination';
 import 'swiper/css/navigation';
 
 export default defineComponent({
-  name: 'OneActiveSlide',
+  name: 'SimpleSlider',
   components: {
     Swiper,
     SwiperSlide,

@@ -1,264 +1,238 @@
 <template>
   <div class="code-example-block">
     <div class="code-example__title">
-      Slides Per View
+      Slides Per View Slider
     </div>
+    <a
+      href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/external-libraries/swiper/SlidesPerView.vue"
+      target="_blank"
+      class="button code-example__button">
+      Watch Code on GitHub
+      <img src="/images/github-logo.svg" alt="" class="code-example__button-image">
+    </a>
     <div class="code-example__block">
-<!--      <div class="slides-per-view-slider-wrap">-->
-<!--        <swiper class="slides-per-view-slider" :options="slidesPerViewSliderOption" ref="slidesPerViewSliderSwiper">-->
-<!--          <swiper-slide v-for="image in pixabayImages" :key="image.id">-->
-<!--            <div class="slides-per-view-slider-item">-->
-<!--              <img :src="image.largeImageURL" alt="" class="slides-per-view-slider-item__image">-->
-<!--            </div>-->
-<!--          </swiper-slide>-->
-<!--          <div class="slides-per-view-slider-scrollbar swiper-scrollbar" slot="scrollbar"></div>-->
-<!--        </swiper>-->
-<!--      </div>-->
-    </div>
-    <div class="code-example">
-<!--        <pre>-->
-<!--          <code class="language-markup">-->
-<!--            <script type="prism-html-markup">-->
-<!--            <template>-->
-<!--              <div class="slides-per-view-slider-wrap">-->
-<!--                <swiper class="slides-per-view-slider" :options="slidesPerViewSliderOption" ref="slidesPerViewSliderSwiper">-->
-<!--                  <swiper-slide v-for="image in pixabayImages" :key="image.id">-->
-<!--                    <div class="slides-per-view-slider-item">-->
-<!--                      <img :src="image.largeImageURL" alt="" class="slides-per-view-slider-item__image">-->
-<!--                    </div>-->
-<!--                  </swiper-slide>-->
-<!--                  <div class="slides-per-view-slider-scrollbar swiper-scrollbar" slot="scrollbar"></div>-->
-<!--                </swiper>-->
-<!--              </div>-->
-<!--            </template>-->
-<!--            </script>-->
-<!--          </code>-->
-<!--          <code class="language-javascript">-->
-<!--            // js code-->
-<!--            import PixabayApiHelper from '@/api-helpers/pixabay.api-helper'-->
-<!--            import {Swiper, SwiperSlide} from 'vue-awesome-swiper'-->
-
-<!--            export default {-->
-<!--              name: 'SlidesPerView',-->
-<!--              components: {-->
-<!--                Swiper,-->
-<!--                SwiperSlide-->
-<!--              },-->
-<!--              data() {-->
-<!--                return {-->
-<!--                  slidesPerViewSliderOption: {-->
-<!--                    slidesPerView: 1.2,-->
-<!--                    spaceBetween: 10,-->
-<!--                    freeMode: true,-->
-<!--                    speed: 1000,-->
-<!--                    grabCursor: true,-->
-<!--                    scrollbar: {-->
-<!--                      el: '.slides-per-view-slider-scrollbar',-->
-<!--                      draggable: true,-->
-<!--                    },-->
-<!--                    breakpoints: {-->
-<!--                      450: {-->
-<!--                        slidesPerView: 1.4,-->
-<!--                      },-->
-<!--                      550: {-->
-<!--                        slidesPerView: 1.6,-->
-<!--                      },-->
-<!--                      650: {-->
-<!--                        slidesPerView: 2,-->
-<!--                      },-->
-<!--                      700: {-->
-<!--                        slidesPerView: 2.37,-->
-<!--                      },-->
-<!--                      960: {-->
-<!--                        slidesPerView: 3,-->
-<!--                      },-->
-<!--                      1200: {-->
-<!--                        freeMode: false,-->
-<!--                        spaceBetween: 15,-->
-<!--                        slidesPerView: 3,-->
-<!--                      }-->
-<!--                    }-->
-<!--                  },-->
-<!--                  pixabayImages: []-->
-<!--                }-->
-<!--              },-->
-<!--              mounted() {-->
-<!--                PixabayApiHelper.getImages('mountains', 10, 'vertical').then(({ data }) => {-->
-<!--                  if(data.hits.length > 0) {-->
-<!--                    data.hits.forEach(image => {-->
-<!--                      this.pixabayImages.push(image)-->
-<!--                    })-->
-<!--                  }-->
-<!--                })-->
-<!--              }-->
-<!--            }-->
-<!--          </code>-->
-<!--          <code class="language-scss">-->
-<!--            // styles-->
-<!--            .slides-per-view-slider-wrap {-->
-<!--              width: 100%;-->
-<!--            }-->
-
-<!--            .slides-per-view-slider {-->
-<!--              width: 100%;-->
-<!--              position: relative;-->
-<!--              padding-bottom: 25px;-->
-<!--            }-->
-
-<!--            .slides-per-view-slider-item {-->
-<!--              width: 100%;-->
-<!--              height: 360px;-->
-<!--              overflow: hidden;-->
-<!--              border-radius: 10px;-->
-
-<!--              @media only screen and (min-width: 700px) {-->
-<!--                height: 420px;-->
-<!--              }-->
-
-<!--              @media only screen and (min-width: 1200px) {-->
-<!--                height: 540px;-->
-<!--              }-->
-<!--            }-->
-
-<!--            .slides-per-view-slider-item__image {-->
-<!--              width: 100%;-->
-<!--              height: 100%;-->
-<!--              object-fit: cover;-->
-<!--            }-->
-
-<!--            .slides-per-view-slider-scrollbar {-->
-<!--              left: 50% !important;-->
-<!--              transform: translateX(-50%) !important;-->
-<!--              bottom: 0 !important;-->
-<!--              width: 250px !important;-->
-<!--              background: #EAE9E8 !important;-->
-<!--              border-radius: 100px !important;-->
-<!--              height: 4px !important;-->
-
-<!--              .swiper-scrollbar-drag {-->
-<!--                background: #282828 !important;-->
-<!--                border-radius: 100px !important;-->
-<!--              }-->
-
-<!--              @media only screen and (min-width: 760px) {-->
-<!--                width: 400px !important;-->
-<!--              }-->
-<!--            }-->
-<!--          </code>-->
-<!--        </pre>-->
+      <div class="swiper-slider-wrap simple-slider">
+        <swiper
+          :modules="modules"
+          :slides-per-view="2"
+          :space-between="10"
+          :navigation="{
+            enabled: true,
+            prevEl: prev,
+            nextEl: next,
+          }"
+          :pagination="{
+            clickable: true,
+            dynamicBullets: true,
+          }"
+          :speed="750"
+          :lazy="true"
+          :breakpoints="{
+            700: {
+              slidesPerView: 3,
+              spaceBetween: 15
+            },
+            1200: {
+              slidesPerView: 4,
+              spaceBetween: 20
+            }
+          }">
+          <swiper-slide
+            v-for="image in state.images"
+            :key="image.id">
+            <div class="swiper-slide-content">
+              <img
+                :src="image.largeImageURL" alt=""
+                class="swiper-slide-image"
+                loading="lazy">
+            </div>
+          </swiper-slide>
+        </swiper>
+        <div ref="prev" class="simple-slider-nav-button prev">
+          <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.65669 0.391687C9.2005 -0.130562 8.46502 -0.130562 8.00884 0.391687L0.272315 9.2486C-0.090771 9.66427 -0.0907709 10.3357 0.272315 10.7514L8.00884 19.6083C8.46502 20.1306 9.2005 20.1306 9.65669 19.6083C10.1129 19.0861 10.1129 18.2441 9.65669 17.7218L2.91632 9.99467L9.666 2.26752C10.1129 1.75593 10.1129 0.903277 9.65669 0.391687Z" fill="#97BDC0"/>
+          </svg>
+        </div>
+        <div ref="next" class="simple-slider-nav-button next">
+          <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.343313 19.6083C0.799498 20.1306 1.53498 20.1306 1.99116 19.6083L9.72769 10.7514C10.0908 10.3357 10.0908 9.66427 9.72769 9.2486L1.99116 0.391687C1.53498 -0.130563 0.799498 -0.130563 0.343314 0.391687C-0.112871 0.913936 -0.112871 1.75593 0.343314 2.27818L7.08368 10.0053L0.334004 17.7325C-0.11287 18.2441 -0.112871 19.0967 0.343313 19.6083Z" fill="#97BDC0"/>
+          </svg>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
-<script>/* eslint-disable */
-// import PixabayApiHelper from '@/api-helpers/pixabay.api-helper'
-// import {Swiper, SwiperSlide} from 'vue-awesome-swiper'
+<script lang="ts">/* eslint-disable import/extensions */
+import { defineComponent, onMounted, reactive, ref } from 'vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation, Pagination } from 'swiper';
+import { PixabayImageObject } from '@/types';
+import PixabayApiHelper from '@/api-helpers/pixabay.api-helper';
 
-export default {
+export default defineComponent({
   name: 'SlidesPerView',
   components: {
-    // Swiper,
-    // SwiperSlide
+    Swiper,
+    SwiperSlide,
   },
-  data() {
+  setup() {
+    const prev = ref(null);
+    const next = ref(null);
+
+    const state = reactive({
+      images: [] as Array<PixabayImageObject>,
+    });
+
+    onMounted(() => {
+      PixabayApiHelper.getImages('japan trees', 15).then(({ data }) => {
+        if (data.hits.length > 0) {
+          data.hits.forEach((image) => {
+            state.images.push(image);
+          });
+        }
+      });
+    });
+
     return {
-      // slidesPerViewSliderOption: {
-      //   slidesPerView: 1.2,
-      //   spaceBetween: 10,
-      //   freeMode: true,
-      //   speed: 1000,
-      //   grabCursor: true,
-      //   scrollbar: {
-      //     el: '.slides-per-view-slider-scrollbar',
-      //     draggable: true,
-      //   },
-      //   breakpoints: {
-      //     450: {
-      //       slidesPerView: 1.4,
-      //     },
-      //     550: {
-      //       slidesPerView: 1.6,
-      //     },
-      //     650: {
-      //       slidesPerView: 2,
-      //     },
-      //     700: {
-      //       slidesPerView: 2.37,
-      //     },
-      //     960: {
-      //       slidesPerView: 3,
-      //     },
-      //     1200: {
-      //       freeMode: false,
-      //       spaceBetween: 15,
-      //       slidesPerView: 3,
-      //     }
-      //   }
-      // },
-      // pixabayImages: []
-    }
+      modules: [Navigation, Pagination],
+      prev,
+      next,
+      state,
+    };
   },
-  mounted() {
-    // PixabayApiHelper.getImages('mountains', 10, 'vertical').then(({ data }) => {
-    //   if(data.hits.length > 0) {
-    //     data.hits.forEach(image => {
-    //       this.pixabayImages.push(image)
-    //     })
-    //   }
-    // })
-  }
-}
+});
 </script>
 
 <style scoped lang="scss">
-  .slides-per-view-slider-wrap {
-    width: 100%;
+.swiper-slider-wrap {
+  width: 100%;
+  margin-top: 20px;
+  overflow: hidden;
+  position: relative;
+
+  @media only screen and (min-width: 700px) {
+    margin-top: 25px;
   }
 
-  .slides-per-view-slider {
-    width: 100%;
-    position: relative;
-    padding-bottom: 25px;
+  @media only screen and (min-width: 1200px) {
+    margin-top: 30px;
+  }
+}
+
+.swiper-slide-content {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+
+  @media only screen and (min-width: 700px) {
+    height: 350px;
   }
 
-  .slides-per-view-slider-item {
-    width: 100%;
-    height: 360px;
-    overflow: hidden;
-    border-radius: 10px;
+  @media only screen and (min-width: 1200px) {
+    height: 400px;
+  }
+}
 
-    @media only screen and (min-width: 700px) {
-      height: 420px;
+.swiper-slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.simple-slider-nav-button {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(255, 255, 255, .75);
+  background: rgba(0, 0, 0, .75);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
+  transition: all, .25s;
+  -webkit-tap-highlight-color: transparent;
+
+  &.prev {
+    left: 10px;
+
+    svg {
+      margin-right: 2px;
     }
+  }
 
-    @media only screen and (min-width: 1200px) {
-      height: 540px;
+  &.next {
+    right: 10px;
+
+    svg {
+      margin-left: 2px;
     }
   }
 
-  .slides-per-view-slider-item__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  svg {
+    display: block;
+    width: 7px;
 
-  .slides-per-view-slider-scrollbar {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    bottom: 0 !important;
-    width: 250px !important;
-    background: #EAE9E8 !important;
-    border-radius: 100px !important;
-    height: 4px !important;
-
-    .swiper-scrollbar-drag {
-      background: #282828 !important;
-      border-radius: 100px !important;
-    }
-
-    @media only screen and (min-width: 760px) {
-      width: 400px !important;
+    path {
+      fill: rgba(255, 255, 255, .75);
+      transition: all, .25s;
+      -webkit-tap-highlight-color: transparent;
     }
   }
+
+  &:hover {
+    border: 2px solid rgba(255, 255, 255, 1);
+    background: rgba(0, 0, 0, 1);
+
+    svg path {
+      fill: $dark-red;
+    }
+  }
+
+  &.swiper-button-disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @media only screen and (min-width: 700px) {
+    width: 35px;
+    height: 35px;
+
+    svg {
+      width: 9px;
+    }
+  }
+}
 </style>
 
+<style lang="scss">
+.swiper-slider-wrap.simple-slider {
+  .swiper-pagination {
+    width: auto;
+    max-width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+
+    .swiper-pagination-bullet {
+      width: 13px;
+      height: 13px;
+      margin: 0 7px;
+      background: rgba(0, 0, 0, 0.95);
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      transition: all, .75s;
+      -webkit-tap-highlight-color: transparent;
+
+      &-active {
+        background: $dark-red;
+        border: 2px solid $dark-red;
+      }
+    }
+  }
+}
+</style>
