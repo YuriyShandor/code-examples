@@ -27,6 +27,7 @@ module.exports = {
     'no-useless-constructor': 'off',
     'no-underscore-dangle': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'prefer-destructuring': 'off',
   },
   overrides: [
     {

@@ -181,7 +181,7 @@ export default defineComponent({
     background: rgba(0, 0, 0, 1);
 
     svg path {
-      fill: $dark-red;
+      fill: $red;
     }
   }
 
@@ -220,8 +220,8 @@ export default defineComponent({
       -webkit-tap-highlight-color: transparent;
 
       &-active {
-        background: $dark-red;
-        border: 2px solid $dark-red;
+        background: $red;
+        border: 2px solid $red;
       }
     }
   }
