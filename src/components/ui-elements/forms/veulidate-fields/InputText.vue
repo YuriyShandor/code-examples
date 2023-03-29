@@ -15,13 +15,13 @@
     >
     <div class="input-error" v-if="v$.textField.$error">
       <span v-if="v$.textField.$error && v$.textField.required.$invalid">
-        {{ t('inputErrors.requiredError') }}
+        Field is required
       </span>
       <span v-if="v$.textField.$error && v$.textField.minLength.$invalid">
-        {{ t('inputErrors.minLengthError') }} {{ v$.textField.minLength.$params.min }}
+        Minimum text length is {{ v$.textField.minLength.$params.min }}
       </span>
       <span v-if="v$.textField.$error && v$.textField.maxLength.$invalid">
-        {{ t('inputErrors.maxLengthError') }} {{ v$.textField.maxLength.$params.max }}
+        Maximum text length is {{ v$.textField.maxLength.$params.max }}
       </span>
     </div>
   </label>
@@ -69,10 +69,6 @@ export default defineComponent({
       } else {
         emit(`update-${props.id}`, state.textField);
       }
-    });
-
-    watch(() => props.defaultValue, () => {
-      state.textField = props.defaultValue;
     });
 
     return {

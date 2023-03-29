@@ -12,15 +12,48 @@
     </a>
     <div class="code-example__block">
       <div class="vuelidate-form">
-        <div class="vuelidate-form__input-block">
+        <div class="vuelidate-form__input-wrap">
           <InputText
-            label="Full Name"
+            label="Full Name*"
             :id="'full-name'"
             :defaultValue="state.fullName"
-            :isRequired="false"
+            :isRequired="true"
             :minLength="3"
             :maxLength="33"
             @update-full-name="updateFullName"
+          />
+        </div>
+        <div class="vuelidate-form__input-wrap">
+          <InputEmail
+            label="Email*"
+            :id="'email'"
+            :defaultValue="state.email"
+            :isRequired="true"
+            @update-email="updateEmail"
+          />
+        </div>
+        <div class="vuelidate-form__input-wrap">
+          <InputPassword
+            label="Password*"
+            :id="'password'"
+            :defaultValue="state.password"
+            :isRequired="true"
+            :minLength="8"
+            :maxLength="30"
+            :autocomplete="false"
+            @update-password="updatePassword"
+          />
+        </div>
+        <div class="vuelidate-form__input-wrap">
+          <InputPassword
+            label="Confirm Password*"
+            :id="'confirm-password'"
+            :defaultValue="state.confirmPassword"
+            :isRequired="true"
+            :minLength="8"
+            :maxLength="30"
+            :mainPassword="state.password"
+            @update-confirm-password="updateConfirmPassword"
           />
         </div>
         <div
@@ -35,16 +68,17 @@
 </template>
 
 <script lang="ts">
-import PixabayApiHelper from '@/api-helpers/pixabay.api-helper';
-import ScrollHelper from '@/helpers/scroll.helper';
-import { defineComponent, onMounted, reactive, computed } from 'vue';
+import { defineComponent, reactive, computed } from 'vue';
 import InputText from '@/components/ui-elements/forms/veulidate-fields/InputText.vue';
-import { PixabayImageObject } from '@/types';
+import InputEmail from '@/components/ui-elements/forms/veulidate-fields/InputEmail.vue';
+import InputPassword from '@/components/ui-elements/forms/veulidate-fields/InputPassword.vue';
 
 export default defineComponent({
   name: 'VuelidateLibraryExample',
   components: {
     InputText,
+    InputEmail,
+    InputPassword,
   },
   setup() {
     const state = reactive({
@@ -67,6 +101,7 @@ export default defineComponent({
 
     const updatePassword = (value: string) => {
       state.password = value;
+      console.log(value);
     };
 
     const updateConfirmPassword = (value: string) => {
@@ -118,7 +153,7 @@ export default defineComponent({
   }
 }
 
-.vuelidate-form__input-block {
+.vuelidate-form__input-wrap {
   width: 100%;
   margin-bottom: 15px;
 
