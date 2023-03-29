@@ -1,18 +1,13 @@
 <template>
-  <label :for="id" class="input-block">
-    <span
-      v-if="label.length > 0"
-      class="input-label"
-      :class="{'error': v$.textField.$error}">
+  <div
+    class="input-block"
+    :class="{'error': v$.textField.$error, 'valid': !v$.textField.$error && v$.textField.$dirty}">
+    <div v-if="label.length > 0" class="input-title">
       {{ label }}
-    </span>
-    <input
-      type="text"
-      :id="id"
-      class="input"
-      :class="{'error': v$.textField.$error}"
-      v-model="v$.textField.$model"
-    >
+    </div>
+    <label :for="id">
+      <input type="text" :id="id" v-model="v$.textField.$model">
+    </label>
     <div class="input-error" v-if="v$.textField.$error">
       <span v-if="v$.textField.$error && v$.textField.required.$invalid">
         Field is required
@@ -24,7 +19,7 @@
         Maximum text length is {{ v$.textField.maxLength.$params.max }}
       </span>
     </div>
-  </label>
+  </div>
 </template>
 
 <script lang="ts">
@@ -44,7 +39,7 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     const state = reactive({
-      textField: '',
+      textField: '' as string,
     });
 
     const rules = computed(() => ({

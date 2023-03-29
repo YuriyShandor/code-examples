@@ -52,6 +52,7 @@
             :isRequired="true"
             :minLength="8"
             :maxLength="30"
+            :autocomplete="false"
             :mainPassword="state.password"
             @update-confirm-password="updateConfirmPassword"
           />

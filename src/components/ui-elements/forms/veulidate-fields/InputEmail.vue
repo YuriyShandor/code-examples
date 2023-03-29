@@ -1,15 +1,13 @@
 <template>
-  <label :for="id" class="input-block">
-    <span class="input-label" :class="{'error': v$.email.$error}">
+  <div
+    class="input-block"
+    :class="{'error': v$.email.$error, 'valid': !v$.email.$error && v$.email.$dirty}">
+    <div class="input-title">
       {{ label }}
-    </span>
-    <input
-      type="email"
-      :id="id"
-      class="input"
-      :class="{'error': v$.email.$error}"
-      v-model="v$.email.$model"
-    >
+    </div>
+    <label :for="id">
+      <input type="email" :id="id" v-model="v$.email.$model">
+    </label>
     <div class="input-error">
       <span v-if="v$.email.$error && v$.email.required.$invalid">
         Field is required
@@ -18,7 +16,7 @@
         Entered email is invalid
       </span>
     </div>
-  </label>
+  </div>
 </template>
 
 <script lang="ts">
@@ -36,7 +34,7 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     const state = reactive({
-      email: '',
+      email: '' as string,
     });
 
     const rules = computed(() => ({
