@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import VuelidateLibraryExample from '@/components/ui-elements/forms/VuelidateLibraryExample.vue';
+import VuelidateLibraryExample from '@/components/ui-elements/forms/veulidate-fields/VuelidateLibraryExample.vue';
 
 export default {
   name: 'FormsExamples',

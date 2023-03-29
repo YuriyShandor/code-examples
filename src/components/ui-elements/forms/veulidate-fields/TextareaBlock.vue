@@ -1,26 +1,26 @@
 <template>
   <div
-    class="input-block"
+    class="textarea-block"
     :class="{'error': v$.textField.$error, 'valid': !v$.textField.$error && v$.textField.$dirty}">
-    <div v-if="label.length > 0" class="input-label">
+    <span v-if="label.length > 0" class="textarea-label">
       {{ label }}
-    </div>
+    </span>
     <label :for="id">
-      <input
-        type="text"
+      <textarea
         :id="id"
-        class="input"
-        v-model="v$.textField.$model">
+        class="textarea"
+        v-model="v$.textField.$model"
+      ></textarea>
     </label>
-    <div class="input-error" v-if="v$.textField.$error">
+    <div class="textarea-error" v-if="v$.textField.$error">
       <span v-if="v$.textField.$error && v$.textField.required.$invalid">
-        Field is required
+        {{ t('inputErrors.requiredError') }}
       </span>
       <span v-if="v$.textField.$error && v$.textField.minLength.$invalid">
-        Minimum text length is {{ v$.textField.minLength.$params.min }}
+        {{ t('inputErrors.minLengthError') }} {{ v$.textField.minLength.$params.min }}
       </span>
       <span v-if="v$.textField.$error && v$.textField.maxLength.$invalid">
-        Maximum text length is {{ v$.textField.maxLength.$params.max }}
+        {{ t('inputErrors.maxLengthError') }} {{ v$.textField.maxLength.$params.max }}
       </span>
     </div>
   </div>
@@ -32,7 +32,7 @@ import useVuelidate from '@vuelidate/core';
 import { requiredIf, minLength, maxLength } from '@vuelidate/validators';
 
 export default defineComponent({
-  name: 'InputText',
+  name: 'TextareaBlock',
   props: {
     label: String,
     id: String,
@@ -43,7 +43,7 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     const state = reactive({
-      textField: '' as string,
+      textField: '',
     });
 
     const rules = computed(() => ({

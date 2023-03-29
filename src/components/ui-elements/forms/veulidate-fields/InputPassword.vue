@@ -2,15 +2,17 @@
   <div
     class="input-block"
     :class="{'error': v$.password.$error || (mainPassword !== undefined && state.password !== mainPassword),
-      'valid': !v$.password.$error && v$.password.$dirty && (mainPassword === undefined || state.password !== mainPassword)}">
-    <div v-if="label.length > 0" class="input-title">
+      'valid': !v$.password.$error && v$.password.$dirty && (mainPassword === undefined || state.password === mainPassword)}">
+    <div v-if="label.length > 0" class="input-label">
       {{ label }}
     </div>
     <span class="input-wrap">
       <label :for="id">
         <input
           :type="(autocomplete || v$.password.$dirty) && !state.isPasswordVisible ? 'password' : 'text'"
-          :id="id" class="input" v-model="v$.password.$model">
+          :id="id"
+          class="input password"
+          v-model="v$.password.$model">
       </label>
     <div
       class="password-eye-icon"

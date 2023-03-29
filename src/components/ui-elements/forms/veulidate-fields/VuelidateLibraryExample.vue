@@ -15,7 +15,7 @@
         <div class="vuelidate-form__input-wrap">
           <InputText
             label="Full Name*"
-            :id="'full-name'"
+            id="full-name"
             :defaultValue="state.fullName"
             :isRequired="true"
             :minLength="3"
@@ -26,7 +26,7 @@
         <div class="vuelidate-form__input-wrap">
           <InputEmail
             label="Email*"
-            :id="'email'"
+            id="email"
             :defaultValue="state.email"
             :isRequired="true"
             @update-email="updateEmail"
@@ -35,7 +35,7 @@
         <div class="vuelidate-form__input-wrap">
           <InputPassword
             label="Password*"
-            :id="'password'"
+            id="password"
             :defaultValue="state.password"
             :isRequired="true"
             :minLength="8"
@@ -47,7 +47,7 @@
         <div class="vuelidate-form__input-wrap">
           <InputPassword
             label="Confirm Password*"
-            :id="'confirm-password'"
+            id="confirm-password"
             :defaultValue="state.confirmPassword"
             :isRequired="true"
             :minLength="8"
@@ -55,6 +55,17 @@
             :autocomplete="false"
             :mainPassword="state.password"
             @update-confirm-password="updateConfirmPassword"
+          />
+        </div>
+        <div class="vuelidate-form__input-wrap">
+          <TextareaBlock
+            label="Message"
+            id="message"
+            :defaultValue="state.message"
+            :isRequired="false"
+            :minLength="7"
+            :maxLength="355"
+            @update-message="updateMessage"
           />
         </div>
         <div
@@ -73,6 +84,7 @@ import { defineComponent, reactive, computed } from 'vue';
 import InputText from '@/components/ui-elements/forms/veulidate-fields/InputText.vue';
 import InputEmail from '@/components/ui-elements/forms/veulidate-fields/InputEmail.vue';
 import InputPassword from '@/components/ui-elements/forms/veulidate-fields/InputPassword.vue';
+import TextareaBlock from '@/components/ui-elements/forms/veulidate-fields/TextareaBlock.vue';
 
 export default defineComponent({
   name: 'VuelidateLibraryExample',
@@ -80,6 +92,7 @@ export default defineComponent({
     InputText,
     InputEmail,
     InputPassword,
+    TextareaBlock,
   },
   setup() {
     const state = reactive({
@@ -87,6 +100,7 @@ export default defineComponent({
       email: '' as string,
       password: '' as string,
       confirmPassword: '' as string,
+      message: '' as string,
     });
 
     const isFormValid = computed(() => state.fullName.length > 0 && state.email.length > 0
@@ -102,11 +116,14 @@ export default defineComponent({
 
     const updatePassword = (value: string) => {
       state.password = value;
-      console.log(value);
     };
 
     const updateConfirmPassword = (value: string) => {
       state.confirmPassword = value;
+    };
+
+    const updateMessage = (value: string) => {
+      state.message = value;
     };
 
     const sendFormData = () => {
@@ -134,6 +151,7 @@ export default defineComponent({
       updateEmail,
       updatePassword,
       updateConfirmPassword,
+      updateMessage,
       sendFormData,
     };
   },

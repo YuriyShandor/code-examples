@@ -2,11 +2,15 @@
   <div
     class="input-block"
     :class="{'error': v$.email.$error, 'valid': !v$.email.$error && v$.email.$dirty}">
-    <div class="input-title">
+    <div v-if="label.length > 0" class="input-label">
       {{ label }}
     </div>
     <label :for="id">
-      <input type="email" :id="id" v-model="v$.email.$model">
+      <input
+        type="email"
+        :id="id"
+        class="input"
+        v-model="v$.email.$model">
     </label>
     <div class="input-error">
       <span v-if="v$.email.$error && v$.email.required.$invalid">
