@@ -24,7 +24,9 @@
       </svg>
     </div>
     </span>
-    <div class="input-error">
+    <div
+      v-if="v$.password.$error || (v$.password.$dirty && mainPassword !== undefined && state.password !== mainPassword)"
+      class="input-error">
       <span v-if="v$.password.$error && v$.password.required.$invalid">
         Field is required
       </span>

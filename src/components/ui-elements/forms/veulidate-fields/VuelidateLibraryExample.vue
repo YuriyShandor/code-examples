@@ -12,7 +12,7 @@
     </a>
     <div class="code-example__block">
       <div class="vuelidate-form">
-        <div class="vuelidate-form__input-wrap">
+        <div class="vuelidate-form__field">
           <InputText
             label="Full Name*"
             id="full-name"
@@ -23,7 +23,7 @@
             @update-full-name="updateFullName"
           />
         </div>
-        <div class="vuelidate-form__input-wrap">
+        <div class="vuelidate-form__field">
           <InputEmail
             label="Email*"
             id="email"
@@ -32,7 +32,18 @@
             @update-email="updateEmail"
           />
         </div>
-        <div class="vuelidate-form__input-wrap">
+        <div class="vuelidate-form__field">
+          <SelectComponent
+            label="Country"
+            id="country"
+            :defaultValue="state.country"
+            :isRequired="true"
+            :selectOptions="state.countriesSelectOptions"
+            :isFilterable="true"
+            @update-country="updateCountry"
+          />
+        </div>
+        <div class="vuelidate-form__field">
           <InputPassword
             label="Password*"
             id="password"
@@ -44,7 +55,7 @@
             @update-password="updatePassword"
           />
         </div>
-        <div class="vuelidate-form__input-wrap">
+        <div class="vuelidate-form__field">
           <InputPassword
             label="Confirm Password*"
             id="confirm-password"
@@ -57,7 +68,7 @@
             @update-confirm-password="updateConfirmPassword"
           />
         </div>
-        <div class="vuelidate-form__input-wrap">
+        <div class="vuelidate-form__field">
           <TextareaBlock
             label="Message"
             id="message"
@@ -80,17 +91,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, computed } from 'vue';
+import { defineComponent, reactive, computed, onMounted } from 'vue';
 import InputText from '@/components/ui-elements/forms/veulidate-fields/InputText.vue';
 import InputEmail from '@/components/ui-elements/forms/veulidate-fields/InputEmail.vue';
+import SelectComponent from '@/components/ui-elements/forms/veulidate-fields/SelectComponent.vue';
 import InputPassword from '@/components/ui-elements/forms/veulidate-fields/InputPassword.vue';
 import TextareaBlock from '@/components/ui-elements/forms/veulidate-fields/TextareaBlock.vue';
+import { SelectOptionsObject } from '@/types';
+import CountriesApiHelper from '@/api-helpers/countries.api-helper';
 
 export default defineComponent({
   name: 'VuelidateLibraryExample',
   components: {
     InputText,
     InputEmail,
+    SelectComponent,
     InputPassword,
     TextareaBlock,
   },
@@ -98,6 +113,8 @@ export default defineComponent({
     const state = reactive({
       fullName: '' as string,
       email: '' as string,
+      country: '' as string,
+      countriesSelectOptions: [] as Array<SelectOptionsObject>,
       password: '' as string,
       confirmPassword: '' as string,
       message: '' as string,
@@ -112,6 +129,23 @@ export default defineComponent({
 
     const updateEmail = (value: string) => {
       state.email = value;
+    };
+
+    const getCountriesList = () => {
+      CountriesApiHelper.getCountriesFromRestCountries().then(({ data }) => {
+        if (data.length > 0) {
+          data.forEach((country) => {
+            state.countriesSelectOptions.push({
+              label: country.name.official,
+              value: country.cca3,
+            });
+          });
+        }
+      });
+    };
+
+    const updateCountry = (value: string) => {
+      state.country = value;
     };
 
     const updatePassword = (value: string) => {
@@ -144,11 +178,16 @@ export default defineComponent({
       console.log(updateUserParams);
     };
 
+    onMounted(() => {
+      getCountriesList();
+    });
+
     return {
       state,
       isFormValid,
       updateFullName,
       updateEmail,
+      updateCountry,
       updatePassword,
       updateConfirmPassword,
       updateMessage,
@@ -172,7 +211,7 @@ export default defineComponent({
   }
 }
 
-.vuelidate-form__input-wrap {
+.vuelidate-form__field {
   width: 100%;
   margin-bottom: 15px;
 

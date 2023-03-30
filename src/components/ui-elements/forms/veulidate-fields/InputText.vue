@@ -12,7 +12,7 @@
         class="input"
         v-model="v$.textField.$model">
     </label>
-    <div class="input-error" v-if="v$.textField.$error">
+    <div v-if="v$.textField.$error" class="input-error">
       <span v-if="v$.textField.$error && v$.textField.required.$invalid">
         Field is required
       </span>
