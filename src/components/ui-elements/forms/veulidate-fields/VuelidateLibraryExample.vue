@@ -79,9 +79,19 @@
             @update-message="updateMessage"
           />
         </div>
+        <div class="vuelidate-form__field">
+          <CheckboxBlock
+            id="remember-user"
+            label="Remember Me"
+            :checkboxValue="state.shouldRememberUser"
+            @update-remember-user="updateRememberUserStatus"
+            class="checkbox-block"
+          />
+        </div>
         <div
           class="button green vuelidate-form__button"
-          :class="{'disabled': !isFormValid}">
+          :class="{'disabled': !isFormValid}"
+          @click="sendFormData">
           Send
         </div>
       </div>
@@ -97,6 +107,7 @@ import InputEmail from '@/components/ui-elements/forms/veulidate-fields/InputEma
 import SelectComponent from '@/components/ui-elements/forms/veulidate-fields/SelectComponent.vue';
 import InputPassword from '@/components/ui-elements/forms/veulidate-fields/InputPassword.vue';
 import TextareaBlock from '@/components/ui-elements/forms/veulidate-fields/TextareaBlock.vue';
+import CheckboxBlock from '@/components/ui-elements/forms/veulidate-fields/CheckboxBlock.vue';
 import { SelectOptionsObject } from '@/types';
 import CountriesApiHelper from '@/api-helpers/countries.api-helper';
 
@@ -108,6 +119,7 @@ export default defineComponent({
     SelectComponent,
     InputPassword,
     TextareaBlock,
+    CheckboxBlock,
   },
   setup() {
     const state = reactive({
@@ -118,6 +130,7 @@ export default defineComponent({
       password: '' as string,
       confirmPassword: '' as string,
       message: '' as string,
+      shouldRememberUser: false as boolean,
     });
 
     const isFormValid = computed(() => state.fullName.length > 0 && state.email.length > 0
@@ -156,26 +169,38 @@ export default defineComponent({
       state.confirmPassword = value;
     };
 
+    const updateRememberUserStatus = (value: boolean) => {
+      state.shouldRememberUser = value;
+    };
+
     const updateMessage = (value: string) => {
       state.message = value;
     };
 
     const sendFormData = () => {
-      const updateUserParams : any = {
+      const userdata : {[key: string]: (string | number | boolean)} = {
         email: state.email,
+        password: state.password,
+        confirmPassword: state.confirmPassword,
+        shouldRememberUser: state.shouldRememberUser,
       };
       if (state.fullName.length > 0) {
-        updateUserParams.first_name = state.fullName.split(' ')[0];
+        userdata.firstName = state.fullName.split(' ')[0];
         if (state.fullName.split(' ')[1].length > 0) {
-          updateUserParams.last_name = state.fullName.split(' ')[1];
+          userdata.lastName = state.fullName.split(' ')[1];
         }
       }
-      if (state.confirmPassword.length > 0) {
-        updateUserParams.password = state.password;
-        updateUserParams.password_confirm = state.confirmPassword;
+      if (state.country.length > 0) {
+        userdata.country = state.country;
+      }
+      if (state.country.length > 0) {
+        userdata.country = state.country;
+      }
+      if (state.message.length > 0) {
+        userdata.message = state.message;
       }
 
-      console.log(updateUserParams);
+      console.log(userdata);
     };
 
     onMounted(() => {
@@ -191,6 +216,7 @@ export default defineComponent({
       updatePassword,
       updateConfirmPassword,
       updateMessage,
+      updateRememberUserStatus,
       sendFormData,
     };
   },

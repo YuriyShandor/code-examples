@@ -12,15 +12,15 @@
         v-model="v$.textField.$model"
       ></textarea>
     </label>
-    <div class="textarea-error" v-if="v$.textField.$error">
+    <div v-if="v$.textField.$error" class="textarea-error">
       <span v-if="v$.textField.$error && v$.textField.required.$invalid">
-        {{ t('inputErrors.requiredError') }}
+        Field is required
       </span>
       <span v-if="v$.textField.$error && v$.textField.minLength.$invalid">
-        {{ t('inputErrors.minLengthError') }} {{ v$.textField.minLength.$params.min }}
+        Minimum text length is {{ v$.textField.minLength.$params.min }}
       </span>
       <span v-if="v$.textField.$error && v$.textField.maxLength.$invalid">
-        {{ t('inputErrors.maxLengthError') }} {{ v$.textField.maxLength.$params.max }}
+        Maximum text length is {{ v$.textField.maxLength.$params.max }}
       </span>
     </div>
   </div>

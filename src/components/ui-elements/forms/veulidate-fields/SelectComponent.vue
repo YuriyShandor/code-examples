@@ -1,7 +1,7 @@
 <template>
   <div
     class="select-block"
-    :class="{'error': v$.selectValue.$error, 'valid': !v$.selectValue.$error && v$.selectValue.$dirty}">
+    :class="{'error': v$.selectValue.$error, 'valid': !v$.selectValue.$error && !v$.selectValue.$invalid}">
     <span v-if="label.length > 0" class="select-label">
       {{ label }}
     </span>
@@ -21,7 +21,7 @@
     </el-select>
     <div v-if="v$.selectValue.$error" class="select-error">
       <span v-if="v$.selectValue.$error && v$.selectValue.required.$invalid">
-        {{ t('inputErrors.requiredError') }}
+        Field is required
       </span>
     </div>
   </div>
