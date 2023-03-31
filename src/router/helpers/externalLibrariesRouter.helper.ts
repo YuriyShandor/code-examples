@@ -3,6 +3,7 @@ import SinglePage from '@/components/pages/SinglePage.vue';
 import AxiosExamples from '@/components/external-libraries/axios/AxiosExamples.vue';
 import SwiperExamples from '@/components/external-libraries/swiper/SwiperExamples.vue';
 import MomentExamples from '@/components/external-libraries/moment/MomentExamples.vue';
+import GoogleMapsExamples from '@/components/external-libraries/google-maps/GoogleMapsExamples.vue';
 
 class ExternalLibrariesRouterHelper {
   readonly EXTERNAL_LIBRARIES_PAGE_NAME: string = 'External Libraries Examples';
@@ -20,6 +21,10 @@ class ExternalLibrariesRouterHelper {
   readonly MOMENT_EXAMPLES_PAGE_NAME: string = 'Moment Examples';
 
   readonly MOMENT_EXAMPLES_PAGE_PATH: string = 'moment';
+
+  readonly GOOGLE_MAPS_EXAMPLES_PAGE_NAME: string = 'Google Maps Examples';
+
+  readonly GOOGLE_MAPS_EXAMPLES_PAGE_PATH: string = 'google-maps';
 
   routes() {
     return {
@@ -42,6 +47,11 @@ class ExternalLibrariesRouterHelper {
           path: this.MOMENT_EXAMPLES_PAGE_PATH,
           component: MomentExamples,
         },
+        {
+          name: this.GOOGLE_MAPS_EXAMPLES_PAGE_NAME,
+          path: this.GOOGLE_MAPS_EXAMPLES_PAGE_PATH,
+          component: GoogleMapsExamples,
+        },
       ],
     };
   }
@@ -62,6 +72,10 @@ class ExternalLibrariesRouterHelper {
         {
           title: this.MOMENT_EXAMPLES_PAGE_NAME,
           link: `/${this.EXTERNAL_LIBRARIES_PAGE_PATH}/${this.MOMENT_EXAMPLES_PAGE_PATH}`,
+        },
+        {
+          title: this.GOOGLE_MAPS_EXAMPLES_PAGE_NAME,
+          link: `/${this.EXTERNAL_LIBRARIES_PAGE_PATH}/${this.GOOGLE_MAPS_EXAMPLES_PAGE_PATH}`,
         },
       ],
     };

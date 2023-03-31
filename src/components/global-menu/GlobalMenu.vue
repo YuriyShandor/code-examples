@@ -42,6 +42,7 @@
 <script lang="ts">
 import { defineComponent, reactive, watch } from 'vue';
 import { useRoute } from 'vue-router';
+import { ElCollapse, ElCollapseItem } from 'element-plus';
 
 import JavaScriptExamplesRouterHelper from '@/router/helpers/javaScriptExamplesRouter.helper';
 import ExternalLibrariesRouterHelper from '@/router/helpers/externalLibrariesRouter.helper';
@@ -53,6 +54,10 @@ import ScrollHelper from '@/helpers/scroll.helper';
 
 export default defineComponent({
   name: 'GlobalMenu',
+  components: {
+    ElCollapse,
+    ElCollapseItem,
+  },
   setup() {
     const route = useRoute();
     const globalMenu: any[] = [

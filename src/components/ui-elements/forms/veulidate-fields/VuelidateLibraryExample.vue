@@ -4,7 +4,7 @@
       Vuelidate Library Example
     </div>
     <a
-      href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/ui-elements/modals/ModalWithoutPlugins.vue"
+      href="https://github.com/YuriyShandor/code-examples/tree/vue3-with-typescript/src/components/ui-elements/forms/veulidate-fields"
       target="_blank"
       class="button code-example__button">
       Watch Code on GitHub
@@ -252,6 +252,5 @@ export default defineComponent({
 
 .vuelidate-form__button {
   width: 260px;
-
 }
 </style>

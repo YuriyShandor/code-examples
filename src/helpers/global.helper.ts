@@ -19,6 +19,21 @@ class GlobalHelper {
       item.textContent = `${index < 9 ? 0 : ''}${index + 1}. ${item.textContent}`;
     });
   }
+
+  languageSelectOptions() {
+    return [
+      {
+        value: 'eng',
+        label: 'English',
+        googleMapsCode: 'en',
+      },
+      {
+        value: 'ukr',
+        label: 'Українська',
+        googleMapsCode: 'uk',
+      },
+    ];
+  }
 }
 
 export default new GlobalHelper();
