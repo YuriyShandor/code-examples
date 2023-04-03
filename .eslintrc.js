@@ -31,6 +31,7 @@ module.exports = {
     'prefer-destructuring': 'off',
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
+    'no-new': 'off',
   },
   overrides: [
     {

@@ -1,33 +1,47 @@
 <template>
-  <div class="google-map-component">
-    <div class="google-map-component-search-input">
-      <div class="input-block">
-        <div class="input-label">
-          Location
+  <div class="code-example-block">
+    <div class="code-example__title">
+      Google Map With Autocomplete
+    </div>
+    <a
+      href="https://github.com/YuriyShandor/code-examples/blob/vue3-with-typescript/src/components/external-libraries/google-maps/GoogleMapWithAutocomplete.vue"
+      target="_blank"
+      class="button code-example__button">
+      Watch Code on GitHub
+      <img src="/images/github-logo.svg" alt="" class="code-example__button-image">
+    </a>
+    <div class="code-example__block">
+      <div class="google-map-component">
+        <div class="google-map-component-search-input">
+          <div class="input-block">
+            <div class="input-label">
+              Location
+            </div>
+            <label for="google-map-with-autocomplete-input">
+              <input
+                type="text"
+                id="google-map-with-autocomplete-input"
+                class="input"
+                :class="{'error': false}"
+                placeholder=""
+                v-model="state.locationQuery"
+              >
+            </label>
+          </div>
         </div>
-        <label for="autocomplete-input">
-          <input
-            type="text"
-            id="autocomplete-input"
-            class="input"
-            :class="{'error': false}"
-            placeholder=""
-            v-model="state.locationQuery"
-          >
-        </label>
+        <div class="google-map-iframe" id="google-map-with-autocomplete-iframe"></div>
       </div>
     </div>
-    <div class="google-map-iframe" id="google-map-iframe"></div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, watch, onMounted } from 'vue';
+import { defineComponent, reactive, onMounted } from 'vue';
 
 declare let google: any;
 
 export default defineComponent({
-  name: 'GoogleMapWithAutocomplete',
+  name: 'GoogleMapWithAutocompleteExample',
   setup(props, { emit }) {
     let map = null;
     let autocompleteInput = null;
@@ -66,17 +80,14 @@ export default defineComponent({
         lat: 49.842957,
         lng: 24.031111,
       },
-      autocompleteInput: null,
       locationQuery: '' as string,
-      value: '' as string,
-      autocomplete: null,
     });
 
     const initMapWithAutocomplete = () => {
       const googleMapWatcherInterval = setInterval(() => {
         if (typeof google === 'object' && typeof google.maps === 'object') {
           clearInterval(googleMapWatcherInterval);
-          map = new google.maps.Map(document.getElementById('google-map-iframe'), {
+          map = new google.maps.Map(document.getElementById('google-map-with-autocomplete-iframe'), {
             center: state.mapCenter,
             zoom: 15,
             mapTypeControl: false,
@@ -88,7 +99,7 @@ export default defineComponent({
             anchorPoint: new google.maps.Point(0, -29),
           });
 
-          autocompleteInput = document.getElementById('autocomplete-input');
+          autocompleteInput = document.getElementById('google-map-with-autocomplete-input');
           const autocomplete = new google.maps.places.Autocomplete(autocompleteInput);
           autocomplete.setComponentRestrictions({
             country: ['ua'],
@@ -150,10 +161,6 @@ export default defineComponent({
       initMapWithAutocomplete();
     });
 
-    watch(() => state.mapCenter.lat, () => {
-      initMapWithAutocomplete();
-    });
-
     return {
       state,
     };
@@ -165,6 +172,15 @@ export default defineComponent({
 .google-map-component {
   width: 100%;
   position: relative;
+  margin-top: 20px;
+
+  @media only screen and (min-width: 700px) {
+    margin-top: 25px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    margin-top: 30px;
+  }
 }
 
 .google-map-component-search-input {
@@ -188,27 +204,5 @@ export default defineComponent({
   @media only screen and (min-width: 1200px) {
     height: 600px;
   }
-}
-</style>
-
-<style lang="scss">
-.pac-container {
-  z-index: 99999 !important;
-}
-
-a[href^="http://maps.google.com/maps"] {
-  display: none !important
-}
-
-a[href^="https://maps.google.com/maps"] {
-  display: none !important
-}
-
-.gmnoprint a, .gmnoprint span, .gm-style-cc {
-  display: none;
-}
-
-.gmnoprint div {
-  background: none !important;
 }
 </style>

@@ -14,8 +14,7 @@
             const getUserGeolocation = () => {
               if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
-                  state.mapCenter.lat = position.coords.latitude;
-                  state.mapCenter.lng = position.coords.longitude;
+                  console.log(position);
                 }, (error) => {
                   let errorStr;
                   switch (error.code) {
@@ -41,7 +40,9 @@
         </pre>
       </div>
     </div>
-    <GoogleMapWithAutocomplete/>
+    <SimpleGoogleMapExample/>
+    <SimpleGoogleAutocompleteExample/>
+    <GoogleMapWithAutocompleteExample/>
   </div>
 </template>
 
@@ -49,12 +50,16 @@
 import { defineComponent, onMounted } from 'vue';
 import GlobalHelper from '@/helpers/global.helper';
 import StringsHelper from '@/helpers/strings.helper';
-import GoogleMapWithAutocomplete from '@/components/external-libraries/google-maps/GoogleMapWithAutocomplete.vue';
+import SimpleGoogleMapExample from '@/components/external-libraries/google-maps/SimpleGoogleMapExample.vue';
+import SimpleGoogleAutocompleteExample from '@/components/external-libraries/google-maps/SimpleGoogleAutocompleteExample.vue';
+import GoogleMapWithAutocompleteExample from '@/components/external-libraries/google-maps/GoogleMapWithAutocompleteExample.vue';
 
 export default defineComponent({
   name: 'GoogleMapsExamples',
   components: {
-    GoogleMapWithAutocomplete,
+    SimpleGoogleMapExample,
+    SimpleGoogleAutocompleteExample,
+    GoogleMapWithAutocompleteExample,
   },
   setup() {
     const loadGoogleMapsScript = () => {
@@ -81,3 +86,25 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss">
+.pac-container {
+  z-index: 99999 !important;
+}
+
+a[href^="http://maps.google.com/maps"] {
+  display: none !important
+}
+
+a[href^="https://maps.google.com/maps"] {
+  display: none !important
+}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+  display: none;
+}
+
+.gmnoprint div {
+  background: none !important;
+}
+</style>
