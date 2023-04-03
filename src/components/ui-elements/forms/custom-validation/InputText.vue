@@ -1,7 +1,7 @@
 <template>
   <div
     class="input-block"
-    :class="{'error': v$.textField.$error, 'valid': !v$.textField.$error && v$.textField.$dirty}">
+    :class="{'error': state.hasError, 'valid': state.isDirty && !state.isValid}">
     <div v-if="label.length > 0" class="input-label">
       {{ label }}
     </div>
@@ -44,6 +44,9 @@ export default defineComponent({
   setup(props, { emit }) {
     const state = reactive({
       textField: '' as string,
+      isDirty: false as boolean,
+      isValid: false as boolean,
+      hasError: false as boolean,
     });
 
     const rules = computed(() => ({

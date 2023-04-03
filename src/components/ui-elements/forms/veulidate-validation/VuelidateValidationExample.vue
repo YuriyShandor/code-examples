@@ -1,95 +1,98 @@
 <template>
   <div class="code-example-block">
     <div class="code-example__title">
-      Vuelidate Library Example
+      Vuelidate Validation Example
+    </div>
+    <div class="code-example__description">
+      Form fields validation with Vuelidate library
     </div>
     <a
-      href="https://github.com/YuriyShandor/code-examples/tree/vue3-with-typescript/src/components/ui-elements/forms/veulidate-fields"
+      href="https://github.com/YuriyShandor/code-examples/tree/vue3-with-typescript/src/components/ui-elements/forms/veulidate-validation"
       target="_blank"
       class="button code-example__button">
       Watch Code on GitHub
       <img src="/images/github-logo.svg" alt="" class="code-example__button-image">
     </a>
     <div class="code-example__block">
-      <div class="vuelidate-form">
-        <div class="vuelidate-form__field">
+      <div class="example-form">
+        <div class="example-form__field">
           <InputText
             label="Full Name*"
-            id="full-name"
+            id="vuelidate-full-name"
             :defaultValue="state.fullName"
             :isRequired="true"
             :minLength="3"
             :maxLength="33"
-            @update-full-name="updateFullName"
+            @update-vuelidate-full-name="updateFullName"
           />
         </div>
-        <div class="vuelidate-form__field">
+        <div class="example-form__field">
           <InputEmail
             label="Email*"
-            id="email"
+            id="vuelidate-email"
             :defaultValue="state.email"
             :isRequired="true"
-            @update-email="updateEmail"
+            @update-vuelidate-email="updateEmail"
           />
         </div>
-        <div class="vuelidate-form__field">
+        <div class="example-form__field">
           <SelectComponent
             label="Country"
-            id="country"
+            id="vuelidate-country"
             :defaultValue="state.country"
             :isRequired="true"
             :selectOptions="state.countriesSelectOptions"
             :isFilterable="true"
-            @update-country="updateCountry"
+            @update-vuelidate-country="updateCountry"
           />
         </div>
-        <div class="vuelidate-form__field">
+        <div class="example-form__field">
           <InputPassword
             label="Password*"
-            id="password"
+            id="vuelidate-password"
             :defaultValue="state.password"
             :isRequired="true"
             :minLength="8"
             :maxLength="30"
             :autocomplete="false"
-            @update-password="updatePassword"
+            @update-vuelidate-password="updatePassword"
           />
         </div>
-        <div class="vuelidate-form__field">
+        <div class="example-form__field">
           <InputPassword
             label="Confirm Password*"
-            id="confirm-password"
+            id="vuelidate-confirm-password"
             :defaultValue="state.confirmPassword"
             :isRequired="true"
             :minLength="8"
             :maxLength="30"
             :autocomplete="false"
             :mainPassword="state.password"
-            @update-confirm-password="updateConfirmPassword"
+            @update-vuelidate-confirm-password="updateConfirmPassword"
           />
         </div>
-        <div class="vuelidate-form__field">
+        <div class="example-form__field">
           <TextareaBlock
             label="Message"
-            id="message"
+            id="vuelidate-message"
             :defaultValue="state.message"
             :isRequired="false"
             :minLength="7"
             :maxLength="355"
-            @update-message="updateMessage"
+            @update-vuelidate-message="updateMessage"
           />
         </div>
-        <div class="vuelidate-form__field">
+        <div class="example-form__field">
           <CheckboxBlock
-            id="remember-user"
+            id="vuelidate-remember-user"
             label="Remember Me"
             :checkboxValue="state.shouldRememberUser"
-            @update-remember-user="updateRememberUserStatus"
+            @update-vuelidate-remember-user="updateRememberUserStatus"
             class="checkbox-block"
           />
         </div>
         <div
-          class="button green vuelidate-form__button"
+          class="button green example-form__button"
           :class="{'disabled': !isFormValid}"
           @click="sendFormData">
           Send
@@ -102,17 +105,17 @@
 
 <script lang="ts">
 import { defineComponent, reactive, computed, onMounted } from 'vue';
-import InputText from '@/components/ui-elements/forms/veulidate-fields/InputText.vue';
-import InputEmail from '@/components/ui-elements/forms/veulidate-fields/InputEmail.vue';
-import SelectComponent from '@/components/ui-elements/forms/veulidate-fields/SelectComponent.vue';
-import InputPassword from '@/components/ui-elements/forms/veulidate-fields/InputPassword.vue';
-import TextareaBlock from '@/components/ui-elements/forms/veulidate-fields/TextareaBlock.vue';
-import CheckboxBlock from '@/components/ui-elements/forms/veulidate-fields/CheckboxBlock.vue';
+import InputText from '@/components/ui-elements/forms/veulidate-validation/InputText.vue';
+import InputEmail from '@/components/ui-elements/forms/veulidate-validation/InputEmail.vue';
+import SelectComponent from '@/components/ui-elements/forms/veulidate-validation/SelectComponent.vue';
+import InputPassword from '@/components/ui-elements/forms/veulidate-validation/InputPassword.vue';
+import TextareaBlock from '@/components/ui-elements/forms/veulidate-validation/TextareaBlock.vue';
+import CheckboxBlock from '@/components/ui-elements/forms/veulidate-validation/CheckboxBlock.vue';
 import { SelectOptionsObject } from '@/types';
 import CountriesApiHelper from '@/api-helpers/countries.api-helper';
 
 export default defineComponent({
-  name: 'VuelidateLibraryExample',
+  name: 'VuelidateValidationExample',
   components: {
     InputText,
     InputEmail,
@@ -224,20 +227,20 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.vuelidate-form {
+.example-form {
   width: 100%;
   max-width: 700px;
-  margin: 30px auto 0;
+  margin: 30px auto;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 
   @media only screen and (min-width: 700px) {
-    margin: 40px auto 0;
+    margin: 40px auto;
   }
 }
 
-.vuelidate-form__field {
+.example-form__field {
   width: 100%;
   margin-bottom: 15px;
 
@@ -250,7 +253,7 @@ export default defineComponent({
   }
 }
 
-.vuelidate-form__button {
+.example-form__button {
   width: 260px;
 }
 </style>

@@ -1,17 +1,20 @@
 <template>
   <div class="modals-examples">
     <h1 class="page-title">Forms Examples</h1>
-    <VuelidateLibraryExample/>
+    <VuelidateValidationExample/>
+    <CustomValidationExample/>
   </div>
 </template>
 
 <script lang="ts">
-import VuelidateLibraryExample from '@/components/ui-elements/forms/veulidate-fields/VuelidateLibraryExample.vue';
+import VuelidateValidationExample from '@/components/ui-elements/forms/veulidate-validation/VuelidateValidationExample.vue';
+import CustomValidationExample from '@/components/ui-elements/forms/custom-validation/CustomValidationExample.vue';
 
 export default {
   name: 'FormsExamples',
   components: {
-    VuelidateLibraryExample,
+    VuelidateValidationExample,
+    CustomValidationExample,
   },
 };
 </script>
