@@ -105,12 +105,12 @@
 
 <script lang="ts">
 import { defineComponent, reactive, computed, onMounted } from 'vue';
-import InputText from '@/components/ui-elements/forms/veulidate-validation/InputText.vue';
-import InputEmail from '@/components/ui-elements/forms/veulidate-validation/InputEmail.vue';
-import SelectComponent from '@/components/ui-elements/forms/veulidate-validation/SelectComponent.vue';
-import InputPassword from '@/components/ui-elements/forms/veulidate-validation/InputPassword.vue';
-import TextareaBlock from '@/components/ui-elements/forms/veulidate-validation/TextareaBlock.vue';
-import CheckboxBlock from '@/components/ui-elements/forms/veulidate-validation/CheckboxBlock.vue';
+import InputText from '@/components/ui-elements/forms/custom-validation/InputText.vue';
+import InputEmail from '@/components/ui-elements/forms/custom-validation/InputEmail.vue';
+import SelectComponent from '@/components/ui-elements/forms/custom-validation/SelectComponent.vue';
+import InputPassword from '@/components/ui-elements/forms/custom-validation/InputPassword.vue';
+import TextareaBlock from '@/components/ui-elements/forms/custom-validation/TextareaBlock.vue';
+import CheckboxBlock from '@/components/ui-elements/forms/custom-validation/CheckboxBlock.vue';
 import { SelectOptionsObject } from '@/types';
 import CountriesApiHelper from '@/api-helpers/countries.api-helper';
 

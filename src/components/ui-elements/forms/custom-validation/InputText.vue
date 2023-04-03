@@ -1,7 +1,7 @@
 <template>
   <div
     class="input-block"
-    :class="{'error': state.hasError, 'valid': state.isDirty && !state.isValid}">
+    :class="{'error': state.hasError, 'valid': state.isDirty && state.isValid}">
     <div v-if="label.length > 0" class="input-label">
       {{ label }}
     </div>
@@ -10,26 +10,18 @@
         type="text"
         :id="id"
         class="input"
-        v-model="v$.textField.$model">
+        v-model="state.textField">
     </label>
-    <div v-if="v$.textField.$error" class="input-error">
-      <span v-if="v$.textField.$error && v$.textField.required.$invalid">
-        Field is required
-      </span>
-      <span v-if="v$.textField.$error && v$.textField.minLength.$invalid">
-        Minimum text length is {{ v$.textField.minLength.$params.min }}
-      </span>
-      <span v-if="v$.textField.$error && v$.textField.maxLength.$invalid">
-        Maximum text length is {{ v$.textField.maxLength.$params.max }}
+    <div v-if="state.hasError" class="input-error">
+      <span v-for="error in state.errors" :key="error">
+        {{ error }}
       </span>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, computed, watch, onMounted } from 'vue';
-import useVuelidate from '@vuelidate/core';
-import { requiredIf, minLength, maxLength } from '@vuelidate/validators';
+import { defineComponent, reactive, watch, onMounted } from 'vue';
 
 export default defineComponent({
   name: 'InputText',
@@ -47,17 +39,12 @@ export default defineComponent({
       isDirty: false as boolean,
       isValid: false as boolean,
       hasError: false as boolean,
+      errors: [] as Array<string>,
     });
 
-    const rules = computed(() => ({
-      textField: {
-        required: requiredIf(() => props.isRequired),
-        minLength: minLength(props.minLength !== undefined ? props.minLength : 0),
-        maxLength: maxLength(props.maxLength !== undefined ? props.maxLength : 999),
-      },
-    }));
-
-    const v$ = useVuelidate(rules, state);
+    const validateField = () => {
+      console.log(state.textField);
+    };
 
     onMounted(() => {
       if (props.defaultValue !== undefined && props.defaultValue.length > 0) {
@@ -66,7 +53,8 @@ export default defineComponent({
     });
 
     watch(() => state.textField, () => {
-      if (v$.value.textField.$error) {
+      validateField();
+      if (state.hasError) {
         emit(`update-${props.id}`, '');
       } else {
         emit(`update-${props.id}`, state.textField);
@@ -75,7 +63,6 @@ export default defineComponent({
 
     return {
       state,
-      v$,
     };
   },
 });
