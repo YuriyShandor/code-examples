@@ -64,7 +64,7 @@ export default defineComponent({
       script.src += `key=${process.env.VUE_APP_GOOGLE_MAPS_API_KEY}`;
       script.src += '&callback=Function.prototype';
       script.src += '&libraries=geometry,places';
-      let googleMapsLanguageCode = 'en';
+      let googleMapsLanguageCode = 'uk';
       GlobalHelper.languageSelectOptions().forEach((language) => {
         if (language.value === localStorage.getItem(StringsHelper.LANGUAGE_LS_KEY)) {
           googleMapsLanguageCode = language.googleMapsCode;
