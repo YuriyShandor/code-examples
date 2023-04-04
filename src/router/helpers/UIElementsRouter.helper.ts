@@ -2,6 +2,7 @@ import SinglePage from '@/components/pages/SinglePage.vue';
 
 import ModalsExamples from '@/components/ui-elements/modals/ModalsExamples.vue';
 import FormsExamples from '@/components/ui-elements/forms/FormsExamples.vue';
+import OtherUiElementsExamples from '@/components/ui-elements/other/OtherUiElementsExamples.vue';
 
 class UIElementsRouterHelper {
   readonly UI_ELEMENTS_PAGE_NAME: string = 'UI Elements';
@@ -15,6 +16,10 @@ class UIElementsRouterHelper {
   readonly FORMS_EXAMPLES_PAGE_NAME: string = 'Forms Examples';
 
   readonly FORMS_EXAMPLES_PAGE_PATH: string = 'forms';
+
+  readonly OTHER_UI_EXAMPLES_PAGE_NAME: string = 'Other UI Examples';
+
+  readonly OTHER_UI_EXAMPLES_PAGE_PATH: string = 'other';
 
   routes() {
     return {
@@ -32,6 +37,11 @@ class UIElementsRouterHelper {
           path: this.FORMS_EXAMPLES_PAGE_PATH,
           component: FormsExamples,
         },
+        {
+          name: this.OTHER_UI_EXAMPLES_PAGE_NAME,
+          path: this.OTHER_UI_EXAMPLES_PAGE_PATH,
+          component: OtherUiElementsExamples,
+        },
       ],
     };
   }
@@ -48,6 +58,10 @@ class UIElementsRouterHelper {
         {
           title: this.FORMS_EXAMPLES_PAGE_NAME,
           link: `/${this.UI_ELEMENTS_PAGE_PATH}/${this.FORMS_EXAMPLES_PAGE_PATH}`,
+        },
+        {
+          title: this.OTHER_UI_EXAMPLES_PAGE_NAME,
+          link: `/${this.UI_ELEMENTS_PAGE_PATH}/${this.OTHER_UI_EXAMPLES_PAGE_PATH}`,
         },
       ],
     };

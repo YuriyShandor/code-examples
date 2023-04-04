@@ -137,7 +137,11 @@
 
     &:hover {
       svg path {
-        stroke: lighten(#bbc2cc, 7%)
+        stroke: lighten(#bbc2cc, 7%);
+      }
+
+      &:after {
+        background: lighten(#bbc2cc, 7%);
       }
     }
 
@@ -168,6 +172,16 @@
       color: #d50000;
       -webkit-text-fill-color: #d50000;
     }
+
+    .password-eye-icon {
+      svg path {
+        stroke: #d50000;
+      }
+
+      &:after {
+        background: #d50000;
+      }
+    }
   }
 
   &.valid {
@@ -179,6 +193,16 @@
       border: 2px solid #228B22;
       color: #228B22;
       -webkit-text-fill-color: #228B22;
+    }
+
+    .password-eye-icon {
+      svg path {
+        stroke: #228B22;
+      }
+
+      &:after {
+        background: #228B22;
+      }
     }
   }
 }

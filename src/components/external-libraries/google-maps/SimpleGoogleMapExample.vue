@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, watch, onMounted } from 'vue';
+import { defineComponent, reactive, onMounted } from 'vue';
 
 declare let google: any;
 

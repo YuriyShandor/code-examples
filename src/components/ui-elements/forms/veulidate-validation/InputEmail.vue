@@ -24,7 +24,7 @@
 <script lang="ts">
 import { defineComponent, reactive, computed, watch, onMounted } from 'vue';
 import useVuelidate from '@vuelidate/core';
-import { required, email, helpers, requiredIf } from '@vuelidate/validators';
+import { email, helpers, requiredIf } from '@vuelidate/validators';
 
 export default defineComponent({
   name: 'InputEmail',

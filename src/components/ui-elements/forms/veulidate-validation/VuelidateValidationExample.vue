@@ -82,15 +82,6 @@
             @update-vuelidate-message="updateMessage"
           />
         </div>
-        <div class="example-form__field">
-          <CheckboxBlock
-            id="vuelidate-remember-user"
-            label="Remember Me"
-            :checkboxValue="state.shouldRememberUser"
-            @update-vuelidate-remember-user="updateRememberUserStatus"
-            class="checkbox-block"
-          />
-        </div>
         <div
           class="button green example-form__button"
           :class="{'disabled': !isFormValid}"
@@ -110,7 +101,6 @@ import InputEmail from '@/components/ui-elements/forms/veulidate-validation/Inpu
 import SelectComponent from '@/components/ui-elements/forms/veulidate-validation/SelectComponent.vue';
 import InputPassword from '@/components/ui-elements/forms/veulidate-validation/InputPassword.vue';
 import TextareaBlock from '@/components/ui-elements/forms/veulidate-validation/TextareaBlock.vue';
-import CheckboxBlock from '@/components/ui-elements/forms/veulidate-validation/CheckboxBlock.vue';
 import { SelectOptionsObject } from '@/types';
 import CountriesApiHelper from '@/api-helpers/countries.api-helper';
 
@@ -122,7 +112,6 @@ export default defineComponent({
     SelectComponent,
     InputPassword,
     TextareaBlock,
-    CheckboxBlock,
   },
   setup() {
     const state = reactive({
@@ -133,7 +122,6 @@ export default defineComponent({
       password: '' as string,
       confirmPassword: '' as string,
       message: '' as string,
-      shouldRememberUser: false as boolean,
     });
 
     const isFormValid = computed(() => state.fullName.length > 0 && state.email.length > 0
@@ -172,10 +160,6 @@ export default defineComponent({
       state.confirmPassword = value;
     };
 
-    const updateRememberUserStatus = (value: boolean) => {
-      state.shouldRememberUser = value;
-    };
-
     const updateMessage = (value: string) => {
       state.message = value;
     };
@@ -185,7 +169,6 @@ export default defineComponent({
         email: state.email,
         password: state.password,
         confirmPassword: state.confirmPassword,
-        shouldRememberUser: state.shouldRememberUser,
       };
       if (state.fullName.length > 0) {
         userdata.firstName = state.fullName.split(' ')[0];
@@ -219,7 +202,6 @@ export default defineComponent({
       updatePassword,
       updateConfirmPassword,
       updateMessage,
-      updateRememberUserStatus,
       sendFormData,
     };
   },

@@ -49,7 +49,7 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     const state = reactive({
-      selectValue: undefined as (string | number),
+      selectValue: '' as (string | number),
     });
 
     const rules = computed(() => ({
