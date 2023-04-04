@@ -2,7 +2,7 @@
   <div
     class="textarea-block"
     :class="{'error': v$.textField.$error,
-    'valid': !v$.textField.$error && v$.textField.$dirty && v$.textField.$model.length > 0}">
+      'valid': !v$.textField.$error && v$.textField.$dirty && v$.textField.$model.length > 0}">
     <span v-if="label.length > 0" class="textarea-label">
       {{ label }}
     </span>
@@ -13,7 +13,7 @@
         v-model="v$.textField.$model"
       ></textarea>
     </label>
-    <div v-if="v$.textField.$error" class="textarea-error">
+    <div v-if="v$.textField.$error" class="input-error">
       <span v-for="error in v$.textField.$errors" :key="error.$message">
         {{ error.$message }}
       </span>
@@ -67,7 +67,6 @@ export default defineComponent({
     });
 
     watch(() => state.textField, () => {
-      console.log(v$.value);
       if (v$.value.textField.$error) {
         emit(`update-${props.id}`, '');
       } else {

@@ -1,7 +1,8 @@
 <template>
   <div
     class="input-block"
-    :class="{'error': v$.email.$error, 'valid': !v$.email.$error && v$.email.$dirty}">
+    :class="{'error': state.isDirty && !state.isValid,
+      'valid': state.isDirty && state.isValid && state.email.length > 0}">
     <div v-if="label.length > 0" class="input-label">
       {{ label }}
     </div>
@@ -10,23 +11,18 @@
         type="email"
         :id="id"
         class="input"
-        v-model="v$.email.$model">
+        v-model="state.email">
     </label>
-    <div v-if="v$.email.$error" class="input-error">
-      <span v-if="v$.email.$error && v$.email.required.$invalid">
-        Field is required
-      </span>
-      <span v-if="v$.email.$error && v$.email.email.$invalid">
-        Entered email is invalid
+    <div v-if="state.isDirty && !state.isValid" class="input-error">
+      <span v-for="error in state.errors" :key="error">
+        {{ error }}
       </span>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, computed, watch, onMounted } from 'vue';
-import useVuelidate from '@vuelidate/core';
-import { required, email } from '@vuelidate/validators';
+import { defineComponent, reactive, watch, onMounted } from 'vue';
 
 export default defineComponent({
   name: 'InputEmail',
@@ -39,16 +35,23 @@ export default defineComponent({
   setup(props, { emit }) {
     const state = reactive({
       email: '' as string,
+      isDirty: false as boolean,
+      isValid: false as boolean,
+      errors: [] as Array<string>,
     });
 
-    const rules = computed(() => ({
-      email: {
-        required,
-        email,
-      },
-    }));
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    const v$ = useVuelidate(rules, state);
+    const validateField = () => {
+      state.errors = [];
+      if (props.isRequired && state.email.length === 0) {
+        state.errors.push('This input field is required. Please fill it in. ');
+      }
+      if (state.email.length > 0 && !emailRegex.test(state.email)) {
+        state.errors.push('Please enter a valid email address. ');
+      }
+      state.isValid = state.errors.length === 0;
+    };
 
     onMounted(() => {
       if (props.defaultValue !== undefined && props.defaultValue.length > 0) {
@@ -57,7 +60,11 @@ export default defineComponent({
     });
 
     watch(() => state.email, () => {
-      if (v$.value.email.$error) {
+      if (!state.isDirty) {
+        state.isDirty = true;
+      }
+      validateField();
+      if (state.isDirty && !state.isValid) {
         emit(`update-${props.id}`, '');
       } else {
         emit(`update-${props.id}`, state.email);
@@ -66,7 +73,6 @@ export default defineComponent({
 
     return {
       state,
-      v$,
     };
   },
 });

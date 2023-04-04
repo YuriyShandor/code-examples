@@ -1,13 +1,13 @@
 <template>
   <div
     class="select-block"
-    :class="{'error': v$.selectValue.$error, 'valid': !v$.selectValue.$error && !v$.selectValue.$invalid}">
+    :class="{'error': state.isDirty && !state.isValid,
+      'valid': state.isDirty && state.isValid && state.selectValue.length > 0}">
     <span v-if="label.length > 0" class="select-label">
       {{ label }}
     </span>
     <el-select
       v-model="state.selectValue"
-      value-key
       :filterable="isFilterable"
       :placeholder="''"
       class="select"
@@ -19,18 +19,16 @@
         :value="option.value"
       />
     </el-select>
-    <div v-if="v$.selectValue.$error" class="select-error">
-      <span v-if="v$.selectValue.$error && v$.selectValue.required.$invalid">
-        Field is required
+    <div v-if="state.isDirty && !state.isValid" class="input-error">
+      <span v-for="error in state.errors" :key="error">
+        {{ error }}
       </span>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, computed, watch, onMounted } from 'vue';
-import useVuelidate from '@vuelidate/core';
-import { requiredIf } from '@vuelidate/validators';
+import { defineComponent, reactive, watch, onMounted } from 'vue';
 import { ElOption, ElSelect } from 'element-plus';
 
 export default defineComponent({
@@ -49,20 +47,19 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     const state = reactive({
-      selectValue: undefined as (string | number),
+      selectValue: '' as (string | number),
+      isDirty: false as boolean,
+      isValid: false as boolean,
+      errors: [] as Array<string>,
     });
 
-    const rules = computed(() => ({
-      selectValue: {
-        required: requiredIf(() => props.isRequired),
-      },
-    }));
-
-    const v$ = useVuelidate(rules, state);
-
-    watch(() => state.selectValue, () => {
-      emit(`update-${props.id}`, state.selectValue);
-    });
+    const validateField = () => {
+      state.errors = [];
+      if (props.isRequired && state.selectValue === '') {
+        state.errors.push('Please select an option from the dropdown menu. ');
+      }
+      state.isValid = state.errors.length === 0;
+    };
 
     onMounted(() => {
       if (props.defaultValue !== undefined) {
@@ -70,13 +67,20 @@ export default defineComponent({
       }
     });
 
-    watch(() => props.defaultValue, () => {
-      state.selectValue = props.defaultValue;
+    watch(() => state.selectValue, () => {
+      if (!state.isDirty) {
+        state.isDirty = true;
+      }
+      validateField();
+      if (state.isDirty && !state.isValid) {
+        emit(`update-${props.id}`, '');
+      } else {
+        emit(`update-${props.id}`, state.selectValue);
+      }
     });
 
     return {
       state,
-      v$,
     };
   },
 });

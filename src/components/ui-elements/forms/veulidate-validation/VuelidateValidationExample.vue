@@ -40,7 +40,7 @@
             label="Country"
             id="vuelidate-country"
             :defaultValue="state.country"
-            :isRequired="true"
+            :isRequired="false"
             :selectOptions="state.countriesSelectOptions"
             :isFilterable="true"
             @update-vuelidate-country="updateCountry"
@@ -54,7 +54,7 @@
             :isRequired="true"
             :minLength="8"
             :maxLength="30"
-            :autocomplete="false"
+            :autocompleteEnabled="false"
             @update-vuelidate-password="updatePassword"
           />
         </div>
@@ -66,7 +66,7 @@
             :isRequired="true"
             :minLength="8"
             :maxLength="30"
-            :autocomplete="false"
+            :autocompleteEnabled="false"
             :mainPassword="state.password"
             @update-vuelidate-confirm-password="updateConfirmPassword"
           />

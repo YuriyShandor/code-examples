@@ -7,7 +7,7 @@
       Form fields with custom validation
     </div>
     <a
-      href="https://github.com/YuriyShandor/code-examples/tree/vue3-with-typescript/src/components/ui-elements/forms/veulidate-validation"
+      href="https://github.com/YuriyShandor/code-examples/tree/vue3-with-typescript/src/components/ui-elements/forms/custom-validation"
       target="_blank"
       class="button code-example__button">
       Watch Code on GitHub
@@ -40,7 +40,7 @@
             label="Country"
             id="country"
             :defaultValue="state.country"
-            :isRequired="true"
+            :isRequired="false"
             :selectOptions="state.countriesSelectOptions"
             :isFilterable="true"
             @update-country="updateCountry"
@@ -54,7 +54,7 @@
             :isRequired="true"
             :minLength="8"
             :maxLength="30"
-            :autocomplete="false"
+            :autocompleteEnabled="false"
             @update-password="updatePassword"
           />
         </div>
@@ -66,7 +66,7 @@
             :isRequired="true"
             :minLength="8"
             :maxLength="30"
-            :autocomplete="false"
+            :autocompleteEnabled="false"
             :mainPassword="state.password"
             @update-confirm-password="updateConfirmPassword"
           />

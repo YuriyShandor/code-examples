@@ -2,14 +2,14 @@
   <div
     class="input-block"
     :class="{'error': v$.password.$error,
-    'valid': !v$.password.$error && v$.password.$dirty && v$.password.$model.length > 0}">
+      'valid': !v$.password.$error && v$.password.$dirty && v$.password.$model.length > 0}">
     <div v-if="label.length > 0" class="input-label">
       {{ label }}
     </div>
     <span class="input-wrap">
       <label :for="id">
         <input
-          :type="(autocomplete || v$.password.$dirty) && !state.isPasswordVisible ? 'password' : 'text'"
+          :type="(autocompleteEnabled || v$.password.$dirty) && !state.isPasswordVisible ? 'password' : 'text'"
           :id="id"
           class="input password"
           v-model="v$.password.$model">
@@ -49,7 +49,7 @@ export default defineComponent({
     minLength: Number,
     maxLength: Number,
     mainPassword: String,
-    autocomplete: Boolean,
+    autocompleteEnabled: Boolean,
   },
   setup(props, { emit }) {
     const state = reactive({
@@ -73,7 +73,7 @@ export default defineComponent({
         ),
         confirmPassword: helpers.withMessage(
           'The password and confirm password fields do not match. Please try again. ',
-          (value) => props.mainPassword === undefined || value === props.mainPassword,
+          (value) => props.mainPassword === undefined || (value === props.mainPassword || state.password.length !== props.mainPassword.length),
         ),
       },
     }));

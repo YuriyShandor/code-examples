@@ -1,18 +1,18 @@
 <template>
   <div
     class="input-block"
-    :class="{'error': v$.password.$error || (mainPassword !== undefined && state.password !== mainPassword),
-      'valid': !v$.password.$error && v$.password.$dirty && (mainPassword === undefined || state.password === mainPassword)}">
+    :class="{'error': state.isDirty && !state.isValid,
+      'valid': state.isDirty && state.isValid && state.password.length > 0}">
     <div v-if="label.length > 0" class="input-label">
       {{ label }}
     </div>
     <span class="input-wrap">
       <label :for="id">
         <input
-          :type="(autocomplete || v$.password.$dirty) && !state.isPasswordVisible ? 'password' : 'text'"
+          :type="(autocompleteEnabled || state.isDirty) && !state.isPasswordVisible ? 'password' : 'text'"
           :id="id"
           class="input password"
-          v-model="v$.password.$model">
+          v-model="state.password">
       </label>
     <div
       class="password-eye-icon"
@@ -24,29 +24,16 @@
       </svg>
     </div>
     </span>
-    <div
-      v-if="v$.password.$error || (v$.password.$dirty && mainPassword !== undefined && state.password !== mainPassword)"
-      class="input-error">
-      <span v-if="v$.password.$error && v$.password.required.$invalid">
-        Field is required
-      </span>
-      <span v-if="v$.password.$error && v$.password.minLength.$invalid">
-        Minimum text length is {{ v$.password.minLength.$params.min }}
-      </span>
-      <span v-if="v$.password.$error && v$.password.maxLength.$invalid">
-        Maximum text length is {{ v$.password.maxLength.$params.max }}
-      </span>
-      <span v-if="!v$.password.$error && v$.password.$dirty && mainPassword !== undefined && state.password !== mainPassword">
-        Confirm password should be the same as main password
+    <div v-if="state.isDirty && !state.isValid" class="input-error">
+      <span v-for="error in state.errors" :key="error">
+        {{ error }}
       </span>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, computed, watch, onMounted } from 'vue';
-import useVuelidate from '@vuelidate/core';
-import { requiredIf, minLength, maxLength } from '@vuelidate/validators';
+import { defineComponent, reactive, watch, onMounted } from 'vue';
 
 export default defineComponent({
   name: 'InputPassword',
@@ -58,23 +45,33 @@ export default defineComponent({
     minLength: Number,
     maxLength: Number,
     mainPassword: String,
-    autocomplete: Boolean,
+    autocompleteEnabled: Boolean,
   },
   setup(props, { emit }) {
     const state = reactive({
       password: '' as string,
       isPasswordVisible: false as boolean,
+      isDirty: false as boolean,
+      isValid: false as boolean,
+      errors: [] as Array<string>,
     });
 
-    const rules = computed(() => ({
-      password: {
-        required: requiredIf(() => props.isRequired),
-        minLength: minLength(props.minLength !== undefined ? props.minLength : 0),
-        maxLength: maxLength(props.maxLength !== undefined ? props.maxLength : 999),
-      },
-    }));
-
-    const v$ = useVuelidate(rules, state);
+    const validateField = () => {
+      state.errors = [];
+      if (props.isRequired && state.password.length === 0) {
+        state.errors.push('This input field is required. Please fill it in. ');
+      }
+      if (props.minLength !== undefined && state.password.length > 0 && state.password.length < props.minLength) {
+        state.errors.push(`This input field must be at least ${props.minLength} characters long. `);
+      }
+      if (props.maxLength !== undefined && state.password.length > props.maxLength) {
+        state.errors.push(`The input field cannot exceed ${props.maxLength} characters in length. `);
+      }
+      if (props.mainPassword !== undefined && state.password !== props.mainPassword && state.password.length === props.mainPassword.length) {
+        state.errors.push('The password and confirm password fields do not match. Please try again. ');
+      }
+      state.isValid = state.errors.length === 0;
+    };
 
     onMounted(() => {
       if (props.defaultValue !== undefined && props.defaultValue.length > 0) {
@@ -83,7 +80,11 @@ export default defineComponent({
     });
 
     watch(() => state.password, () => {
-      if (v$.value.password.$error || (props.mainPassword !== undefined && state.password !== props.mainPassword)) {
+      if (!state.isDirty) {
+        state.isDirty = true;
+      }
+      validateField();
+      if (state.isDirty && !state.isValid) {
         emit(`update-${props.id}`, '');
       } else {
         emit(`update-${props.id}`, state.password);
@@ -92,7 +93,6 @@ export default defineComponent({
 
     return {
       state,
-      v$,
     };
   },
 });

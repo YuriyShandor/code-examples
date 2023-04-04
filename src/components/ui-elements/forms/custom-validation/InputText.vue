@@ -1,7 +1,8 @@
 <template>
   <div
     class="input-block"
-    :class="{'error': state.hasError, 'valid': state.isDirty && state.isValid}">
+    :class="{'error': state.isDirty && !state.isValid,
+      'valid': state.isDirty && state.isValid && state.textField.length > 0}">
     <div v-if="label.length > 0" class="input-label">
       {{ label }}
     </div>
@@ -12,7 +13,7 @@
         class="input"
         v-model="state.textField">
     </label>
-    <div v-if="state.hasError" class="input-error">
+    <div v-if="state.isDirty && !state.isValid" class="input-error">
       <span v-for="error in state.errors" :key="error">
         {{ error }}
       </span>
@@ -38,13 +39,12 @@ export default defineComponent({
       textField: '' as string,
       isDirty: false as boolean,
       isValid: false as boolean,
-      hasError: false as boolean,
       errors: [] as Array<string>,
     });
 
     const validateField = () => {
       state.errors = [];
-      if (state.textField.length === 0) {
+      if (props.isRequired && state.textField.length === 0) {
         state.errors.push('This input field is required. Please fill it in. ');
       }
       if (props.minLength !== undefined && state.textField.length > 0 && state.textField.length < props.minLength) {
@@ -53,7 +53,6 @@ export default defineComponent({
       if (props.maxLength !== undefined && state.textField.length > props.maxLength) {
         state.errors.push(`The input field cannot exceed ${props.maxLength} characters in length. `);
       }
-      state.hasError = state.errors.length > 0;
       state.isValid = state.errors.length === 0;
     };
 
@@ -68,7 +67,7 @@ export default defineComponent({
         state.isDirty = true;
       }
       validateField();
-      if (state.hasError) {
+      if (state.isDirty && !state.isValid) {
         emit(`update-${props.id}`, '');
       } else {
         emit(`update-${props.id}`, state.textField);

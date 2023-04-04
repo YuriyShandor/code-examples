@@ -2,7 +2,7 @@
   <div
     class="select-block"
     :class="{'error': v$.selectValue.$error,
-    'valid': !v$.selectValue.$error && !v$.selectValue.$invalid && v$.selectValue.$model.length > 0}">
+      'valid': !v$.selectValue.$error && !v$.selectValue.$invalid && v$.selectValue.$model.length > 0}">
     <span v-if="label.length > 0" class="select-label">
       {{ label }}
     </span>
@@ -55,7 +55,7 @@ export default defineComponent({
     const rules = computed(() => ({
       selectValue: {
         required: helpers.withMessage(
-          'This input field is required. Please fill it in. ',
+          'Please select an option from the dropdown menu. ',
           requiredIf(() => props.isRequired),
         ),
       },
