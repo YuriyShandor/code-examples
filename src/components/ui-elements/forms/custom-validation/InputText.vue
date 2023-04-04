@@ -43,7 +43,18 @@ export default defineComponent({
     });
 
     const validateField = () => {
-      console.log(state.textField);
+      state.errors = [];
+      if (state.textField.length === 0) {
+        state.errors.push('This input field is required. Please fill it in. ');
+      }
+      if (props.minLength !== undefined && state.textField.length > 0 && state.textField.length < props.minLength) {
+        state.errors.push(`This input field must be at least ${props.minLength} characters long. `);
+      }
+      if (props.maxLength !== undefined && state.textField.length > props.maxLength) {
+        state.errors.push(`The input field cannot exceed ${props.maxLength} characters in length. `);
+      }
+      state.hasError = state.errors.length > 0;
+      state.isValid = state.errors.length === 0;
     };
 
     onMounted(() => {
@@ -53,6 +64,9 @@ export default defineComponent({
     });
 
     watch(() => state.textField, () => {
+      if (!state.isDirty) {
+        state.isDirty = true;
+      }
       validateField();
       if (state.hasError) {
         emit(`update-${props.id}`, '');
