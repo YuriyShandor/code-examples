@@ -15,7 +15,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'CheckboxBlock',
+  name: 'CheckboxWithoutInput',
   props: {
     id: String,
     label: String,
@@ -32,3 +32,47 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped lang="scss">
+.checkbox-block {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 22px;
+  height: 22px;
+  background: transparent;
+  border: 2px solid #D4D2CD;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  transition: all, .25s;
+
+  svg {
+    display: block;
+    opacity: 0;
+    transition: all, .25s;
+    -webkit-tap-highlight-color: transparent;
+
+    path {
+      stroke: #228B22;
+    }
+  }
+
+  &.checked {
+    border: 2px solid darken(#228B22, 7%);
+
+    svg {
+      opacity: 1;
+    }
+  }
+}
+
+.checkbox-text {
+  margin-left: 8px;
+}
+</style>
