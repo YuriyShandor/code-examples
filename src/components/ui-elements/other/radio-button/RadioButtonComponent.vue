@@ -1,9 +1,8 @@
 <template>
-  <div class="checkbox-block" @click="toggleCheckboxValue">
-    <div class="checkbox" :class="{'checked': isChecked}">
-      <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0.999978 5.5L4.5 9L11.54 1" stroke="#F9F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+  <div class="radio-button-block" @click="toggleCheckboxValue">
+    <div
+      class="radio-button"
+      :class="{'checked': isChecked}">
     </div>
     <div class="checkbox-text">
       {{ label }}
@@ -15,9 +14,10 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'CheckboxWithoutInput',
+  name: 'RadioButtonComponent',
   props: {
     id: String,
+    name: String,
     label: String,
     isChecked: Boolean,
   },
@@ -34,39 +34,42 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.checkbox-block {
+.radio-button-block {
+  width: fit-content;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-.checkbox {
+.radio-button {
   width: 22px;
   height: 22px;
   background: transparent;
   border: 2px solid #D4D2CD;
-  border-radius: 4px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   -webkit-tap-highlight-color: transparent;
   transition: all, .25s;
 
-  svg {
+  &:after {
+    content: '';
     display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: darken(#228B22, 7%);
     opacity: 0;
     transition: all, .25s;
     -webkit-tap-highlight-color: transparent;
-
-    path {
-      stroke: #228B22;
-    }
   }
 
   &.checked {
     border: 2px solid darken(#228B22, 7%);
 
-    svg {
+    &:after {
       opacity: 1;
     }
   }

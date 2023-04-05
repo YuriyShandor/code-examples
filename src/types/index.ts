@@ -11,3 +11,8 @@ export interface CheckboxOptionsObject {
   label: string,
   value: string | number
 }
+
+export interface RadioButtonOptionsObject {
+  label: string,
+  value: string | number
+}

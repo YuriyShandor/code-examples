@@ -1,20 +1,20 @@
 <template>
   <div class="code-example-block">
     <div class="code-example__title">
-      Checkboxes Components
+      Checkbox Component
     </div>
     <a
-      href="https://github.com/YuriyShandor/code-examples/tree/vue3-with-typescript/src/components/ui-elements/other/checkboxes/"
+      href="https://github.com/YuriyShandor/code-examples/tree/vue3-with-typescript/src/components/ui-elements/other/checkbox"
       target="_blank"
       class="button code-example__button">
       Watch Code on GitHub
       <img src="/images/github-logo.svg" alt="" class="code-example__button-image">
     </a>
     <div class="code-example__description">
-      Use component as single checkbox
+      Use the component as a single checkbox
     </div>
     <div class="code-example__result">
-      <CheckboxWithoutInput
+      <CheckboxComponent
         id="checkbox-without-input"
         :label="`Is single checkbox checked: ${state.isSingleCheckboxChecked}`"
         v-model:isChecked="state.isSingleCheckboxChecked"
@@ -22,10 +22,10 @@
       />
     </div>
     <div class="code-example__description">
-      Use component in the group selection
+      Use the component in the group selection
     </div>
     <div class="code-example__result">
-      <CheckboxWithoutInput
+      <CheckboxComponent
         v-for="option in state.checkboxOptionsList"
         :key="option.value"
         :id="option.value"
@@ -34,7 +34,7 @@
         @update:isChecked="selectGroupOption(option, $event)"
         class="checkbox-block"
       />
-      <CheckboxWithoutInput
+      <CheckboxComponent
         :id="selectAllCheckboxOption.value"
         :label="selectAllCheckboxOption.label"
         :isChecked="state.selectedGroupOptions.length > 0 && state.selectedGroupOptions.some((item) => item.value === selectAllCheckboxOption.value)"
@@ -50,13 +50,13 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, reactive } from 'vue';
-import CheckboxWithoutInput from '@/components/ui-elements/other/checkbox/CheckboxWithoutInput.vue';
+import CheckboxComponent from '@/components/ui-elements/other/checkbox/CheckboxComponent.vue';
 import { CheckboxOptionsObject } from '@/types';
 
 export default defineComponent({
   name: 'CheckboxExamples',
   components: {
-    CheckboxWithoutInput,
+    CheckboxComponent,
   },
   setup() {
     const state = reactive({
