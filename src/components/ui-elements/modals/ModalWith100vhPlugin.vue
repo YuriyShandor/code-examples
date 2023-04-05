@@ -20,7 +20,7 @@
       Watch Code on GitHub
       <img src="/images/github-logo.svg" alt="" class="code-example__button-image">
     </a>
-    <div class="code-example__block">
+    <div class="code-example__result">
       <div class="modal-block">
         <div
           class="modal-wrap"

@@ -10,7 +10,7 @@
       Watch Code on GitHub
       <img src="/images/github-logo.svg" alt="" class="code-example__button-image">
     </a>
-    <div class="code-example__block">
+    <div class="code-example__result">
       <div class="google-map-component">
         <div class="google-map-iframe" id="simple-google-map-iframe"></div>
       </div>

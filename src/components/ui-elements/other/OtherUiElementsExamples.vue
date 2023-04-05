@@ -1,17 +1,17 @@
 <template>
   <div class="modals-examples">
     <h1 class="page-title">Other UI Examples</h1>
-    <SingleCheckboxes/>
+    <CheckboxExamples/>
   </div>
 </template>
 
 <script lang="ts">
-import SingleCheckboxes from '@/components/ui-elements/other/checkboxes/SingleCheckboxes.vue';
+import CheckboxExamples from '@/components/ui-elements/other/checkbox/CheckboxExamples.vue';
 
 export default {
   name: 'OtherUiElementsExamples',
   components: {
-    SingleCheckboxes,
+    CheckboxExamples,
   },
 };
 </script>

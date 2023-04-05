@@ -82,10 +82,15 @@
 
 .code-example {
   width: 100%;
-}
+  margin-bottom: 15px;
 
-.code-example__image {
-  display: block;
+  @media only screen and (min-width: 700px) {
+    margin-bottom: 20px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    margin-bottom: 25px;
+  }
 }
 
 .code-example__button {
@@ -104,6 +109,19 @@
 .code-example__button-image {
   width: 25px;
   margin-left: 10px;
+}
+
+.code-example__result {
+  width: 100%;
+  margin-bottom: 15px;
+
+  @media only screen and (min-width: 700px) {
+    margin-bottom: 20px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    margin-bottom: 25px;
+  }
 }
 
 .code-example__divider {
