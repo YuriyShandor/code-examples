@@ -19,11 +19,10 @@
           <InputText
             label="Full Name*"
             id="vuelidate-full-name"
-            :defaultValue="state.fullName"
+            v-model:value="state.fullName"
             :isRequired="true"
             :minLength="3"
             :maxLength="33"
-            @update-vuelidate-full-name="updateFullName"
           />
         </div>
         <div class="example-form__field">
@@ -95,7 +94,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, computed, onMounted } from 'vue';
+import { defineComponent, reactive, computed, onMounted, watch } from 'vue';
 import InputText from '@/components/ui-elements/forms/veulidate-validation/InputText.vue';
 import InputEmail from '@/components/ui-elements/forms/veulidate-validation/InputEmail.vue';
 import SelectComponent from '@/components/ui-elements/forms/veulidate-validation/SelectComponent.vue';
@@ -126,10 +125,6 @@ export default defineComponent({
 
     const isFormValid = computed(() => state.fullName.length > 0 && state.email.length > 0
       && state.password.length > 0 && state.password === state.confirmPassword);
-
-    const updateFullName = (value: string) => {
-      state.fullName = value;
-    };
 
     const updateEmail = (value: string) => {
       state.email = value;
@@ -191,6 +186,10 @@ export default defineComponent({
 
     onMounted(() => {
       getCountriesList();
+    });
+
+    watch(() => state.fullName, () => {
+      console.log(state.fullName);
     });
 
     return {
