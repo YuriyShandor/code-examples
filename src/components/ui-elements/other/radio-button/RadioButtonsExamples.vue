@@ -17,11 +17,9 @@
       <RadioButtonComponent
         v-for="option in state.radioButtonOptionsList"
         :key="option.value"
-        :id="option.value"
-        name="radio-button-options"
         :label="option.label"
-        :isChecked="state.selectedOption.value === option.value"
-        @update:isChecked="changeSelectedOption(option, $event)"
+        :value="state.selectedOption.value === option.value"
+        @update:value="changeSelectedOption(option, $event)"
         class="checkbox-block"
       />
       <div class="selected-group-options">
@@ -74,6 +72,7 @@ export default defineComponent({
 <style scoped lang="scss">
 .selected-group-options {
   margin-top: 10px;
+
   div {
     display: inline;
   }

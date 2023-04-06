@@ -1,10 +1,7 @@
 <template>
-  <div class="radio-button-block" @click="toggleCheckboxValue">
-    <div
-      class="radio-button"
-      :class="{'checked': value}">
-    </div>
-    <div class="checkbox-text">
+  <div class="switcher-block" @click="toggleSwitcherValue">
+    <div class="switcher" :class="{'checked': value}"></div>
+    <div class="switcher-text">
       {{ label }}
     </div>
   </div>
@@ -14,66 +11,66 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'RadioButtonComponent',
+  name: 'SwitcherComponent',
   props: {
     label: String,
     value: Boolean,
   },
   setup(props, { emit }) {
-    const toggleCheckboxValue = () => {
+    const toggleSwitcherValue = () => {
       emit('update:value', !props.value);
     };
 
     return {
-      toggleCheckboxValue,
+      toggleSwitcherValue,
     };
   },
 });
 </script>
 
 <style scoped lang="scss">
-.radio-button-block {
+.switcher-block {
   width: fit-content;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-.radio-button {
-  width: 22px;
+.switcher {
+  width: 42px;
   height: 22px;
-  background: transparent;
-  border: 2px solid #D4D2CD;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #D4D2CD;
+  border-radius: 100px;
   position: relative;
   -webkit-tap-highlight-color: transparent;
-  transition: all, .25s;
+  transition: all .25s linear;
 
   &:after {
     content: '';
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
+    background: #000;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     border-radius: 50%;
-    background: darken(#228B22, 7%);
-    opacity: 0;
-    transition: all, .25s;
+    left: 2px;
+    transition: all .25s linear;
     -webkit-tap-highlight-color: transparent;
   }
 
   &.checked {
-    border: 2px solid darken(#228B22, 7%);
+    background: darken(#228B22, 7%);
 
     &:after {
-      opacity: 1;
+      left: 20px;
+      background: #D4D2CD;
     }
   }
 }
 
-.checkbox-text {
+.switcher-text {
   margin-left: 8px;
 }
 </style>

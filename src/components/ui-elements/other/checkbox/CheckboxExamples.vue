@@ -15,10 +15,8 @@
     </div>
     <div class="code-example__result">
       <CheckboxComponent
-        id="checkbox-without-input"
         :label="`Is single checkbox checked: ${state.isSingleCheckboxChecked}`"
-        v-model:isChecked="state.isSingleCheckboxChecked"
-        class="checkbox-block"
+        v-model:value="state.isSingleCheckboxChecked"
       />
     </div>
     <div class="code-example__description">
@@ -28,18 +26,14 @@
       <CheckboxComponent
         v-for="option in state.checkboxOptionsList"
         :key="option.value"
-        :id="option.value"
         :label="option.label"
-        :isChecked="state.selectedGroupOptions.length > 0 && state.selectedGroupOptions.some((item) => item.value === option.value)"
-        @update:isChecked="selectGroupOption(option, $event)"
-        class="checkbox-block"
+        :value="state.selectedGroupOptions.length > 0 && state.selectedGroupOptions.some((item) => item.value === option.value)"
+        @update:value="selectGroupOption(option, $event)"
       />
       <CheckboxComponent
-        :id="selectAllCheckboxOption.value"
         :label="selectAllCheckboxOption.label"
-        :isChecked="state.selectedGroupOptions.length > 0 && state.selectedGroupOptions.some((item) => item.value === selectAllCheckboxOption.value)"
-        @update:isChecked="selectGroupOption(selectAllCheckboxOption, $event)"
-        class="checkbox-block"
+        :value="state.selectedGroupOptions.length > 0 && state.selectedGroupOptions.some((item) => item.value === selectAllCheckboxOption.value)"
+        @update:value="selectGroupOption(selectAllCheckboxOption, $event)"
       />
       <div class="selected-group-options">
         <div>Selected group options: {{ state.selectedGroupOptionsLabelsStr }}</div>
