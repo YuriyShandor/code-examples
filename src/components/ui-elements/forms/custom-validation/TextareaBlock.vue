@@ -29,7 +29,7 @@ export default defineComponent({
   props: {
     label: String,
     id: String,
-    defaultValue: String,
+    value: String,
     isRequired: Boolean,
     minLength: Number,
     maxLength: Number,
@@ -57,8 +57,9 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      if (props.defaultValue !== undefined && props.defaultValue.length > 0) {
-        state.textField = props.defaultValue;
+      if (props.value !== undefined && props.value.length > 0) {
+        state.textField = props.value;
+        document.getElementById(props.id)?.focus();
       }
     });
 
@@ -68,9 +69,9 @@ export default defineComponent({
       }
       validateField();
       if (state.isDirty && !state.isValid) {
-        emit(`update-${props.id}`, '');
+        emit('update:value', '');
       } else {
-        emit(`update-${props.id}`, state.textField);
+        emit('update:value', state.textField);
       }
     });
 

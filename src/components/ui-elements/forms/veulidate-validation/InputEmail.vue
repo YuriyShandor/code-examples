@@ -31,7 +31,7 @@ export default defineComponent({
   props: {
     label: String,
     id: String,
-    defaultValue: String,
+    value: String,
     isRequired: Boolean,
   },
   setup(props, { emit }) {
@@ -55,16 +55,17 @@ export default defineComponent({
     const v$ = useVuelidate(rules, state);
 
     onMounted(() => {
-      if (props.defaultValue !== undefined && props.defaultValue.length > 0) {
-        state.email = props.defaultValue;
+      if (props.value !== undefined && props.value.length > 0) {
+        state.email = props.value;
+        v$.value.email.$touch();
       }
     });
 
     watch(() => state.email, () => {
       if (v$.value.email.$error) {
-        emit(`update-${props.id}`, '');
+        emit('update:value', '');
       } else {
-        emit(`update-${props.id}`, state.email);
+        emit('update:value', state.email);
       }
     });
 

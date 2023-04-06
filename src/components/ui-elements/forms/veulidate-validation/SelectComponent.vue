@@ -38,7 +38,7 @@ export default defineComponent({
   props: {
     label: String,
     id: String,
-    defaultValue: [String, Number],
+    value: [String, Number],
     isRequired: Boolean,
     selectOptions: Array,
     isFilterable: Boolean,
@@ -63,18 +63,15 @@ export default defineComponent({
 
     const v$ = useVuelidate(rules, state);
 
-    watch(() => state.selectValue, () => {
-      emit(`update-${props.id}`, state.selectValue);
-    });
-
     onMounted(() => {
-      if (props.defaultValue !== undefined) {
-        state.selectValue = props.defaultValue;
+      if (props.value !== undefined && props.value !== '') {
+        state.selectValue = props.value;
+        v$.value.selectValue.$touch();
       }
     });
 
-    watch(() => props.defaultValue, () => {
-      state.selectValue = props.defaultValue;
+    watch(() => state.selectValue, () => {
+      emit('update:value', state.selectValue);
     });
 
     return {

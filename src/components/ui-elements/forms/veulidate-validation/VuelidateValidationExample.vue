@@ -29,56 +29,51 @@
           <InputEmail
             label="Email*"
             id="vuelidate-email"
-            :defaultValue="state.email"
+            v-model:value="state.email"
             :isRequired="true"
-            @update-vuelidate-email="updateEmail"
           />
         </div>
         <div class="example-form__field">
           <SelectComponent
             label="Country"
             id="vuelidate-country"
-            :defaultValue="state.country"
+            v-model:value="state.country"
             :isRequired="false"
             :selectOptions="state.countriesSelectOptions"
             :isFilterable="true"
-            @update-vuelidate-country="updateCountry"
           />
         </div>
         <div class="example-form__field">
           <InputPassword
             label="Password*"
             id="vuelidate-password"
-            :defaultValue="state.password"
+            v-model:value="state.password"
             :isRequired="true"
             :minLength="8"
             :maxLength="30"
             :autocompleteEnabled="false"
-            @update-vuelidate-password="updatePassword"
           />
         </div>
         <div class="example-form__field">
           <InputPassword
             label="Confirm Password*"
             id="vuelidate-confirm-password"
-            :defaultValue="state.confirmPassword"
+            v-model:value="state.confirmPassword"
             :isRequired="true"
             :minLength="8"
             :maxLength="30"
             :autocompleteEnabled="false"
             :mainPassword="state.password"
-            @update-vuelidate-confirm-password="updateConfirmPassword"
           />
         </div>
         <div class="example-form__field">
           <TextareaBlock
             label="Message"
             id="vuelidate-message"
-            :defaultValue="state.message"
+            v-model:value="state.message"
             :isRequired="false"
             :minLength="7"
             :maxLength="355"
-            @update-vuelidate-message="updateMessage"
           />
         </div>
         <div
@@ -126,10 +121,6 @@ export default defineComponent({
     const isFormValid = computed(() => state.fullName.length > 0 && state.email.length > 0
       && state.password.length > 0 && state.password === state.confirmPassword);
 
-    const updateEmail = (value: string) => {
-      state.email = value;
-    };
-
     const getCountriesList = () => {
       CountriesApiHelper.getCountriesFromRestCountries().then(({ data }) => {
         if (data.length > 0) {
@@ -141,22 +132,6 @@ export default defineComponent({
           });
         }
       });
-    };
-
-    const updateCountry = (value: string) => {
-      state.country = value;
-    };
-
-    const updatePassword = (value: string) => {
-      state.password = value;
-    };
-
-    const updateConfirmPassword = (value: string) => {
-      state.confirmPassword = value;
-    };
-
-    const updateMessage = (value: string) => {
-      state.message = value;
     };
 
     const sendFormData = () => {
@@ -188,19 +163,9 @@ export default defineComponent({
       getCountriesList();
     });
 
-    watch(() => state.fullName, () => {
-      console.log(state.fullName);
-    });
-
     return {
       state,
       isFormValid,
-      updateFullName,
-      updateEmail,
-      updateCountry,
-      updatePassword,
-      updateConfirmPassword,
-      updateMessage,
       sendFormData,
     };
   },

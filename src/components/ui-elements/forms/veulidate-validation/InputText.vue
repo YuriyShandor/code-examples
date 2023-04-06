@@ -63,6 +63,7 @@ export default defineComponent({
     onMounted(() => {
       if (props.value !== undefined && props.value.length > 0) {
         state.textField = props.value;
+        v$.value.textField.$touch();
       }
     });
 

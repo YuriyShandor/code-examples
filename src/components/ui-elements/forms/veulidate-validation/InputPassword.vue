@@ -44,7 +44,7 @@ export default defineComponent({
   props: {
     label: String,
     id: String,
-    defaultValue: String,
+    value: String,
     isRequired: Boolean,
     minLength: Number,
     maxLength: Number,
@@ -81,16 +81,17 @@ export default defineComponent({
     const v$ = useVuelidate(rules, state);
 
     onMounted(() => {
-      if (props.defaultValue !== undefined && props.defaultValue.length > 0) {
-        state.password = props.defaultValue;
+      if (props.value !== undefined && props.value.length > 0) {
+        state.password = props.value;
+        v$.value.password.$touch();
       }
     });
 
     watch(() => state.password, () => {
       if (v$.value.password.$error || (props.mainPassword !== undefined && state.password !== props.mainPassword)) {
-        emit(`update-${props.id}`, '');
+        emit('update:value', '');
       } else {
-        emit(`update-${props.id}`, state.password);
+        emit('update:value', state.password);
       }
     });
 

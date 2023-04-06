@@ -31,7 +31,7 @@ export default defineComponent({
   props: {
     label: String,
     id: String,
-    defaultValue: String,
+    value: String,
     isRequired: Boolean,
     minLength: Number,
     maxLength: Number,
@@ -61,16 +61,17 @@ export default defineComponent({
     const v$ = useVuelidate(rules, state);
 
     onMounted(() => {
-      if (props.defaultValue !== undefined && props.defaultValue.length > 0) {
-        state.textField = props.defaultValue;
+      if (props.value !== undefined && props.value.length > 0) {
+        state.textField = props.value;
+        v$.value.textField.$touch();
       }
     });
 
     watch(() => state.textField, () => {
       if (v$.value.textField.$error) {
-        emit(`update-${props.id}`, '');
+        emit('update:value', '');
       } else {
-        emit(`update-${props.id}`, state.textField);
+        emit('update:value', state.textField);
       }
     });
 
