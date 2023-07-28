@@ -24,7 +24,7 @@
       </div>
     </span>
     <div v-if="v$.password.$error" class="input-error">
-      <span v-for="error in v$.password.$errors" :key="error.$message">
+      <span v-for="error in v$.password.$errors" :key="String(error.$message)">
         {{ error.$message }}
       </span>
     </div>

@@ -1,33 +1,19 @@
 <template>
   <div class="global-menu-wrap">
-    <div class="global-menu-btn"
-      :class="{'active': state.isMenuVisible}"
-      @click="toggleMenuVisibility"
-    ><span></span>
+    <div class="global-menu-btn" :class="{ 'active': state.isMenuVisible }" @click="toggleMenuVisibility"><span></span>
     </div>
-    <div
-      class="global-menu-block"
-      :class="{'visible': state.isMenuVisible}">
+    <div class="global-menu-block" :class="{ 'visible': state.isMenuVisible }">
       <div class="global-menu-overlay" @click="toggleMenuVisibility"></div>
-      <div
-        class="global-menu-content"
-        :class="{'visible': state.isMenuVisible}">
-        <el-collapse
-          v-model="state.activeName" accordion
-          class="global-menu-accordion">
-          <el-collapse-item
-            class="global-menu-item" :name="item.title"
-            v-for="item in globalMenu" :key="item.title">
+      <div class="global-menu-content" :class="{ 'visible': state.isMenuVisible }">
+        <el-collapse v-model="state.activeName" accordion class="global-menu-accordion">
+          <el-collapse-item class="global-menu-item" :name="item.title" v-for="item in globalMenu" :key="item.title">
             <template #title>
               <div class="global-menu-item__title">
                 {{ item.title }}
               </div>
             </template>
             <div class="global-menu-item__content">
-              <router-link
-                class="global-menu__sub-item"
-                v-for="subItem in item.subItems"
-                :key="subItem.title"
+              <router-link class="global-menu__sub-item" v-for="subItem in item.subItems" :key="subItem.title"
                 :to="subItem.link">
                 {{ subItem.title }}
               </router-link>
@@ -120,7 +106,8 @@ export default defineComponent({
     span {
       background-color: $hover-text-color;
 
-      &:before, &:after {
+      &:before,
+      &:after {
         background-color: $hover-text-color;
       }
     }
@@ -146,7 +133,8 @@ export default defineComponent({
     border-radius: 2px;
     transition: all, .25s;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       content: '';
       display: block;
       position: absolute;
